@@ -1,0 +1,90 @@
+.transactionsContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);
+  width: 33%;
+  padding: 1.8rem 2.5rem;
+  border-radius: 36px;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  justify-content: flex-start;
+  box-shadow: 0px 4px 16px rgba(133, 101, 171, 0.32);
+  z-index: 2;
+}
+
+.transactionsContainer:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  z-index: -1;
+  border-radius: 36px;
+  /*background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);*/
+  background-color: #eef1fb;
+}
+
+.transactionsTitle {
+  line-height: 24px;
+  margin-bottom: 2.5rem;
+  margin-top: 12px;
+  letter-spacing: 0;
+  color: #5c39aa;
+}
+
+.oneTransactionContainer {
+  padding-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.transactionDatas {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+}
+
+.transactionRecipient {
+  font-size: 16px;
+  letter-spacing: 0;
+  color: rgba(65, 65, 65, 0.9);
+  padding-bottom: 5px;
+}
+
+.datenAmountContainer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.transactionDate {
+  color: #948eae;
+}
+
+.transactionAmount {
+  color: #52a7d6;
+}
+
+.transactionAmountRed {
+  color: #e06e84;
+}
+
+.transactionArrow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+  width: 15%;
+  padding-bottom: 8px;
+  color: #b0b9c8;
+  font-size: 32px;
+}
+
+.transactionDashes {
+  height: 1px;
+  border-bottom: 2px dashed #b0b9c8;
+  margin-top: 13px;
+}
