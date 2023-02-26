@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);
-  width: 33%;
+  width: 25%;
   padding: 1.8rem 2.5rem;
   border-radius: 36px;
   font-family: "Poppins", sans-serif;
@@ -14,6 +14,16 @@
   z-index: 2;
 }
 
+/*.grid16 {
+  background-image: url("../assets/16grid.png");
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}*/
+
 .transactionsContainer:before {
   content: "";
   position: absolute;
@@ -22,21 +32,21 @@
   bottom: 2px;
   left: 2px;
   z-index: -1;
-  border-radius: 36px;
+  border-radius: 35px;
   /*background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);*/
   background-color: #eef1fb;
 }
 
 .transactionsTitle {
   line-height: 24px;
-  margin-bottom: 2.5rem;
-  margin-top: 12px;
+  margin-bottom: 2.48rem;
+  margin-top: 15px;
   letter-spacing: 0;
   color: #5c39aa;
 }
 
 .oneTransactionContainer {
-  padding-bottom: 1.5rem;
+  padding-bottom: 23px;
   display: flex;
   flex-direction: row;
 }
@@ -51,14 +61,14 @@
   font-size: 16px;
   letter-spacing: 0;
   color: rgba(65, 65, 65, 0.9);
-  padding-bottom: 5px;
+  padding-bottom: 1px;
 }
 
 .datenAmountContainer {
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  margin-top: 2px;
+  margin-top: 8px;
 }
 
 .transactionDate {
@@ -86,5 +96,5 @@
 .transactionDashes {
   height: 1px;
   border-bottom: 2px dashed #b0b9c8;
-  margin-top: 13px;
+  margin-top: 15px;
 }

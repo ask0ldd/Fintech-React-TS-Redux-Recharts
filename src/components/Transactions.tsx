@@ -54,14 +54,15 @@ const Transactions = () => {
                 company={transac.company.toUpperCase()} 
                 date={transac.date} 
                 amount={formatAmount(transac.amount)}/>)}
+            <div className='grid16'></div>
         </div>
       )
 }
 
 interface TransactionType {
-    company: string;
-    date: string;
-    amount: string;
+    company: string
+    date: string
+    amount: string
 }
 
 const Transaction = ({company, date, amount} : TransactionType) => {

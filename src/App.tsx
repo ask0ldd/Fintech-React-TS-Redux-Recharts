@@ -1,6 +1,7 @@
 import './App.css'
 import './components/Transactions'
 import Transactions from './components/Transactions'
+import RecurringDebits from './components/RecurringDebits'
 
 /*const showString = (text : string) => {
  const textContainer = document.querySelector('#text') as HTMLElement;
@@ -13,7 +14,10 @@ function App() {
 
   return (
     <div className="App">
-      <Transactions/>
+      <div className='TransactionsDebitsContainer'>
+        <Transactions/>
+        <RecurringDebits/>
+      </div>
     </div>
   )
 }
