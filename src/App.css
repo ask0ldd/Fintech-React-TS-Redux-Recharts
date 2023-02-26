@@ -13,12 +13,12 @@
 .balance__ccard__transferCrypto__container {
   display: flex;
   flex-direction: column;
-  flex: 1 0 75%;
+  flex: 1 1 70%;
 }
 
 .transactions__debits__container {
   display: flex;
   flex-direction: column;
   row-gap: 32px;
-  flex: 1 0 25%;
+  flex: 1 1 30%;
 }
