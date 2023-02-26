@@ -38,7 +38,13 @@
 .oneDebitContainer {
   padding-bottom: 23px;
   display: flex;
+  flex-direction: row;
+}
+
+.debitDatas {
+  display: flex;
   flex-direction: column;
+  width: 85%;
 }
 
 .companynAmountContainer {
@@ -74,6 +80,19 @@
   height: 1px;
   border-bottom: 2px dashed #b0b9c8;
   margin-top: 13px;
+}
+
+.debitArrow {
+  display: flex;
+  justify-content: flex-end;
+  /*align-items: end;*/
+  width: 15%;
+  /*padding-bottom: 8px;*/
+  color: #b0b9c8;
+  font-size: 32px;
+  line-height: 24px;
+  /*background-color: red;*/
+  align-items: center;
 }
 /*
 .grid16 {

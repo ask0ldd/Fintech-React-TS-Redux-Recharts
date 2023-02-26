@@ -38,11 +38,14 @@ const RecurringDebits = () => {
 const Debit = ({company, amount} : DebitType) => {
     return(
         <article className="oneDebitContainer">
-            <div className='companynAmountContainer'>
-                <span className='debitRecipient'>{company}</span>
-                <span className={amount[0]!=='-' ? 'debitAmount' : 'debitAmountRed'}>{amount}</span>
+            <div className='debitDatas'>
+                <div className='companynAmountContainer'>
+                    <span className='debitRecipient'>{company}</span>
+                    <span className={amount[0]!=='-' ? 'debitAmount' : 'debitAmountRed'}>{amount}</span>
+                </div>
+                <div className='debitDashes'></div>
             </div>
-            <div className='debitDashes'></div>
+            <div className='debitArrow'>&gt;</div>
         </article>
     )
 }

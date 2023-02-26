@@ -46,8 +46,8 @@ const formatAmount = (amount : number) : string => {
 const Transactions = () => {
 
     return (
-        <div className="transactionsContainer">
-            <h2 className="transactionsTitle">Last Transactions</h2>
+        <div className="transactions__container">
+            <h2 className="transactions__title">Last Transactions</h2>
             {TransactionsList.map((transac, index) => 
             <Transaction 
                 key={'transac'+index} 
@@ -67,15 +67,15 @@ interface TransactionType {
 
 const Transaction = ({company, date, amount} : TransactionType) => {
     return(
-        <article className="oneTransactionContainer">
-            <div className='transactionDatas'>
-                <div className='transactionRecipient'>{company}</div>
-                <div className='datenAmountContainer'>
-                    <span className='transactionDate'>{date}</span><span className={amount[0]!=='-' ? 'transactionAmount' : 'transactionAmountRed'}>{amount}</span>
+        <article className="oneTransaction__container">
+            <div className='transaction__datas'>
+                <div className='transaction__recipient'>{company}</div>
+                <div className='datenAmount__container'>
+                    <span className='transaction__date'>{date}</span><span className={amount[0]!=='-' ? 'transaction__amount' : 'transaction__amountRed'}>{amount}</span>
                 </div>
-                <div className='transactionDashes'></div>
+                <div className='transaction__dashes'></div>
             </div>
-            <div className='transactionArrow'>
+            <div className='transaction__arrow'>
             &gt;
             </div>
         </article>
