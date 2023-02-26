@@ -23,8 +23,8 @@ interface DebitType {
 const RecurringDebits = () => {
 
     return (
-        <div className='recDebitsContainer'>
-            <h2 className="debitsTitle">Recurring Debits</h2>
+        <div className='recDebits__container'>
+            <h2 className="debits__title">Recurring Debits</h2>
             {DebitsList.map((debit, index) => 
             <Debit 
                 key={'debit'+index} 
@@ -37,15 +37,15 @@ const RecurringDebits = () => {
 
 const Debit = ({company, amount} : DebitType) => {
     return(
-        <article className="oneDebitContainer">
-            <div className='debitDatas'>
-                <div className='companynAmountContainer'>
-                    <span className='debitRecipient'>{company}</span>
-                    <span className={amount[0]!=='-' ? 'debitAmount' : 'debitAmountRed'}>{amount}</span>
+        <article className="oneDebit__container">
+            <div className='debit__datas'>
+                <div className='companynAmount__container'>
+                    <span className='debit__recipient'>{company}</span>
+                    <span className={amount[0]!=='-' ? 'debit__amount' : 'debit__amountRed'}>{amount}</span>
                 </div>
-                <div className='debitDashes'></div>
+                <div className='debit__dashes'></div>
             </div>
-            <div className='debitArrow'>&gt;</div>
+            <div className='debit__arrow'>&gt;</div>
         </article>
     )
 }
