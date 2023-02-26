@@ -14,7 +14,10 @@ function App() {
 
   return (
     <div className="App">
-      <div className='TransactionsDebitsContainer'>
+      <div className='balance__ccard__transferCrypto__container'>
+
+      </div>
+      <div className='transactions__debits__container'>
         <Transactions/>
         <RecurringDebits/>
       </div>

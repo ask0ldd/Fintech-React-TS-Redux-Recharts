@@ -6,10 +6,19 @@
 
 .App {
   width: 100%;
+  display: flex;
+  column-gap: 24px;
 }
 
-.TransactionsDebitsContainer {
+.balance__ccard__transferCrypto__container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 75%;
+}
+
+.transactions__debits__container {
   display: flex;
   flex-direction: column;
   row-gap: 32px;
+  flex: 1 0 25%;
 }
