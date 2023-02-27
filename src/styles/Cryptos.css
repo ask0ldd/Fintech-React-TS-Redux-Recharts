@@ -34,3 +34,45 @@
   letter-spacing: 0;
   color: #5c39aa;
 }
+
+.crypto__container {
+  display: flex;
+  width: 100%;
+}
+
+.crypto__datasnDashes {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.crypto__arrow {
+  width: 20%;
+}
+
+.crypto__datas {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.crypto__values {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 12px;
+}
+
+.owned__positive {
+  color: #52a7d6;
+}
+
+.owned__negative {
+  color: #e06e84;
+}
+
+.crypto__dashes {
+  height: 1px;
+  border-bottom: 2px dashed #b0b9c8;
+  margin-top: 15px;
+}

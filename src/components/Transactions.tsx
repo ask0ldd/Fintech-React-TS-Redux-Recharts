@@ -6,7 +6,7 @@ interface TransactionType {
     amount: number
 }
 
-const TransactionsList: Array<TransactionType> = [
+const TransactionsList: Array <TransactionType> = [
     {
         company:'Uber Taxi',
         date:'02-13-2012',
