@@ -1,0 +1,28 @@
+.transfer__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);
+  width: 50%;
+  padding: 1.8rem 2.5rem 1.3rem 2.5rem;
+  border-radius: 36px;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  justify-content: flex-start;
+  box-shadow: 0px 4px 16px rgba(133, 101, 171, 0.32);
+  z-index: 2;
+}
+
+.transfer__container:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  z-index: -1;
+  border-radius: 35px;
+  /*background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);*/
+  background-color: #eef1fb;
+}

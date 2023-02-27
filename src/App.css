@@ -22,3 +22,8 @@
   row-gap: 32px;
   flex: 1 1 30%;
 }
+
+.transfer__cryptos__container {
+  display: flex;
+  column-gap: 24px;
+}

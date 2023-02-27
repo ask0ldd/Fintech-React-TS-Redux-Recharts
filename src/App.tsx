@@ -3,6 +3,8 @@ import './components/Transactions'
 import Transactions from './components/Transactions'
 import RecurringDebits from './components/RecurringDebits'
 import Balance from './components/Balance'
+import Transfer from './components/Transfer'
+import Cryptos from './components/Cryptos'
 
 /*const showString = (text : string) => {
  const textContainer = document.querySelector('#text') as HTMLElement;
@@ -17,6 +19,10 @@ function App() {
     <div className="App">
       <div className='balance__ccard__transferCrypto__container'>
         <Balance/>
+        <div className='transfer__cryptos__container'>
+            <Transfer/>
+            <Cryptos/>
+        </div>
       </div>
       <div className='transactions__debits__container'>
         <Transactions/>
