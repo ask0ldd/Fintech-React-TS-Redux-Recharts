@@ -1,6 +1,12 @@
 import '../styles/Transactions.css'
 
-const TransactionsList = [
+interface TransactionType {
+    company: string
+    date: string
+    amount: number
+}
+
+const TransactionsList: Array<TransactionType> = [
     {
         company:'Uber Taxi',
         date:'02-13-2012',
@@ -46,32 +52,29 @@ const formatAmount = (amount : number) : string => {
 const Transactions = () => {
 
     return (
-        <div className="transactions__container">
+        <article className="transactions__container">
             <h2 className="transactions__title">Last Transactions</h2>
             {TransactionsList.map((transac, index) => 
             <Transaction 
                 key={'transac'+index} 
                 company={transac.company.toUpperCase()} 
                 date={transac.date} 
-                amount={formatAmount(transac.amount)}/>)}
+                amount={transac.amount}/>)}
             <div className='grid16'></div>
-        </div>
+        </article>
       )
 }
 
-interface TransactionType {
-    company: string
-    date: string
-    amount: string
-}
-
 const Transaction = ({company, date, amount} : TransactionType) => {
+
+    const formatedAmount = formatAmount(amount)
+
     return(
         <article className="oneTransaction__container">
             <div className='transaction__datas'>
                 <div className='transaction__recipient'>{company}</div>
                 <div className='datenAmount__container'>
-                    <span className='transaction__date'>{date}</span><span className={amount[0]!=='-' ? 'transaction__amount' : 'transaction__amountRed'}>{amount}</span>
+                    <span className='transaction__date'>{date}</span><span className={formatedAmount[0]!=='-' ? 'transaction__amount' : 'transaction__amountRed'}>{formatedAmount}</span>
                 </div>
                 <div className='transaction__dashes'></div>
             </div>

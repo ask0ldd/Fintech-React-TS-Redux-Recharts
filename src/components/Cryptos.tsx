@@ -6,9 +6,10 @@ const formatAmount = (amount : number) : string => {
 
 const Cryptos = () => {
     return(
-        <div className='cryptos__container'>aaa
+        <article className='cryptos__container'>
+            <h2 className="transfer__title">Cryptos</h2>
             <div className='grid16'></div>
-        </div>
+        </article>
     )
 
 }

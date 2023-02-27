@@ -23,7 +23,7 @@ interface DebitType {
 const RecurringDebits = () => {
 
     return (
-        <div className='recDebits__container'>
+        <article className='recDebits__container'>
             <h2 className="debits__title">Recurring Debits</h2>
             {DebitsList.map((debit, index) => 
             <Debit 
@@ -31,7 +31,7 @@ const RecurringDebits = () => {
                 company={debit.company.toUpperCase()} 
                 amount={formatAmount(debit.amount)}/>)}
             <div className='grid16'></div>
-        </div>
+        </article>
     )
 }
 

@@ -6,9 +6,19 @@ const formatAmount = (amount : number) : string => {
 
 const Transfer = () => {
     return(
-        <div className='transfer__container'>aaa
+        <article className='transfer__container'>
+            <h2 className="transfer__title">Quick Wire Transfer</h2>
+            <div className="transfer__amountnButton__container">
+                <div className='transfer__amount'>
+
+                </div>
+                <button className='transfer__amountButton'></button>
+            </div>
+            <div className='transfer__avatarsnButton__container'>
+                
+            </div>
             <div className='grid16'></div>
-        </div>
+        </article>
     )
 
 }

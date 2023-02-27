@@ -26,3 +26,11 @@
   /*background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);*/
   background-color: #eef1fb;
 }
+
+.cryptos__title {
+  line-height: 24px;
+  margin-bottom: 1.98rem;
+  margin-top: 15px;
+  letter-spacing: 0;
+  color: #5c39aa;
+}
