@@ -4,7 +4,7 @@
   flex-direction: row;
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);
   width: 100%;
-  padding: 1.8rem 2.5rem 1.8rem 2.5rem;
+  padding: 1.8rem 2.5rem 2.1rem 2.5rem;
   border-radius: 36px;
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.02em;
@@ -32,6 +32,18 @@
   flex-direction: column;
 }
 
+.balance__separator {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    rgba(141, 161, 185, 0) 0%,
+    rgba(141, 161, 185, 1) 96%,
+    rgba(141, 161, 185, 0) 96%,
+    rgba(141, 161, 185, 0) 100%
+  );
+  margin-right: 40px;
+}
+
 .balance__title {
   font-family: "Inter";
   font-style: normal;
@@ -39,7 +51,7 @@
   font-size: 24px;
   letter-spacing: 0.01em;
   color: #8da1b9;
-  margin-top: 10px;
+  margin-top: 4px;
 }
 
 .balance__amount {
@@ -74,7 +86,7 @@
 }
 
 .balance__selectArrows {
-  width: 28px;
+  width: 30px;
   height: 100%;
   background: linear-gradient(
       180deg,
@@ -83,7 +95,7 @@
     ),
     #eae6f2;
   border-left: 1px solid #5730b3;
-  margin-left: 12px;
+  margin-left: 14px;
 }
 /*
 .grid16 {
