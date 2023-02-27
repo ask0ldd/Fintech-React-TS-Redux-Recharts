@@ -46,7 +46,7 @@ const Crypto = ({name, owned, growth} : CryptoAsset) => {
                     <span className='crypto__name'>{name}</span>
                     <div className='crypto__values'>
                         <span className={owned >= 0 ? 'owned__positive' : 'owned__negative'}>{formatAmount(owned)}</span>
-                        <span>{growth}</span>
+                        <span>{growth+'.0%'}</span>
                     </div>
                 </div>
                 <div className='crypto__dashes'></div>
