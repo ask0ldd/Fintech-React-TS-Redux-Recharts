@@ -88,12 +88,15 @@
 .balance__selectArrows {
   width: 30px;
   height: 100%;
-  background: linear-gradient(
+  background: url("icons/arrows.png"),
+    linear-gradient(
       180deg,
       rgba(87, 48, 179, 0) 0%,
       rgba(87, 48, 179, 0.1) 100%
     ),
     #eae6f2;
+  background-position: 47% 50%;
+  background-repeat: no-repeat;
   border-left: 1px solid #5730b3;
   margin-left: 14px;
 }

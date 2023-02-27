@@ -82,7 +82,7 @@
   height: 40px;
   border-radius: 20px;
   border: none;
-  background: linear-gradient(120.01deg, #703faf 6.99%, #573faf 63.96%);
+  /*background: linear-gradient(120.01deg, #703faf 6.99%, #573faf 63.96%);*/
   box-shadow: 0px 4px 16px rgba(196, 45, 240, 0.41),
     0px 4px 8px rgba(0, 0, 0, 0.15), 0px 100px 80px rgba(129, 48, 147, 0.08),
     0px 41.7776px 33.4221px rgba(129, 48, 147, 0.065),
@@ -90,6 +90,20 @@
     0px 12.5216px 10.0172px rgba(129, 48, 147, 0.055),
     0px 6.6501px 5.32008px rgba(129, 48, 147, 0.0444282),
     0px 2.76726px 2.21381px rgba(129, 48, 147, 0.030926);
+}
+
+.vButton {
+  background: url("icons/v.png"),
+    linear-gradient(120.01deg, #703faf 6.99%, #573faf 63.96%);
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.xButton {
+  background: url("icons/x.png"),
+    linear-gradient(120.01deg, #703faf 6.99%, #573faf 63.96%);
+  background-position: 50%;
+  background-repeat: no-repeat;
 }
 
 .transfer__avatarsnButton__container {

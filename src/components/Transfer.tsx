@@ -19,7 +19,7 @@ const Transfer = () => {
                 <div className='transfer__amount'>
                     <div className='transfer__innerButton'>Amount</div><span className='transfer__amountText'>$300</span>
                 </div>
-                <button className='transfer__amountButton violetButton'></button>
+                <button className='transfer__amountButton violetButton vButton'></button>
             </div>
             <div className='transfer__avatarsnButton__container'>
                 <img src={avatar1} alt="avatar picture 1"/>
@@ -27,7 +27,7 @@ const Transfer = () => {
                 <img src={avatar3} alt="avatar picture 3"/>
                 <img src={avatar4} alt="avatar picture 4"/>
                 <img src={avatar5} alt="avatar picture 5"/>
-                <button className='transfer__amountButton violetButton'></button>
+                <button className='transfer__amountButton violetButton xButton'></button>
             </div>
             <div className='grid16'></div>
         </article>
