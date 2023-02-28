@@ -30,7 +30,7 @@
 .transfer__title {
   line-height: 24px;
   margin-bottom: 32px;
-  margin-top: 9px;
+  margin-top: 7px;
   letter-spacing: 0;
   color: #5c39aa;
 }
@@ -39,6 +39,7 @@
   display: flex;
   column-gap: 16px;
   width: 100%;
+  margin-top: 4px;
 }
 
 .transfer__amount {

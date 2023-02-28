@@ -30,12 +30,18 @@
 .cryptos__title {
   line-height: 24px;
   margin-bottom: 1.98rem;
-  margin-top: 9px;
+  margin-top: 7px;
   letter-spacing: 0;
   color: #5c39aa;
 }
 
 .crypto__container {
+  display: flex;
+  width: 100%;
+  height: 80px;
+}
+
+.crypto__smallerContainer {
   display: flex;
   width: 100%;
   height: 64px;
@@ -45,7 +51,7 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  margin-top: 1px;
+  margin-top: -1px;
 }
 
 .crypto__arrow {
@@ -73,6 +79,10 @@
 .owned__negative {
   color: #e06e84;
   margin-top: 4px;
+}
+
+.crypto__percentage {
+  margin-top: 6px;
 }
 
 .crypto__dashes {

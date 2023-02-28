@@ -8,18 +8,21 @@ interface CryptoAsset {
     name:string
     owned:number
     growth:number
+    dashes:boolean
 }
 
 const CryptoDatas : Array <CryptoAsset> = [
     {
         name:'Bitcoin',
         owned:36217.80,
-        growth:6.00
+        growth:6.00,
+        dashes:true
     },
     {
         name:'Ethereum',
         owned:948.55,
-        growth:3.00        
+        growth:3.00,
+        dashes:false      
     }
 ]
 
@@ -31,25 +34,26 @@ const Cryptos = () => {
             <Crypto 
                 name={data.name} 
                 owned={data.owned} 
-                growth={data.growth} />)}
+                growth={data.growth} 
+                dashes={data.dashes} />)}
             <div className='grid16'></div>
         </article>
     )
 
 }
 
-const Crypto = ({name, owned, growth} : CryptoAsset) => {
+const Crypto = ({name, owned, growth, dashes} : CryptoAsset) => {
     return(
-        <article className='crypto__container'>
+        <article className={dashes === true ? 'crypto__container' : 'crypto__smallContainer'}>
             <div className="crypto__datasnDashes">
                 <div className='crypto__datas'>
                     <span className='crypto__name'>{name}</span>
                     <div className='crypto__values'>
                         <span className={owned >= 0 ? 'owned__positive' : 'owned__negative'}>{formatAmount(owned)}</span>
-                        <span>{growth+'.0%'}</span>
+                        <span className='crypto__percentage'>{growth+'.0%'}</span>
                     </div>
                 </div>
-                <div className='crypto__dashes'></div>
+                {dashes === true && <div className='crypto__dashes'></div>}
             </div>
             <div className='crypto__arrow'></div>
         </article>
