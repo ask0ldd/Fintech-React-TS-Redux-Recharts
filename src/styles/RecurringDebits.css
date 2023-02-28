@@ -29,7 +29,7 @@
 
 .debits__title {
   line-height: 24px;
-  margin-bottom: 1.98rem;
+  margin-bottom: 34px;
   margin-top: 7px;
   letter-spacing: 0;
   color: #5c39aa;
@@ -39,6 +39,7 @@
   padding-bottom: 23px;
   display: flex;
   flex-direction: row;
+  height: 64px;
 }
 
 .debit__datas {
@@ -59,7 +60,7 @@
   display: flex;
   /*align-items: end;*/
   align-items: first baseline;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 .debit__amountRed {
