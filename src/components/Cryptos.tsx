@@ -32,6 +32,7 @@ const Cryptos = () => {
             <h2 className="transfer__title">Cryptos</h2>
             {CryptoDatas.map((data, index) => 
             <Crypto 
+                key={'crypto'+index}
                 name={data.name} 
                 owned={data.owned} 
                 growth={data.growth} 
@@ -44,7 +45,7 @@ const Cryptos = () => {
 
 const Crypto = ({name, owned, growth, dashes} : CryptoAsset) => {
     return(
-        <article className={dashes === true ? 'crypto__container' : 'crypto__smallContainer'}>
+        <article className={dashes === true ? 'crypto__container' : 'crypto__smallerContainer'}>
             <div className="crypto__datasnDashes">
                 <div className='crypto__datas'>
                     <span className='crypto__name'>{name}</span>
@@ -55,7 +56,9 @@ const Crypto = ({name, owned, growth, dashes} : CryptoAsset) => {
                 </div>
                 {dashes === true && <div className='crypto__dashes'></div>}
             </div>
-            <div className='crypto__arrow'></div>
+            <div className='crypto__arrow'>
+            &gt;
+            </div>
         </article>
     )
 }
