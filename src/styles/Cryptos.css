@@ -65,7 +65,18 @@
   font-size: 32px;
   line-height: 32px;
   align-items: center;
-  background-color: #52a7d6;
+  margin-top: -32px;
+}
+
+.crypto__smallArrow {
+  /*width: 20%;*/
+  display: flex;
+  justify-content: flex-end;
+  width: 20%;
+  color: #b0b9c8;
+  font-size: 32px;
+  align-items: center;
+  margin-top: -14px;
 }
 
 .crypto__datas {

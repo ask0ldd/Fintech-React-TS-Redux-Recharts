@@ -56,7 +56,7 @@ const Crypto = ({name, owned, growth, dashes} : CryptoAsset) => {
                 </div>
                 {dashes === true && <div className='crypto__dashes'></div>}
             </div>
-            <div className='crypto__arrow'>
+            <div className={dashes === true ? 'crypto__arrow' : 'crypto__smallArrow'}>
             &gt;
             </div>
         </article>
