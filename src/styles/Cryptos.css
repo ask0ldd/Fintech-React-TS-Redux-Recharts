@@ -117,7 +117,7 @@
 .crypto__container2,
 .crypto__smallerContainer2 {
   display: grid;
-  grid-template-columns: 45% 40% 15%;
+  grid-template-columns: 60% 25% 15%;
   margin-top: -2px;
 }
 
@@ -182,4 +182,42 @@
   border-top: 2px dashed #b0b9c8;
   margin-top: 9px;
   margin-bottom: 5px;
+}
+
+.default__loading {
+  width: 128px;
+  height: 16px;
+  background: linear-gradient(
+    to right,
+    rgb(62, 60, 63) 0%,
+    rgb(99, 96, 100) 100%
+  );
+  border-radius: 4px;
+  animation: ease-out 1.2s forwards fadeinplaceholder infinite;
+}
+
+@keyframes fadeinplaceholder {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.delayed__text {
+  opacity: 0;
+  transition: 20s opacity 10s;
+  display: none;
+}
+
+.loading__mg6 {
+  transform: translateY(-6px);
+}
+
+.loading__mg2 {
+  transform: translateY(-4px);
 }

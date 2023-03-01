@@ -26,6 +26,22 @@ const CryptoDatas : Array <CryptoAsset> = [
     }
 ]
 
+const datas = [
+    '.delayed__text',
+]
+
+window.onload = (e) => {
+    setTimeout(() => {
+        const datasFields = Array.from(document.querySelectorAll(datas[0])) as HTMLElement[]
+        const loadingAnims = Array.from(document.querySelectorAll('.default__loading')) as HTMLElement[]
+        datasFields.forEach(field => 
+            {field.style.display = "block"
+            field.style.opacity = "1"
+            })
+        loadingAnims.forEach(anim => anim.style.display = "none")
+    }, 6000)
+}
+
 const Cryptos = () => {
     return(
         <article className='cryptos__container'>
@@ -66,8 +82,9 @@ const Cryptos = () => {
 const CryptoNew = ({name, owned, growth, dashes} : CryptoAsset) => {
     return(
         <article className={dashes === true ? 'crypto__container2' : 'crypto__smallerContainer2'}>
-            <div className='crypto__name2'>{name}</div><div className={owned >= 0 ? 'owned__positive2' : 'owned__negative2'}>{formatAmount(owned)}</div>
-            <div className='crypto__percentage2'>{growth+'.0%'}</div>
+            <div className='crypto__name2'><span className='delayed__text'>{name}</span><div className='default__loading loading__mg6'></div></div>
+            <div className={owned >= 0 ? 'owned__positive2' : 'owned__negative2'}><span className='delayed__text'>{formatAmount(owned)}</span><div className='default__loading loading__mg2'></div></div>
+            <div className='crypto__percentage2'><span className='delayed__text'>{growth+'.0%'}</span><div className='default__loading'></div></div>
             <div className={dashes === true ? 'crypto__arrow2' : 'crypto__smallArrow2'}>&gt;</div>
             {dashes === true && <div className='crypto__dashes2'></div>}
         </article>
