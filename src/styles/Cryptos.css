@@ -217,3 +217,7 @@
 .loading__mg2 {
   transform: translateY(-4px);
 }
+
+.loading__mgp2 {
+  transform: translateY(2px);
+}

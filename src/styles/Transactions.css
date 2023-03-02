@@ -54,6 +54,8 @@
   letter-spacing: 0;
   color: rgba(65, 65, 65, 0.9);
   padding-bottom: 1px;
+  display: flex;
+  height: 25px;
 }
 
 .datenAmount__container {
@@ -61,6 +63,7 @@
   justify-content: space-between;
   font-size: 12px;
   margin-top: 8px;
+  height: 18px;
 }
 
 .transaction__date {

@@ -72,9 +72,9 @@ const Transaction = ({company, date, amount} : TransactionType) => {
     return(
         <article className="oneTransaction__container">
             <div className='transaction__datas'>
-                <div className='transaction__recipient'>{company}</div>
+                <div className='transaction__recipient'><span className='delayed__text'>{company}</span><div className='default__loading loading__mgp2'></div></div>
                 <div className='datenAmount__container'>
-                    <span className='transaction__date'>{date}</span><span className={formatedAmount[0]!=='-' ? 'transaction__amount' : 'transaction__amountRed'}>{formatedAmount}</span>
+                    <span className='transaction__date delayed__text'>{date}</span><span className={formatedAmount[0]!=='-' ? 'transaction__amount delayed__text' : 'transaction__amountRed delayed__text'}>{formatedAmount}</span><div className='default__loading'></div>
                 </div>
                 <div className='transaction__dashes'></div>
             </div>
