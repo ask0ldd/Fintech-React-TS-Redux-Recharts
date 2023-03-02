@@ -31,7 +31,7 @@ const Cryptos = () => {
         <article className='cryptos__container'>
             <h2 className="transfer__title">Cryptos</h2>
             {CryptoDatas.map((data, index) => 
-            <CryptoNew 
+            <Crypto 
                 key={'crypto'+index}
                 name={data.name} 
                 owned={data.owned} 
@@ -43,27 +43,7 @@ const Cryptos = () => {
 
 }
 
-/*const Crypto = ({name, owned, growth, dashes} : CryptoAsset) => {
-    return(
-        <article className={dashes === true ? 'crypto__container' : 'crypto__smallerContainer'}>
-            <div className="crypto__datasnDashes">
-                <div className='crypto__datas'>
-                    <span className='crypto__name'>{name}</span>
-                    <div className='crypto__values'>
-                        <span className={owned >= 0 ? 'owned__positive' : 'owned__negative'}>{formatAmount(owned)}</span>
-                        <span className='crypto__percentage'>{growth+'.0%'}</span>
-                    </div>
-                </div>
-                {dashes === true && <div className='crypto__dashes'></div>}
-            </div>
-            <div className={dashes === true ? 'crypto__arrow' : 'crypto__smallArrow'}>
-            &gt;
-            </div>
-        </article>
-    )
-}*/
-
-const CryptoNew = ({name, owned, growth, dashes} : CryptoAsset) => {
+const Crypto = ({name, owned, growth, dashes} : CryptoAsset) => {
     return(
         <article className={dashes === true ? 'crypto__container2' : 'crypto__smallerContainer2'}>
             <div className='crypto__name2'><span className='delayed__text'>{name}</span><div className='default__loading loading__mg6'></div></div>
