@@ -11,6 +11,23 @@ import Cryptos from './components/Cryptos'
  textContainer.innerHTML = text;
 }*/
 
+const datas = [
+  '.delayed__text',
+]
+
+window.onload = (e) => {
+  setTimeout(() => {
+      const datasFields = Array.from(document.querySelectorAll(datas[0])) as HTMLElement[]
+      const loadingAnims = Array.from(document.querySelectorAll('.default__loading')) as HTMLElement[]
+      datasFields.forEach(field => 
+          {field.style.display = "block"
+          field.style.opacity = "1"
+          })
+      loadingAnims.forEach(anim => anim.style.display = "none")
+  }, 6000)
+}
+
+
 
 function App() {
   // showString('coucou')
