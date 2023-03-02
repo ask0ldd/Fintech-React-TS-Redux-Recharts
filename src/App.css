@@ -28,3 +28,43 @@
   display: flex;
   column-gap: 24px;
 }
+
+/** loading anims + placeholders **/
+
+.default__loading {
+  width: 128px;
+  height: 16px;
+  background: linear-gradient(to right, #4d4264 0%, rgb(92, 81, 95) 100%);
+  border-radius: 4px;
+  animation: ease-out 1.2s forwards fadeinplaceholder infinite;
+}
+
+@keyframes fadeinplaceholder {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+.delayed__text {
+  opacity: 0;
+  transition: 20s opacity 10s;
+  display: none;
+}
+
+.loading__mg6 {
+  transform: translateY(-6px);
+}
+
+.loading__mg2 {
+  transform: translateY(-4px);
+}
+
+.loading__mgp2 {
+  transform: translateY(2px);
+}
