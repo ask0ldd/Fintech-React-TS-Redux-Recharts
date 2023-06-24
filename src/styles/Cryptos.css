@@ -133,6 +133,7 @@
   align-items: flex-end;
   /*margin-top: 4px;*/
   font-weight: 700;
+  /*font-size: 17px;*/
 }
 
 .owned__positive2,
@@ -140,12 +141,12 @@
   display: flex;
   grid-column: 2;
   grid-row: 1;
-  font-size: 12px;
+  font-size: 13px;
   /*background-color: grey;*/
   height: 24px;
   align-items: flex-end;
   justify-content: flex-end;
-  margin-top: -2px;
+  margin-top: -1px;
 }
 
 .owned__positive2 {
@@ -172,12 +173,12 @@
 .crypto__percentage2 {
   grid-column: 2;
   grid-row: 2;
-  font-size: 12px;
+  font-size: 13px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   height: 32px;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 .crypto__dashes2 {
