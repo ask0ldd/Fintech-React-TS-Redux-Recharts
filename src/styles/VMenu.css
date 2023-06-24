@@ -1,0 +1,12 @@
+.vmenu {
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 72px;
+  align-items: center;
+}
+
+.vmenu img {
+  height: 64px;
+  width: 64px;
+}

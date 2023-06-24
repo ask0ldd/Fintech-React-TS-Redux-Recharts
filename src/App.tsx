@@ -5,6 +5,8 @@ import RecurringDebits from './components/RecurringDebits'
 import Balance from './components/Balance'
 import Transfer from './components/Transfer'
 import Cryptos from './components/Cryptos'
+import Header from './components/Header'
+import VMenu from './components/VMenu'
 
 /*const showString = (text : string) => {
  const textContainer = document.querySelector('#text') as HTMLElement;
@@ -33,7 +35,9 @@ function App() {
 
   return (
     <div className="App">
+      <VMenu/>
       <div className='balance__ccard__transferCrypto__container'>
+        <Header/>
         <Balance/>
         <div className='transfer__cryptos__container'>
             <Transfer/>
