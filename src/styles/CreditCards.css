@@ -1,0 +1,50 @@
+.creditcards__container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);
+  width: 100%;
+  padding: 1.65rem 2.5rem 2.1rem 2.5rem;
+  border-radius: 36px;
+  font-family: "Jost", sans-serif;
+  /*font-family: "Poppins", sans-serif;*/
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  box-shadow: 0px 4px 16px rgba(133, 101, 171, 0.32);
+  z-index: 2;
+  height: 288px;
+}
+
+.creditcards__container:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  z-index: -1;
+  border-radius: 35px;
+  /*background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);*/
+  background-color: #eef1fb;
+}
+
+.creditcardsnTitle__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.creditcards__container .creditcards {
+  width: 360px;
+  height: 204px;
+  margin-left: -20px;
+  margin-top: -10px;
+}
+
+.creditcards__title {
+  line-height: 24px;
+  margin-bottom: 32px;
+  margin-top: 7px;
+  letter-spacing: 0;
+  color: #5c39aa;
+  font-family: "Poppins", sans-serif;
+}

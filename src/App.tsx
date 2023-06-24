@@ -7,6 +7,7 @@ import Transfer from './components/Transfer'
 import Cryptos from './components/Cryptos'
 import Header from './components/Header'
 import VMenu from './components/VMenu'
+import CreditCards from './components/CreditCards'
 
 /*const showString = (text : string) => {
  const textContainer = document.querySelector('#text') as HTMLElement;
@@ -39,6 +40,7 @@ function App() {
       <div className='balance__ccard__transferCrypto__container'>
         <Header/>
         <Balance/>
+        <CreditCards/>
         <div className='transfer__cryptos__container'>
             <Transfer/>
             <Cryptos/>
