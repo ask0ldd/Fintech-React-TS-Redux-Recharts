@@ -1,16 +1,21 @@
 import '../styles/VMenu.css'
+import settingsIcon from '/menu_icons/settings.png'
+import homeIcon from '/menu_icons/home.svg'
+import accountsIcon from '/menu_icons/accounts.png'
+import chatIcon from '/menu_icons/chat.png'
+import darkmodeIcon from '/menu_icons/darkmode.png'
 
 function VMenu(){
     return(
         <div className='vmenu'>
             <div role="button" className='homeButton'>
-                <img src="/menu_icons/home.svg"/>
+                <img src={homeIcon}/>
             </div>
-            <img src="/menu_icons/settings.png"/>
-            <img src="/menu_icons/accounts.png"/>
-            <img src="/menu_icons/chat.png"/>
-            <img src="/menu_icons/settings.png"/>
-            <img src="/menu_icons/darkmode.png"/>
+            <img src={settingsIcon}/>
+            <img src={accountsIcon}/>
+            <img src={chatIcon}/>
+            <img src={settingsIcon}/>
+            <img src={darkmodeIcon}/>
         </div>
     )
 }
