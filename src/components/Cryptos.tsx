@@ -1,21 +1,7 @@
 import '../styles/Cryptos.css'
 import { Formatter } from '../services/formatter'
 import { ICryptoAsset } from '../types/types'
-
-const CryptoDatas : Array <ICryptoAsset> = [
-    {
-        name:'Bitcoin',
-        owned:36217.80,
-        growth:6.00,
-        dashes:true
-    },
-    {
-        name:'Ethereum',
-        owned:948.55,
-        growth:3.00,
-        dashes:false      
-    }
-]
+import { CryptoDatas } from '../datas/datas'
 
 const Cryptos = () => {
     return(

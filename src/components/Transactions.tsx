@@ -1,44 +1,7 @@
 import '../styles/Transactions.css'
 import { Formatter } from '../services/formatter'
 import { ITransactionType } from '../types/types'
-
-const TransactionsList: Array <ITransactionType> = [
-    {
-        company:'Uber Taxi',
-        date:'02-13-2012',
-        amount:948.55
-    },
-    {
-        company:'AT&T',
-        date:'02-14-2012',
-        amount:19.99
-    },    
-    {
-        company:'Ebay',
-        date:'02-18-2012',
-        amount:98.55
-    },
-    {
-        company:'Ebay',
-        date:'02-19-2012',
-        amount:45.50
-    },
-    {
-        company:'Air BnB',
-        date:'02-22-2012',
-        amount:-120.00
-    },
-    {
-        company:'Direct Energy',
-        date:'02-23-2012',
-        amount:-60.00
-    },
-    {
-        company:'Ebay',
-        date:'02-26-2012',
-        amount:70.25
-    },
-]
+import { TransactionsList } from '../datas/datas'
 
 const Transactions = () => {
 

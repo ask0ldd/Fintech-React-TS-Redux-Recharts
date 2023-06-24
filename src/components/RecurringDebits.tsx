@@ -1,17 +1,7 @@
 import '../styles/RecurringDebits.css'
 import { Formatter } from '../services/formatter'
 import { IDebitType } from '../types/types'
-
-const DebitsList: Array <IDebitType> = [
-    {
-        company:'Uber Taxi',
-        amount:948.55,
-    },
-    {
-        company:'Direct Energy',
-        amount:128.99,
-    },    
-]
+import { DebitsList } from '../datas/datas'
 
 const RecurringDebits = () => {
 

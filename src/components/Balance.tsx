@@ -23,7 +23,6 @@ const Balance = () => {
             <div className='grid16'></div>
         </div>
     )
-
 }
 
 export default Balance
