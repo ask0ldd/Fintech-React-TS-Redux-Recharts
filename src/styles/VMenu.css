@@ -2,11 +2,60 @@
   width: 160px;
   display: flex;
   flex-direction: column;
-  row-gap: 72px;
+  row-gap: 32px;
   align-items: center;
 }
 
 .vmenu img {
   height: 64px;
   width: 64px;
+}
+
+.vmenu .homeButton {
+  margin-top: 15px;
+  height: 62px;
+  width: 62px;
+  border-radius: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+      146deg,
+      rgba(39, 19, 111, 0) 6.36%,
+      rgba(39, 19, 111, 0.3) 25.56%,
+      rgba(39, 19, 111, 0) 42.58%
+    ),
+    linear-gradient(
+      144deg,
+      rgba(255, 255, 255, 0) 23.64%,
+      rgba(255, 255, 255, 0.1) 52.08%,
+      rgba(255, 255, 255, 0) 64.06%
+    ),
+    linear-gradient(
+      146deg,
+      rgba(255, 255, 255, 0) 30.21%,
+      rgba(255, 255, 255, 0.1) 52.08%,
+      rgba(255, 255, 255, 0) 64.06%
+    ),
+    linear-gradient(
+      146deg,
+      rgba(255, 255, 255, 0) 30.21%,
+      rgba(255, 255, 255, 0.2) 46.22%,
+      rgba(255, 255, 255, 0) 64.06%
+    ),
+    linear-gradient(178deg, #733faf 0%, #733faf 100%);
+  box-shadow: 0px 2.767256498336792px 2.2138051986694336px 0px
+      rgba(129, 48, 147, 0.03),
+    0px 6.650102138519287px 5.32008171081543px 0px rgba(129, 48, 147, 0.04),
+    0px 12.521552085876465px 10.017241477966309px 0px rgba(129, 48, 147, 0.05),
+    0px 22.3363094329834px 17.869047164916992px 0px rgba(129, 48, 147, 0.07),
+    0px 41.777610778808594px 33.422088623046875px 0px rgba(129, 48, 147, 0.06),
+    0px 100px 80px 0px rgba(129, 48, 147, 0.08),
+    0px 4px 8px 0px rgba(0, 0, 0, 0.15),
+    0px 4px 16px 0px rgba(196, 45, 240, 0.41);
+}
+
+.vmenu .homeButton img {
+  width: 24px;
+  margin-top: -2px;
 }
