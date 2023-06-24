@@ -6,7 +6,8 @@
   width: 100%;
   padding: 1.65rem 2.5rem 2.1rem 2.5rem;
   border-radius: 36px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Jost", sans-serif;
+  /*font-family: "Poppins", sans-serif;*/
   letter-spacing: 0.02em;
   font-weight: 600;
   box-shadow: 0px 4px 16px rgba(133, 101, 171, 0.32);
@@ -45,10 +46,13 @@
 }
 
 .balance__title {
-  font-family: "Inter";
+  /*font-family: "Inter";
+  font-style: normal;*/
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
-  font-size: 24px;
+  /*font-size: 24px;*/
+  font-size: 26px;
   letter-spacing: 0.01em;
   color: #8da1b9;
   margin-top: 4px;
@@ -57,12 +61,13 @@
 .balance__amount {
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 700;
+  /*font-family: "Jost", sans-serif;*/
+  font-weight: 600;
   font-size: 48px;
   line-height: 72px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   color: #5c39aa;
-  margin-top: 13px;
+  margin-top: 3px;
 }
 
 .balance__select {

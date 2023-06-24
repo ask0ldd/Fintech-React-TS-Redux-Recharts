@@ -75,9 +75,12 @@ h1 {
 h2 {
   font-family: "Poppins";
   font-style: normal;
+  /*font-family: "Jost", sans-serif;*/
   font-weight: 700;
-  font-size: 24px;
+  /*font-size: 24px;*/
+  font-size: 26px;
   display: block;
   margin: 0;
+  margin-left: -2px;
   color: #5c39aa;
 }
