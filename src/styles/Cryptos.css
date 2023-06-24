@@ -6,7 +6,7 @@
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);
   padding: 1.8rem 2.5rem 1.3rem 2.5rem;
   border-radius: 36px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Jost", sans-serif;
   letter-spacing: 0.02em;
   font-weight: 600;
   justify-content: flex-start;
@@ -33,6 +33,7 @@
   margin-top: 7px;
   letter-spacing: 0;
   color: #5c39aa;
+  font-family: "Poppins", sans-serif;
 }
 
 .crypto__container {
@@ -66,6 +67,7 @@
   line-height: 32px;
   align-items: center;
   margin-top: -32px;
+  font-family: "Poppins", sans-serif;
 }
 
 .crypto__smallArrow {
@@ -77,6 +79,7 @@
   font-size: 32px;
   align-items: center;
   margin-top: -14px;
+  font-family: "Poppins", sans-serif;
 }
 
 .crypto__datas {
@@ -162,6 +165,7 @@
   font-size: 32px;
   align-items: center;
   margin-top: -8px;
+  font-family: "Poppins", sans-serif;
 }
 
 .crypto__percentage2 {

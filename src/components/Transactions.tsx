@@ -55,11 +55,12 @@ const Transactions = () => {
         <article className="transactions__container">
             <h2 className="transactions__title">Last Transactions</h2>
             {TransactionsList.map((transac, index) => 
-            <Transaction 
+                <Transaction 
                 key={'transac'+index} 
-                company={transac.company.toUpperCase()} 
+                company={transac.company/*.toUpperCase()*/} 
                 date={transac.date} 
-                amount={transac.amount}/>)}
+                amount={transac.amount}/>
+            )}
             <div className='grid16'></div>
         </article>
       )

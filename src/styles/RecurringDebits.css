@@ -6,7 +6,7 @@
   width: 100%;
   padding: 1.8rem 2.5rem 1.3rem 2.5rem;
   border-radius: 36px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Jost", sans-serif;
   letter-spacing: 0.02em;
   font-weight: 600;
   justify-content: flex-start;
@@ -33,6 +33,7 @@
   margin-top: 7px;
   letter-spacing: 0;
   color: #5c39aa;
+  font-family: "Poppins", sans-serif;
 }
 
 .oneDebit__container {
@@ -95,4 +96,5 @@
   /*background-color: red;*/
   align-items: center;
   margin-top: -26px;
+  font-family: "Poppins", sans-serif;
 }

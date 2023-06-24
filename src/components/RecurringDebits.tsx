@@ -26,10 +26,11 @@ const RecurringDebits = () => {
         <article className='recDebits__container'>
             <h2 className="debits__title">Recurring Debits</h2>
             {DebitsList.map((debit, index) => 
-            <Debit 
+                <Debit 
                 key={'debit'+index} 
-                company={debit.company.toUpperCase()} 
-                amount={formatAmount(debit.amount)}/>)}
+                company={debit.company/*.toUpperCase()*/} 
+                amount={formatAmount(debit.amount)}/>
+            )}
             <div className='grid16'></div>
         </article>
     )
