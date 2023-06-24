@@ -1,12 +1,8 @@
 import '../styles/Transactions.css'
+import { Formatter } from '../services/formatter'
+import { ITransactionType } from '../types/types'
 
-interface TransactionType {
-    company: string
-    date: string
-    amount: number
-}
-
-const TransactionsList: Array <TransactionType> = [
+const TransactionsList: Array <ITransactionType> = [
     {
         company:'Uber Taxi',
         date:'02-13-2012',
@@ -44,11 +40,6 @@ const TransactionsList: Array <TransactionType> = [
     },
 ]
 
-const formatAmount = (amount : number) : string => {
-    return amount >= 0 ? '$'+amount.toFixed(2) : '-$'+amount.toFixed(2).toString().slice(1)
-}
-
-
 const Transactions = () => {
 
     return (
@@ -66,9 +57,9 @@ const Transactions = () => {
       )
 }
 
-const Transaction = ({company, date, amount} : TransactionType) => {
+const Transaction = ({company, date, amount} : ITransactionType) => {
 
-    const formatedAmount = formatAmount(amount)
+    const formatedAmount = Formatter.addCurrencySignToAmount('$', amount)
 
     return(
         <article className="oneTransaction__container">

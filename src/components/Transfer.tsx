@@ -4,12 +4,7 @@ import avatar2 from '/avatars/avatar2.png'
 import avatar3 from '/avatars/avatar3.png'
 import avatar4 from '/avatars/avatar4.png'
 import avatar5 from '/avatars/avatar5.png'
-
-const formatAmount = (amount : number) : string => {
-    return amount >= 0 ? '$'+amount.toFixed(2) : '-$'+amount.toFixed(2).toString().slice(1)
-}
-
-
+import { Formatter } from '../services/formatter'
 
 const Transfer = () => {
     return(

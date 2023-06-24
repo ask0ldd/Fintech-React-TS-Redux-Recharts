@@ -1,9 +1,5 @@
 import '../styles/Balance.css'
 
-const formatAmount = (amount : number) : string => {
-    return amount >= 0 ? '$'+amount.toFixed(2) : '-$'+amount.toFixed(2).toString().slice(1)
-}
-
 const Balance = () => {
     return(
         <div className='balance__container'>
