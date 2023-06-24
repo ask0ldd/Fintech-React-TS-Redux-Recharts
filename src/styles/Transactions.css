@@ -51,19 +51,22 @@
 }
 
 .transaction__recipient {
-  font-size: 16px;
+  /*font-size:16px;*/
+  font-size: 17px;
   letter-spacing: 0;
   color: rgba(65, 65, 65, 0.9);
   padding-bottom: 1px;
   display: flex;
   height: 25px;
+  font-weight: 700;
 }
 
 .datenAmount__container {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
-  margin-top: 8px;
+  /*font-size: 12px;*/
+  font-size: 13px;
+  margin-top: 7px;
   height: 18px;
 }
 
@@ -96,5 +99,6 @@
 .transaction__dashes {
   height: 1px;
   border-bottom: 2px dashed #b0b9c8;
-  margin-top: 17px;
+  /*margin-top: 17px;*/
+  margin-top: 16px;
 }

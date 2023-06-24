@@ -132,6 +132,7 @@
   height: 24px;
   align-items: flex-end;
   /*margin-top: 4px;*/
+  font-weight: 700;
 }
 
 .owned__positive2,

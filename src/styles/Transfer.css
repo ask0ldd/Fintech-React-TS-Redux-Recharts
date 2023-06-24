@@ -95,14 +95,14 @@
 }
 
 .vButton {
-  background: url("icons/v.png"),
+  background: url("../assets/icons/v.png"),
     linear-gradient(120.01deg, #703faf 6.99%, #573faf 63.96%);
   background-position: 50%;
   background-repeat: no-repeat;
 }
 
 .xButton {
-  background: url("icons/x.png"),
+  background: url("../assets/icons/x.png"),
     linear-gradient(120.01deg, #703faf 6.99%, #573faf 63.96%);
   background-position: 50%;
   background-repeat: no-repeat;
