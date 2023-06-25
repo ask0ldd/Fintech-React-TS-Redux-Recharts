@@ -57,9 +57,9 @@ export const TransactionsList: Array <ITransactionType> = [
         date:'02-23-2012',
         amount:-60.00
     },
-    {
+    /*{
         company:'Ebay',
         date:'02-26-2012',
         amount:70.25
-    },
+    },*/
 ]

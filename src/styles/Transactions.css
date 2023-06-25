@@ -12,6 +12,7 @@
   justify-content: flex-start;
   box-shadow: 0px 4px 16px rgba(133, 101, 171, 0.32);
   z-index: 2;
+  height: 656px;
 }
 
 .transactions__container:before {
