@@ -107,6 +107,11 @@
 
 .qrcode__refresh {
   transform: translateY(24px);
+  cursor: pointer;
+}
+
+.qrcode__trash {
+  cursor: pointer;
 }
 
 .creditcardsOptions__container {

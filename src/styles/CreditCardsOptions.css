@@ -2,6 +2,7 @@
   width: 64px;
   height: 64px;
   display: flex;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
   border-radius: 0 10px 10px 0;

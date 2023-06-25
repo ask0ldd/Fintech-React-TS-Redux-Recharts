@@ -20,7 +20,7 @@ function CreditCards(){
                         <div className='qrcode__container'>
                             <div className='qrcodeicons__container'>
                                 <img className='qrcode__refresh' src={refresh}/>
-                                <img src={dispose}/>
+                                <img className='qrcode__trash' src={dispose}/>
                             </div>
                             <img className='qrcode' src={qrcode}/>
                         </div>
