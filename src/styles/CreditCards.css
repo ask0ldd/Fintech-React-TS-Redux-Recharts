@@ -13,6 +13,8 @@
   box-shadow: 0px 4px 16px rgba(133, 101, 171, 0.32);
   z-index: 2;
   height: 288px;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 .creditcards__container:before {
@@ -86,6 +88,10 @@
   font-weight: 800;
 }
 
+.CreditcardnOptions__container {
+  display: flex;
+}
+
 .qrcode__container {
   margin-top: 11px;
   display: flex;
@@ -101,6 +107,13 @@
 
 .qrcode__refresh {
   transform: translateY(24px);
+}
+
+.creditcardsOptions__container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding-top: 2rem;
 }
 
 /*.qrcode {

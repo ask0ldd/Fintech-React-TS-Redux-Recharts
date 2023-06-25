@@ -1,0 +1,40 @@
+.creditcardOption_button {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 10px 10px 0;
+  background: /*linear-gradient(
+      146deg,
+      rgba(39, 19, 111, 0) 19.27%,
+      rgba(39, 19, 111, 0.3) 25.56%,
+      rgba(39, 19, 111, 0) 42.58%
+    ), */ linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0) 70.64%,
+      rgba(255, 255, 255, 0.15) 80.08%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0) 0.21%,
+      rgba(255, 255, 255, 0.15) 15.08%,
+      rgba(255, 255, 255, 0) 50.06%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0) 30.21%,
+      rgba(255, 255, 255, 0.2) 46.22%,
+      rgba(255, 255, 255, 0) 65.83%
+    ),
+    /*radial-gradient(
+      92.35% 37.98% at 94.12% 9.38%,
+      rgba(159, 143, 213, 0.8) 0%,
+      rgba(159, 143, 213, 0) 100%
+    ),*/
+      linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 12%),
+    linear-gradient(178deg, #733faf 0%, #733faf 100%);
+  box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.6),
+    0px 4px 8px 0px rgba(115, 100, 191, 0.6);
+}
