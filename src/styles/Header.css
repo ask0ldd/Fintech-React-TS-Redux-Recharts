@@ -1,4 +1,4 @@
-.headerContainer {
+.header__container {
   display: flex;
   flex-direction: row;
 }
@@ -21,13 +21,13 @@
   margin-top: 0.87rem;
 }
 
-.namenIbanContainer {
+.namenIban__container {
   display: flex;
   flex-direction: column;
   margin-left: 2rem;
 }
 
-.banklogoContainer {
+.banklogo__container {
   height: 100%;
   display: flex;
   justify-content: center;
@@ -48,7 +48,7 @@
   margin-right: 4rem;
 }
 
-.logoutContainer {
+.logout__container {
   display: flex;
   flex-direction: column;
   /*margin-left: auto;*/
@@ -58,14 +58,14 @@
   margin-top: 10px;
 }
 
-.logoutContainer span {
+.logout__container span {
   color: rgba(92, 57, 170, 0.9);
   font-size: 14px;
   font-family: Inter;
   font-weight: 700;
 }
 
-.logoutContainer img {
+.logout__container img {
   height: 48px;
   width: 48px;
   border-radius: 48px;

@@ -5,18 +5,18 @@ import tonyAvatar from '/avatars/tonyavatar.png'
 
 function Header(){
     return (
-        <section className="headerContainer">
+        <section className="header__container">
             <img src={tonyAvatar}/>
-            <div className="namenIbanContainer">
+            <div className="namenIban__container">
                 <span className="name">Tony Montana</span>
                 <span className="iban">IBAN : NL89RABO1289364745</span>
             </div>
-            <figure className='banklogoContainer'>
+            <figure className='banklogo__container'>
                 <img src={banklogo}/>
             </figure>
             <div className='verticalSeparator'>
             </div>
-            <div className='logoutContainer'>
+            <div className='logout__container'>
                 <img role="button" src={buttonLogout}/>
                 <span>LOG OUT</span>
             </div>

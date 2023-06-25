@@ -48,3 +48,15 @@
   color: #5c39aa;
   font-family: "Poppins", sans-serif;
 }
+
+.creditcards__container .separator {
+  width: 1px;
+  height: 100%;
+  border-left: 4px dashed #5e5380;
+  border-right: 4px dashed #ffffff;
+}
+
+.creditcards__rightContainer {
+  display: flex;
+  flex-direction: column;
+}
