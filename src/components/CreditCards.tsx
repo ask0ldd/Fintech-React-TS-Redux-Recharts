@@ -1,5 +1,7 @@
 import creditcards from '/creditcards.png'
 import qrcode from '/qrcode.png'
+import dispose from '/qrcode_icons/dispose.png'
+import refresh from '/qrcode_icons/refresh.png'
 import '../styles/CreditCards.css'
 
 function CreditCards(){
@@ -13,8 +15,11 @@ function CreditCards(){
             <div className='creditcards__rightContainer'>
                 <div className='expiration__container'>Expires in : <span>4 min 57</span></div>
                 <div className='qrcode__container'>
-                    <div>aaa</div>
-                    <img src={qrcode}/>
+                    <div className='qrcodeicons__container'>
+                        <img className='qrcode__refresh' src={refresh}/>
+                        <img src={dispose}/>
+                    </div>
+                    <img className='qrcode' src={qrcode}/>
                 </div>
             </div>
         </article>

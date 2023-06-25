@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: row;
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);
-  width: 100%;
+  width: 90%;
   padding: 1.65rem 2.5rem 2.1rem 2.5rem;
   border-radius: 36px;
   font-family: "Jost", sans-serif;
@@ -32,6 +32,8 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 50%;
 }
 
 .creditcards__container .creditcards {
@@ -55,12 +57,17 @@
   height: 100%;
   border-left: 4px dashed #5e5380;
   border-right: 4px dashed #ffffff;
+  margin-left: 0.75rem;
+  /*transform: translateX(12px);*/
 }
 
 .creditcards__rightContainer {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 50%;
+  transform: translateX(10px);
 }
 
 .creditcards__rightContainer .expiration__container {
@@ -70,7 +77,8 @@
   font-size: 24px;
   color: #8da1b9;
   align-self: center;
-  margin-left: 1.5rem;
+  margin-left: 0.75rem;
+  margin-top: 2px;
 }
 
 .creditcards__rightContainer .expiration__container span {
@@ -79,6 +87,22 @@
 }
 
 .qrcode__container {
-  margin-top: 14px;
+  margin-top: 11px;
   display: flex;
+  justify-content: center;
+  margin-left: 0.75rem;
 }
+
+.qrcodeicons__container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.375rem;
+}
+
+.qrcode__refresh {
+  transform: translateY(24px);
+}
+
+/*.qrcode {
+  margin-left: 1rem;
+}*/
