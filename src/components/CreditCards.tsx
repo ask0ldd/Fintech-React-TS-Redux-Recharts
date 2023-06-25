@@ -28,9 +28,9 @@ function CreditCards(){
                 </div>
             </article>
             <div className='creditcardsOptions__container'>
-                <CreditCardsOptions/>
-                <CreditCardsOptions/>
-                <CreditCardsOptions/>
+                <CreditCardsOptions iconFilename="whitelock"/>
+                <CreditCardsOptions iconFilename="whiteconversion"/>
+                <CreditCardsOptions iconFilename="whitesettings"/>
             </div>
         </div>
     )
