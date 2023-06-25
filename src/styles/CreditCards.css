@@ -31,6 +31,7 @@
 .creditcardsnTitle__container {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 .creditcards__container .creditcards {
@@ -59,4 +60,25 @@
 .creditcards__rightContainer {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+}
+
+.creditcards__rightContainer .expiration__container {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  color: #8da1b9;
+  align-self: center;
+  margin-left: 1.5rem;
+}
+
+.creditcards__rightContainer .expiration__container span {
+  color: #5c39aa;
+  font-weight: 800;
+}
+
+.qrcode__container {
+  margin-top: 14px;
+  display: flex;
 }
