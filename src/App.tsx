@@ -9,6 +9,8 @@ import Header from './components/Header'
 import VMenu from './components/VMenu'
 import CreditCards from './components/CreditCards'
 import Modal from './components/Modal'
+import useModalManager from './hooks/useModalManager'
+import AddContactsQuickList from './components/modalContents/AddContactsQuickList'
 
 /*const showString = (text : string) => {
  const textContainer = document.querySelector('#text') as HTMLElement;
@@ -35,6 +37,12 @@ window.onload = (e) => {
 function App() {
   // showString('coucou')
 
+  const {
+    modalVisibility, modalContent, 
+    setModalVisibility, setModalContent,
+} 
+  = useModalManager({initialVisibility : true, content : AddContactsQuickList})
+
   return (
     <div className="App">
       <VMenu/>
@@ -43,7 +51,7 @@ function App() {
         <Balance/>
         <CreditCards/>
         <div className='transfer__cryptos__container'>
-            <Transfer/>
+            <Transfer setModalVisibility={setModalVisibility}/>
             <Cryptos/>
         </div>
       </div>
@@ -51,7 +59,7 @@ function App() {
         <Transactions/>
         <RecurringDebits/>
       </div>
-      <Modal/>
+      <Modal modalContent={modalContent} modalVisibility={false} setModalVisibility={setModalVisibility}/>
     </div>
   )
 }

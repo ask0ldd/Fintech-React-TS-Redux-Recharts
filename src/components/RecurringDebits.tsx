@@ -30,6 +30,7 @@ const Debit = ({company, amount} : IDebitType) => {
                     <span className='debit__recipient'>{company}</span>
                     <span className={amount >= 0 ? 'debit__amount' : 'debit__amountRed'}>{amountAsString}</span>
                 </div>
+                {/*<div style={{marginTop:'8px'}}>Monthly</div>*/}
                 <div className='debit__dashes'></div>
             </div>
             <div className='debit__arrow'>&gt;</div>

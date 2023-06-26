@@ -6,7 +6,7 @@ import avatar4 from '/avatars/avatar4.png'
 import avatar5 from '/avatars/avatar5.png'
 import { Formatter } from '../services/formatter'
 
-const Transfer = () => {
+const Transfer = ({setModalVisibility}:IProps) => {
     return(
         <article className='transfer__container'>
             <h2 className="transfer__title">Quick Wire Transfer</h2>
@@ -22,7 +22,7 @@ const Transfer = () => {
                 <img src={avatar3} alt="avatar picture 3"/>
                 <img src={avatar4} alt="avatar picture 4"/>
                 <img src={avatar5} alt="avatar picture 5"/>
-                <button className='transfer__amountButton violetButton xButton'></button>
+                <button className='transfer__amountButton violetButton xButton' onClick={() => setModalVisibility(true)}></button>
             </div>
             <div className='grid16'></div>
         </article>
@@ -31,3 +31,7 @@ const Transfer = () => {
 }
 
 export default Transfer
+
+interface IProps{
+    setModalVisibility : (bool : boolean) => void
+}
