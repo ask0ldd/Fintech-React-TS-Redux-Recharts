@@ -19,32 +19,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /*background: linear-gradient(
-      146deg,
-      rgba(39, 19, 111, 0) 6.36%,
-      rgba(39, 19, 111, 0.3) 25.56%,
-      rgba(39, 19, 111, 0) 42.58%
-    ),
-    linear-gradient(
-      144deg,
-      rgba(255, 255, 255, 0) 23.64%,
-      rgba(255, 255, 255, 0.1) 52.08%,
-      rgba(255, 255, 255, 0) 64.06%
-    ),
-    linear-gradient(
-      146deg,
-      rgba(255, 255, 255, 0) 30.21%,
-      rgba(255, 255, 255, 0.1) 52.08%,
-      rgba(255, 255, 255, 0) 64.06%
-    ),
-    linear-gradient(
-      146deg,
-      rgba(255, 255, 255, 0) 30.21%,
-      rgba(255, 255, 255, 0.2) 46.22%,
-      rgba(255, 255, 255, 0) 64.06%
-    ),
-    linear-gradient(178deg, #733faf 0%, #733faf 100%);*/
-
   background: linear-gradient(
       146deg,
       rgba(39, 19, 111, 0) 6.36%,
@@ -85,4 +59,8 @@
 .vmenu .homeButton img {
   width: 24px;
   margin-top: -2px;
+}
+
+.vmenu img {
+  cursor: pointer;
 }

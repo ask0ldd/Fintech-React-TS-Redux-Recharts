@@ -8,6 +8,7 @@ import Cryptos from './components/Cryptos'
 import Header from './components/Header'
 import VMenu from './components/VMenu'
 import CreditCards from './components/CreditCards'
+import Modal from './components/Modal'
 
 /*const showString = (text : string) => {
  const textContainer = document.querySelector('#text') as HTMLElement;
@@ -50,6 +51,7 @@ function App() {
         <Transactions/>
         <RecurringDebits/>
       </div>
+      <Modal/>
     </div>
   )
 }
