@@ -7,11 +7,11 @@ dialog {
   margin: auto;
   border: none;
   padding: 20px 60px 24px 60px;
-  display: none;
+  /*display: none;*/
 }
 
 dialog::backdrop {
   background: rgba(0, 0, 0, 0.25);
-  width: 100vw;
-  height: 100vh;
+  /*width: 100vw;
+  height: 100vh;*/
 }

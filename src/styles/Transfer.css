@@ -107,6 +107,7 @@
     linear-gradient(120.01deg, #703faf 6.99%, #573faf 63.96%);
   background-position: 50%;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .transfer__avatarsnButton__container {

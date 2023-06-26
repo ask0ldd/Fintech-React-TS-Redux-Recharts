@@ -12,9 +12,11 @@ function Modal({modalVisibility, setModalVisibility, modalContent, containerCSSC
     })
     
     return (
-        modalVisibility ? <dialog ref={dialogRef} >
+        modalVisibility 
+        ? <dialog ref={dialogRef} onClick={(e) => { if (e.target === dialogRef.current) setModalVisibility(false) }}>
             {modalContent}
-        </dialog> : <>aaa</>
+        </dialog> 
+        : <></>
     )
 }
 

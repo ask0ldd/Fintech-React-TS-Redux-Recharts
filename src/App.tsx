@@ -41,7 +41,7 @@ function App() {
     modalVisibility, modalContent, 
     setModalVisibility, setModalContent,
 } 
-  = useModalManager({initialVisibility : true, content : AddContactsQuickList})
+  = useModalManager({initialVisibility : false, content : AddContactsQuickList})
 
   return (
     <div className="App">
@@ -59,7 +59,7 @@ function App() {
         <Transactions/>
         <RecurringDebits/>
       </div>
-      <Modal modalContent={modalContent} modalVisibility={false} setModalVisibility={setModalVisibility}/>
+      <Modal modalContent={modalContent} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>
     </div>
   )
 }
