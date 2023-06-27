@@ -31,8 +31,14 @@
   justify-content: center;
   align-items: center;
   color: rgba(65, 65, 65, 0.9);
-  font-size: 14px;
-  font-family: Poppins;
+  font-size: 16px;
+}
+
+.contactRow__name {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  font-family: "Jost", sans-serif;
   font-weight: 500;
 }
 

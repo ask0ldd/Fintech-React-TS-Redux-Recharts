@@ -31,7 +31,7 @@ function AddContactsQuickList(){
 function ContactRow({name, avatarUrl} : ContactRowProps){
     return(
     <div className='contactRow'>
-        <img src={avatarUrl} alt="avatar picture 1"/>Cameron Williamson<button className='transfer__amountButton violetButton xButton'></button>
+        <img src={avatarUrl} alt="avatar picture 1"/><div className='contactRow__name'>{name}</div><button className='transfer__amountButton violetButton xButton'></button>
     </div>
     )
 }
