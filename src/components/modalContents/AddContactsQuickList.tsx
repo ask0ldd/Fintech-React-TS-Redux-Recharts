@@ -11,7 +11,7 @@ import { useState } from 'react'
 
 function AddContactsQuickList(){
 
-    /*const [rows, setRows] = useState([
+    const [rows, setRows] = useState([
         { name : 'Annette Black', avatar : avatar1, inQuicklist : false },
         { name : 'Arlene McCoy', avatar : avatar2, inQuicklist : false },
         { name : 'Cameron Williamson', avatar : avatar3, inQuicklist : false },
@@ -20,21 +20,13 @@ function AddContactsQuickList(){
         { name : 'Eleanor Pena', avatar : avatar6, inQuicklist : false },
         { name : 'Devon Lane', avatar : avatar7, inQuicklist : false },
         { name : 'Jenny Wilson', avatar : avatar8, inQuicklist : false },
-    ])*/
+    ])
 
     return (
         <div className='contactListModal__bodyContainer'>
             <h2>Favorite Recipients</h2>
             <div className="contactsList__container">
-                {/*rows.map(row => <ContactRow name={row.name} avatarUrl={row.avatar} />)*/}
-                <ContactRow name={'Annette Black'} avatarUrl={avatar1}/>
-                <ContactRow name={'Arlene McCoy'} avatarUrl={avatar2}/>
-                <ContactRow name={'Cameron Williamson'} avatarUrl={avatar3}/>
-                <ContactRow name={'Darlene Robertson'} avatarUrl={avatar4}/>
-                <ContactRow name={'Theresa Webb'} avatarUrl={avatar5}/>
-                <ContactRow name={'Eleanor Pena'} avatarUrl={avatar6}/>
-                <ContactRow name={'Devon Lane'} avatarUrl={avatar7}/>
-                <ContactRow name={'Jenny Wilson'} avatarUrl={avatar8}/>
+                {rows.map((row, index) => <ContactRow name={row.name} key={'contactrow-'+index} avatarUrl={row.avatar} />)}
             </div>
             <div className='contactsSelected__container'>
                 4  contacts selected
