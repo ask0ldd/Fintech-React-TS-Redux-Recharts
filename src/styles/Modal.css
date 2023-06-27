@@ -1,6 +1,6 @@
 dialog {
   border-radius: 30px;
-  background: linear-gradient(180deg, #bec4e4 0%, #e8e9f6 100%), #f1f4fc;
+  background: linear-gradient(180deg, #dde1f6 0%, #e8e9f6 100%), #f1f4fc;
   box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
@@ -10,8 +10,21 @@ dialog {
   animation-name: modalAppears;
   animation-duration: 0.3s;
   animation-timing-function: ease-out;
-
+  position: relative;
   /*display: none;*/
+}
+
+dialog:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  z-index: -1;
+  border-radius: 30px;
+  /*background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);*/
+  background: linear-gradient(180deg, #bec4e4 0%, #e8e9f6 100%), #f1f4fc;
 }
 
 @keyframes modalAppears {

@@ -10,13 +10,14 @@ function AddContactsQuickList(){
         <div className='contactListModal__bodyContainer'>
             <h2>Add Usual Recipients</h2>
             <div className="contactsList__container">
-                <ContactRow avatarUrl={avatar1}/>
-                <ContactRow avatarUrl={avatar2}/>
-                <ContactRow avatarUrl={avatar3}/>
-                <ContactRow avatarUrl={avatar4}/>
-                <ContactRow avatarUrl={avatar5}/>
-                <ContactRow avatarUrl={avatar4}/>
-                <ContactRow avatarUrl={avatar5}/>
+                <ContactRow name={'Annette Black'} avatarUrl={avatar1}/>
+                <ContactRow name={'Arlene McCoy'} avatarUrl={avatar2}/>
+                <ContactRow name={'Cameron Williamson'} avatarUrl={avatar3}/>
+                <ContactRow name={'Darlene Robertson'} avatarUrl={avatar4}/>
+                <ContactRow name={'Theresa Webb'} avatarUrl={avatar5}/>
+                <ContactRow name={'Eleanor Pena'} avatarUrl={avatar4}/>
+                <ContactRow name={'Devon Lane'} avatarUrl={avatar5}/>
+                <ContactRow name={'Jenny Wilson'} avatarUrl={avatar3}/>
             </div>
             <div className='contactsSelected__container'>
                 4  contacts selected
@@ -27,7 +28,7 @@ function AddContactsQuickList(){
 }
 
 // props : alt img / nom user / id
-function ContactRow({avatarUrl} : ContactRowProps){
+function ContactRow({name, avatarUrl} : ContactRowProps){
     return(
     <div className='contactRow'>
         <img src={avatarUrl} alt="avatar picture 1"/>Cameron Williamson<button className='transfer__amountButton violetButton xButton'></button>
@@ -38,5 +39,6 @@ function ContactRow({avatarUrl} : ContactRowProps){
 export default AddContactsQuickList
 
 interface ContactRowProps{
+    name : string
     avatarUrl : string
 }
