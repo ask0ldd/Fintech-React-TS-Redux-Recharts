@@ -4,9 +4,9 @@
   box-shadow: 0px 4px 16px 0px rgba(133, 101, 171, 0.32);
   display: flex;
   flex-direction: column;
-  padding: 40px 30px;
+  padding: 30px 30px;
   row-gap: 20px;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 .contactRow {
@@ -26,5 +26,46 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  row-gap: 17px;
+  row-gap: 18px;
+}
+
+.contactsSelected__container {
+  border-radius: 30px;
+  border: 2px solid #573faf;
+  background: #eef1fb;
+  box-shadow: 0px 4px 16px 0px rgba(133, 101, 171, 0.32);
+  color: #573faf;
+  font-size: 16px;
+  font-family: Poppins;
+  font-weight: 700;
+  letter-spacing: 0.32px;
+  display: flex;
+  width: 100%;
+  height: 48px;
+  padding: 10px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmSelection__button {
+  display: inline-flex;
+  padding: 12px 32px 11px 32px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 41px;
+  background: linear-gradient(178deg, #703faf 0%, #573faf 100%);
+  box-shadow: 0px 2.767256498336792px 2.2138051986694336px 0px
+      rgba(129, 48, 147, 0.03),
+    0px 6.650102138519287px 5.32008171081543px 0px rgba(129, 48, 147, 0.04),
+    0px 12.521552085876465px 10.017241477966309px 0px rgba(129, 48, 147, 0.05),
+    0px 22.3363094329834px 17.869047164916992px 0px rgba(129, 48, 147, 0.07),
+    0px 41.777610778808594px 33.422088623046875px 0px rgba(129, 48, 147, 0.06),
+    0px 100px 80px 0px rgba(129, 48, 147, 0.08),
+    0px 4px 8px 0px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  font-size: 15px;
+  font-family: Poppins;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  border: none;
 }

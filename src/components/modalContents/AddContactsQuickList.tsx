@@ -15,7 +15,13 @@ function AddContactsQuickList(){
                 <ContactRow avatarUrl={avatar3}/>
                 <ContactRow avatarUrl={avatar4}/>
                 <ContactRow avatarUrl={avatar5}/>
+                <ContactRow avatarUrl={avatar4}/>
+                <ContactRow avatarUrl={avatar5}/>
             </div>
+            <div className='contactsSelected__container'>
+                4  contacts selected
+            </div>
+            <button className='confirmSelection__button'>Confirm Your Selection</button>
         </div>
     )
 }
