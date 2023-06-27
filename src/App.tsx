@@ -37,11 +37,7 @@ window.onload = (e) => {
 function App() {
   // showString('coucou')
 
-  const {
-    modalVisibility, modalContent, 
-    setModalVisibility, setModalContent,
-} 
-  = useModalManager({initialVisibility : false, content : AddContactsQuickList})
+  const { modalVisibility, setModalVisibility } = useModalManager({initialVisibility : false})
 
   return (
     <div className="App">
@@ -59,7 +55,7 @@ function App() {
         <Transactions/>
         <RecurringDebits/>
       </div>
-      <Modal modalContent={modalContent} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>
+      <Modal modalContent={<AddContactsQuickList/>} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>
     </div>
   )
 }
