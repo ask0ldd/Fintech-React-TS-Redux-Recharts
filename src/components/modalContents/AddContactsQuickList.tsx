@@ -4,20 +4,23 @@ import avatar2 from '/avatars/avatar2.png'
 import avatar3 from '/avatars/avatar3.png'
 import avatar4 from '/avatars/avatar4.png'
 import avatar5 from '/avatars/avatar5.png'
+import avatar6 from '/avatars/avatar6.png'
+import avatar7 from '/avatars/avatar7.png'
+import avatar8 from '/avatars/avatar8.png'
 
 function AddContactsQuickList(){
     return (
         <div className='contactListModal__bodyContainer'>
-            <h2>Add Usual Recipients</h2>
+            <h2>Favorite Recipients</h2>
             <div className="contactsList__container">
                 <ContactRow name={'Annette Black'} avatarUrl={avatar1}/>
                 <ContactRow name={'Arlene McCoy'} avatarUrl={avatar2}/>
                 <ContactRow name={'Cameron Williamson'} avatarUrl={avatar3}/>
                 <ContactRow name={'Darlene Robertson'} avatarUrl={avatar4}/>
                 <ContactRow name={'Theresa Webb'} avatarUrl={avatar5}/>
-                <ContactRow name={'Eleanor Pena'} avatarUrl={avatar4}/>
-                <ContactRow name={'Devon Lane'} avatarUrl={avatar5}/>
-                <ContactRow name={'Jenny Wilson'} avatarUrl={avatar3}/>
+                <ContactRow name={'Eleanor Pena'} avatarUrl={avatar6}/>
+                <ContactRow name={'Devon Lane'} avatarUrl={avatar7}/>
+                <ContactRow name={'Jenny Wilson'} avatarUrl={avatar8}/>
             </div>
             <div className='contactsSelected__container'>
                 4  contacts selected

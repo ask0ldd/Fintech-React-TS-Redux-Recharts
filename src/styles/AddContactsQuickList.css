@@ -90,3 +90,17 @@
   letter-spacing: -0.3px;
   border: none;
 }
+
+.confirmSelection__button:hover {
+  background: linear-gradient(
+      180deg,
+      rgba(148, 48, 218, 0) 0%,
+      rgba(136, 52, 218, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(166, 41, 237, 0.7) 0%,
+      rgba(158, 47, 237, 0.7) 100%
+    ),
+    linear-gradient(178deg, #703faf 0%, #573faf 100%);
+}
