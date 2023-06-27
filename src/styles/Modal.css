@@ -7,11 +7,24 @@ dialog {
   margin: auto;
   border: none;
   padding: 20px 60px 24px 60px;
+  animation-name: modalAppears;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+
   /*display: none;*/
 }
 
+@keyframes modalAppears {
+  0% {
+    transform: translateY(400px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 dialog::backdrop {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(21, 11, 22, 0.35);
   /*width: 100vw;
   height: 100vh;*/
 }
