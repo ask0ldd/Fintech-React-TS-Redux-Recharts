@@ -24,7 +24,7 @@ export default Modal
 
 interface IProps{
     modalVisibility : boolean
-    modalContent : /*() => */JSX.Element
+    modalContent : JSX.Element
     containerCSSClass? : string
     setModalVisibility : (bool : boolean) => void
 }

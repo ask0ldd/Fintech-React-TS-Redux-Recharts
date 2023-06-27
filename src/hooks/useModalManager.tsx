@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react"
+import { useState, useEffect, useReducer } from "react"
 // import ModalHeader from "../ModalHeader"
 
 /**
@@ -15,12 +15,14 @@ import { useState, useEffect } from "react"
  * setModalContent - Sets a new react component as the body of the modal.
  * setHeaderComponent - Set a new react component as the header of the modal.
  */
-function useModalManager({initialVisibility, content} : IModalObject){
+function useModalManager({initialVisibility, content, /*reducerFn, reducerInitialState*/} : IModalObject){
     // initial visibility / initial content
 
     const [modalVisibility, setModalVisibility] = useState<boolean>(initialVisibility)
     const [modalContent, setModalContent] = useState<JSX.Element>(content)
     // const [headerComponent, setHeaderComponent] = useState<JSX.Element>(ModalHeader({setModalVisibility})) /* set default modal header with props passed */
+    /*let reducerState; let reducerDispatch;
+    if (reducerFn) {[reducerState, reducerDispatch] = useReducer(reducerFn, reducerInitialState)}*/
 
     useEffect(() => {
   
@@ -37,6 +39,12 @@ function useModalManager({initialVisibility, content} : IModalObject){
 
     }, [])
 
+    useEffect(() => {
+
+        modalVisibility ? scrollLock(true) : scrollLock(false)
+
+    }, [modalVisibility])
+
     return {modalVisibility, modalContent/*, headerComponent*/, setModalVisibility, setModalContent, /*setHeaderComponent*/}
 }
 
@@ -45,4 +53,20 @@ export default useModalManager
 interface IModalObject{
     initialVisibility : boolean
     content : () => JSX.Element
+    /*reducerFn? : () => any
+    reducerInitialState? : any*/
+}
+
+function scrollLock(bool : boolean)
+{
+    if(bool)
+    {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop
+        let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
+        window.onscroll = () => {
+            window.scrollTo(scrollLeft, scrollTop)
+        }
+    }else{
+        window.onscroll = () => {}
+    }
 }
