@@ -7,7 +7,7 @@ import avatar5 from '/avatars/avatar5.png'
 import avatar6 from '/avatars/avatar6.png'
 import avatar7 from '/avatars/avatar7.png'
 import avatar8 from '/avatars/avatar8.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function AddContactsQuickList(){
 
@@ -22,25 +22,35 @@ function AddContactsQuickList(){
         { name : 'Jenny Wilson', avatar : avatar8, inQuicklist : false },
     ])
 
+    function numberOfSelectRows(){
+        return rows.filter(row => row.inQuicklist).length
+    }
+
     return (
         <div className='contactListModal__bodyContainer'>
             <h2>Favorite Recipients</h2>
             <div className="contactsList__container">
-                {rows.map((row, index) => <ContactRow name={row.name} key={'contactrow-'+index} avatarUrl={row.avatar} />)}
+                {rows.map((row, index) => <ContactRow name={row.name} key={'contactrow-'+index} rowIndex={index} avatarUrl={row.avatar} rows={rows} setRows={setRows}/>)}
             </div>
             <div className='contactsSelected__container'>
-                4  contacts selected
+            {numberOfSelectRows()}  contacts selected
             </div>
             <button className='confirmSelection__button'>Confirm Your Selection</button>
         </div>
     )
 }
 
-// props : alt img / nom user / id
-function ContactRow({name, avatarUrl} : ContactRowProps){
+function ContactRow({name, avatarUrl, rows, setRows, rowIndex} : ContactRowProps){
     return(
     <div className='contactRow'>
-        <img src={avatarUrl} alt="avatar picture 1"/><div className='contactRow__name'>{name}</div><button className='transfer__amountButton violetButton xButton'></button>
+        <img src={avatarUrl} alt="avatar picture 1"/>
+        <div className='contactRow__name'>{name}</div>
+        <button className='transfer__amountButton violetButton xButton' 
+        onClick={() => {
+            const newRows = [...rows]
+            newRows[rowIndex] = {...newRows[rowIndex], inQuicklist : !newRows[rowIndex].inQuicklist}
+            setRows(newRows)
+        }}></button>
     </div>
     )
 }
@@ -50,4 +60,13 @@ export default AddContactsQuickList
 interface ContactRowProps{
     name : string
     avatarUrl : string
+    rows : Array<IRow>
+    setRows : any //!!!! a definir
+    rowIndex : number
+}
+
+interface IRow{
+    name:string
+    avatar:string
+    inQuicklist:boolean
 }
