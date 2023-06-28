@@ -166,3 +166,29 @@
   width: 40px;
   height: 40px;
 }
+
+.greenButton {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background: url("../assets/icons/v.png"),
+    linear-gradient(120.01deg, #3faf6e 6.99%, #3faf97 63.96%);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  /*box-shadow: 0 3px 0 #fff;*/
+}
+
+.greenButton:hover {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background: url("../assets/icons/v.png"),
+    linear-gradient(120.01deg, #57cc88 6.99%, #43caad 63.96%);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  box-shadow: none;
+}

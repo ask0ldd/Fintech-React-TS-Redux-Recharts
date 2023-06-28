@@ -41,13 +41,19 @@ function AddContactsQuickList(){
 }
 
 function ContactRow({name, avatarUrl, rows, setRows, rowIndex} : ContactRowProps){
+
+    function isContactInQuicklist(){
+        return rows[rowIndex].inQuicklist
+    }
+
     return(
     <div className='contactRow'>
         <img src={avatarUrl} alt="avatar picture 1"/>
         <div className='contactRow__name'>{name}</div>
-        <button className='transfer__amountButton violetButton xButton' 
+        <button className={!isContactInQuicklist() ? 'transfer__amountButton xButton violetButton' : 'transfer__amountButton xButton greenButton'}
         onClick={() => {
             const newRows = [...rows]
+            // update the quicklisted row
             newRows[rowIndex] = {...newRows[rowIndex], inQuicklist : !newRows[rowIndex].inQuicklist}
             setRows(newRows)
         }}></button>
