@@ -15,7 +15,7 @@ function AddContactsQuickList({setModalVisibility, rows, setRows} : IProps){
                 {rows.map((row, index) => <ContactRow name={row.name} key={'contactrow-'+index} rowIndex={index} avatarUrl={row.avatar} rows={rows} setRows={setRows}/>)}
             </div>
             <div className='contactsSelected__container'>
-            {numberOfSelectedRows()}  contacts selected
+                {numberOfSelectedRows()}  contacts selected
             </div>
             <button className='confirmSelection__button' onClick={() => setModalVisibility(false)}>Confirm Your Selection</button>
         </div>
@@ -28,12 +28,17 @@ function ContactRow({name, avatarUrl, rows, setRows, rowIndex} : ContactRowProps
         return rows[rowIndex].inQuicklist
     }
 
+    function nItemsInQuickList(){
+        return ([...rows].filter(row => row.inQuicklist)).length
+    }
+
     return(
     <div className='contactRow'>
         <img src={avatarUrl} alt="avatar picture 1"/>
         <div className='contactRow__name'>{name}</div>
         <button className={!isContactInQuicklist() ? 'transfer__amountButton xButton violetButton' : 'transfer__amountButton xButton greenButton'}
         onClick={() => {
+            if(nItemsInQuickList() > 4 && !isContactInQuicklist()) return ;
             const newRows = [...rows]
             // update the quicklisted row
             newRows[rowIndex] = {...newRows[rowIndex], inQuicklist : !newRows[rowIndex].inQuicklist}
