@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 
 function AddContactsQuickList(){
 
-    const [rows, setRows] = useState([
+    const [rows, setRows] = useState<Array<IRow>>([
         { name : 'Annette Black', avatar : avatar1, inQuicklist : false },
         { name : 'Arlene McCoy', avatar : avatar2, inQuicklist : false },
         { name : 'Cameron Williamson', avatar : avatar3, inQuicklist : false },
@@ -67,7 +67,7 @@ interface ContactRowProps{
     name : string
     avatarUrl : string
     rows : Array<IRow>
-    setRows : any //!!!! a definir
+    setRows : (arg : Array<IRow>) => void
     rowIndex : number
 }
 
