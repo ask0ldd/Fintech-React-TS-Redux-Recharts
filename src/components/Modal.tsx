@@ -11,6 +11,7 @@ function Modal({modalVisibility, setModalVisibility, modalContent, containerCSSC
         if(!modalVisibilityRef && dialogRef.current?.open) return dialogRef.current?.close()
     })
     
+    // needs to pass setModalVisibility to modalContent
     return (
         modalVisibility 
         ? <dialog ref={dialogRef} onClick={(e) => { if (e.target === dialogRef.current) setModalVisibility(false) }}>

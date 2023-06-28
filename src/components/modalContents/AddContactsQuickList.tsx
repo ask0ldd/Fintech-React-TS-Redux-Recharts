@@ -9,7 +9,7 @@ import avatar7 from '/avatars/avatar7.png'
 import avatar8 from '/avatars/avatar8.png'
 import { useEffect, useState } from 'react'
 
-function AddContactsQuickList(){
+function AddContactsQuickList({setModalVisibility} : IProps){
 
     const [rows, setRows] = useState<Array<IRow>>([
         { name : 'Annette Black', avatar : avatar1, inQuicklist : false },
@@ -35,7 +35,7 @@ function AddContactsQuickList(){
             <div className='contactsSelected__container'>
             {numberOfSelectRows()}  contacts selected
             </div>
-            <button className='confirmSelection__button'>Confirm Your Selection</button>
+            <button className='confirmSelection__button' onClick={() => setModalVisibility(false)}>Confirm Your Selection</button>
         </div>
     )
 }
@@ -75,4 +75,8 @@ interface IRow{
     name:string
     avatar:string
     inQuicklist:boolean
+}
+
+interface IProps{
+    setModalVisibility : (bool : boolean) => void
 }

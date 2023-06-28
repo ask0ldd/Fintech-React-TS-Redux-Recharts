@@ -55,7 +55,7 @@ function App() {
         <Transactions/>
         <RecurringDebits/>
       </div>
-      <Modal modalContent={<AddContactsQuickList/>} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>
+      <Modal modalContent={<AddContactsQuickList setModalVisibility={setModalVisibility}/>} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>
     </div>
   )
 }
