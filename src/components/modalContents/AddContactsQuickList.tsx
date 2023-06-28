@@ -8,6 +8,7 @@ import avatar6 from '/avatars/avatar6.png'
 import avatar7 from '/avatars/avatar7.png'
 import avatar8 from '/avatars/avatar8.png'
 import { useEffect, useState } from 'react'
+import { IRow } from '../../types/types'
 
 function AddContactsQuickList({setModalVisibility} : IProps){
 
@@ -22,7 +23,7 @@ function AddContactsQuickList({setModalVisibility} : IProps){
         { name : 'Jenny Wilson', avatar : avatar8, inQuicklist : false },
     ])
 
-    function numberOfSelectRows(){
+    function numberOfSelectedRows(){
         return rows.filter(row => row.inQuicklist).length
     }
 
@@ -33,7 +34,7 @@ function AddContactsQuickList({setModalVisibility} : IProps){
                 {rows.map((row, index) => <ContactRow name={row.name} key={'contactrow-'+index} rowIndex={index} avatarUrl={row.avatar} rows={rows} setRows={setRows}/>)}
             </div>
             <div className='contactsSelected__container'>
-            {numberOfSelectRows()}  contacts selected
+            {numberOfSelectedRows()}  contacts selected
             </div>
             <button className='confirmSelection__button' onClick={() => setModalVisibility(false)}>Confirm Your Selection</button>
         </div>
@@ -69,12 +70,6 @@ interface ContactRowProps{
     rows : Array<IRow>
     setRows : (arg : Array<IRow>) => void
     rowIndex : number
-}
-
-interface IRow{
-    name:string
-    avatar:string
-    inQuicklist:boolean
 }
 
 interface IProps{

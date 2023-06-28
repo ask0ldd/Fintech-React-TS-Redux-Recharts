@@ -15,3 +15,9 @@ export interface ICryptoAsset {
     growth:number
     dashes:boolean
 }
+
+export interface IRow{
+    name:string
+    avatar:string
+    inQuicklist:boolean
+}
