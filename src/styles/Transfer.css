@@ -56,6 +56,10 @@
   align-items: center;
 }
 
+.transfer__amountButton {
+  cursor: pointer;
+}
+
 .transfer__innerButton {
   height: 100%;
   background: linear-gradient(120.01deg, #703faf 6.99%, #573faf 63.96%);
@@ -165,6 +169,10 @@
 .transfer__avatarsnButton__container img {
   width: 40px;
   height: 40px;
+}
+
+.nonBlankAvatar {
+  cursor: pointer;
 }
 
 .greenButton {

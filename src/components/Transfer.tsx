@@ -7,6 +7,7 @@ import avatar5 from '/avatars/avatar5.png'
 import blankavatar from '/avatars/blank.png'
 import { Formatter } from '../services/formatter'
 import { IRow } from '../types/types'
+import { useState } from 'react'
 
 const Transfer = ({setModalVisibility, rows}:IProps) => {
 
@@ -15,6 +16,8 @@ const Transfer = ({setModalVisibility, rows}:IProps) => {
     }
 
     const blankQuicklist = [blankavatar, blankavatar, blankavatar, blankavatar, blankavatar]
+
+    const [transferRecipientName, setTransferRecipientName] = useState<string>()
 
     function getBlankAvatarsToFillQuicklist(){
         return [...blankQuicklist].slice(0, 5-getContactsInQuicklist().length)
@@ -30,7 +33,13 @@ const Transfer = ({setModalVisibility, rows}:IProps) => {
                 <button className='transfer__amountButton violetButton vButton'></button>
             </div>
             <div className='transfer__avatarsnButton__container'>
-                { getContactsInQuicklist().map((row, index) => <img key={'avatarQL-'+index} src={row.avatar} alt={row.name + " avatar"}/>) }
+                {
+                    getContactsInQuicklist().map((row, index) => 
+                        <img onClick={() => {setTransferRecipientName(row.name)}} 
+                        style={row.name === transferRecipientName ? {border:'2px solid rgba(166, 41, 237, 1)', borderRadius:'20px'} : {}} 
+                        className='nonBlankAvatar' key={'avatarQL-'+index} 
+                        src={row.avatar} alt={row.name + " avatar"}/>) 
+                }
                 { getBlankAvatarsToFillQuicklist().map((row, index) => <img key={'blankAvatar-'+index} src={blankavatar} alt="blank space"/>) }
                 <button className='transfer__amountButton violetButton xButton' onClick={() => setModalVisibility(true)}></button>
             </div>
@@ -39,13 +48,6 @@ const Transfer = ({setModalVisibility, rows}:IProps) => {
     )
 
 }
-
-/*
-                <img src={avatar1} alt="avatar picture 1"/>
-                <img src={avatar2} alt="avatar picture 2"/>
-                <img src={avatar3} alt="avatar picture 3"/>
-                <img src={avatar4} alt="avatar picture 4"/>
-*/
 
 export default Transfer
 

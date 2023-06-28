@@ -22,7 +22,7 @@ function AddContactsQuickList({setModalVisibility, rows, setRows} : IProps){
     )
 }
 
-function ContactRow({name, avatarUrl, rows, setRows, rowIndex} : ContactRowProps){
+function ContactRow({name, avatarUrl, rows, setRows, rowIndex} : IContactRowProps){
 
     function isContactInQuicklist(){
         return rows[rowIndex].inQuicklist
@@ -50,7 +50,7 @@ function ContactRow({name, avatarUrl, rows, setRows, rowIndex} : ContactRowProps
 
 export default AddContactsQuickList
 
-interface ContactRowProps{
+interface IContactRowProps{
     name : string
     avatarUrl : string
     rows : Array<IRow>
