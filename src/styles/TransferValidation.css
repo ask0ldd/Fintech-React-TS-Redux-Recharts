@@ -31,7 +31,8 @@
   flex-direction: column;
 }
 
-.transferSummary__container:before {
+.transferSummary__container:before,
+.estimatedDate__container:before {
   content: "";
   position: absolute;
   top: 2px;
@@ -67,4 +68,29 @@
   border: none;
   margin-top: 1rem;
   cursor: pointer;
+}
+
+.boldPoppins {
+  color: #573faf;
+  font-size: 16px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 700;
+  text-align: right;
+}
+
+.textJost {
+  color: rgba(65, 65, 65, 0.9);
+  font-size: 18px;
+  font-family: Jost;
+  font-style: normal;
+  font-weight: 500;
+  text-align: right;
+}
+
+.transferAvatar {
+  height: 80px;
+  width: 80px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
