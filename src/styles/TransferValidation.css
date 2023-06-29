@@ -6,18 +6,29 @@
   row-gap: 18px;
 }
 
-.transferSummary__container {
+.transferSummary__container,
+.estimatedDate__container {
   border-radius: 30px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);
   box-shadow: 0px 4px 16px 0px rgba(133, 101, 171, 0.32);
   display: flex;
-  flex-direction: column;
   padding: 24px 24px;
   row-gap: 16px;
   margin-top: 2px;
   position: relative;
   z-index: 2;
   width: 100%;
+  font-size: 16px;
+}
+
+.transferSummary__container {
+  justify-content: space-between;
+}
+
+.estimatedDate__container {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .transferSummary__container:before {
@@ -54,4 +65,6 @@
   font-weight: 600;
   letter-spacing: -0.3px;
   border: none;
+  margin-top: 1rem;
+  cursor: pointer;
 }
