@@ -15,11 +15,11 @@ import { useState, useEffect, useReducer } from "react"
  * setModalContent - Sets a new react component as the body of the modal.
  * setHeaderComponent - Set a new react component as the header of the modal.
  */
-function useModalManager({initialVisibility/*reducerFn, reducerInitialState*/} : IModalObject){
+function useModalManager({initialVisibility, initialModalContentId/*reducerFn, reducerInitialState*/} : IModalObject){
     // initial visibility / initial content
 
     const [modalVisibility, setModalVisibility] = useState<boolean>(initialVisibility)
-    // const [modalContent, setModalContent] = useState</*JSX.Element*/any>(content)
+    const [modalContentId, setModalContentId] = useState<string>(initialModalContentId)
     // const [headerComponent, setHeaderComponent] = useState<JSX.Element>(ModalHeader({setModalVisibility})) /* set default modal header with props passed */
     /*let reducerState; let reducerDispatch;
     if (reducerFn) {[reducerState, reducerDispatch] = useReducer(reducerFn, reducerInitialState)}*/
@@ -45,13 +45,14 @@ function useModalManager({initialVisibility/*reducerFn, reducerInitialState*/} :
 
     }, [modalVisibility])
 
-    return {modalVisibility, /*, headerComponent*/setModalVisibility, /*setHeaderComponent*/}
+    return { modalVisibility, setModalVisibility, modalContentId, setModalContentId }
 }
 
 export default useModalManager
 
 interface IModalObject{
     initialVisibility : boolean
+    initialModalContentId : string
     // content : () => JSX.Element
     /*reducerFn? : () => any
     reducerInitialState? : any*/

@@ -56,7 +56,7 @@ function App() {
     { name : 'Jenny Wilson', avatar : avatar8, inQuicklist : true },
   ])
 
-  const { modalVisibility, setModalVisibility } = useModalManager({initialVisibility : false})
+  const { modalVisibility, setModalVisibility } = useModalManager({initialVisibility : false, initialModalContentId : 'addContactsQuicklist'})
 
   return (
     <div className="App">
