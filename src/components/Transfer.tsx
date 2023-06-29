@@ -9,7 +9,7 @@ import { Formatter } from '../services/formatter'
 import { IRow } from '../types/types'
 import { useState } from 'react'
 
-const Transfer = ({setModalVisibility, rows}:IProps) => {
+const Transfer = ({setModalVisibility, rows, setModalContentId}:IProps) => {
 
     function getContactsInQuicklist(){
         return rows.filter(row => row.inQuicklist)
@@ -30,7 +30,11 @@ const Transfer = ({setModalVisibility, rows}:IProps) => {
                 <div className='transfer__amount'>
                     <div className='transfer__innerButton'>Amount</div><span className='transfer__amountText'>$300</span>
                 </div>
-                <button className='transfer__amountButton violetButton vButton'></button>
+                <button className='transfer__amountButton violetButton vButton'
+                onClick={() => {
+                    setModalContentId('transferValidation')
+                    setModalVisibility(true)
+                }}></button>
             </div>
             <div className='transfer__avatarsnButton__container'>
                 {
@@ -41,7 +45,12 @@ const Transfer = ({setModalVisibility, rows}:IProps) => {
                         src={row.avatar} alt={row.name + " avatar"}/>) 
                 }
                 { getBlankAvatarsToFillQuicklist().map((row, index) => <img key={'blankAvatar-'+index} src={blankavatar} alt="blank space"/>) }
-                <button className='transfer__amountButton violetButton xButton' onClick={() => setModalVisibility(true)}></button>
+                <button className='transfer__amountButton violetButton xButton' 
+                onClick={() => {
+                    setModalContentId('addContactsQuicklist')
+                    setModalVisibility(true)
+                }}>
+                </button>
             </div>
             <div className='grid16'></div>
         </article>
@@ -54,4 +63,5 @@ export default Transfer
 interface IProps{
     setModalVisibility : (bool : boolean) => void
     rows : Array<IRow>
+    setModalContentId : (bool : string) => void
 }

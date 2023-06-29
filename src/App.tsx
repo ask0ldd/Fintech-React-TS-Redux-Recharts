@@ -11,6 +11,7 @@ import CreditCards from './components/CreditCards'
 import Modal from './components/Modal'
 import useModalManager from './hooks/useModalManager'
 import AddContactsQuickList from './components/modalContents/AddContactsQuickList'
+import TransferValidation from './components/modalContents/TransferValidation'
 import { useState } from 'react'
 import { IRow } from './types/types'
 import avatar1 from '/avatars/avatar1.png'
@@ -56,7 +57,9 @@ function App() {
     { name : 'Jenny Wilson', avatar : avatar8, inQuicklist : true },
   ])
 
-  const { modalVisibility, setModalVisibility } = useModalManager({initialVisibility : false, initialModalContentId : 'addContactsQuicklist'})
+  const { modalVisibility, setModalVisibility, modalContentId, setModalContentId } = useModalManager({initialVisibility : false, initialModalContentId : 'addContactsQuicklist'})
+
+
 
   return (
     <div className="App">
@@ -66,7 +69,7 @@ function App() {
         <Balance/>
         <CreditCards/>
         <div className='transfer__cryptos__container'>
-            <Transfer rows={rows} setModalVisibility={setModalVisibility}/>
+            <Transfer rows={rows} setModalVisibility={setModalVisibility} setModalContentId={setModalContentId}/>
             <Cryptos/>
         </div>
       </div>
@@ -74,7 +77,15 @@ function App() {
         <Transactions/>
         <RecurringDebits/>
       </div>
-      <Modal modalContent={<AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>
+      { /*modalContentId && <Modal modalContent={ <AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/> } 
+      modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/> */
+      { // equivalent to switch
+        'addContactsQuicklist' : <Modal modalContent={<AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>,
+        'transferValidation' : <Modal modalContent={<TransferValidation setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>,
+      } [modalContentId] 
+      // equivalent to default
+      || <Modal modalContent={<AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>
+      }
     </div>
   )
 }
