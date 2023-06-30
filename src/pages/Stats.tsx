@@ -1,3 +1,4 @@
+import BalanceBarsChart from "../components/BalanceBarsChart"
 import Header from "../components/Header"
 import StatsHorizontalMenu from "../components/StatsHorizontalMenu"
 import VMenu from "../components/VMenu"
@@ -10,6 +11,7 @@ function Stats(){
             <div className="headernGraph__container">
                 <Header/>
                 <StatsHorizontalMenu/>
+                <BalanceBarsChart/>
             </div>
         </div>
     )
