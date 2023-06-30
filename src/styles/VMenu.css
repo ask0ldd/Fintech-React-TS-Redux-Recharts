@@ -6,9 +6,15 @@
   align-items: center;
 }
 
+.vmenu-anchor {
+  height: 64px;
+  width: 64px;
+}
+
 .vmenu img {
   height: 64px;
   width: 64px;
+  /*cursor: pointer;*/
 }
 
 .vmenu .homeButton {
@@ -59,8 +65,4 @@
 .vmenu .homeButton img {
   width: 24px;
   margin-top: -2px;
-}
-
-.vmenu img {
-  cursor: pointer;
 }
