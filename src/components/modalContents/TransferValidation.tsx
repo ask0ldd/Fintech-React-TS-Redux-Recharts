@@ -16,7 +16,7 @@ function TransferValidation({setModalVisibility, rows, setRows} : IProps){
             </div>
         </div>
         <h3 style={{marginTop:'4px'}}>Estimated Date</h3>
-        <div className="estimatedDate__container">
+        <div className="estimatedDate__container textJost">
             24/06/2023
         </div>
         <button className='confirmSelection__button' onClick={() => setModalVisibility(false)}>Confirm This Transfer</button>
