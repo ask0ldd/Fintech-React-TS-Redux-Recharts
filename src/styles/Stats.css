@@ -1,5 +1,13 @@
-.Stats {
+.statsPage__mainContainer {
   width: 100%;
   display: flex;
   column-gap: 24px;
+  min-height: 100vh;
+}
+
+.headernGraph__container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 1120px;
+  row-gap: 24px;
 }

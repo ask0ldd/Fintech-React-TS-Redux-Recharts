@@ -10,13 +10,13 @@ function VMenu(){
     return(
         <div className='vmenu'>
             <div role="button" className='homeButton'>
-                <img src={homeIcon}/>
+                <img src='./menu_icons/home.svg'/>
             </div>
-            <Link to="/Stats" className='vmenu-anchor'><img src={settingsIcon}/></Link>
-            <img src={accountsIcon}/>
-            <img src={chatIcon}/>
-            <img src={settingsIcon}/>
-            <img src={darkmodeIcon}/>
+            <Link to="/Stats" className='vmenu-anchor'><img src='./menu_icons/stats.png'/></Link>
+            <img src='./menu_icons/accounts.png'/>
+            <img src='./menu_icons/chat.png'/>
+            <img src='./menu_icons/settings.png'/>
+            <img src='./menu_icons/darkmode.png'/>
         </div>
     )
 }
