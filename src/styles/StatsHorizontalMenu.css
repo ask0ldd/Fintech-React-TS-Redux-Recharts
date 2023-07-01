@@ -50,6 +50,10 @@
   color: #fff;
 }
 
+.statsMenu__items:hover a {
+  color: #fff;
+}
+
 .statsMenu__itemsActive {
   border-radius: 10px;
   background: linear-gradient(178deg, #703faf 0%, #573faf 100%), #eef1fb;
@@ -68,4 +72,16 @@
 
 .statsMenu__items:hover:before {
   background: linear-gradient(178deg, #703faf 0%, #573faf 100%), #eef1fb;
+}
+
+a {
+  color: rgba(65, 65, 65, 0.9);
+}
+
+.statsMenu__itemsActive a {
+  color: #fff;
+}
+
+.statsMenu__itemsActive a:active {
+  color: #fff;
 }

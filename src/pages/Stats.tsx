@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom"
 import BalanceBarsChart from "../components/BalanceBarsChart"
+import IncomeBarChart from "../components/IncomeBarChart"
 import Header from "../components/Header"
 import StatsHorizontalMenu from "../components/StatsHorizontalMenu"
 import VMenu from "../components/VMenu"
 import '../styles/Stats.css'
+import ExpensesBarChart from "../components/ExpensesBarChart"
 
 function Stats(){
     const activeGraph = useParams().id
@@ -14,7 +16,12 @@ function Stats(){
             <div className="headernGraph__container">
                 <Header/>
                 {activeGraph === 'balance' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
-                <BalanceBarsChart/>
+                {activeGraph === 'balance' && <BalanceBarsChart/>}
+                {activeGraph === 'income' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
+                {activeGraph === 'income' && <IncomeBarChart/>}
+                {activeGraph === 'expenses' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
+                {activeGraph === 'expenses' && <ExpensesBarChart/>}
+               
             </div>
         </div>
     )

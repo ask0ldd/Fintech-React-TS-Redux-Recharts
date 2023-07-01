@@ -1,4 +1,4 @@
-import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 import '../styles/BalanceBarsChart.css'
 
 const datas = [
@@ -16,10 +16,10 @@ const datas = [
     { month: 'Dec', financial : {income:4650, expenses:4153} },
 ]
 
-function BalanceBarsChart(){
+function IncomeBarChart(){
 
     return(
-        <ResponsiveContainer className="graph__container" width="100%" height={680}>
+<ResponsiveContainer className="graph__container" width="100%" height={680}>
             <BarChart data={datas}
             barCategoryGap='25%'
             barGap={10}
@@ -44,10 +44,9 @@ function BalanceBarsChart(){
                 <YAxis dataKey="financial.income" yAxisId={0} tickCount={7} tick={<CustomizedYTick />}/>
                 <XAxis dataKey="month" tickLine={false} tick={<CustomizedXTick />}/>
                 <CartesianGrid  strokeDasharray="4 4" vertical={false} stroke="#A4B3C6" />
-                <Bar dataKey="financial.income" fill="url(#GreenUV)" yAxisId={0} radius={[3, 3, 0, 0]}/>
-                <Bar dataKey="financial.expenses" fill="url(#PurpleUV)" yAxisId={0} radius={[3, 3, 0, 0]}/>
+                <Bar dataKey="financial.income" fill="url(#GreenUV)" maxBarSize={30} yAxisId={0} radius={[3, 3, 0, 0]} label={CustomLabel}/>
                 <Legend align="right" verticalAlign='top' width={300} iconSize={8} wrapperStyle={{top:36, right:36}}
-                payload={[{ value: 'Income (USD)', type: 'circle', id: 'ID01', color: '#2AD579'}, { value: 'Expenses (USD)', type: 'circle', id: 'ID02', color: '#965DDA' }]}
+                payload={[{ value: 'Income (USD)', type: 'circle', id: 'ID01', color: '#2AD579'}]}
                 formatter={resizedLegendValue} />
                 <text textAnchor="start" fontSize={26} fontWeight={700} x={40} y={56} fontFamily="Poppins" fill="#5c39aa">
                     Monthly Balances
@@ -61,6 +60,16 @@ function BalanceBarsChart(){
                 />
             </BarChart>
         </ResponsiveContainer>
+    )
+}
+
+function CustomLabel(props: any){
+    return(
+        <g>
+            <text fontSize="14px" fill="rgb(116, 121, 140)" x={props.x-7} y={props.y-14} textAnchor="start">
+                {props.value + ' $'}
+            </text>
+        </g>
     )
 }
 
@@ -97,21 +106,9 @@ const CustomTooltip = ({payload} : any) => {
         return(
             <div className="balance__tooltip">
                 <p>Income : {payload[0].value} $</p>
-                <p style={{marginTop:'4px', display:'block'}}>Expenses : {payload[1].value} $</p>
             </div>
         )
     }
 }
 
-export default BalanceBarsChart
-
-/*
-    <Legend
-    verticalAlign="top"
-    align="left"
-    wrapperStyle={{top:20, left:18, color:"#FF8484"}}
-    iconSize={0}
-    payload={[{ value : 'Monthly Balances'}]}
-    formatter={styleTitle}
-    />
-*/
+export default IncomeBarChart
