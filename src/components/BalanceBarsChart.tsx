@@ -24,9 +24,9 @@ function BalanceBarsChart(){
             barCategoryGap='25%'
             barGap={10}
             margin={{
-                top: 148,
-                right: 30,
-                left: 24,
+                top: 52,
+                right: 46,
+                left: 40,
                 bottom: 36,
             }}>                
                 <defs>
@@ -46,6 +46,9 @@ function BalanceBarsChart(){
                 <CartesianGrid  strokeDasharray="4 4" vertical={false} stroke="#A4B3C6" />
                 <Bar dataKey="financial.income" fill="url(#GreenUV)" yAxisId={0} radius={[3, 3, 0, 0]}/>
                 <Bar dataKey="financial.expenses" fill="url(#PurpleUV)" yAxisId={0} radius={[3, 3, 0, 0]}/>
+                <Legend align="right" verticalAlign='top' width={300} iconSize={8} wrapperStyle={{top:24, right:36}}
+                payload={[{ value: 'Income (USD)', type: 'circle', id: 'ID01', color: '#2AD579'}, { value: 'Expenses (USD)', type: 'circle', id: 'ID02', color: '#965DDA' }]}
+                formatter={resizedLegendValue} />
                 <Legend
                 verticalAlign="top"
                 align="left"
@@ -81,6 +84,10 @@ function CustomizedYTick(props: any){
 
 const styleTitle = (value: string) => {
     return (<div className="chartTitle">{value}</div>)
+}
+
+const resizedLegendValue = (value: string) => {
+    return <span style={{fontSize:"14px", color:"#74798C", marginLeft:"8px", display:"inline-block", transform:"translateY(0.5px)"}}>{value}</span>
 }
 
 export default BalanceBarsChart

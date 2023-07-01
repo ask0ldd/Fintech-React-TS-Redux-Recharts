@@ -12,7 +12,7 @@ function VMenu(){
             <div role="button" className='homeButton'>
                 <img src='./menu_icons/home.svg'/>
             </div>
-            <Link to="/Stats" className='vmenu-anchor'><img src='./menu_icons/stats.png'/></Link>
+            <Link to="/stats" className='vmenu-anchor'><img src='./menu_icons/stats.png'/></Link>
             <img src='./menu_icons/accounts.png'/>
             <img src='./menu_icons/chat.png'/>
             <img src='./menu_icons/settings.png'/>

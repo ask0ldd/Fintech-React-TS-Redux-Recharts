@@ -9,7 +9,7 @@ const CustomRouter = () => {
         <Router basename="/Fintech-TypeScriptTest/">
             <Routes>
                 <Route path='*' element={<App />} />
-                <Route path='Stats' element={<Stats />} />
+                <Route path='stats/' element={<Stats />} />
             </Routes>
         </Router>
     )
