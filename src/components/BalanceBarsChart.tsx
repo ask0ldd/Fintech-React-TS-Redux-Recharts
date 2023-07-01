@@ -1,4 +1,4 @@
-import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 import '../styles/BalanceBarsChart.css'
 
 const datas = [
@@ -52,6 +52,12 @@ function BalanceBarsChart(){
                 <text textAnchor="start" fontSize={26} fontWeight={700} x={40} y={56} fontFamily="Poppins" fill="#5c39aa">
                     Monthly Balances
                 </text>
+                <Tooltip
+                cursor={false}
+                wrapperStyle={{outline:'none', border:'none'}}
+                itemStyle={{color:'#000', fontSize:'10px'}}
+                labelStyle={{color:'#000',display:'none'}}
+                />
             </BarChart>
         </ResponsiveContainer>
     )

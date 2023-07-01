@@ -10,6 +10,7 @@ const CustomRouter = () => {
             <Routes>
                 <Route path='*' element={<App />} />
                 <Route path='stats/' element={<Stats />} />
+                <Route path='stats/:id' element={<Stats />} />
             </Routes>
         </Router>
     )
