@@ -14,14 +14,6 @@ import AddContactsQuickList from './components/modalContents/AddContactsQuickLis
 import TransferValidation from './components/modalContents/TransferValidation'
 import { useState } from 'react'
 import { IRow } from './types/types'
-import avatar1 from '/avatars/avatar1.png'
-import avatar2 from '/avatars/avatar2.png'
-import avatar3 from '/avatars/avatar3.png'
-import avatar4 from '/avatars/avatar4.png'
-import avatar5 from '/avatars/avatar5.png'
-import avatar6 from '/avatars/avatar6.png'
-import avatar7 from '/avatars/avatar7.png'
-import avatar8 from '/avatars/avatar8.png'
 
 /*const showString = (text : string) => {
  const textContainer = document.querySelector('#text') as HTMLElement;
@@ -47,14 +39,14 @@ window.onload = (e) => {
 function App() {
 
   const [rows, setRows] = useState<Array<IRow>>([
-    { name : 'Annette Black', avatar : avatar1, inQuicklist : true },
-    { name : 'Arlene McCoy', avatar : avatar2, inQuicklist : false },
-    { name : 'Cameron Williamson', avatar : avatar3, inQuicklist : false },
-    { name : 'Darlene Robertson', avatar : avatar4, inQuicklist : true },
-    { name : 'Theresa Webb', avatar : avatar5, inQuicklist : false },
-    { name : 'Eleanor Pena', avatar : avatar6, inQuicklist : false },
-    { name : 'Devon Lane', avatar : avatar7, inQuicklist : true },
-    { name : 'Jenny Wilson', avatar : avatar8, inQuicklist : true },
+    { name : 'Annette Black', avatar : './avatars/avatar1.png', inQuicklist : true },
+    { name : 'Arlene McCoy', avatar : './avatars/avatar2.png', inQuicklist : false },
+    { name : 'Cameron Williamson', avatar : './avatars/avatar3.png', inQuicklist : false },
+    { name : 'Darlene Robertson', avatar : './avatars/avatar4.png', inQuicklist : true },
+    { name : 'Theresa Webb', avatar : './avatars/avatar5.png', inQuicklist : false },
+    { name : 'Eleanor Pena', avatar : './avatars/avatar6.png', inQuicklist : false },
+    { name : 'Devon Lane', avatar : './avatars/avatar7.png', inQuicklist : true },
+    { name : 'Jenny Wilson', avatar : './avatars/avatar8.png', inQuicklist : true },
   ])
 
   const { modalVisibility, setModalVisibility, modalContentId, setModalContentId } = useModalManager({initialVisibility : false, initialModalContentId : 'addContactsQuicklist'})

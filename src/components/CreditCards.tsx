@@ -1,7 +1,3 @@
-import creditcards from '/creditcards.png'
-import qrcode from '/qrcode.png'
-import dispose from '/qrcode_icons/dispose.png'
-import refresh from '/qrcode_icons/refresh.png'
 import '../styles/CreditCards.css'
 import CreditCardsOptions from './CreditCardsOptions'
 
@@ -11,7 +7,7 @@ function CreditCards(){
             <article className='creditcards__container'>
                 <div className='creditcardsnTitle__container'>
                     <h2 className='creditcards__title'>Credit Cards</h2>
-                    <img className='creditcards' src={creditcards}/>
+                    <img className='creditcards' src='./creditcards.png'/>
                 </div>
                 <div className='separator'></div>
                 <div className='creditcards__rightContainer'>
@@ -19,10 +15,10 @@ function CreditCards(){
                     <div className='qrcodenOptions__container'>
                         <div className='qrcode__container'>
                             <div className='qrcodeicons__container'>
-                                <img className='qrcode__refresh' src={refresh}/>
-                                <img className='qrcode__trash' src={dispose}/>
+                                <img className='qrcode__refresh' src='./qrcode_icons/refresh.png'/>
+                                <img className='qrcode__trash' src='./qrcode_icons/dispose.png'/>
                             </div>
-                            <img className='qrcode' src={qrcode}/>
+                            <img className='qrcode' src='./qrcode.png'/>
                         </div>
                     </div>
                 </div>

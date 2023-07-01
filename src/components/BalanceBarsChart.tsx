@@ -82,7 +82,7 @@ const styleTitle = (value: string) => {
 }
 
 const resizedLegendValue = (value: string) => {
-    return <span style={{fontSize:"14px", color:"#74798C", marginLeft:"8px", display:"inline-block", transform:"translateY(0.5px)"}}>{value}</span>
+    return <span style={{fontSize:"14px", color:"#74798C", marginLeft:"6px", display:"inline-block", transform:"translateY(0.5px)"}}>{value}</span>
 }
 
 export default BalanceBarsChart

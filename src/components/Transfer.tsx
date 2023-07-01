@@ -1,10 +1,4 @@
 import '../styles/Transfer.css'
-import avatar1 from '/avatars/avatar1.png'
-import avatar2 from '/avatars/avatar2.png'
-import avatar3 from '/avatars/avatar3.png'
-import avatar4 from '/avatars/avatar4.png'
-import avatar5 from '/avatars/avatar5.png'
-import blankavatar from '/avatars/blank.png'
 import { Formatter } from '../services/formatter'
 import { IRow } from '../types/types'
 import { useState } from 'react'
@@ -15,7 +9,7 @@ const Transfer = ({setModalVisibility, rows, setModalContentId}:IProps) => {
         return rows.filter(row => row.inQuicklist)
     }
 
-    const blankQuicklist = [blankavatar, blankavatar, blankavatar, blankavatar, blankavatar]
+    const blankQuicklist = ['./avatars/blank.png', './avatars/blank.png', './avatars/blank.png', './avatars/blank.png', './avatars/blank.png']
 
     const [transferRecipientName, setTransferRecipientName] = useState<string>()
 
@@ -44,7 +38,7 @@ const Transfer = ({setModalVisibility, rows, setModalContentId}:IProps) => {
                         className='nonBlankAvatar' key={'avatarQL-'+index} 
                         src={row.avatar} alt={row.name + " avatar"}/>) 
                 }
-                { getBlankAvatarsToFillQuicklist().map((row, index) => <img key={'blankAvatar-'+index} src={blankavatar} alt="blank space"/>) }
+                { getBlankAvatarsToFillQuicklist().map((row, index) => <img key={'blankAvatar-'+index} src='./avatars/blank.png' alt="blank space"/>) }
                 <button className='transfer__amountButton violetButton xButton' 
                 onClick={() => {
                     setModalContentId('addContactsQuicklist')
