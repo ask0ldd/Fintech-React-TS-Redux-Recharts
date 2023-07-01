@@ -24,7 +24,7 @@ function BalanceBarsChart(){
             barCategoryGap='25%'
             barGap={10}
             margin={{
-                top: 52,
+                top: 102,
                 right: 46,
                 left: 40,
                 bottom: 36,
@@ -46,17 +46,12 @@ function BalanceBarsChart(){
                 <CartesianGrid  strokeDasharray="4 4" vertical={false} stroke="#A4B3C6" />
                 <Bar dataKey="financial.income" fill="url(#GreenUV)" yAxisId={0} radius={[3, 3, 0, 0]}/>
                 <Bar dataKey="financial.expenses" fill="url(#PurpleUV)" yAxisId={0} radius={[3, 3, 0, 0]}/>
-                <Legend align="right" verticalAlign='top' width={300} iconSize={8} wrapperStyle={{top:24, right:36}}
+                <Legend align="right" verticalAlign='top' width={300} iconSize={8} wrapperStyle={{top:36, right:36}}
                 payload={[{ value: 'Income (USD)', type: 'circle', id: 'ID01', color: '#2AD579'}, { value: 'Expenses (USD)', type: 'circle', id: 'ID02', color: '#965DDA' }]}
                 formatter={resizedLegendValue} />
-                <Legend
-                verticalAlign="top"
-                align="left"
-                wrapperStyle={{top:20, left:18, color:"#FF8484"}}
-                iconSize={0}
-                payload={[{ value : 'Monthly Balances'}]}
-                formatter={styleTitle}
-                />
+                <text textAnchor="start" fontSize={26} fontWeight={700} x={40} y={56} fontFamily="Poppins" fill="#5c39aa">
+                    Monthly Balances
+                </text>
             </BarChart>
         </ResponsiveContainer>
     )
@@ -91,3 +86,14 @@ const resizedLegendValue = (value: string) => {
 }
 
 export default BalanceBarsChart
+
+/*
+    <Legend
+    verticalAlign="top"
+    align="left"
+    wrapperStyle={{top:20, left:18, color:"#FF8484"}}
+    iconSize={0}
+    payload={[{ value : 'Monthly Balances'}]}
+    formatter={styleTitle}
+    />
+*/
