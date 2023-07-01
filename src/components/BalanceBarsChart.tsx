@@ -2,42 +2,18 @@ import { Bar, BarChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 
 import '../styles/BalanceBarsChart.css'
 
 const datas = [
-    {
-        month: 'Jan', financial : {income:3952, expenses:2927}
-    },
-    {
-        month: 'Feb', financial : {income:5053, expenses:3502}
-    },
-    {
-        month: 'Mar', financial : {income:3952, expenses:2927}
-    },
-    {
-        month: 'Apr', financial : {income:5053, expenses:3502}
-    },
-    {
-        month: 'May', financial : {income:3952, expenses:2927}
-    },
-    {
-        month: 'Jun', financial : {income:5053, expenses:3502}
-    },
-    {
-        month: 'Jul', financial : {income:3952, expenses:2927}
-    },
-    {
-        month: 'Aug', financial : {income:5053, expenses:3502}
-    },
-    {
-        month: 'Sep', financial : {income:3952, expenses:2927}
-    },
-    {
-        month: 'Oct', financial : {income:5053, expenses:3502}
-    },
-    {
-        month: 'Nov', financial : {income:3952, expenses:292}
-    },
-    {
-        month: 'Dec', financial : {income:5053, expenses:3502}
-    },
+    { month: 'Jan', financial : {income:3952, expenses:2927} },
+    { month: 'Feb', financial : {income:5053, expenses:3502} },
+    { month: 'Mar', financial : {income:4070, expenses:3012} },
+    { month: 'Apr', financial : {income:5012, expenses:4231} },
+    { month: 'May', financial : {income:3127, expenses:2843} },
+    { month: 'Jun', financial : {income:4857, expenses:4152} },
+    { month: 'Jul', financial : {income:3888, expenses:3675} },
+    { month: 'Aug', financial : {income:4781, expenses:4307} },
+    { month: 'Sep', financial : {income:3492, expenses:3210} },
+    { month: 'Oct', financial : {income:4313, expenses:4107} },
+    { month: 'Nov', financial : {income:4918, expenses:3115} },
+    { month: 'Dec', financial : {income:4650, expenses:4153} },
 ]
 
 function BalanceBarsChart(){
@@ -46,12 +22,12 @@ function BalanceBarsChart(){
         <ResponsiveContainer className="graph__container" width="100%" height={680}>
             <BarChart data={datas}
             barCategoryGap='25%'
-            barGap={12}
+            barGap={10}
             margin={{
                 top: 148,
-                right: 40,
+                right: 30,
                 left: 24,
-                bottom: 20,
+                bottom: 36,
             }}>                
                 <defs>
                     <linearGradient id="GreenUV" x1="0" y1="1" x2="0" y2="0" /* Line Gradient Definition */>
@@ -65,13 +41,33 @@ function BalanceBarsChart(){
                         <stop offset="100%" stopColor="#D56EE0" stopOpacity={1} />
                     </linearGradient>
                 </defs>
+                <YAxis dataKey="financial.income" yAxisId={0} tickCount={7} tick={<CustomizedYTick />}/>
+                <XAxis dataKey="month" tickLine={false} tick={<CustomizedXTick />}/>
                 <CartesianGrid  strokeDasharray="4 4" vertical={false} stroke="#A4B3C6" />
-                <YAxis dataKey="financial.income" yAxisId={0} tickCount={7}/>
-                <XAxis dataKey="month" tickLine={false}/>
                 <Bar dataKey="financial.income" fill="url(#GreenUV)" yAxisId={0} radius={[3, 3, 0, 0]}/>
                 <Bar dataKey="financial.expenses" fill="url(#PurpleUV)" yAxisId={0} radius={[3, 3, 0, 0]}/>
             </BarChart>
         </ResponsiveContainer>
+    )
+}
+
+function CustomizedXTick(props: any){
+    return(
+    <g>
+        <text fontSize="14px" x={props.x-14} y={props.y+20} textAnchor="start">
+            {props.payload.value}
+        </text>
+    </g>
+    )
+}
+
+function CustomizedYTick(props: any){
+    return(
+    <g>
+        <text fontSize="14px" x={props.x-18} y={props.y+5} textAnchor="end">
+            {props.payload.value}
+        </text>
+    </g>
     )
 }
 
