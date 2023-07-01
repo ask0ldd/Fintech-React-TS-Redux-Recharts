@@ -66,7 +66,7 @@ function IncomeBarChart(){
 function CustomLabel(props: any){
     return(
         <g>
-            <text fontSize="14px" fill="rgb(116, 121, 140)" x={props.x-7} y={props.y-14} textAnchor="start">
+            <text fontSize="14px" fill="rgb(116, 121, 140)" x={props.x-7} y={props.y-16} textAnchor="start">
                 {props.value + ' $'}
             </text>
         </g>
