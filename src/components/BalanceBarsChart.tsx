@@ -1,4 +1,4 @@
-import { Bar, BarChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, YAxis } from "recharts"
 import '../styles/BalanceBarsChart.css'
 
 const datas = [
@@ -46,6 +46,14 @@ function BalanceBarsChart(){
                 <CartesianGrid  strokeDasharray="4 4" vertical={false} stroke="#A4B3C6" />
                 <Bar dataKey="financial.income" fill="url(#GreenUV)" yAxisId={0} radius={[3, 3, 0, 0]}/>
                 <Bar dataKey="financial.expenses" fill="url(#PurpleUV)" yAxisId={0} radius={[3, 3, 0, 0]}/>
+                <Legend
+                verticalAlign="top"
+                align="left"
+                wrapperStyle={{top:20, left:18, color:"#FF8484"}}
+                iconSize={0}
+                payload={[{ value : 'Monthly Balances'}]}
+                formatter={styleTitle}
+                />
             </BarChart>
         </ResponsiveContainer>
     )
@@ -69,6 +77,10 @@ function CustomizedYTick(props: any){
         </text>
     </g>
     )
+}
+
+const styleTitle = (value: string) => {
+    return (<div className="chartTitle">{value}</div>)
 }
 
 export default BalanceBarsChart

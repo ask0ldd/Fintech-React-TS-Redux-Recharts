@@ -4,3 +4,15 @@
   box-shadow: 0px 4px 16px 0px rgba(133, 101, 171, 0.32);
   margin-top: 0px;
 }
+
+.chartTitle {
+  font-family: "Poppins";
+  font-style: normal;
+  /*font-family: "Jost", sans-serif;*/
+  font-weight: 700;
+  /*font-size: 24px;*/
+  font-size: 26px;
+  display: block;
+  margin-left: 4px;
+  color: #5c39aa;
+}
