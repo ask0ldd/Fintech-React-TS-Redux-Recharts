@@ -6,12 +6,12 @@ import chatIcon from '/menu_icons/chat.png'
 import darkmodeIcon from '/menu_icons/darkmode.png'
 import { Link } from 'react-router-dom'
 
-function VMenu(){
+function VMenu({activePage} : IProps){
     return(
         <div className='vmenu'>
-            <div role="button" className='homeButton'>
+            <Link to="/" className='homeButton'>
                 <img src='/menu_icons/home.svg'/>
-            </div>
+            </Link>
             <Link to="/stats/balance" className='vmenu-anchor'><img src='/menu_icons/stats.png'/></Link>
             <img src='/menu_icons/accounts.png'/>
             <img src='/menu_icons/chat.png'/>
@@ -22,3 +22,7 @@ function VMenu(){
 }
 
 export default VMenu
+
+interface IProps{
+    activePage: string
+}

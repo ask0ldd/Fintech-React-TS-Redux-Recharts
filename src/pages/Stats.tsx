@@ -6,14 +6,14 @@ import VMenu from "../components/VMenu"
 import '../styles/Stats.css'
 
 function Stats(){
-    const graphId = useParams().id
+    const activeGraph = useParams().id
     
     return(
         <div className="statsPage__mainContainer">
-            <VMenu/>
+            <VMenu activePage="stats" />
             <div className="headernGraph__container">
                 <Header/>
-                {graphId === 'balance' && <StatsHorizontalMenu graphId={graphId}/>}
+                {activeGraph === 'balance' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
                 <BalanceBarsChart/>
             </div>
         </div>
