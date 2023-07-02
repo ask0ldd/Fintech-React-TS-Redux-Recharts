@@ -21,7 +21,7 @@ const datasSub = datas.map((data, index, datas) => { return {month : data.month,
 function BalanceSubBarChart(){
 
     return(
-<ResponsiveContainer className="graph__container" width="100%" height={680}>
+        <ResponsiveContainer className="graph__container" width="100%" height={680}>
             <ComposedChart data={datasSub}
             barCategoryGap='25%'
             barGap={10}
@@ -109,14 +109,24 @@ const CustomTooltip = ({payload} : any) => {
     if(payload && payload.length){
         return(
             <div className="balance__tooltip">
-                <p>Income : {payload[0].value} $</p>
+                <p>Savings : {payload[0].value} $</p>
             </div>
         )
     }
 }
 
-function sumSubstracts(datasArray : Array<any>){ // type improve
+function sumSubstracts(datasArray : Array<IDataRow>){
     return datasArray.reduce((accumulator, datasObject) => accumulator + (datasObject.financial.income - datasObject.financial.expenses), 0)
+}
+
+interface IDataRow{
+   month: string
+   financial : IFinancial
+}
+
+interface IFinancial{
+    income: number
+    expenses: number
 }
 
 export default BalanceSubBarChart
