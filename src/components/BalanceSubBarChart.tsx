@@ -1,4 +1,4 @@
-import { Area, AreaChart, Bar, BarChart, CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, ComposedChart, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 import '../styles/BalanceBarsChart.css'
 
 const datas = [
@@ -16,17 +16,13 @@ const datas = [
     { month: 'Dec', financial : {income:4650, expenses:4153} },
 ]
 
-function SumSubstracts(datasArray : Array<any>){ // type improve
-    datasArray.reduce((accumulator, datasObject) => accumulator + (datasObject.income - datasObject.expenses), 0)
-}
-
-const datasSub = datas.map((data, index, datas) => { return {month : data.month, sumOfSubstracts : SumSubstracts(datas.slice(0,index)), substract : data.financial.income - data.financial.expenses} })
+const datasSub = datas.map((data, index, datas) => { return {month : data.month, sumOfSubstracts : sumSubstracts([...datas].slice(0,index+1)), substract : data.financial.income - data.financial.expenses} })
 
 function BalanceSubBarChart(){
 
     return(
 <ResponsiveContainer className="graph__container" width="100%" height={680}>
-            <BarChart data={datasSub}
+            <ComposedChart data={datasSub}
             barCategoryGap='25%'
             barGap={10}
             margin={{
@@ -48,12 +44,13 @@ function BalanceSubBarChart(){
                     </linearGradient>
                 </defs>
                 <YAxis dataKey="substract" yAxisId={0} tickCount={7} tick={<CustomizedYTick />}/>
+                <YAxis dataKey="sumOfSubstracts" yAxisId={1} tickCount={7} hide={true}/>
                 <XAxis dataKey="month" tickLine={false} tick={<CustomizedXTick />}/>
                 <CartesianGrid  strokeDasharray="4 4" vertical={false} stroke="#A4B3C6" />
+                <Line dataKey="sumOfSubstracts" type="linear" stroke="rgb(92, 57, 170)" strokeDasharray="2 4" strokeWidth={2} yAxisId={1} dot={false}/>
                 <Bar dataKey="substract" fill="url(#GreenUV)" maxBarSize={30} yAxisId={0} radius={[3, 3, 0, 0]} label={CustomLabel}/>
-                <Line dataKey="sumOfSubstracts" fill="url(#GreenUV)" stroke="#000"/>
-                <Legend align="right" verticalAlign='top' width={300} iconSize={8} wrapperStyle={{top:36, right:36}}
-                payload={[{ value: 'Income (USD)', type: 'circle', id: 'ID01', color: '#2AD579'}]}
+                <Legend align="right" verticalAlign='top' width={400} iconSize={8} wrapperStyle={{top:36, right:36}}
+                payload={[{ value: 'Monthly Balance (USD)', type: 'circle', id: 'ID01', color: '#2AD579'}, { value: 'Cumulated Savings', type: 'circle', id: 'ID01', color: 'rgb(92, 57, 170)'}]}
                 formatter={resizedLegendValue} />
                 <text textAnchor="start" fontSize={26} fontWeight={700} x={40} y={56} fontFamily="Poppins" fill="#5c39aa">
                     Monthly Balances
@@ -65,7 +62,7 @@ function BalanceSubBarChart(){
                 labelStyle={{color:'#000',display:'none'}}
                 content={CustomTooltip}
                 />
-            </BarChart>
+            </ComposedChart>
         </ResponsiveContainer>
     )
 }
@@ -118,4 +115,9 @@ const CustomTooltip = ({payload} : any) => {
     }
 }
 
+function sumSubstracts(datasArray : Array<any>){ // type improve
+    return datasArray.reduce((accumulator, datasObject) => accumulator + (datasObject.financial.income - datasObject.financial.expenses), 0)
+}
+
 export default BalanceSubBarChart
+

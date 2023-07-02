@@ -49,7 +49,7 @@ function ExpensesBarChart(){
                 payload={[{ value: 'Expenses (USD)', type: 'circle', id: 'ID01', color: '#965DDA'}]}
                 formatter={resizedLegendValue}/>
                 <text textAnchor="start" fontSize={26} fontWeight={700} x={40} y={56} fontFamily="Poppins" fill="#5c39aa">
-                    Monthly Balances
+                    Monthly Expenses
                 </text>
                 <Tooltip
                 cursor={false}

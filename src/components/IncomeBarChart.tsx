@@ -49,7 +49,7 @@ function IncomeBarChart(){
                 payload={[{ value: 'Income (USD)', type: 'circle', id: 'ID01', color: '#2AD579'}]}
                 formatter={resizedLegendValue} />
                 <text textAnchor="start" fontSize={26} fontWeight={700} x={40} y={56} fontFamily="Poppins" fill="#5c39aa">
-                    Monthly Balances
+                    Monthly Income
                 </text>
                 <Tooltip
                 cursor={false}
