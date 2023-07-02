@@ -6,6 +6,7 @@ import StatsHorizontalMenu from "../components/StatsHorizontalMenu"
 import VMenu from "../components/VMenu"
 import '../styles/Stats.css'
 import ExpensesBarChart from "../components/ExpensesBarChart"
+import BalanceSubBarChart from "../components/BalanceSubBarChart"
 
 function Stats(){
     const activeGraph = useParams().id
@@ -21,6 +22,8 @@ function Stats(){
                 {activeGraph === 'income' && <IncomeBarChart/>}
                 {activeGraph === 'expenses' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
                 {activeGraph === 'expenses' && <ExpensesBarChart/>}
+                {activeGraph === 'subbalance' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
+                {activeGraph === 'subbalance' && <BalanceSubBarChart/>}
                
             </div>
         </div>

@@ -7,8 +7,8 @@ function StatsHorizontalMenu({activeGraph} : IProps){
             <Link to="/stats/income" className={activeGraph === "income" ? "statsMenu__items statsMenu__itemsActive" : "statsMenu__items"}>Income</Link>
             <Link to="/stats/expenses" className={activeGraph === "expenses" ? "statsMenu__items statsMenu__itemsActive" : "statsMenu__items"}>Expense</Link>
             <Link to="/stats/balance" className={activeGraph === "balance" ? "statsMenu__items statsMenu__itemsActive" : "statsMenu__items"}>Income vs Expenses</Link>
-            <div className="statsMenu__items">Balance</div>
-            <div className="statsMenu__items">Incomes</div>
+            <Link to="/stats/subbalance" className={activeGraph === "subbalance" ? "statsMenu__items statsMenu__itemsActive" : "statsMenu__items"}>Balance</Link>
+            <div className="statsMenu__items">Misc</div>
         </div>
     )
 }
