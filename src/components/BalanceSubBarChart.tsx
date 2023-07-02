@@ -16,7 +16,11 @@ const datas = [
     { month: 'Dec', financial : {income:4650, expenses:4153} },
 ]
 
-const datasSub = datas.map(data => { return {month : data.month, substract : data.financial.income - data.financial.expenses} })
+function SumSubstracts(datasArray : Array<any>){ // type improve
+    datasArray.reduce((accumulator, datasObject) => accumulator + (datasObject.income - datasObject.expenses), 0)
+}
+
+const datasSub = datas.map((data, index, datas) => { return {month : data.month, sumOfSubstracts : SumSubstracts(datas.slice(0,index)), substract : data.financial.income - data.financial.expenses} })
 
 function BalanceSubBarChart(){
 
@@ -47,6 +51,7 @@ function BalanceSubBarChart(){
                 <XAxis dataKey="month" tickLine={false} tick={<CustomizedXTick />}/>
                 <CartesianGrid  strokeDasharray="4 4" vertical={false} stroke="#A4B3C6" />
                 <Bar dataKey="substract" fill="url(#GreenUV)" maxBarSize={30} yAxisId={0} radius={[3, 3, 0, 0]} label={CustomLabel}/>
+                <Line dataKey="sumOfSubstracts" fill="url(#GreenUV)" stroke="#000"/>
                 <Legend align="right" verticalAlign='top' width={300} iconSize={8} wrapperStyle={{top:36, right:36}}
                 payload={[{ value: 'Income (USD)', type: 'circle', id: 'ID01', color: '#2AD579'}]}
                 formatter={resizedLegendValue} />
