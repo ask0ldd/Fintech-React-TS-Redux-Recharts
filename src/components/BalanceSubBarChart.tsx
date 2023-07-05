@@ -50,7 +50,7 @@ function BalanceSubBarChart(){
                 <Line dataKey="sumOfSubstracts" type="linear" stroke="rgb(92, 57, 170)" strokeDasharray="2 4" strokeWidth={2} yAxisId={1} dot={false}/>
                 <Bar dataKey="substract" fill="url(#GreenUV)" maxBarSize={30} yAxisId={0} radius={[3, 3, 0, 0]} label={CustomLabel}/>
                 <Legend align="right" verticalAlign='top' width={400} iconSize={8} wrapperStyle={{top:36, right:36}}
-                payload={[{ value: 'Monthly Balance (USD)', type: 'circle', id: 'ID01', color: '#2AD579'}, { value: 'Cumulated Savings', type: 'circle', id: 'ID01', color: 'rgb(92, 57, 170)'}]}
+                payload={[{ value: 'Monthly Savings (USD)', type: 'circle', id: 'ID01', color: '#2AD579'}, { value: 'Cumulated Savings', type: 'circle', id: 'ID01', color: 'rgb(92, 57, 170)'}]}
                 formatter={resizedLegendValue} />
                 <text textAnchor="start" fontSize={26} fontWeight={700} x={40} y={56} fontFamily="Poppins" fill="#5c39aa">
                     Monthly Balances
