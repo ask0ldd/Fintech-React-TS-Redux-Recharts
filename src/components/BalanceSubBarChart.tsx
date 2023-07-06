@@ -1,4 +1,4 @@
-import { Area, AreaChart, Bar, BarChart, CartesianGrid, ComposedChart, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
+import { Bar, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 import '../styles/BalanceBarsChart.css'
 
 const datas = [
@@ -109,7 +109,7 @@ const CustomTooltip = ({payload} : any) => {
     if(payload && payload.length){
         return(
             <div className="balance__tooltip">
-                <p>Savings : {payload[0].value} $</p>
+                <p>Cumulated Savings : {payload[0].value} $</p>
             </div>
         )
     }

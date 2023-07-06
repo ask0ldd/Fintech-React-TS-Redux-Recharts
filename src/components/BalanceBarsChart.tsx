@@ -50,7 +50,7 @@ function BalanceBarsChart(){
                 payload={[{ value: 'Income (USD)', type: 'circle', id: 'ID01', color: '#2AD579'}, { value: 'Expenses (USD)', type: 'circle', id: 'ID02', color: '#965DDA' }]}
                 formatter={resizedLegendValue} />
                 <text textAnchor="start" fontSize={26} fontWeight={700} x={40} y={56} fontFamily="Poppins" fill="#5c39aa">
-                    Balance : In & Out
+                    In & Out
                 </text>
                 <Tooltip
                 cursor={false}
