@@ -1,6 +1,7 @@
 export interface IDebitType {
     company: string
     amount: number
+    dashes: boolean
 }
 
 export interface ITransactionType {

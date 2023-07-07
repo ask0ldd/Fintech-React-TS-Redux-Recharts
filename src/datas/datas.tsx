@@ -17,12 +17,14 @@ export const CryptoDatas : Array <ICryptoAsset> = [
 
 export const DebitsList: Array <IDebitType> = [
     {
-        company:'Uber Taxi',
-        amount:948.55,
+        company: 'Uber Taxi',
+        amount: 120.00,
+        dashes: true,
     },
     {
         company:'Direct Energy',
         amount:128.99,
+        dashes: false,
     },    
 ]
 

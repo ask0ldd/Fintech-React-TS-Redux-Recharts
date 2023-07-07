@@ -30,7 +30,7 @@
 
 .debits__title {
   line-height: 24px;
-  margin-bottom: 34px;
+  margin-bottom: 32px;
   margin-top: 7px;
   letter-spacing: 0;
   color: #5c39aa;
@@ -38,10 +38,18 @@
 }
 
 .oneDebit__container {
-  padding-bottom: 23px;
+  /*padding-bottom: 23px;*/
   display: flex;
   flex-direction: row;
-  height: 64px;
+  height: 91px;
+  flex-shrink: 0;
+}
+
+.oneDebit__smallContainer {
+  /*padding-bottom: 23px;*/
+  display: flex;
+  flex-direction: row;
+  height: 58px;
 }
 
 .debit__datas {
@@ -98,4 +106,12 @@
   align-items: center;
   margin-top: -26px;
   font-family: "Poppins", sans-serif;
+}
+
+.debit__periodicity {
+  margin-top: 6px;
+  color: rgba(65, 65, 65, 0.9);
+  font-size: 15px;
+  display: flex;
+  justify-content: end;
 }

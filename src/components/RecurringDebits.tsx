@@ -12,26 +12,28 @@ const RecurringDebits = () => {
                 <Debit 
                     key={'debit' + index} 
                     company={debit.company/*.toUpperCase()*/} 
-                    amount={debit.amount}/>
+                    amount={debit.amount}
+                    dashes={debit.dashes}
+                    />
             )}
             <div className='grid16'></div>
         </article>
     )
 }
 
-const Debit = ({company, amount} : IDebitType) => {
+const Debit = ({company, amount, dashes} : IDebitType) => {
 
     const amountAsString = Formatter.addCurrencySignToAmount('$', amount)
 
     return(
-        <article className="oneDebit__container">
+        <article className={dashes ? "oneDebit__container" : "oneDebit__smallContainer"}>
             <div className='debit__datas'>
                 <div className='companynAmount__container'>
                     <span className='debit__recipient'>{company}</span>
                     <span className={amount >= 0 ? 'debit__amount' : 'debit__amountRed'}>{amountAsString}</span>
                 </div>
-                {/*<div style={{marginTop:'8px'}}>Monthly</div>*/}
-                <div className='debit__dashes'></div>
+                <div className='debit__periodicity'>Monthly</div>
+                {dashes && <div className='debit__dashes'></div>}
             </div>
             <div className='debit__arrow'>&gt;</div>
         </article>
