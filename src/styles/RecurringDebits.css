@@ -24,7 +24,6 @@
   left: 2px;
   z-index: -1;
   border-radius: 35px;
-  /*background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);*/
   background-color: #eef1fb;
 }
 
@@ -34,11 +33,9 @@
   margin-top: 7px;
   letter-spacing: 0;
   color: #5c39aa;
-  /*font-family: "Poppins", sans-serif;*/
 }
 
 .oneDebit__container {
-  /*padding-bottom: 23px;*/
   display: flex;
   flex-direction: row;
   height: 91px;
@@ -46,7 +43,6 @@
 }
 
 .oneDebit__smallContainer {
-  /*padding-bottom: 23px;*/
   display: flex;
   flex-direction: row;
   height: 58px;
@@ -68,7 +64,6 @@
   font-size: 13px;
   color: #52a7d6;
   display: flex;
-  /*align-items: end;*/
   align-items: first baseline;
   margin-top: 1px;
 }
@@ -96,13 +91,10 @@
 .debit__arrow {
   display: flex;
   justify-content: flex-end;
-  /*align-items: end;*/
   width: 15%;
-  /*padding-bottom: 8px;*/
   color: #b0b9c8;
   font-size: 32px;
   line-height: 24px;
-  /*background-color: red;*/
   align-items: center;
   margin-top: -26px;
   font-family: "Poppins", sans-serif;
