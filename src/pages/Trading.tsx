@@ -1,5 +1,7 @@
 import Header from "../components/Header"
+import OwnedCurrencyList from "../components/OwnedCurrencyList"
 import VMenu from "../components/VMenu"
+import '../styles/Trading.css'
 
 function Trading(){
     return(
@@ -14,9 +16,7 @@ function Trading(){
                     <div className='trading__items'></div><div className='trading__items'></div><div className='trading__items'></div>
                 </div>
                 <div className='tradingGraphnList__container'>
-                    <div className='tradingList__container'>
-                        <h2>Your Wallet</h2>
-                    </div>
+                    <OwnedCurrencyList/>
                 </div>
             </div>
         </div>
