@@ -1,0 +1,6 @@
+.conversionPage__mainContainer {
+  width: 100%;
+  display: flex;
+  column-gap: 24px;
+  min-height: 100vh;
+}
