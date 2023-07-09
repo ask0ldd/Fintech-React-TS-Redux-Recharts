@@ -28,8 +28,34 @@
   position: absolute;
 }
 
-.ownedCurrencyList__rowEven {
+.ownedCurrencyList__container table {
+  border-collapse: collapse;
 }
 
-.ownedCurrencyList__rowOdd {
+.ownedCurrencyList__container table thead tr {
+  border-bottom: 1px solid rgba(65, 65, 65, 0.9);
+}
+
+.ownedCurrencyList__container th {
+  height: 55px;
+  color: rgba(65, 65, 65, 0.9);
+  font-weight: 600;
+  text-align: right;
+}
+.ownedCurrencyList__container td {
+  height: 32px;
+  color: rgba(65, 65, 65, 0.9);
+  font-weight: 400;
+  padding-top: 2px;
+  text-align: right;
+}
+
+.ownedCurrencyList__rowEven {
+  background-color: #e2e6f5;
+  border-bottom: 1px solid #d4d9ed;
+  border-top: 1px solid #d4d9ed;
+}
+
+.ownedCurrencyList__growth {
+  color: #51d187;
 }

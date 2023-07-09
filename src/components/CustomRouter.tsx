@@ -1,7 +1,7 @@
 import App from '../App'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Stats from '../pages/Stats'
-import ConversionRates from '../pages/ConversionRates'
+import ConversionRates from '../pages/Options'
 import Trading from '../pages/Trading'
 
 /** basename gh pages **/
