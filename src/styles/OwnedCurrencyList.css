@@ -56,6 +56,7 @@
   border-top: 1px solid #d4d9ed;
 }
 
-.ownedCurrencyList__growth {
+.ownedCurrencyList__container table .ownedCurrencyList__inc {
   color: #51d187;
+  font-weight: 600;
 }
