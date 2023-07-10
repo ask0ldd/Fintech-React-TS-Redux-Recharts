@@ -17,7 +17,7 @@ function CustomYTicks(value : number) : string{
 function CryptoAreaChart(){
     return(
         <ResponsiveContainer className="cryptoareaChart__container" width="40%" height="100%">
-            <AreaChart width={300} data={data} margin={{top: 64, right: 32, left: 8, bottom: 48,}}>
+            <AreaChart width={300} data={data} margin={{top: 64, right: 26, left: 8, bottom: 48,}}>
                 <defs>
                     <linearGradient id="PurpleUV" x1="0" y1="1" x2="0" y2="0" /* Line Gradient Definition */>
                         <stop offset="0%" stopColor="#8B3FAF" stopOpacity={0.47} />
@@ -26,10 +26,10 @@ function CryptoAreaChart(){
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#8397AF"/>
                 <XAxis dataKey="week" tickMargin={14}/>
-                <YAxis domain={[5000, 20000]} tickCount={4} tickFormatter={CustomYTicks} tickMargin={8} interval="preserveStartEnd"/>
+                <YAxis domain={[5000, 20000]} tickCount={4} tickFormatter={CustomYTicks} tickMargin={14} interval="preserveStartEnd"/>
                 <Tooltip />
                 <Area type="monotone" dataKey="price" stroke="#441B95" fill="url(#PurpleUV)" />
-                <text textAnchor="start" fontSize={26} fontWeight={700} x={29} y={28} fontFamily="Poppins" fill="#5c39aa">
+                <text textAnchor="start" fontSize={26} fontWeight={700} x={24} y={28} fontFamily="Poppins" fill="#5c39aa">
                     BTC Value
                 </text>    
             </AreaChart>
