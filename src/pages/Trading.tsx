@@ -1,3 +1,4 @@
+import CryptoAreaChart from "../components/CryptoAreaChart"
 import Header from "../components/Header"
 import OwnedCurrencyList from "../components/OwnedCurrencyList"
 import VMenu from "../components/VMenu"
@@ -16,6 +17,7 @@ function Trading(){
                     <div className='trading__items'></div><div className='trading__items'></div><div className='trading__items'></div>
                 </div>
                 <div className='tradingGraphnList__container'>
+                    <CryptoAreaChart/>
                     <OwnedCurrencyList/>
                 </div>
             </div>
