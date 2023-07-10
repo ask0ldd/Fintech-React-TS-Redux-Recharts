@@ -10,8 +10,8 @@ const data = [
 
 function CryptoAreaChart(){
     return(
-        <ResponsiveContainer className="cryptoareaChart__container" width="300px" height="100%">
-            <AreaChart width={300} height={400} data={data} margin={{top: 10, right: 30, left: 0, bottom: 0,}}>
+        <ResponsiveContainer className="cryptoareaChart__container" width="40%" height="100%">
+            <AreaChart width={300} height={800} data={data} margin={{top: 10, right: 30, left: 0, bottom: 0,}}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="week" />
                 <YAxis />

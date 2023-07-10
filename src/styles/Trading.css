@@ -3,12 +3,13 @@
   display: flex;
   column-gap: 24px;
   min-height: 100vh;
+  flex-grow: 0;
 }
 
 .right__container {
   display: flex;
   flex-direction: column;
-  flex: 1 1 1120px;
+  flex: 0 1 1120px;
   row-gap: 24px;
 }
 
@@ -56,4 +57,5 @@
   display: flex;
   column-gap: 24px;
   flex-direction: row;
+  max-width: 1120px;
 }
