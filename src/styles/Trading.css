@@ -9,7 +9,7 @@
 .right__container {
   display: flex;
   flex-direction: column;
-  flex: 0 1 1120px;
+  flex: 0 1 1276px;
   row-gap: 24px;
 }
 
@@ -57,5 +57,5 @@
   display: flex;
   column-gap: 24px;
   flex-direction: row;
-  max-width: 1120px;
+  max-width: 1276px;
 }

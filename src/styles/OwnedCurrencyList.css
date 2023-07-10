@@ -1,6 +1,7 @@
 .ownedCurrencyList__container {
   height: 100%;
   width: 660px;
+  max-width: 100%;
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);
   box-shadow: 0px 4px 16px 0px rgba(133, 101, 171, 0.32);
   color: rgba(65, 65, 65, 0.9);
@@ -15,6 +16,7 @@
   flex-direction: column;
   padding: 1.65rem 2.5rem 2.1rem 2.5rem;
   flex-shrink: 0;
+  flex-grow: 1;
 }
 
 .ownedCurrencyList__container:before {
