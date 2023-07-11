@@ -84,11 +84,42 @@
   width: 96px;
   height: 70px;
   border-radius: 10px;
-  background: linear-gradient(180deg, #73e385 0%, #57d487 100%);
+  position: relative;
+  z-index: 2;
+  /*background: linear-gradient(
+    180deg,
+    #9fedb7 0%,
+    #4ed088 20%,
+    #4ed088 80%,
+    #4cbc81 100%
+  );
   box-shadow: 0px 4px 16px 0px rgba(101, 171, 129, 0.32),
     0px 2.767256498336792px 2.2138051986694336px 0px rgba(101, 171, 129, 0.03),
     0px 6.650102138519287px 5.32008171081543px 0px rgba(101, 171, 129, 0.04),
     0px 12.521552085876465px 10.017241477966309px 0px rgba(101, 171, 129, 0.05),
     0px 22.3363094329834px 17.869047164916992px 0px rgba(101, 171, 129, 0.07),
-    0px 41.777610778808594px 33.422088623046875px 0px rgba(101, 171, 129, 0.06);
+    0px 41.777610778808594px 33.422088623046875px 0px rgba(101, 171, 129, 0.06);*/
+
+  background: linear-gradient(178deg, #703faf 0%, #573faf 100%), #eef1fb;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0px 2px 4px 0px #4a426a;
 }
+
+/*.trading__items__button:before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(180deg, #73e385 0%, #57d487 100%);
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
+  border-radius: 9px;
+  z-index: -1;
+}*/

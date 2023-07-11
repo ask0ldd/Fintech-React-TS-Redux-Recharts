@@ -18,7 +18,9 @@ function Trading(){
                             <h2 style={{marginTop:'2px'}}>Top Performer (7d)</h2>
                             <p style={{marginTop:'12px'}} className="mainText">ETH / Ethereum</p>
                         </div>
-                        <div className="trading__items__button"></div>
+                        <div className="trading__items__button">
+                            -8.3%
+                        </div>
                     </div>
                 </div>
                 <div className='tradingItemsRow__container'>
@@ -29,7 +31,9 @@ function Trading(){
                             <h2 style={{marginTop:'4px'}}>Worst Performer (7d)</h2>
                             <p style={{marginTop:'10px'}} className="mainText">BIN / Binance</p>
                         </div>
-                        <div className="trading__items__button"></div>
+                        <div className="trading__items__button">
+                            -3.2%
+                        </div>
                     </div>
                 </div>
                 <div className='tradingGraphnList__container'>
