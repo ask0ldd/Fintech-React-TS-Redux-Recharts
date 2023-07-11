@@ -59,3 +59,21 @@
   flex-direction: row;
   max-width: 1276px;
 }
+
+.trading__items__innerContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.trading__items__innerContainer .textContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.tradingPage__mainContainer h2 {
+  color: #5c39aa;
+  font-size: 18px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+}

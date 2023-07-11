@@ -47,7 +47,6 @@ export default CryptoAreaChart
 
 const CustomTooltip = ({payload} : any) => {
     if(payload[0] && payload.length){
-        console.log(payload[0].payload.week)
         return(
             <div className="areachart__tooltip">
                 <p>Week : {payload[0].payload.week[1]}</p>

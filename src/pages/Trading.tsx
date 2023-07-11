@@ -11,7 +11,15 @@ function Trading(){
             <div className="right__container">
                 <Header/>
                 <div className='tradingItemsRow__container'>
-                    <div className='trading__items'></div><div className='trading__items'></div><div className='trading__items'></div>
+                    <div className='trading__items'></div>
+                    <div className='trading__items'></div>
+                    <div className='trading__items'>
+                        <div className="trading__items__innerContainer">
+                            <div className="textContainer">
+                                <h2 className="tradingPage__mainContainer">Top Performer (7d)</h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className='tradingItemsRow__container'>
                     <div className='trading__items'></div><div className='trading__items'></div><div className='trading__items'></div>
