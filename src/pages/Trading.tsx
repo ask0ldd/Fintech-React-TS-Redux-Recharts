@@ -11,7 +11,10 @@ function Trading(){
             <div className="right__container">
                 <Header/>
                 <div className='tradingItemsRow__container'>
-                    <div className='trading__items'></div>
+                    <div style={{flexDirection:'column', alignItems:'start'}} className='trading__items'>
+                        <h2 style={{marginTop:'2px'}}>Crypto Balance (7d)</h2>
+                        <p style={{marginTop:'12px'}} className="mainText">12,025 USD (prev. 8,737 USD)</p>
+                    </div>
                     <div className='trading__items'></div>
                     <div className='trading__items'>
                         <div className="trading__items__textContainer">
@@ -24,7 +27,10 @@ function Trading(){
                     </div>
                 </div>
                 <div className='tradingItemsRow__container'>
-                    <div className='trading__items'></div>
+                    <div style={{flexDirection:'column', alignItems:'start'}} className='trading__items'>
+                        <h2 style={{marginTop:'2px'}}>Crypto Balance (7d)</h2>
+                        <p style={{marginTop:'12px'}} className="mainText">12,025 USD (prev. 8,737 USD)</p>
+                    </div>
                     <div className='trading__items'></div>
                     <div className='trading__items'>
                         <div className="trading__items__textContainer">

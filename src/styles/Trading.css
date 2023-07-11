@@ -17,7 +17,7 @@
   height: 96px;
   width: 100%;
   display: flex;
-  column-gap: 24px;
+  column-gap: 28px;
 }
 
 .trading__items {
@@ -34,7 +34,7 @@
   font-size: 16px;
   font-family: Jost;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   cursor: pointer;
   position: relative;
   z-index: 2;
@@ -57,7 +57,7 @@
   height: 460px;
   width: 100%;
   display: flex;
-  column-gap: 24px;
+  column-gap: 28px;
   flex-direction: row;
   max-width: 1276px;
 }
