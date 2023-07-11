@@ -15,8 +15,9 @@ function Trading(){
                     <div className='trading__items'></div>
                     <div className='trading__items'>
                         <div className="trading__items__innerContainer">
-                            <div className="textContainer">
-                                <h2 className="tradingPage__mainContainer">Top Performer (7d)</h2>
+                            <div className="trading__items__textContainer">
+                                <h2>Top Performer (7d)</h2>
+                                <p>ETH / Ethereum</p>
                             </div>
                         </div>
                     </div>

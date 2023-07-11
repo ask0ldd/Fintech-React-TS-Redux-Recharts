@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   flex: 0 1 1276px;
-  row-gap: 24px;
+  row-gap: 32px;
 }
 
 .tradingItemsRow__container {
@@ -63,11 +63,15 @@
 .trading__items__innerContainer {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
 }
 
-.trading__items__innerContainer .textContainer {
+.trading__items__textContainer {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .tradingPage__mainContainer h2 {
