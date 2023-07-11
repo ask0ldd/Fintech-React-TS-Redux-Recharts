@@ -14,16 +14,23 @@ function Trading(){
                     <div className='trading__items'></div>
                     <div className='trading__items'></div>
                     <div className='trading__items'>
-                        <div className="trading__items__innerContainer">
-                            <div className="trading__items__textContainer">
-                                <h2>Top Performer (7d)</h2>
-                                <p>ETH / Ethereum</p>
-                            </div>
+                        <div className="trading__items__textContainer">
+                            <h2 style={{marginTop:'2px'}}>Top Performer (7d)</h2>
+                            <p style={{marginTop:'12px'}} className="mainText">ETH / Ethereum</p>
                         </div>
+                        <div className="trading__items__button"></div>
                     </div>
                 </div>
                 <div className='tradingItemsRow__container'>
-                    <div className='trading__items'></div><div className='trading__items'></div><div className='trading__items'></div>
+                    <div className='trading__items'></div>
+                    <div className='trading__items'></div>
+                    <div className='trading__items'>
+                        <div className="trading__items__textContainer">
+                            <h2 style={{marginTop:'4px'}}>Worst Performer (7d)</h2>
+                            <p style={{marginTop:'10px'}} className="mainText">BIN / Binance</p>
+                        </div>
+                        <div className="trading__items__button"></div>
+                    </div>
                 </div>
                 <div className='tradingGraphnList__container'>
                     <CryptoAreaChart/>

@@ -23,7 +23,8 @@
 .trading__items {
   height: 100%;
   display: flex;
-  justify-content: center;
+  /*justify-content: center;*/
+  justify-content: space-between;
   align-items: center;
   flex: 1 1 200px;
   border-radius: 10px;
@@ -37,6 +38,7 @@
   cursor: pointer;
   position: relative;
   z-index: 2;
+  padding: 12px 20px;
 }
 
 .trading__items:before {
@@ -60,14 +62,6 @@
   max-width: 1276px;
 }
 
-.trading__items__innerContainer {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-  padding: 12px;
-}
-
 .trading__items__textContainer {
   display: flex;
   flex-direction: column;
@@ -80,4 +74,21 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
+}
+
+.tradingPage__mainContainer .mainText {
+  font-size: 20px;
+}
+
+.trading__items__button {
+  width: 96px;
+  height: 70px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #73e385 0%, #57d487 100%);
+  box-shadow: 0px 4px 16px 0px rgba(101, 171, 129, 0.32),
+    0px 2.767256498336792px 2.2138051986694336px 0px rgba(101, 171, 129, 0.03),
+    0px 6.650102138519287px 5.32008171081543px 0px rgba(101, 171, 129, 0.04),
+    0px 12.521552085876465px 10.017241477966309px 0px rgba(101, 171, 129, 0.05),
+    0px 22.3363094329834px 17.869047164916992px 0px rgba(101, 171, 129, 0.07),
+    0px 41.777610778808594px 33.422088623046875px 0px rgba(101, 171, 129, 0.06);
 }
