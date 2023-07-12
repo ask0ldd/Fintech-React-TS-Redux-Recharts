@@ -35,7 +35,7 @@ function CryptoAreaChart(){
                     content={CustomTooltip}
                 />
                 <Area type="monotone" dataKey="price" strokeWidth={2} stroke="#441B95" fill="url(#PurpleUV)" />
-                <text textAnchor="start" fontSize={26} fontWeight={700} x={14} y={28} fontFamily="Poppins" fill="#5c39aa">
+                <text textAnchor="start" fontSize={26} fontWeight={700} x={16} y={28} fontFamily="Poppins" fill="#5c39aa">
                     BTC Value
                 </text>    
             </AreaChart>

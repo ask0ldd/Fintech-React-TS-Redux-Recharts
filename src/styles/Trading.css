@@ -39,6 +39,7 @@
   position: relative;
   z-index: 2;
   padding: 12px 20px;
+  /*overflow: hidden;*/
 }
 
 .trading__items:before {
@@ -68,7 +69,7 @@
   height: 100%;
 }
 
-.tradingPage__mainContainer h2 {
+.tradingPage__mainContainer h3 {
   color: #5c39aa;
   font-size: 18px;
   font-family: "Poppins";
@@ -110,6 +111,12 @@
   justify-content: center;
   align-items: center;
   text-shadow: 0px 2px 4px 0px #4a426a;
+  box-shadow: 0px 4px 16px 0px rgba(133, 101, 171, 0.32),
+    0px 2.767256498336792px 2.2138051986694336px 0px rgba(129, 48, 147, 0.03),
+    0px 6.650102138519287px 5.32008171081543px 0px rgba(129, 48, 147, 0.04),
+    0px 12.521552085876465px 10.017241477966309px 0px rgba(129, 48, 147, 0.05),
+    0px 22.3363094329834px 17.869047164916992px 0px rgba(129, 48, 147, 0.07),
+    0px 41.777610778808594px 33.422088623046875px 0px rgba(129, 48, 147, 0.06);
 }
 
 /*.trading__items__button:before {

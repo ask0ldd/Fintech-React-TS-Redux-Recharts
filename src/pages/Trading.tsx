@@ -12,13 +12,13 @@ function Trading(){
                 <Header/>
                 <div className='tradingItemsRow__container'>
                     <div style={{flexDirection:'column', alignItems:'start'}} className='trading__items'>
-                        <h2 style={{marginTop:'2px'}}>Crypto Balance (7d)</h2>
+                        <h3 style={{marginTop:'2px'}}>Crypto Balance (7d)</h3>
                         <p style={{marginTop:'12px'}} className="mainText">12,025 USD (prev. 8,737 USD)</p>
                     </div>
                     <div className='trading__items'></div>
                     <div className='trading__items'>
                         <div className="trading__items__textContainer">
-                            <h2 style={{marginTop:'2px'}}>Top Performer (7d)</h2>
+                            <h3 style={{marginTop:'2px'}}>Top Performer (7d)</h3>
                             <p style={{marginTop:'12px'}} className="mainText">ETH / Ethereum</p>
                         </div>
                         <div className="trading__items__button">
@@ -28,13 +28,13 @@ function Trading(){
                 </div>
                 <div className='tradingItemsRow__container'>
                     <div style={{flexDirection:'column', alignItems:'start'}} className='trading__items'>
-                        <h2 style={{marginTop:'2px'}}>Crypto Balance (7d)</h2>
+                        <h3 style={{marginTop:'2px'}}>Crypto Balance (7d)</h3>
                         <p style={{marginTop:'12px'}} className="mainText">12,025 USD (prev. 8,737 USD)</p>
                     </div>
                     <div className='trading__items'></div>
                     <div className='trading__items'>
                         <div className="trading__items__textContainer">
-                            <h2 style={{marginTop:'4px'}}>Worst Performer (7d)</h2>
+                            <h3 style={{marginTop:'4px'}}>Worst Performer (7d)</h3>
                             <p style={{marginTop:'10px'}} className="mainText">BIN / Binance</p>
                         </div>
                         <div className="trading__items__button">
