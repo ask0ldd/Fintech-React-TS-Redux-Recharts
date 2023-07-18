@@ -91,19 +91,26 @@
 }
 
 .balance__selectArrows {
-  width: 30px;
+  width: 31px;
   height: 100%;
-  background: url("../assets/icons/arrows.png"),
-    linear-gradient(
+  background: linear-gradient(
       180deg,
       rgba(87, 48, 179, 0) 0%,
       rgba(87, 48, 179, 0.1) 100%
     ),
     #eae6f2;
-  background-position: 47% 50%;
+  /*background-position: 50px 50%;*/
   background-repeat: no-repeat;
   border-left: 1px solid #5730b3;
   margin-left: 14px;
+  position: relative;
+}
+
+.balance__selectArrows::after {
+  content: url("../assets/icons/arrows.png");
+  position: absolute;
+  top: 6px;
+  left: 10px;
 }
 /*
 .grid16 {
