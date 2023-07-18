@@ -57,7 +57,7 @@ function App() {
     <div className="App">
       <VMenu/>
       <div className='balance__ccard__transferCrypto__container'>
-        <Header/>
+        <Header format="compressed"/>
         <Balance/>
         <CreditCards/>
         <div className='transfer__cryptos__container'>

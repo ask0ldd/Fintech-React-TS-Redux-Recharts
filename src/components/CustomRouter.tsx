@@ -8,7 +8,7 @@ import Trading from '../pages/Trading'
 
 const CustomRouter = () => {
     return (
-        <Router basename="/Fintech-TypeScriptTest/">
+        <Router basename="/Fintech-React-TS-Redux-Recharts/">
             <Routes>
                 <Route path='*' element={<App />} />
                 <Route path='stats/' element={<Stats />} />

@@ -3,13 +3,15 @@ import bankLogo from '/banklogo.png'
 import logoutIcon from '/buttons/logout2.png'
 import tonyAvatar from '/avatars/tonyavatar.png'
 
-function Header(){
+function Header({format} : IProps){
     return (
-        <section className="header__container">
-            <img src={tonyAvatar}/>
-            <div className="namenIban__container">
-                <span className="name">Tony Montana</span>
-                <span className="iban">IBAN : NL89RABO1289364745</span>
+        <section className={format === 'compressed' ? "header__container__compressed" : "header__container"}>
+            <div className='avatarnName__container'>
+                <img src={tonyAvatar}/>
+                <div className="namenIban__container">
+                    <span className="name">Tony Montana</span>
+                    <span className="iban">IBAN : NL89RABO1289364745</span>
+                </div>
             </div>
             <figure className='banklogo__container'>
                 <img src={bankLogo}/>
@@ -25,3 +27,7 @@ function Header(){
 }
 
 export default Header
+
+interface IProps {
+    format? : string
+}

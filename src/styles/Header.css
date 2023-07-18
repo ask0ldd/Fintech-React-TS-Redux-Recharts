@@ -1,4 +1,15 @@
+.header__container__compressed {
+  display: flex;
+  flex-direction: row;
+}
+
 .header__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.avatarnName__container {
   display: flex;
   flex-direction: row;
 }
