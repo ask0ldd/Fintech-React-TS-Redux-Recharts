@@ -4,8 +4,8 @@ import VMenu from '../components/VMenu'
 
 function Options(){
     return (
-        <div className="optionsPage__mainContainer">
-        </div>
+        <main className="optionsPage__mainContainer">
+        </main>
     )
 }
 

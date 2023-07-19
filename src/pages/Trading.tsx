@@ -6,7 +6,7 @@ import '../styles/Trading.css'
 
 function Trading(){
     return(
-        <div className="tradingPage__mainContainer">
+        <main className="tradingPage__mainContainer">
             <VMenu activePage="trading" />
             <div className="right__container">
                 <Header/>
@@ -63,7 +63,7 @@ function Trading(){
                     <OwnedCurrencyList/>
                 </section>
             </div>
-        </div>
+        </main>
     )
 }
 

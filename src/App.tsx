@@ -54,7 +54,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <main className="App">
       <VMenu/>
       <div className='balance__ccard__transferCrypto__container'>
         <Header format="compressed"/>
@@ -65,10 +65,10 @@ function App() {
             <Cryptos/>
         </div>
       </div>
-      <div className='transactions__debits__container'>
+      <section className='transactions__debits__container'>
         <Transactions/>
         <RecurringDebits/>
-      </div>
+      </section>
       { /*modalContentId && <Modal modalContent={ <AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/> } 
       modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/> */
       { // equivalent to switch
@@ -78,7 +78,7 @@ function App() {
       // equivalent to default
       || <Modal modalContent={<AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>
       }
-    </div>
+    </main>
   )
 }
 

@@ -12,7 +12,7 @@ function Stats(){
     const activeGraph = useParams().id
     
     return(
-        <div className="statsPage__mainContainer">
+        <main className="statsPage__mainContainer">
             <VMenu activePage="stats" />
             <section className="headernGraph__container">
                 <Header/>
@@ -26,7 +26,7 @@ function Stats(){
                 {activeGraph === 'subbalance' && <BalanceSubBarChart/>}
                
             </section>
-        </div>
+        </main>
     )
 }
 
