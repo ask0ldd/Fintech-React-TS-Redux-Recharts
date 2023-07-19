@@ -14,7 +14,7 @@ function Stats(){
     return(
         <div className="statsPage__mainContainer">
             <VMenu activePage="stats" />
-            <div className="headernGraph__container">
+            <section className="headernGraph__container">
                 <Header/>
                 {activeGraph === 'balance' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
                 {activeGraph === 'balance' && <BalanceBarsChart/>}
@@ -25,7 +25,7 @@ function Stats(){
                 {activeGraph === 'subbalance' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
                 {activeGraph === 'subbalance' && <BalanceSubBarChart/>}
                
-            </div>
+            </section>
         </div>
     )
 }

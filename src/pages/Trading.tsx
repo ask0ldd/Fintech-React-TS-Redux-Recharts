@@ -10,7 +10,7 @@ function Trading(){
             <VMenu activePage="trading" />
             <div className="right__container">
                 <Header/>
-                <div className='tradingItemsRow__container'>
+                <section className='tradingItemsRow__container'>
                     <div style={{flexDirection:'column', alignItems:'start'}} className='trading__items'>
                         <h3 style={{marginTop:'2px'}}>Crypto Balance (7d)</h3>
                         <p style={{marginTop:'12px'}} className="mainText">12,025 USD (prev. 8,737 USD)</p>
@@ -33,8 +33,8 @@ function Trading(){
                             +8.3%
                         </div>
                     </div>
-                </div>
-                <div className='tradingItemsRow__container'>
+                </section>
+                <section className='tradingItemsRow__container'>
                     <div style={{flexDirection:'column', alignItems:'start'}} className='trading__items'>
                         <h3 style={{marginTop:'2px'}}>Crypto Balance (7d)</h3>
                         <p style={{marginTop:'12px'}} className="mainText">12,025 USD (prev. 8,737 USD)</p>
@@ -57,11 +57,11 @@ function Trading(){
                             -3.2%
                         </div>
                     </div>
-                </div>
-                <div className='tradingGraphnList__container'>
+                </section>
+                <section className='tradingGraphnList__container'>
                     <CryptoAreaChart/>
                     <OwnedCurrencyList/>
-                </div>
+                </section>
             </div>
         </div>
     )

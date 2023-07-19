@@ -19,7 +19,7 @@ const datas = [
 function IncomeBarChart(){
 
     return(
-<ResponsiveContainer className="graph__container" width="100%" height={680}>
+        <ResponsiveContainer className="graph__container" width="100%" height={680}>
             <BarChart data={datas}
             barCategoryGap='25%'
             barGap={10}

@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 function VMenu({activePage} : IProps){
     return(
-        <div className='vmenu'>
+        <nav className='vmenu' aria-label='primary'>
             <Link to="/" className='homeButton'>
                 <img src={homeIcon}/>
             </Link>
@@ -18,7 +18,7 @@ function VMenu({activePage} : IProps){
             <img src={chatIcon}/>
             <img src={settingsIcon}/>
             <img src={darkmodeIcon}/>
-        </div>
+        </nav>
     )
 }
 

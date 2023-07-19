@@ -5,7 +5,7 @@ import tonyAvatar from '/avatars/tonyavatar.png'
 
 function Header({format} : IProps){
     return (
-        <section className={format === 'compressed' ? "header__container__compressed" : "header__container"}>
+        <header className={format === 'compressed' ? "header__container__compressed" : "header__container"}>
             <div className='avatarnName__container'>
                 <img src={tonyAvatar}/>
                 <div className="namenIban__container">
@@ -22,7 +22,7 @@ function Header({format} : IProps){
                 <img role="button" src={logoutIcon}/>
                 <span>LOG OUT</span>
             </div>
-        </section>
+        </header>
     )
 }
 
