@@ -69,14 +69,19 @@ function App() {
         <Transactions/>
         <RecurringDebits/>
       </section>
-      { /*modalContentId && <Modal modalContent={ <AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/> } 
-      modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/> */
+      { 
       { // equivalent to switch
-        'addContactsQuicklist' : <Modal modalContent={<AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>,
-        'transferValidation' : <Modal modalContent={<TransferValidation setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>,
+        'addContactsQuicklist' :  <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
+                                      <AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>
+                                  </Modal>,
+        'transferValidation' :    <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
+                                      <TransferValidation setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>
+                                  </Modal>,
       } [modalContentId] 
       // equivalent to default
-      || <Modal modalContent={<AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>
+      ||  <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
+              <AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>
+          </Modal>
       }
     </main>
   )

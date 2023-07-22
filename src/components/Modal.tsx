@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { ReactNode, useEffect, useRef } from 'react'
 import '../styles/Modal.css'
 
-function Modal({modalVisibility, setModalVisibility, modalContent, containerCSSClass} : IProps){
+function Modal({children, modalVisibility, setModalVisibility, /*modalContent,*/ containerCSSClass} : IProps){
 
     const dialogRef = useRef<HTMLDialogElement>(null)
     const modalVisibilityRef = useRef<boolean>(modalVisibility)
@@ -15,7 +15,7 @@ function Modal({modalVisibility, setModalVisibility, modalContent, containerCSSC
     return (
         modalVisibility 
         ? <dialog ref={dialogRef} onClick={(e) => { if (e.target === dialogRef.current) setModalVisibility(false) }}>
-            {modalContent}
+            {children}
         </dialog> 
         : <></>
     )
@@ -24,8 +24,9 @@ function Modal({modalVisibility, setModalVisibility, modalContent, containerCSSC
 export default Modal
 
 interface IProps{
+    children: ReactNode
     modalVisibility : boolean
-    modalContent : JSX.Element
+    // modalContent : JSX.Element
     containerCSSClass? : string
     setModalVisibility : (bool : boolean) => void
 }
