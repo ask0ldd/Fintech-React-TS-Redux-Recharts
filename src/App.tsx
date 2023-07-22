@@ -71,16 +71,18 @@ function App() {
       </section>
       { 
       { // equivalent to switch
-        'addContactsQuicklist' :  <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
-                                      <AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>
-                                  </Modal>,
-        'transferValidation' :    <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
-                                      <TransferValidation setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>
-                                  </Modal>,
+        'addContactsQuicklist' :  
+        <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
+          <AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>
+        </Modal>,
+        'transferValidation' :
+        <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
+          <TransferValidation setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>
+        </Modal>,
       } [modalContentId] 
       // equivalent to default
       ||  <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
-              <AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>
+            <AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>
           </Modal>
       }
     </main>

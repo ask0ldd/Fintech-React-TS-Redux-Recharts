@@ -60,7 +60,7 @@ interface IModalObject{
 
 function scrollLock(bool : boolean)
 {
-    if(bool)
+    if(bool === true)
     {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop
         let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft

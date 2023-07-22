@@ -68,6 +68,15 @@ function BalanceSubBarChart(){
 }
 
 function CustomLabel(props: any){
+    if(props.value < 1000)
+    return(
+        <g>
+            <text fontSize="14px" fill="rgb(116, 121, 140)" x={props.x-3} y={props.y-16} textAnchor="start">
+                {props.value + ' $'}
+            </text>
+        </g>
+    )
+
     return(
         <g>
             <text fontSize="14px" fill="rgb(116, 121, 140)" x={props.x-7} y={props.y-16} textAnchor="start">
