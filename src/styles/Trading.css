@@ -4,6 +4,7 @@
   column-gap: 24px;
   min-height: 100vh;
   flex-grow: 0;
+  padding: 1.2rem 0 0 0;
 }
 
 .right__container {

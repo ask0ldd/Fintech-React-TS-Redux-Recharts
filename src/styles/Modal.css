@@ -8,7 +8,8 @@ dialog {
   border: none;
   padding: 20px 60px 24px 60px;
   animation-name: modalAppears;
-  animation-duration: 0.3s;
+  /*animation-duration: 0.3s;*/
+  animation-duration: 0.2s;
   animation-timing-function: ease-out;
   position: relative;
   /*display: none;*/
@@ -29,7 +30,8 @@ dialog:before {
 
 @keyframes modalAppears {
   0% {
-    transform: translateY(400px);
+    /*transform: translateY(400px);*/
+    transform: translateY(100px);
   }
   100% {
     transform: translateY(0);

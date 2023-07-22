@@ -2,13 +2,18 @@
   width: 1440px;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 1.5rem 0 2rem 0;
+  /*padding: 1.5rem 0 2rem 0;*/
 }
 
 .App {
+  /*padding: 1.5rem 0 2rem 0;*/
+  padding: 1.2rem 0 0 0;
   width: 100%;
   display: flex;
   column-gap: 24px;
+  /*max-height: 100vh;
+  transform: translateZ(0);
+  overflow: hidden;*/
 }
 
 .balance__ccard__transferCrypto__container {

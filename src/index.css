@@ -36,9 +36,11 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  /*overflow: hidden;
+  max-height: 100vh;*/
   background: radial-gradient(
         50% 75% at 0% 101.2%,
         rgba(88, 104, 185, 0.3) 0%,
