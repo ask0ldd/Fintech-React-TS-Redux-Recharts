@@ -1,23 +1,23 @@
 import '../styles/Balance.css'
 
-const Balance = () => {
+const Balance = ({statementAmount} : IProps) => {
     return(
         <div className='balance__container'>
             <article className='balance__column'>
                 <span className='balance__title'>Balance</span>
-                <span className='balance__amount'>$3601</span>
+                <span className='balance__amount'>${statementAmount.balance}</span>
                 <div className='balance__select'><span className='balance__percentage'>+10% (30 days)</span><div className='balance__selectArrows'></div></div>
             </article>
             <div className='balance__separator'></div>
             <article className='balance__column'>
                 <span className='balance__title'>Income</span>
-                <span className='balance__amount'>$1601</span>
+                <span className='balance__amount'>${statementAmount.income}</span>
                 <div className='balance__select'><span className='balance__percentage'>+10% (30 days)</span><div className='balance__selectArrows'></div></div>
             </article>
             <div className='balance__separator'></div>
             <article className='balance__column'>
                 <span className='balance__title'>Expenses</span>
-                <span className='balance__amount'>$901</span>
+                <span className='balance__amount'>${statementAmount.expenses}</span>
                 <div className='balance__select'><span className='balance__percentage'>+10% (30 days)</span><div className='balance__selectArrows'></div></div>
             </article>
             <div className='grid16'></div>
@@ -26,3 +26,11 @@ const Balance = () => {
 }
 
 export default Balance
+
+interface IProps{
+    statementAmount : {
+        balance : number, 
+        income : number, 
+        expenses : number, 
+    }
+}
