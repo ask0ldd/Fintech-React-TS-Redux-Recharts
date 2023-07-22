@@ -58,7 +58,7 @@ function App() {
       <VMenu/>
       <div className='balance__ccard__transferCrypto__container'>
         <Header format="compressed"/>
-        <Balance statementAmount={{balance:3601, income:1601, expenses:901}}/>
+        <Balance statementAmount={{balance: 3601, income: 1601, expenses: 901}}/>
         <CreditCards/>
         <div className='transfer__cryptos__container'>
             <Transfer rows={rows} setModalVisibility={setModalVisibility} setModalContentId={setModalContentId}/>
