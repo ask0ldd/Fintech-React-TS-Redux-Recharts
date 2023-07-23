@@ -13,11 +13,11 @@ function VMenu({activePage} : IProps){
             <Link to="/" className='homeButton'>
                 <img src={homeIcon}/>
             </Link>
-            <Link to="/stats/balance" className='vmenu-anchor'><img src={statsIcon}/></Link>
-            <Link to="/trading" className='vmenu-anchor'><img src={accountsIcon}/></Link>
-            <img src={chatIcon}/>
-            <img src={settingsIcon}/>
-            <img src={darkmodeIcon}/>
+            <Link to="/stats/balance" className='vmenu-anchor'><img data-testid="stats-menuItem" src={statsIcon}/></Link>
+            <Link to="/trading" className='vmenu-anchor'><img data-testid="accounts-menuItem" src={accountsIcon}/></Link>
+            <img data-testid="chat-menuItem" src={chatIcon}/>
+            <img data-testid="settings-menuItem" src={settingsIcon}/>
+            <img data-testid="mode-menuItem" src={darkmodeIcon}/>
         </nav>
     )
 }
