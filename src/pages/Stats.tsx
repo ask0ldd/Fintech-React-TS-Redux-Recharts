@@ -15,7 +15,7 @@ function Stats(){
         <main className="statsPage__mainContainer">
             <VMenu activePage="stats" />
             <section className="headernGraph__container">
-                <Header format="compressed" username="Tony Montana" iban="NL89RABO1289364745"/>
+                <Header format="uncompressed" username="Tony Montana" iban="NL89RABO1289364745" clientID='X458-89995'/>
                 {activeGraph === 'balance' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
                 {activeGraph === 'balance' && <BalanceBarsChart/>}
                 {activeGraph === 'income' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
