@@ -37,7 +37,8 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  min-width: 320px;
+  /*min-width: 320px;*/
+  width: 100vw;
   min-height: 100vh;
   /*overflow: hidden;
   max-height: 100vh;*/

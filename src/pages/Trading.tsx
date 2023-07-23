@@ -9,7 +9,7 @@ function Trading(){
         <main className="tradingPage__mainContainer">
             <VMenu activePage="trading" />
             <div className="right__container">
-                <Header/>
+                <Header format="compressed" username="Tony Montana" iban="NL89RABO1289364745"/>
                 <section className='tradingItemsRow__container'>
                     <div style={{flexDirection:'column', alignItems:'start'}} className='trading__items'>
                         <h3 style={{marginTop:'2px'}}>Crypto Balance (7d)</h3>

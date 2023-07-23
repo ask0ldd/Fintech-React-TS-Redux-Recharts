@@ -9,8 +9,9 @@ function Header({format, username, iban} : IProps){
             <div className='avatarnName__container'>
                 <img src={tonyAvatar}/>
                 <div className="namenIban__container">
-                    <span className="name">{username}</span>
-                    <span className="iban">IBAN : {iban}</span>
+                    <span className="name">{username},</span>
+                    <span className="iban"><span>IBAN :</span> {iban}</span>
+                    <span className="clientID"><span>Client ID :</span> X458-89995</span>
                 </div>
             </div>
             <figure className='banklogo__container'>
