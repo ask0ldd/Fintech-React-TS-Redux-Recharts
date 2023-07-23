@@ -57,7 +57,7 @@ function App() {
     <main className="App">
       <VMenu/>
       <div className='balance__ccard__transferCrypto__container'>
-        <Header format="compressed"/>
+        <Header format="compressed" username="Tony Montana" iban="NL89RABO1289364745"/>
         <Balance statementAmount={{balance: 3601, income: 1601, expenses: 901}}/>
         <CreditCards/>
         <div className='transfer__cryptos__container'>
