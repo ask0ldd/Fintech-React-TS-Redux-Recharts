@@ -1,0 +1,97 @@
+.bankInfos__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);
+  width: 50%;
+  height: 100%;
+  padding: 20px 0rem 2.1rem 0rem;
+  border-radius: 36px;
+  font-family: "Jost", sans-serif;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  box-shadow: 0px 4px 16px rgba(133, 101, 171, 0.32);
+  z-index: 2;
+  overflow: hidden;
+}
+
+.bankInfos__container:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  z-index: -1;
+  border-radius: 35px;
+  background-color: #eef1fb;
+}
+
+.bankInfos__container h2 {
+  padding-left: 2.5rem;
+  margin-bottom: 2px;
+  transform: translateX(-2px);
+}
+
+.bankInfos__container ul {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  color: rgba(65, 65, 65, 0.9);
+  width: 100%;
+}
+
+.bankInfos__container ul .label {
+  font-weight: 600;
+  height: 32px;
+  padding-left: 2.5rem;
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.bankInfos__container ul .value {
+  font-weight: 400;
+  height: 31px;
+  background-color: rgba(226, 230, 245, 0.8);
+  padding-left: 2.5rem;
+  padding-top: 1px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px dashed #abb4d8;
+}
+
+.bankphoto__container {
+  width: 288px;
+  height: 288px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(
+      180deg,
+      rgba(90, 73, 149, 0.7) 0%,
+      rgba(90, 73, 149, 0) 100%
+    ),
+    radial-gradient(
+      115.97% 115.97% at 89.93% 13.02%,
+      rgba(112, 63, 175, 0.7) 0%,
+      rgba(112, 63, 175, 0) 100%
+    ),
+    rgba(108, 84, 195, 0.8);
+  box-shadow: 2px -4px 4px 0px rgba(83, 68, 115, 0.6) inset;
+  border-radius: 0 0 0 36px;
+  outline: 3px solid white;
+}
+
+.bankphoto__container img {
+  width: 224px;
+  height: 224px;
+  border-radius: 29px;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1),
+    0px 8px 16px 0px rgba(0, 0, 0, 0.1), 0px 16px 32px 0px rgba(0, 0, 0, 0.1),
+    0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+  border: 3px solid #d6cdf0;
+}
