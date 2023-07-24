@@ -1,5 +1,6 @@
 import '../styles/BankInfos.css'
-import bankphoto from '/bankphoto.jpg'
+import bankphoto from '/bankphoto7.png'
+import timeIcon from '/icons/time.png'
 
 function BankInfos(){
   return(
@@ -15,6 +16,22 @@ function BankInfos(){
         </ul>
         <div className='bankphoto__container'>
             <img src={bankphoto}/>
+        </div>
+        <div className="schedule__container">
+            <img className='timeIcon' src={timeIcon}/>
+            <div className='separator'></div>
+            <ul>
+                <li>Open on :</li>
+                <li className='item'>Monday - Satursday</li>
+                <li className='item'>Sunday</li>
+            </ul>
+            <div className='separator'></div>
+            <ul>
+                <li>Business Hours :</li>
+                <li className='item'>8h - 12h / 13h - 17h</li>
+                <li className='item'>8h - 12h</li>
+            </ul>
+
         </div>
     </article>
   )   
