@@ -40,6 +40,7 @@ body {
   /*min-width: 320px;*/
   width: 100vw;
   min-height: 100vh;
+  overflow: hidden;
   /*overflow: hidden;
   max-height: 100vh;*/
   background: radial-gradient(
