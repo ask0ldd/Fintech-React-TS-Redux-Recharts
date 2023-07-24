@@ -1,7 +1,8 @@
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 import '../styles/BalanceBarsChart.css'
+import { IDatas } from "../pages/Stats"
 
-const datas = [
+const datas : IDatas = [
     { month: 'Jan', financial : {income:3952, expenses:2927} },
     { month: 'Feb', financial : {income:5053, expenses:3502} },
     { month: 'Mar', financial : {income:4070, expenses:3012} },

@@ -1,6 +1,6 @@
 import '../styles/OwnedCurrencyList.css'
 
-const wallet =[
+const wallet : Array<ICurrencyOwnedRow> = [
     {currency : 'BTC', amount: 502.09, price: 30301.05, previousPrice : 28100.50},
     {currency : 'ETH', amount: 24.99, price: 1868.30, previousPrice : 1832.05},
     {currency : 'BTC', amount: 502.09, price: 30301.05, previousPrice : 28100.50},
@@ -24,6 +24,13 @@ function OwnedCurrencyList(){
             </table>
         </article>
     )
+}
+
+interface ICurrencyOwnedRow {
+    currency : string
+    amount : number
+    price : number
+    previousPrice : number
 }
 
 export default OwnedCurrencyList

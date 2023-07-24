@@ -31,3 +31,10 @@ function Stats(){
 }
 
 export default Stats
+
+export interface IDatas extends Array<IDatasRow > { }
+
+interface IDatasRow{
+    month: string
+    financial: {income: number, expenses: number}
+}

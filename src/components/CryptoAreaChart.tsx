@@ -1,7 +1,7 @@
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 import '../styles/CryptoAreaChart.css'
 
-const data = [
+const data : Array<IDatas> = [
     {week: 'w1', price: 12400},
     {week: 'w2', price: 17300},
     {week: 'w3', price: 12700},
@@ -54,4 +54,9 @@ const CustomTooltip = ({payload} : any) => {
             </div>
         )
     }
+}
+
+interface IDatas{
+    week : string
+    price : number
 }

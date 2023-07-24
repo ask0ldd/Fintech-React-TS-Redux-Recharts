@@ -1,5 +1,6 @@
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 import '../styles/BalanceBarsChart.css'
+import { IDatas } from "../pages/Stats"
 
 const datas : IDatas = [
     { month: 'Jan', financial : {income:3952, expenses:2927} },
@@ -115,10 +116,3 @@ export default BalanceBarsChart
     formatter={styleTitle}
     />
 */
-
-export interface IDatas extends Array<IDatasRow > { }
-
-interface IDatasRow{
-    month: string
-    financial: {income: number, expenses: number}
-}
