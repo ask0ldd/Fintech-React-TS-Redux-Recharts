@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
-    "bnd": "tsc && vite build && gh-pages -d dist",
+    "bnd": "tsc && vite build && xcopy .\\404.html .\\dist\\ /y && gh-pages -d dist",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },

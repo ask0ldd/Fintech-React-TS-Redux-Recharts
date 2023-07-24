@@ -29,8 +29,8 @@ export default Balance
 
 interface IProps{
     statementAmount : {
-        balance : number, 
-        income : number, 
-        expenses : number, 
+        balance : number | 0, 
+        income : number | 0, 
+        expenses : number | 0, 
     }
 }
