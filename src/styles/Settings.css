@@ -1,0 +1,21 @@
+.settingsPage__mainContainer {
+  width: 100%;
+  display: flex;
+  column-gap: 24px;
+  min-height: 100vh;
+  padding: 1.5rem 0 0 0;
+}
+
+.headernSettings__container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 1120px;
+  row-gap: 24px;
+}
+
+.firstSettingsRow__container {
+  height: 436px;
+  width: 100%;
+  display: flex;
+  column-gap: 32px;
+}
