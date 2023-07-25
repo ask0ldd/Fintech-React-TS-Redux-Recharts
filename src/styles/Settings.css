@@ -13,9 +13,26 @@
   row-gap: 24px;
 }
 
-.firstSettingsRow__container {
-  height: 436px;
+.settingsArticles__container {
   width: 100%;
   display: flex;
   column-gap: 32px;
+  flex-direction: row;
+  padding: 0;
+  flex-wrap: nowrap;
+}
+
+.leftSettingsCol__container {
+  max-width: 50%;
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.rightSettingsCol__container {
+  /*height: 436px;*/
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 50%;
 }
