@@ -117,8 +117,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 2.5rem 2.5rem 0 2.5rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem 2.5rem 0 2.5rem;
   column-gap: 32px;
+  border-top: 1px dashed #5c39aa;
+  background: rgba(226, 230, 245, 0.8);
 }
 
 .infosSection__buttonsContainer button {
