@@ -5,10 +5,22 @@ function CustomerInfos(){
         <article className='customerInfos__container'>
             <h2>About You</h2>
             <div className='infosTable__container'>
-                <div className='labelRow'>Your Center :</div>
-                <div className='valueRow'>Bank Of America OC</div>
-                <div className='labelRow'>Address :</div>
-                <div className='valueRow'>2680 N Tustin St, Orange</div>
+                <div className='labelRow'>
+                    <span>Firstname :</span>
+                    <span>Last :</span>
+                </div>
+                <div className='valueRow'>
+                    <span>Antonio</span>
+                    <span>Montana</span>
+                </div>
+                <div className='labelRow'>
+                    <span>Date of Birth :</span>
+                    <span>Citizenship :</span>
+                </div>
+                <div className='valueRow'>
+                    <span>08/09/1956</span>
+                    <span>Cuban</span>
+                </div>
 
             </div>
         </article>

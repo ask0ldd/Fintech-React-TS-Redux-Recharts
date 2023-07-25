@@ -89,3 +89,9 @@
   align-items: center;
   border-bottom: 1px dashed #abb4d8;
 }
+
+.infosTable__container span {
+  display: flex;
+  width: 50%;
+  flex: 1 1;
+}
