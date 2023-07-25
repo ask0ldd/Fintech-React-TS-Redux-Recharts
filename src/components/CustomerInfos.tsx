@@ -43,7 +43,10 @@ function CustomerInfos(){
                     <span>2932 N Glassel St, Apt 18</span>
                     <span>Los Angeles, CA 92865</span>
                 </div>
-                <button>Update your Profile</button>
+                <div className='infosSection__buttonsContainer'>
+                    <button>Update your Infos</button>
+                    <button>Delete your Account</button>
+                </div>
             </div>
         </article>
     )

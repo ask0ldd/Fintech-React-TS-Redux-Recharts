@@ -111,7 +111,17 @@
   font-size: 18px;
 }
 
-.infosTable__container button {
+.infosSection__buttonsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 2.5rem 0 2.5rem;
+  column-gap: 32px;
+}
+
+.infosSection__buttonsContainer button {
   border-radius: 10px;
   background: linear-gradient(178deg, #703faf 0%, #573faf 100%), #eef1fb;
   box-shadow: 0px 4px 16px 0px rgba(133, 101, 171, 0.32),
@@ -122,19 +132,20 @@
     0px 41.777610778808594px 33.422088623046875px 0px rgba(129, 48, 147, 0.06);
   border: none;
   height: 56px;
-  width: 200px;
+  /*width: 200px;*/
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2.5rem auto 0rem auto;
+  /*margin: 2.5rem auto 0rem auto;*/
   font-family: "Poppins";
   font-weight: 600;
   font-size: 15px;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.02em;
   color: #ffffff;
 }
 
-.infosTable__container button:hover {
+.infosSection__buttonsContainer button:hover {
   background: linear-gradient(
       180deg,
       rgba(148, 48, 218, 0) 0%,
