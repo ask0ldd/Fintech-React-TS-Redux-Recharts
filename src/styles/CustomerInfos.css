@@ -61,3 +61,31 @@
   align-items: center;
   border-bottom: 1px dashed #abb4d8;
 }
+
+.customerInfos__container .infosTable__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  color: rgba(65, 65, 65, 0.9);
+  width: 100%;
+}
+
+.infosTable__container .labelRow {
+  font-weight: 600;
+  height: 32px;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.infosTable__container .valueRow {
+  font-weight: 400;
+  height: 31px;
+  background-color: rgba(226, 230, 245, 0.8);
+  padding: 1px 2.5rem 0 2.5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px dashed #abb4d8;
+}
