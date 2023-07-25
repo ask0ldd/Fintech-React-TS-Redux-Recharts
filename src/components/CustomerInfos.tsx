@@ -30,7 +30,7 @@ function CustomerInfos(){
                 </div>
                 <div className='valueRow'>
                     <span>311-555-2368</span>
-                    <span>Tony@LosZetas.com</span>
+                    <span>Tony@LosMarielitos.com</span>
                 </div>
                 <h3 className='infosSection__title'>
                     Residential Address
@@ -45,7 +45,7 @@ function CustomerInfos(){
                 </div>
                 <div className='infosSection__buttonsContainer'>
                     <button>Update your Infos</button>
-                    <button>Delete your Account</button>
+                    <button className='borderOnly'>Delete your Account</button>
                 </div>
             </div>
         </article>
