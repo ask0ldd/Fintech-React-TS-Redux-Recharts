@@ -21,13 +21,13 @@ function BankInfos(){
             <img className='timeIcon' src={timeIcon}/>
             <div className='separator'></div>
             <ul>
-                <li>Open on :</li>
+                <li>Open on :</li> {/* should be h4 */}
                 <li className='item'>Monday - Satursday</li>
                 <li className='item'>Sunday</li>
             </ul>
             <div className='separator'></div>
             <ul>
-                <li>Business Hours :</li>
+                <li>Business Hours :</li> {/* should be h4 */}
                 <li className='item'>8h - 12h / 13h - 17h</li>
                 <li className='item'>8h - 12h</li>
             </ul>
