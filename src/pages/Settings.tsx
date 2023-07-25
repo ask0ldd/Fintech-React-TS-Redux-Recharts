@@ -1,4 +1,5 @@
 import BankInfos from '../components/BankInfos'
+import CustomerInfos from '../components/CustomerInfos'
 import Header from '../components/Header'
 import VMenu from '../components/VMenu'
 import '../styles/Settings.css'
@@ -11,7 +12,7 @@ function Settings(){
                 <Header format="uncompressed" username="Tony Montana" iban="NL89RABO1289364745" clientID='X458-89995'/>
                 <div className='settingsArticles__container'>
                     <div className='leftSettingsCol__container'>
-                        <BankInfos/>
+                        <CustomerInfos/>
                     </div>
                     <div className='rightSettingsCol__container'>
                         <BankInfos/>
