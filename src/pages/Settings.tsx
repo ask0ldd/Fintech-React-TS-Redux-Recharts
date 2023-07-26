@@ -14,9 +14,11 @@ function Settings(){
                 <div className='settingsArticles__container'>
                     <div className='leftSettingsCol__container'>
                         <CustomerInfos/>
+                        <ContactlessPayment/>
                     </div>
                     <div className='rightSettingsCol__container'>
                         <BankInfos/>
+                        <ContactlessPayment/>
                         <ContactlessPayment/>
                     </div>
                 </div>

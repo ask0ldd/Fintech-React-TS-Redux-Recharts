@@ -13,9 +13,9 @@ function ContactlessPayment(){
                 <span className='expirationDate'>Expiration Date : <span className='expirationDate__value'>12/2026</span></span>
             </div>
             <div className='contactlessActivation__container'>
-                <span className='onOff__label'>{isSwitchActive ? 'On' : 'Off'}</span>
+                <span className='onOff__label' style={isSwitchActive ? {} : {color:'#8397AF', opacity:'0.8'}}>{isSwitchActive ? 'On' : 'Off'}</span>
                 <div className='switchContainer' onClick={() => setSwitchActive(!isSwitchActive)}>
-                    <div className={isSwitchActive ? 'switch' : 'deactivatedSwitch'} style={{/*right: isSwitchActive ? '0px' : '34px'*/}}>
+                    <div className={isSwitchActive ? 'switch' : 'deactivatedSwitch'}>
 
                     </div>
                 </div>
