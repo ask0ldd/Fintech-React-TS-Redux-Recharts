@@ -45,12 +45,21 @@
   font-weight: 600;
   text-align: right;
 }
+
 .ownedCurrencyList__container td {
   height: 32px;
   color: rgba(65, 65, 65, 0.9);
   font-weight: 400;
   padding-top: 2px;
   text-align: right;
+}
+
+.ownedCurrencyList__container .currencyCell {
+  text-align: left;
+  padding-left: 0.75rem;
+  color: #5c39aa;
+  font-family: Poppins;
+  font-weight: 700;
 }
 
 .ownedCurrencyList__rowEven {
@@ -62,4 +71,22 @@
 .ownedCurrencyList__container table .ownedCurrencyList__inc {
   color: #52cca8;
   font-weight: 600;
+}
+
+.ownedCurrencyList__container
+  table
+  tbody
+  tr.ownedCurrencyList__rowEven:hover
+  td {
+  background-color: #5c39aa;
+  color: #ffffff;
+}
+
+.ownedCurrencyList__container
+  table
+  tbody
+  tr.ownedCurrencyList__rowOdd:hover
+  td {
+  background-color: #5c39aa;
+  color: #ffffff;
 }
