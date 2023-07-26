@@ -1,5 +1,5 @@
-import BankInfos from '../components/BankInfos'
-import CustomerInfos from '../components/CustomerInfos'
+import BankInfos from '../components/Settings/BankInfos'
+import CustomerInfos from '../components/Settings/CustomerInfos'
 import Header from '../components/Header'
 import VMenu from '../components/VMenu'
 import '../styles/Settings.css'

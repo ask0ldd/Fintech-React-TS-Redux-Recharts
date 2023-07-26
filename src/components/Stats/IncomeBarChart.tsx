@@ -1,6 +1,6 @@
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
-import '../styles/BalanceBarsChart.css'
-import { IDatas } from "../pages/Stats"
+import '../../styles/BalanceBarsChart.css'
+import { IDatas } from "../../pages/Stats"
 
 const datas : IDatas = [
     { month: 'Jan', financial : {income:3952, expenses:2927} },

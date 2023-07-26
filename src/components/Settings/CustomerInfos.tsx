@@ -1,4 +1,4 @@
-import '../styles/CustomerInfos.css'
+import '../../styles/CustomerInfos.css'
 
 function CustomerInfos(){
     return(
@@ -45,7 +45,7 @@ function CustomerInfos(){
                 </div>
                 <div className='infosSection__buttonsContainer'>
                     <button>Update your Infos</button>
-                    <button className='borderOnly'>Delete your Account</button>
+                    <button className='borderOnly'>Close your Account</button>
                 </div>
             </div>
         </article>

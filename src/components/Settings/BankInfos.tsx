@@ -1,4 +1,4 @@
-import '../styles/BankInfos.css'
+import '../../styles/BankInfos.css'
 import bankphoto from '/bankphoto7.png'
 import timeIcon from '/icons/time.png'
 

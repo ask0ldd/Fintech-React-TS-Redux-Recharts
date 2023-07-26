@@ -1,6 +1,6 @@
-import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
-import '../styles/BalanceBarsChart.css'
-import { IDatas } from "../pages/Stats"
+import { Bar, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
+import '../../styles/BalanceBarsChart.css'
+import { IDatas } from "../../pages/Stats"
 
 const datas : IDatas = [
     { month: 'Jan', financial : {income:3952, expenses:2927} },
@@ -17,11 +17,19 @@ const datas : IDatas = [
     { month: 'Dec', financial : {income:4650, expenses:4153} },
 ]
 
-function BalanceBarsChart(){
+const datasSub : Array<IDatasSub> = datas.map((data, index, datas) => { 
+    return {
+        month : data.month, 
+        cumulatedSavings : sumMonthlySavings([...datas].slice(0,index+1)),
+        monthlySavings : data.financial.income - data.financial.expenses
+    } 
+})
+
+function BalanceSubBarChart(){
 
     return(
         <ResponsiveContainer className="graph__container" width="100%" height={680}>
-            <BarChart data={datas}
+            <ComposedChart data={datasSub}
             barCategoryGap='25%'
             barGap={10}
             margin={{
@@ -42,16 +50,17 @@ function BalanceBarsChart(){
                         <stop offset="100%" stopColor="#D56EE0" stopOpacity={1} />
                     </linearGradient>
                 </defs>
-                <YAxis dataKey="financial.income" yAxisId={0} tickCount={7} tick={<CustomizedYTick />}/>
+                <YAxis dataKey="monthlySavings" yAxisId={0} tickCount={7} tick={<CustomizedYTick />}/>
+                <YAxis dataKey="cumulatedSavings" yAxisId={1} tickCount={7} hide={true}/>
                 <XAxis dataKey="month" tickLine={false} tick={<CustomizedXTick />}/>
                 <CartesianGrid  strokeDasharray="4 4" vertical={false} stroke="#A4B3C6" />
-                <Bar dataKey="financial.income" fill="url(#GreenUV)" yAxisId={0} radius={[3, 3, 0, 0]}/>
-                <Bar dataKey="financial.expenses" fill="url(#PurpleUV)" yAxisId={0} radius={[3, 3, 0, 0]}/>
-                <Legend align="right" verticalAlign='top' width={300} iconSize={8} wrapperStyle={{top:36, right:36}}
-                payload={[{ value: 'Income (USD)', type: 'circle', id: 'ID01', color: '#2AD579'}, { value: 'Expenses (USD)', type: 'circle', id: 'ID02', color: '#965DDA' }]}
+                <Line dataKey="cumulatedSavings" type="linear" stroke="rgb(92, 57, 170)" strokeDasharray="2 4" strokeWidth={2} yAxisId={1} dot={false}/>
+                <Bar dataKey="monthlySavings" fill="url(#GreenUV)" maxBarSize={30} yAxisId={0} radius={[3, 3, 0, 0]} label={CustomLabel}/>
+                <Legend align="right" verticalAlign='top' width={400} iconSize={8} wrapperStyle={{top:36, right:36}}
+                payload={[{ value: 'Monthly Savings (USD)', type: 'circle', id: 'ID01', color: '#2AD579'}, { value: 'Cumulated Savings', type: 'circle', id: 'ID01', color: 'rgb(92, 57, 170)'}]}
                 formatter={resizedLegendValue} />
                 <text textAnchor="start" fontSize={26} fontWeight={700} x={40} y={56} fontFamily="Poppins" fill="#5c39aa">
-                    In & Out
+                    Monthly Balances
                 </text>
                 <Tooltip
                 cursor={false}
@@ -60,8 +69,27 @@ function BalanceBarsChart(){
                 labelStyle={{color:'#000',display:'none'}}
                 content={CustomTooltip}
                 />
-            </BarChart>
+            </ComposedChart>
         </ResponsiveContainer>
+    )
+}
+
+function CustomLabel(props: any){
+    if(props.value < 1000)
+    return(
+        <g>
+            <text fontSize="14px" fill="rgb(116, 121, 140)" x={props.x-3} y={props.y-16} textAnchor="start">
+                {props.value + ' $'}
+            </text>
+        </g>
+    )
+
+    return(
+        <g>
+            <text fontSize="14px" fill="rgb(116, 121, 140)" x={props.x-7} y={props.y-16} textAnchor="start">
+                {props.value + ' $'}
+            </text>
+        </g>
     )
 }
 
@@ -97,22 +125,30 @@ const CustomTooltip = ({payload} : any) => {
     if(payload && payload.length){
         return(
             <div className="balance__tooltip">
-                <p>Income : {payload[0].value} $</p>
-                <p style={{marginTop:'4px', display:'block'}}>Expenses : {payload[1].value} $</p>
+                <p>Cumulated Savings : {payload[0].value} $</p>
             </div>
         )
     }
 }
 
-export default BalanceBarsChart
+function sumMonthlySavings(datasArray : Array<IDataRow>){
+    return datasArray.reduce((accumulator, datasObject) => accumulator + (datasObject.financial.income - datasObject.financial.expenses), 0)
+}
 
-/*
-    <Legend
-    verticalAlign="top"
-    align="left"
-    wrapperStyle={{top:20, left:18, color:"#FF8484"}}
-    iconSize={0}
-    payload={[{ value : 'Monthly Balances'}]}
-    formatter={styleTitle}
-    />
-*/
+interface IDataRow{
+   month: string
+   financial : IFinancial
+}
+
+interface IFinancial{
+    income: number
+    expenses: number
+}
+
+interface IDatasSub{
+    month : string
+    cumulatedSavings : number
+    monthlySavings : number
+}
+
+export default BalanceSubBarChart

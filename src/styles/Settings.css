@@ -35,4 +35,5 @@
   display: flex;
   flex-direction: column;
   flex: 1 1 50%;
+  row-gap: 32px;
 }

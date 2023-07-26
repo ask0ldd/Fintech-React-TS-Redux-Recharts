@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom"
-import BalanceBarsChart from "../components/BalanceBarsChart"
-import IncomeBarChart from "../components/IncomeBarChart"
+import BalanceBarsChart from "../components/Stats/BalanceBarsChart"
+import IncomeBarChart from "../components/Stats/IncomeBarChart"
 import Header from "../components/Header"
 import StatsHorizontalMenu from "../components/StatsHorizontalMenu"
 import VMenu from "../components/VMenu"
 import '../styles/Stats.css'
-import ExpensesBarChart from "../components/ExpensesBarChart"
-import BalanceSubBarChart from "../components/BalanceSubBarChart"
+import ExpensesBarChart from "../components/Stats/ExpensesBarChart"
+import BalanceSubBarChart from "../components/Stats/BalanceSubBarChart"
 
 function Stats(){
     const activeGraph = useParams().id
