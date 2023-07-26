@@ -3,6 +3,7 @@ import CustomerInfos from '../components/Settings/CustomerInfos'
 import Header from '../components/Header'
 import VMenu from '../components/VMenu'
 import '../styles/Settings.css'
+import ContactlessPayment from '../components/Settings/ContactlessPayment'
 
 function Settings(){
     return (
@@ -16,6 +17,7 @@ function Settings(){
                     </div>
                     <div className='rightSettingsCol__container'>
                         <BankInfos/>
+                        <ContactlessPayment/>
                     </div>
                 </div>
             </section>
