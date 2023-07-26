@@ -10,7 +10,11 @@ function ContactlessPayment(){
             </div>
             <div className='contactlessActivation__container'>
                 <span className='onOff__label'>On</span>
-                <div className='switchContainer'></div>
+                <div className='switchContainer'>
+                    <div className='switch' aria-role='button'>
+                        
+                    </div>
+                </div>
             </div>
         </article>
     )
