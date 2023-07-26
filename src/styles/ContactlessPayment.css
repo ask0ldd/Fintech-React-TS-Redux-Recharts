@@ -90,6 +90,7 @@
   border: 1px solid #fff;
   margin-top: 27px;
   position: relative;
+  cursor: pointer;
 }
 
 .contactlessActivation__container .switchContainer .switch {
@@ -121,5 +122,41 @@
     linear-gradient(178deg, #703faf 0%, #573faf 100%), #d9d9d9;
   box-shadow: 0px 4px 4px 0px #ada0d9;
   top: 0;
-  right: 0;
+  right: 0px;
+  transition: all 0.15s ease-in;
+  cursor: pointer;
+}
+
+.contactlessActivation__container .switchContainer .deactivatedSwitch {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 16px;
+  background: radial-gradient(
+      84.58% 84.58% at 100% 110.04%,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 58.24%
+    ),
+    radial-gradient(
+      56.96% 56.96% at 10.71% 89.06%,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 58.24%
+    ),
+    radial-gradient(
+      104.44% 104.44% at 80.13% -0%,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0) 58.24%
+    ),
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 11.58%,
+      rgba(255, 255, 255, 0.2) 48.1%,
+      rgba(255, 255, 255, 0) 84.58%
+    ),
+    linear-gradient(178deg, #b8afc2 0%, #7f7a93 100%), #d9d9d9;
+  box-shadow: 0px 4px 4px 0px #ada5c8;
+  top: 0;
+  right: 34px;
+  transition: all 0.15s ease-in;
+  cursor: pointer;
 }
