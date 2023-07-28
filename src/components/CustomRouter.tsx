@@ -5,7 +5,7 @@ import Trading from '../pages/Trading'
 import Settings from '../pages/Settings'
 import Messaging from '../pages/Messaging'
 
-/** basename gh pages **/
+// !!!!!!!!! TODO 404 Page!
 
 const CustomRouter = () => {
     return (
@@ -18,6 +18,7 @@ const CustomRouter = () => {
                 <Route path='trading/' element={<Trading />} />
                 <Route path='settings/' element={<Settings />} />
                 <Route path='messaging/' element={<Messaging />} />
+                <Route path='messaging/:id' element={<Messaging />} />
             </Routes>
         </Router>
     )

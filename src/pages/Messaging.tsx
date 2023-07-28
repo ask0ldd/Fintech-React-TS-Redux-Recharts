@@ -1,9 +1,13 @@
+import { useParams } from "react-router-dom"
 import Header from "../components/Header"
 import MessagingHorizontalMenu from "../components/MessagingHorizontalMenu"
 import VMenu from "../components/VMenu"
 import '../styles/Messaging.css'
 
 function Messaging(){
+
+    const activeMessagingSection : string = useParams().id || "inbox"
+    
     return(
         <main className="messagingPage__mainContainer">
             <VMenu activePage="messaging" />

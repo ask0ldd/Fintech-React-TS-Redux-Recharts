@@ -9,7 +9,8 @@ import ExpensesBarChart from "../components/Stats/ExpensesBarChart"
 import BalanceSubBarChart from "../components/Stats/BalanceSubBarChart"
 
 function Stats(){
-    const activeGraph = useParams().id
+
+    const activeGraph : string = useParams().id || "balance"
     
     return(
         <main className="statsPage__mainContainer">
