@@ -13,6 +13,15 @@ function InboxTable(){
                     <tr>
                         <td>Conseiller</td><td>Your credit card is close to its expiration date</td><td>12 - 05 - 2023</td>
                     </tr>
+                    <tr>
+                        <td>Conseiller</td><td>Your credit card is close to its expiration date</td><td>12 - 05 - 2023</td>
+                    </tr>
+                    <tr>
+                        <td>Conseiller</td><td>Your credit card is close to its expiration date</td><td>12 - 05 - 2023</td>
+                    </tr>
+                    <tr>
+                        <td>Conseiller</td><td>Your credit card is close to its expiration date</td><td>12 - 05 - 2023</td>
+                    </tr>
                 </tbody>
             </table>
         </article>

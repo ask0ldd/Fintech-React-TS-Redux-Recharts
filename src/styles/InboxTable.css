@@ -31,21 +31,52 @@
 .inboxEmailsList__container table {
   width: 100%;
   text-align: left;
+  border-collapse: collapse;
 }
 
 .inboxEmailsList__container table tr {
-  height: 32px;
+  height: 38px;
+  cursor: pointer;
+}
+
+.inboxEmailsList__container table tbody tr:nth-child(2n + 1) {
+  background-color: #e2e6f5;
+  border-bottom: 1px solid #d4d9ed;
+  border-top: 1px solid #d4d9ed;
+}
+
+.inboxEmailsList__container table tr th:nth-child(1) {
+  width: 300px;
+}
+
+.inboxEmailsList__container table tr td:nth-child(1) {
+  width: 300px;
 }
 
 .inboxEmailsList__container table thead tr {
-  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .inboxEmailsList__container table th {
-  padding-left: 1rem;
+  height: 55px;
+  color: rgba(65, 65, 65, 0.9);
+  font-weight: 600;
+  padding: 0 1.25rem;
 }
 
 .inboxEmailsList__container table td {
-  padding-left: 1rem;
+  height: 32px;
+  color: rgba(65, 65, 65, 0.9);
   font-weight: 400;
+  padding: 0 1.25rem;
+  padding-top: 2px;
+}
+
+.inboxEmailsList__container table tr:hover td {
+  background: linear-gradient(178deg, #703faf 0%, #573faf 100%);
+  color: #ffffff;
+}
+
+.inboxEmailsList__container table tbody tr:last-of-type {
+  border-bottom: 1px solid black;
 }
