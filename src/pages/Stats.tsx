@@ -17,15 +17,10 @@ function Stats(){
             <VMenu activePage="stats" />
             <section className="headernGraph__container">
                 <Header format="uncompressed" username="Tony Montana" iban="NL89RABO1289364745" clientID='X458-89995'/>
-                {activeGraph === 'balance' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
-                {activeGraph === 'balance' && <BalanceBarsChart/>}
-                {activeGraph === 'income' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
-                {activeGraph === 'income' && <IncomeBarChart/>}
-                {activeGraph === 'expenses' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
-                {activeGraph === 'expenses' && <ExpensesBarChart/>}
-                {activeGraph === 'subbalance' && <StatsHorizontalMenu activeGraph={activeGraph}/>}
-                {activeGraph === 'subbalance' && <BalanceSubBarChart/>}
-               
+                {activeGraph === 'balance' && <><StatsHorizontalMenu activeGraph={activeGraph}/><BalanceBarsChart/></>}
+                {activeGraph === 'income' && <><StatsHorizontalMenu activeGraph={activeGraph}/><IncomeBarChart/></>}
+                {activeGraph === 'expenses' && <><StatsHorizontalMenu activeGraph={activeGraph}/><ExpensesBarChart/></>}
+                {activeGraph === 'subbalance' && <><StatsHorizontalMenu activeGraph={activeGraph}/><BalanceSubBarChart/></>}               
             </section>
         </main>
     )
