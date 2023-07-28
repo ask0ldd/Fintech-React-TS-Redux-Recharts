@@ -39,32 +39,25 @@
   cursor: pointer;
 }
 
-.inboxEmailsList__container table tbody tr:nth-child(2n + 1) {
+.inboxEmailsList__container tbody tr:nth-child(2n + 1) {
   background-color: #e2e6f5;
   border-bottom: 1px solid #d4d9ed;
   border-top: 1px solid #d4d9ed;
 }
 
-.inboxEmailsList__container table tr th:nth-child(1) {
-  width: 300px;
-}
-
-.inboxEmailsList__container table tr td:nth-child(1) {
-  width: 300px;
-}
-
-.inboxEmailsList__container table thead tr {
+.inboxEmailsList__container thead tr {
   border-bottom: 1px solid black;
 }
 
-.inboxEmailsList__container table th {
+.inboxEmailsList__container th {
   height: 55px;
   color: rgba(65, 65, 65, 0.9);
   font-weight: 600;
   padding: 0 1.25rem;
+  height: 42px;
 }
 
-.inboxEmailsList__container table td {
+.inboxEmailsList__container td {
   height: 32px;
   color: rgba(65, 65, 65, 0.9);
   font-weight: 400;
@@ -72,11 +65,36 @@
   padding-top: 2px;
 }
 
-.inboxEmailsList__container table tr:hover td {
+.inboxEmailsList__container tr:hover td {
   background: linear-gradient(178deg, #703faf 0%, #573faf 100%);
   color: #ffffff;
 }
 
-.inboxEmailsList__container table tbody tr:last-of-type {
+.inboxEmailsList__container tbody tr:last-of-type {
   border-bottom: 1px solid black;
+}
+
+.inboxEmailsList__container tr .from {
+  width: 300px;
+}
+
+.inboxEmailsList__container tr .delete {
+  width: 38px;
+  padding: 0;
+}
+
+.inboxEmailsList__container tr .checkboxCell {
+  width: 38px;
+  max-width: 38px;
+  min-width: 38px;
+  padding: 0 0.75rem;
+  margin: 0;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+  height: 32px;
+}
+
+.inboxEmailsList__container tr .checkboxCell input {
+  transform: translateY(2px);
 }
