@@ -42,6 +42,7 @@
   height: 16px;
   background: linear-gradient(to right, #4d4264 0%, rgb(92, 81, 95) 100%);
   border-radius: 4px;
+  /*animation: ease-out 1.2s forwards fadeinplaceholder infinite;*/
   animation: ease-out 1.2s forwards fadeinplaceholder infinite;
 }
 

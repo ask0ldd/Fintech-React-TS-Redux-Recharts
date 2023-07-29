@@ -33,7 +33,7 @@ window.onload = (e) => {
           field.style.opacity = "1"
           })
       loadingAnims.forEach(anim => anim.style.display = "none")
-  }, 6000)
+  }, 100)
 }
 
 function App() {
