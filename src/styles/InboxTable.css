@@ -103,10 +103,11 @@
 }
 
 .inboxEmailsList__container tr .checkboxCell {
-  width: 38px;
-  max-width: 38px;
-  min-width: 38px;
+  width: 36px;
+  max-width: 36px;
+  min-width: 36px;
   padding: 0 0.75rem;
+  padding: 0;
   margin: 0;
   /*display: flex;
   justify-content: center;
@@ -114,6 +115,32 @@
   height: 32px;
 }
 
+.inboxEmailsList__container tr .checkboxCell:hover {
+  background: linear-gradient(
+      180deg,
+      rgba(148, 48, 218, 0) 0%,
+      rgba(136, 52, 218, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(166, 41, 237, 0.7) 0%,
+      rgba(158, 47, 237, 0.7) 100%
+    ),
+    linear-gradient(178deg, #703faf 0%, #573faf 100%);
+}
+
 .inboxEmailsList__container tr .checkboxCell input {
   transform: translateY(2px);
+}
+
+.customCheckbox {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 1px solid rgba(65, 65, 65, 0.9);
+  border-radius: 2px;
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 1px;
 }
