@@ -18,6 +18,8 @@ function InboxTable(){
         return setEmailsState(emails)
     }
 
+    // !!!! unselect / select all into first th
+
     return(
         <article className="inboxEmailsList__container">
             <table>
@@ -29,7 +31,11 @@ function InboxTable(){
                 <tbody>
                     {emailsState.slice(0, 14).map((email, index) => 
                     <tr key={"tremail"+index}>
-                        <td onClick={() => selectMail(index)} className='checkboxCell'><div style={email.selected === true ? {background:'black'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'></div></td>
+                        <td onClick={() => selectMail(index)} className='checkboxCell'>
+                            <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
+                                <img style={{width:'10px', height:'10px'}} src='./icons/ok.png'/>
+                            </div>
+                        </td>
                         <td className='from'>{email.sender}</td>
                         <td>{email.title}</td>
                         <td>{email.date}</td>
