@@ -3,14 +3,14 @@ import '../../styles/InboxTable.css'
 
 function InboxTable(){
 
-    // !!! transform into a function called when passing param to useState
-    const formatedEmails : Array<ISelectableEmail> = emails.map(email => {
-        const newEmail : ISelectableEmail = {...email, selected : false}
-        return newEmail
+    function emailsToSelectableEmails(emailsList : Array<IEmail>){
+        return emailsList.map(email => {
+            const newEmail : ISelectableEmail = {...email, selected : false}
+            return newEmail
+        })
     }
-    )
 
-    const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(formatedEmails)
+    const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(emailsToSelectableEmails(emails))
 
     function selectMail(emailID : number){
         const emails = [...emailsState]
