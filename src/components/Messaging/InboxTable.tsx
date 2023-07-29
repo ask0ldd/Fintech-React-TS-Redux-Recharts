@@ -29,7 +29,7 @@ function InboxTable(){
         return setEmailsState(emails)
     }
 
-    // nav between pages
+    // nav between pages / ordering
 
     // menu : delete / spam / mark as read / refresh
 
@@ -69,6 +69,14 @@ function InboxTable(){
                     </tr>)}
                 </tbody>
             </table>
+            <div className='inbox__footer'>
+                <span>Showing 1 to 15 of 50 emails</span>
+                <div className='pagination__container'>
+                    <div className='pagination__button'>1</div>
+                    <div className='pagination__button'>2</div>
+                    <div className='pagination__button'>3</div>
+                </div>
+            </div>
         </article>
     )
 }

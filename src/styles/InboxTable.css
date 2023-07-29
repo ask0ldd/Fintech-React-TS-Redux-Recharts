@@ -144,3 +144,30 @@
   margin: 0 auto;
   margin-top: 1px;
 }
+
+.inbox__footer {
+  display: flex;
+  height: 60px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+}
+
+.inbox__footer .pagination__container {
+  height: 32px;
+  display: flex;
+  column-gap: 12px;
+}
+
+.inbox__footer .pagination__container .pagination__button {
+  width: 32px;
+  height: 32px;
+  background-color: #f5f7fd;
+  box-shadow: 0px 16px 32px 0px #d3daf1,
+    0px 8px 16px 0px rgba(211, 218, 241, 0.8), 0px 4px 8px 0px #d3daf1;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
