@@ -1,6 +1,23 @@
+import { useState } from 'react'
 import '../../styles/InboxTable.css'
 
 function InboxTable(){
+
+    // !!! transform into a function called when passing param to useState
+    const formatedEmails : Array<ISelectableEmail> = emails.map(email => {
+        const newEmail : ISelectableEmail = {...email, selected : false}
+        return newEmail
+    }
+    )
+
+    const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(formatedEmails)
+
+    function selectMail(emailID : number){
+        const emails = [...emailsState]
+        emails[emailID] = {...emails[emailID], selected : !emails[emailID].selected}
+        return setEmailsState(emails)
+    }
+
     return(
         <article className="inboxEmailsList__container">
             <table>
@@ -10,9 +27,9 @@ function InboxTable(){
                     </tr>
                 </thead>
                 <tbody>
-                    {emails.slice(0, 14).map((email, index) => 
+                    {emailsState.slice(0, 14).map((email, index) => 
                     <tr key={"tremail"+index}>
-                        <td className='checkboxCell'><div className='customCheckbox' aria-checked={false} role="checkbox" aria-labelledby='selectColumn'></div></td>
+                        <td onClick={() => selectMail(index)} className='checkboxCell'><div style={email.selected === true ? {background:'black'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'></div></td>
                         <td className='from'>{email.sender}</td>
                         <td>{email.title}</td>
                         <td>{email.date}</td>
@@ -26,7 +43,18 @@ function InboxTable(){
 
 export default InboxTable
 
-const emails = [{"id":1,"sender":"Brion Probets","title":"Nullam molestie nibh in lectus.","date":"2023-03-23"},
+interface IEmail {
+    id:number
+    sender:string
+    title:string
+    date:string
+}
+
+interface ISelectableEmail extends IEmail{
+    selected:boolean
+}
+
+const emails : Array<IEmail> = [{"id":1,"sender":"Brion Probets","title":"Nullam molestie nibh in lectus.","date":"2023-03-23"},
 {"id":2,"sender":"Angel Tooting","title":"Proin risus.","date":"2022-12-06"},
 {"id":3,"sender":"Dredi Struys","title":"Proin interdum mauris non ligula pellentesque ultrices.","date":"2023-05-04"},
 {"id":4,"sender":"Tammie Dewane","title":"Etiam faucibus cursus urna.","date":"2023-05-19"},
