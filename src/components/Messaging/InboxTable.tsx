@@ -6,16 +6,17 @@ function InboxTable(){
             <table>
                 <thead>
                     <tr>
-                        <th className='checkboxCell'><label className='sr-only'>Select</label></th><th>From</th><th>Title</th><th>Date</th><th className='delete'></th>
+                        <th className='checkboxCell'><label id="selectColumn" className='sr-only'>Select Mail</label></th><th>From</th><th>Title</th><th>Date</th><th className='delete'><label id="deleteColumn" className='sr-only'>Delete Mail</label></th>
                     </tr>
                 </thead>
                 <tbody>
                     {emails.slice(0, 14).map((email, index) => 
                     <tr key={"tremail"+index}>
-                        <td className='checkboxCell'>{/*<input type="checkbox"/>*/}<div className='customCheckbox'></div></td><td className='from'>{email.sender}</td>
+                        <td className='checkboxCell'><div className='customCheckbox' aria-checked={false} role="checkbox" aria-labelledby='selectColumn'></div></td>
+                        <td className='from'>{email.sender}</td>
                         <td>{email.title}</td>
                         <td>{email.date}</td>
-                        <td style={{display:'flex', height:'37px', justifyContent:'center', alignItems:'center'}}className='delete'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg></td>
+                        <td role="button" aria-labelledby='deleteColumn' style={{display:'flex', height:'37px', justifyContent:'center', alignItems:'center'}} className='delete'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg></td>
                     </tr>)}
                 </tbody>
             </table>
