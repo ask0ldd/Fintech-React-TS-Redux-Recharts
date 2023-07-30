@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import '../../styles/InboxTable.css'
 
+
+
 function InboxTable(){
 
     function emailsToSelectableEmails(emailsList : Array<IEmail>){
@@ -13,6 +15,8 @@ function InboxTable(){
     const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(emailsToSelectableEmails(emails))
     const [areAllEmailsSelected, setAllEmailsSelection] = useState<boolean>(false)
     const [activePage, setActivePage] = useState<number>(1)
+    const [sortingRule, setSortingRule] = useState<{direction: 'asc' | 'desc', columnDatakey : string}>({direction : 'desc', columnDatakey : 'date'})
+
 
     // !!! should select only emails currently in the datatable
     function selectAllEMails(e : React.MouseEvent, selectStatus : boolean){
@@ -35,6 +39,28 @@ function InboxTable(){
         if (str.length <= 92) return str
         return str.slice(0,92)+'...'
     }
+
+    const frCollator = new Intl.Collator('en')
+
+    function stateSorting(state : Array<ISelectableEmail>, sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}, dataType : string){
+        if(dataType === 'date'){
+            switch(sortingRule.direction){
+               case 'asc' : return setEmailsState(emailsState.sort((a,b) => dateToTime(b[sortingRule.columnDatakey]) - dateToTime(a[sortingRule.columnDatakey]))); break
+               case 'desc' : return setEmailsState(emailsState.sort((a,b) => dateToTime(a[sortingRule.columnDatakey]) - dateToTime(b[sortingRule.columnDatakey]))); break
+            }
+        }
+        switch(sortingRule.direction){
+            case 'asc' : return setEmailsState(emailsState.sort((a,b) => frCollator.compare(a[sortingRule.columnDatakey], b[sortingRule.columnDatakey]))); break
+            case 'desc' : return setEmailsState(emailsState.sort((a,b) => frCollator.compare(b[sortingRule.columnDatakey], a[sortingRule.columnDatakey]))); break
+        }
+    }
+
+    function dateToTime(date : string){
+        const [day, month, year] = date.split('/')
+        return new Date(parseInt(year), parseInt(month), parseInt(day)).getTime()
+    }
+
+    // state should be a reducer
 
     // nav between pages / ordering
 
