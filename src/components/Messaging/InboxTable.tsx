@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../../styles/InboxTable.css'
 
 
@@ -16,7 +16,6 @@ function InboxTable(){
     const [areAllEmailsSelected, setAllEmailsSelection] = useState<boolean>(false)
     const [activePage, setActivePage] = useState<number>(1)
     const [sortingRule, setSortingRule] = useState<{direction: 'asc' | 'desc', columnDatakey : string}>({direction : 'desc', columnDatakey : 'date'})
-
 
     // !!! should select only emails currently in the datatable
     function selectAllEMails(e : React.MouseEvent, selectStatus : boolean){
@@ -45,15 +44,19 @@ function InboxTable(){
     function emailsSorting(state : Array<ISelectableEmail>, sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}, dataType : string){
         if(dataType === 'date'){
             switch(sortingRule.direction){
-               case 'asc' : return setEmailsState(state.sort((a,b) => dateToTime(b[sortingRule.columnDatakey as keyof typeof b] as string) - dateToTime(a[sortingRule.columnDatakey as keyof typeof a] as string))); break
-               case 'desc' : return setEmailsState(state.sort((a,b) => dateToTime(a[sortingRule.columnDatakey as keyof typeof a] as string) - dateToTime(b[sortingRule.columnDatakey as keyof typeof b] as string))); break
+               case 'asc' : return setEmailsState([...state].sort((a,b) => dateToTime(b[sortingRule.columnDatakey as keyof typeof b] as string) - dateToTime(a[sortingRule.columnDatakey as keyof typeof a] as string))); break
+               case 'desc' : return setEmailsState([...state].sort((a,b) => dateToTime(a[sortingRule.columnDatakey as keyof typeof a] as string) - dateToTime(b[sortingRule.columnDatakey as keyof typeof b] as string))); break
             }
         }
         switch(sortingRule.direction){
-            case 'asc' : return setEmailsState(state.sort((a,b) => frCollator.compare(a[sortingRule.columnDatakey as keyof typeof a] as string, b[sortingRule.columnDatakey as keyof typeof b] as string))); break
-            case 'desc' : return setEmailsState(state.sort((a,b) => frCollator.compare(b[sortingRule.columnDatakey as keyof typeof b] as string, a[sortingRule.columnDatakey as keyof typeof a] as string))); break
+            case 'asc' : return setEmailsState([...state].sort((a,b) => frCollator.compare(a[sortingRule.columnDatakey as keyof typeof a] as string, b[sortingRule.columnDatakey as keyof typeof b] as string))); break
+            case 'desc' : return setEmailsState([...state].sort((a,b) => frCollator.compare(b[sortingRule.columnDatakey as keyof typeof b] as string, a[sortingRule.columnDatakey as keyof typeof a] as string))); break
         }
     }
+
+    useEffect(() => {
+        emailsSorting(emailsState, {direction: sortingRule.direction, columnDatakey : sortingRule.columnDatakey}, 'string')
+    }, [sortingRule])
 
     function dateToTime(date : string){
         const [day, month, year] = date.split('/')
@@ -77,16 +80,16 @@ function InboxTable(){
                                 <img style={{width:'10px', height:'10px'}} src='./icons/ok.png'/>
                             </div>
                         </th>
-                        <th>From</th>
-                        <th>Title</th>
-                        <th>Date</th>
+                        <th onClick={() => setSortingRule({direction: 'asc', columnDatakey : 'sender'})}>From</th>
+                        <th onClick={() => setSortingRule({direction: 'asc', columnDatakey : 'title'})}>Title</th>
+                        <th onClick={() => setSortingRule({direction: 'asc', columnDatakey : 'date'})}>Date</th>
                         <th className='delete'>
                             <label id="deleteColumn" className='sr-only'>Delete Mail</label>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {emailsState.slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => 
+                    {[...emailsState].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => 
                     <tr key={"tremail"+index}>
                         <td onClick={(e) => selectTargetEmail(e, emailsState, index)} className='checkboxCell'>
                             <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
