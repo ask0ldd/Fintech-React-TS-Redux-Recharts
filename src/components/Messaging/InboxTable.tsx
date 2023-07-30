@@ -14,6 +14,7 @@ function InboxTable(){
     const [areAllEmailsSelected, setAllEmailsSelection] = useState<boolean>(false)
     const [activePage, setActivePage] = useState<number>(1)
 
+    // !!! should select only emails currently in the datatable
     function selectAllEMails(e : React.MouseEvent, selectStatus : boolean){
         e.preventDefault()
         e.stopPropagation()
@@ -28,6 +29,11 @@ function InboxTable(){
         const emails = [...emailsState]
         emails[emailID] = {...emails[emailID], selected : !emails[emailID].selected}
         return setEmailsState(emails)
+    }
+
+    function cropTitle(str : string){
+        if (str.length <= 92) return str
+        return str.slice(0,92)+'...'
     }
 
     // nav between pages / ordering
@@ -62,7 +68,7 @@ function InboxTable(){
                             </div>
                         </td>
                         <td className='from'>{email.sender}</td>
-                        <td>{email.title}</td>
+                        <td>{cropTitle(email.title)}</td>
                         <td>{email.date}</td>
                         <td role="button" aria-labelledby='deleteColumn' style={{display:'flex', height:'37px', justifyContent:'center', alignItems:'center'}} className='delete'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
