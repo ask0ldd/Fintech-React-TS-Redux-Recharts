@@ -40,7 +40,7 @@
 }
 
 .inboxEmailsList__container tbody tr:nth-child(2n + 1) {
-  background-color: #e2e6f5;
+  background-color: #e5e8f6;
   border-bottom: 1px solid #d4d9ed;
   border-top: 1px solid #d4d9ed;
 }

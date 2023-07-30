@@ -12,6 +12,7 @@ function InboxTable(){
 
     const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(emailsToSelectableEmails(emails))
     const [areAllEmailsSelected, setAllEmailsSelection] = useState<boolean>(false)
+    const [activePage, setActivePage] = useState<number>(1)
 
     function selectAllEMails(e : React.MouseEvent, selectStatus : boolean){
         e.preventDefault()
@@ -53,7 +54,7 @@ function InboxTable(){
                     </tr>
                 </thead>
                 <tbody>
-                    {emailsState.slice(0, 14).map((email, index) => 
+                    {emailsState.slice((activePage-1)*10, (activePage-1)*10+10).map((email, index) => 
                     <tr key={"tremail"+index}>
                         <td onClick={(e) => selectTargetEmail(e, emailsState, index)} className='checkboxCell'>
                             <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
@@ -70,13 +71,13 @@ function InboxTable(){
                 </tbody>
             </table>
             <div className='inbox__footer'>
-                <span>Showing 1 to 15 of 50 emails</span>
+                <span>Showing {(activePage-1)*10+1} to {(activePage-1)*10+10 > emailsState.length ? emailsState.length : (activePage-1)*10+10} of {emailsState.length} emails</span>
                 <div className='pagination__container'>
-                    <div role="button" className='pagination__nextPrev'>Prev</div>
-                    <div role="button" className='pagination__button'>1</div>
-                    <div role="button" className='pagination__button'>2</div>
-                    <div role="button" className='pagination__button'>3</div>
-                    <div role="button" className='pagination__nextPrev'>Next</div>
+                    {activePage > 1 && <div role="button" className='pagination__nextPrev' onClick={() => setActivePage(activePage-1)}>Prev</div>}
+                    {activePage > 1 &&<div role="button" className='pagination__button' onClick={() => setActivePage(activePage-1)}>{activePage-1}</div>}
+                    <div role="button" className='pagination__button'>{activePage}</div>
+                    <div role="button" className='pagination__button' onClick={() => setActivePage(activePage+1)}>{activePage+1}</div>
+                    <div role="button" className='pagination__nextPrev' onClick={() => setActivePage(activePage+1)}>Next</div>
                 </div>
             </div>
         </article>
