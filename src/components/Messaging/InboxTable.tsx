@@ -42,16 +42,16 @@ function InboxTable(){
 
     const frCollator = new Intl.Collator('en')
 
-    function stateSorting(state : Array<ISelectableEmail>, sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}, dataType : string){
+    function emailsSorting(state : Array<ISelectableEmail>, sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}, dataType : string){
         if(dataType === 'date'){
             switch(sortingRule.direction){
-               case 'asc' : return setEmailsState(emailsState.sort((a,b) => dateToTime(b[sortingRule.columnDatakey]) - dateToTime(a[sortingRule.columnDatakey]))); break
-               case 'desc' : return setEmailsState(emailsState.sort((a,b) => dateToTime(a[sortingRule.columnDatakey]) - dateToTime(b[sortingRule.columnDatakey]))); break
+               case 'asc' : return setEmailsState(state.sort((a,b) => dateToTime(b[sortingRule.columnDatakey as keyof typeof b] as string) - dateToTime(a[sortingRule.columnDatakey as keyof typeof a] as string))); break
+               case 'desc' : return setEmailsState(state.sort((a,b) => dateToTime(a[sortingRule.columnDatakey as keyof typeof a] as string) - dateToTime(b[sortingRule.columnDatakey as keyof typeof b] as string))); break
             }
         }
         switch(sortingRule.direction){
-            case 'asc' : return setEmailsState(emailsState.sort((a,b) => frCollator.compare(a[sortingRule.columnDatakey], b[sortingRule.columnDatakey]))); break
-            case 'desc' : return setEmailsState(emailsState.sort((a,b) => frCollator.compare(b[sortingRule.columnDatakey], a[sortingRule.columnDatakey]))); break
+            case 'asc' : return setEmailsState(state.sort((a,b) => frCollator.compare(a[sortingRule.columnDatakey as keyof typeof a] as string, b[sortingRule.columnDatakey as keyof typeof b] as string))); break
+            case 'desc' : return setEmailsState(state.sort((a,b) => frCollator.compare(b[sortingRule.columnDatakey as keyof typeof b] as string, a[sortingRule.columnDatakey as keyof typeof a] as string))); break
         }
     }
 
