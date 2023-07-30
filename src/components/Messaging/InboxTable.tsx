@@ -75,9 +75,9 @@ function InboxTable(){
                 <div className='pagination__container'>
                     {activePage > 1 && <div role="button" className='pagination__nextPrev' onClick={() => setActivePage(activePage-1)}>Prev</div>}
                     {activePage > 1 &&<div role="button" className='pagination__button' onClick={() => setActivePage(activePage-1)}>{activePage-1}</div>}
-                    <div role="button" className='pagination__button'>{activePage}</div>
-                    <div role="button" className='pagination__button' onClick={() => setActivePage(activePage+1)}>{activePage+1}</div>
-                    <div role="button" className='pagination__nextPrev' onClick={() => setActivePage(activePage+1)}>Next</div>
+                    <div role="button" className='pagination__buttonActive'>{activePage}</div>
+                    {(activePage-1)*10+10 <= emailsState.length && <div role="button" className='pagination__button' onClick={() => setActivePage(activePage+1)}>{activePage+1}</div>}
+                    {(activePage-1)*10+10 <= emailsState.length && <div role="button" className='pagination__nextPrev' onClick={() => setActivePage(activePage+1)}>Next</div>}
                 </div>
             </div>
         </article>
