@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import '../../styles/messaging/InboxTable.css'
 // import '../../assets/icons/ok.png'
+import ok from '/icons/ok.png'
 
 function InboxTable(){
 
@@ -71,7 +72,7 @@ function InboxTable(){
                         <th className='checkboxCell' onClick={(e) => selectAllVisibleEmails(e, !areAllEmailsSelected)}>
                             <label id="selectColumn" className='sr-only'>Select Mail</label>
                             <div style={areAllEmailsSelected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={areAllEmailsSelected} role="checkbox" aria-labelledby='selectColumn'>
-                                <img style={{width:'10px', height:'10px'}} src='/icons/ok.png'/>
+                                <img style={{width:'10px', height:'10px'}} src={ok}/>
                             </div>
                         </th>
                         <th onClick={() => setSortingRule('sender')}>From</th>
@@ -87,7 +88,7 @@ function InboxTable(){
                     <tr key={"tremail"+index}>
                         <td onClick={(e) => selectTargetEmail(e, index)} className='checkboxCell'>
                             <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
-                                <img style={{width:'10px', height:'10px'}} src='/icons/ok.png'/>
+                                <img style={{width:'10px', height:'10px'}} src={ok}/>
                             </div>
                         </td>
                         <td className='from'>{email.sender}</td>
