@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import '../../styles/InboxTable.css'
 
-
-
 function InboxTable(){
 
     const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(emailsToSelectableEmails(emails))
@@ -11,7 +9,7 @@ function InboxTable(){
     const [sortingRule, _setSortingRule] = useState<{direction: 'asc' | 'desc', columnDatakey : string}>({direction : 'desc', columnDatakey : 'date'})
 
     function setSortingRule(columnDatakey : string){
-        if(sortingRule.columnDatakey === columnDatakey) return _setSortingRule({direction : invertDirection(sortingRule.direction), columnDatakey : columnDatakey})
+        if(sortingRule.columnDatakey === columnDatakey) return _setSortingRule({direction : invertSortingDirection(sortingRule.direction), columnDatakey : columnDatakey})
         _setSortingRule({direction : 'asc', columnDatakey : columnDatakey})
     }
 
@@ -24,7 +22,8 @@ function InboxTable(){
         return setEmailsState(emailsWithSelectedStatus)
     }
 
-    function selectTargetEmail(e : React.MouseEvent, emailsState : Array<ISelectableEmail>, emailID : number){
+    // select one target email
+    function selectTargetEmail(e : React.MouseEvent, emailID : number){
         e.preventDefault()
         e.stopPropagation()
         const emails = [...emailsState]
@@ -32,26 +31,29 @@ function InboxTable(){
         return setEmailsState(emails)
     }
 
+    // shorten longer email titles
     function cropEmailTitle(str : string){
         if (str.length <= 92) return str
         return str.slice(0,92)+'...'
     }
 
-    function emailsSorting(state : Array<ISelectableEmail>, sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}, dataType : string){
+    function emailsSorting(sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}, dataType : string){
         if(dataType === 'date'){
             switch(sortingRule.direction){
-               case 'asc' : return setEmailsState([...state].sort((a,b) => dateToTime(b[sortingRule.columnDatakey as keyof typeof b] as string) - dateToTime(a[sortingRule.columnDatakey as keyof typeof a] as string))); break
-               case 'desc' : return setEmailsState([...state].sort((a,b) => dateToTime(a[sortingRule.columnDatakey as keyof typeof a] as string) - dateToTime(b[sortingRule.columnDatakey as keyof typeof b] as string))); break
+               case 'asc' : return setEmailsState([...emailsState].sort((a,b) => dateToTime(b[sortingRule.columnDatakey as keyof typeof b] as string) - dateToTime(a[sortingRule.columnDatakey as keyof typeof a] as string))); break
+               case 'desc' : return setEmailsState([...emailsState].sort((a,b) => dateToTime(a[sortingRule.columnDatakey as keyof typeof a] as string) - dateToTime(b[sortingRule.columnDatakey as keyof typeof b] as string))); break
             }
         }
         switch(sortingRule.direction){
-            case 'asc' : return setEmailsState([...state].sort((a,b) => frCollator.compare(a[sortingRule.columnDatakey as keyof typeof a] as string, b[sortingRule.columnDatakey as keyof typeof b] as string))); break
-            case 'desc' : return setEmailsState([...state].sort((a,b) => frCollator.compare(b[sortingRule.columnDatakey as keyof typeof b] as string, a[sortingRule.columnDatakey as keyof typeof a] as string))); break
+            case 'asc' : return setEmailsState([...emailsState].sort((a,b) => frCollator.compare(a[sortingRule.columnDatakey as keyof typeof a] as string, b[sortingRule.columnDatakey as keyof typeof b] as string))); break
+            case 'desc' : return setEmailsState([...emailsState].sort((a,b) => frCollator.compare(b[sortingRule.columnDatakey as keyof typeof b] as string, a[sortingRule.columnDatakey as keyof typeof a] as string))); break
         }
     }
 
+    // auto refresh the table after a new sorting rules has been defined
     useEffect(() => {
-        emailsSorting(emailsState, {direction: sortingRule.direction, columnDatakey : sortingRule.columnDatakey}, 'string')
+        emailsSorting({direction: sortingRule.direction, columnDatakey : sortingRule.columnDatakey}, 'string')
+        setActivePage(1)
     }, [sortingRule])
 
     // state should be a reducer
@@ -80,7 +82,7 @@ function InboxTable(){
                 <tbody>
                     {[...emailsState].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => 
                     <tr key={"tremail"+index}>
-                        <td onClick={(e) => selectTargetEmail(e, emailsState, index)} className='checkboxCell'>
+                        <td onClick={(e) => selectTargetEmail(e, index)} className='checkboxCell'>
                             <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
                                 <img style={{width:'10px', height:'10px'}} src='./icons/ok.png'/>
                             </div>
@@ -133,12 +135,12 @@ function emailsToSelectableEmails(emailsList : Array<IEmail>){
     })
 }
 
-function invertDirection(direction : string){
+function invertSortingDirection(direction : string){
     if(direction === 'asc') return 'desc'
     return 'asc'
 }
 
-const frCollator = new Intl.Collator('en')
+export const frCollator = new Intl.Collator('en')
 
 const emails : Array<IEmail> = [{"id":1,"sender":"Brion Probets","title":"Nullam molestie nibh in lectus.","date":"2023-03-23"},
 {"id":2,"sender":"Angel Tooting","title":"Proin risus.","date":"2022-12-06"},
