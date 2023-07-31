@@ -8,6 +8,7 @@ function InboxTable(){
     const [activePage, setActivePage] = useState<number>(1)
     const [sortingRule, _setSortingRule] = useState<{direction: 'asc' | 'desc', columnDatakey : string}>({direction : 'desc', columnDatakey : 'date'})
 
+    // replace selectemail / sorting with a reducer
     function setSortingRule(columnDatakey : string){
         if(sortingRule.columnDatakey === columnDatakey) return _setSortingRule({direction : invertSortingDirection(sortingRule.direction), columnDatakey : columnDatakey})
         _setSortingRule({direction : 'asc', columnDatakey : columnDatakey})
