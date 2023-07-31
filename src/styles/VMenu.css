@@ -12,7 +12,8 @@
   width: 64px;
 }
 
-.vmenu-anchor:hover {
+.vmenu-anchor:hover,
+.vmenu-anchor.activeItem {
   background: linear-gradient(
       146deg,
       rgba(39, 19, 111, 0) 6.36%,
@@ -52,7 +53,8 @@
   fill: white;
 }
 
-.vmenu-anchor:hover img {
+.vmenu-anchor:hover img,
+.vmenu-anchor.activeItem img {
   filter: invert(1) sepia(1) saturate(0) brightness(10);
 }
 
@@ -64,7 +66,7 @@
 
 .vmenu .homeButton {
   margin-top: 15px;
-  height: 62px;
+  /*height: 62px;
   width: 62px;
   border-radius: 62px;
   display: flex;
@@ -104,10 +106,10 @@
     0px 41.777610778808594px 33.422088623046875px 0px rgba(129, 48, 147, 0.06),
     0px 100px 80px 0px rgba(129, 48, 147, 0.08),
     0px 4px 8px 0px rgba(0, 0, 0, 0.15),
-    0px 4px 16px 0px rgba(196, 45, 240, 0.41);
+    0px 4px 16px 0px rgba(196, 45, 240, 0.41);*/
 }
 
-.vmenu .homeButton img {
+/*.vmenu .homeButton img {
   width: 24px;
   margin-top: -2px;
-}
+}*/

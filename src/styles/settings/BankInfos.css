@@ -71,7 +71,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  background: url("../assets/strippedBG.png"),
+  background: url("../../assets/strippedBG.png"),
     linear-gradient(
       180deg,
       rgba(90, 73, 149, 0.7) 0%,

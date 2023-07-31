@@ -55,7 +55,7 @@ function App() {
 
   return (
     <main className="App">
-      <VMenu/>
+      <VMenu activePage='home'/>
       <div className='balance__ccard__transferCrypto__container'>
         <Header format="compressed" username="Tony Montana" iban="NL89RABO1289364745" clientID='X458-89995'/>
         <Balance statementAmount={{balance: 3601, income: 1601, expenses: 901}}/>
