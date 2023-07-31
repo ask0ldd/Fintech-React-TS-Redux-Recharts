@@ -1,5 +1,5 @@
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
-import '../../styles/BalanceBarsChart.css'
+import '../../styles/stats/BalanceBarsChart.css'
 import { IDatas } from "../../pages/Stats"
 
 const datas : IDatas = [

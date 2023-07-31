@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import '../../styles/ContactlessPayment.css'
+import '../../styles/settings/ContactlessPayment.css'
 
 function ContactlessPayment(){
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import '../../styles/InboxTable.css'
+import '../../styles/messaging/InboxTable.css'
+// import '../../assets/icons/ok.png'
 
 function InboxTable(){
 
@@ -53,6 +54,7 @@ function InboxTable(){
 
     // auto refresh the table after a new sorting rules has been defined
     useEffect(() => {
+        // !!!! should deal with dates too
         emailsSorting({direction: sortingRule.direction, columnDatakey : sortingRule.columnDatakey}, 'string')
         setActivePage(1)
     }, [sortingRule])

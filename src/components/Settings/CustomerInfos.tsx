@@ -1,4 +1,4 @@
-import '../../styles/CustomerInfos.css'
+import '../../styles/settings/CustomerInfos.css'
 
 function CustomerInfos(){
     return(

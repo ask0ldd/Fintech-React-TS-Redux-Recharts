@@ -1,4 +1,4 @@
-import '../../styles/NewMessage.css'
+import '../../styles/messaging/NewMessage.css'
 
 function NewMessage(){
     return(
