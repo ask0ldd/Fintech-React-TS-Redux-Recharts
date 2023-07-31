@@ -14,7 +14,7 @@ function VMenu({activePage} : IProps){
                 <img src={homeIcon}/>
             </Link>
             <Link to="/stats/balance" className='vmenu-anchor'><img data-testid="stats-menuItem" src={statsIcon}/></Link>
-            <Link to="/trading" className='vmenu-anchor'><img data-testid="accounts-menuItem" src={accountsIcon}/></Link>
+            <Link to="/trading" className='vmenu-anchor'><img style={{transform:'translate(0, -1px)'}} data-testid="accounts-menuItem" src={accountsIcon}/></Link>
             <Link to="/messaging" className='vmenu-anchor'><img data-testid="chat-menuItem" src={chatIcon}/></Link>
             <Link to="/settings" className='vmenu-anchor'><img data-testid="settings-menuItem" src={settingsIcon}/></Link>
             <img data-testid="mode-menuItem" src={darkmodeIcon}/>
