@@ -3,10 +3,12 @@ import Header from "../components/Header"
 import MessagingHorizontalMenu from "../components/MessagingHorizontalMenu"
 import VMenu from "../components/VMenu"
 import '../styles/Messaging.css'
-import InboxTable from "../components/Messaging/InboxTable"
-import NewMessage from "../components/Messaging/NewMessage"
+import InboxTable from "../components/messaging/InboxTable"
+import NewMessage from "../components/messaging/NewMessage"
 
 function Messaging(){
+    
+    // add fav contacts list
 
     const activeMessagingSection : string = useParams().id || "inbox"
     

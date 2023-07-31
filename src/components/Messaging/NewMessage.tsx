@@ -3,14 +3,16 @@ import '../../styles/NewMessage.css'
 function NewMessage(){
     return(
     <article className="newMessage__container">
-        <label>From</label>
+        <h2 style={{marginBottom:'1.15rem'}}>Compose your Email</h2>
+        <label>From :</label>
         <input type="text" value="Antonio Montana" readOnly/>
-        <label>To</label>
+        <label>To :</label>
         <input type="text"/>
-        <label>Title</label>
+        <label>Title :</label>
         <input type="text"/>
-        <label>Body</label>
-        <textarea rows={12}/>
+        <label>Body :</label>
+        <textarea rows={8}/>
+        <button>Send your Email</button>
     </article>
     )
 }
