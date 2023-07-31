@@ -88,6 +88,7 @@
 
 .balance__percentage {
   margin: 6px 0 4px 0;
+  transform: translateY(-1px);
 }
 
 .balance__selectArrows {

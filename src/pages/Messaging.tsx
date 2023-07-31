@@ -19,6 +19,7 @@ function Messaging(){
                 <Header format="uncompressed" username="Tony Montana" iban="NL89RABO1289364745" clientID='X458-89995'/>
                 { activeMessagingSection === 'inbox' && <><MessagingHorizontalMenu activeMessagingSection="inbox"/><InboxTable/></>}
                 { activeMessagingSection === 'newmail' && <><MessagingHorizontalMenu activeMessagingSection="newmail"/><NewMessage/></>}
+                { activeMessagingSection === 'sent' && <><MessagingHorizontalMenu activeMessagingSection="sent"/><InboxTable/></>}
             </section>
 
         </main>
