@@ -5,24 +5,22 @@ import '../../styles/InboxTable.css'
 
 function InboxTable(){
 
-    function emailsToSelectableEmails(emailsList : Array<IEmail>){
-        return emailsList.map(email => {
-            const newEmail : ISelectableEmail = {...email, selected : false}
-            return newEmail
-        })
+    const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(emailsToSelectableEmails(emails))
+    const [areAllEmailsSelected, selectAllEmailsToSelected] = useState<boolean>(false)
+    const [activePage, setActivePage] = useState<number>(1)
+    const [sortingRule, _setSortingRule] = useState<{direction: 'asc' | 'desc', columnDatakey : string}>({direction : 'desc', columnDatakey : 'date'})
+
+    function setSortingRule(columnDatakey : string){
+        if(sortingRule.columnDatakey === columnDatakey) return _setSortingRule({direction : invertDirection(sortingRule.direction), columnDatakey : columnDatakey})
+        _setSortingRule({direction : 'asc', columnDatakey : columnDatakey})
     }
 
-    const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(emailsToSelectableEmails(emails))
-    const [areAllEmailsSelected, setAllEmailsSelection] = useState<boolean>(false)
-    const [activePage, setActivePage] = useState<number>(1)
-    const [sortingRule, setSortingRule] = useState<{direction: 'asc' | 'desc', columnDatakey : string}>({direction : 'desc', columnDatakey : 'date'})
-
     // !!! should select only emails currently in the datatable
-    function selectAllEMails(e : React.MouseEvent, selectStatus : boolean){
+    function selectAllVisibleEmails(e : React.MouseEvent, selectStatus : boolean){
         e.preventDefault()
         e.stopPropagation()
         const emailsWithSelectedStatus = [...emailsState].map(email => {return {...email, selected : selectStatus}})
-        setAllEmailsSelection(selectStatus)
+        selectAllEmailsToSelected(selectStatus)
         return setEmailsState(emailsWithSelectedStatus)
     }
 
@@ -34,12 +32,10 @@ function InboxTable(){
         return setEmailsState(emails)
     }
 
-    function cropTitle(str : string){
+    function cropEmailTitle(str : string){
         if (str.length <= 92) return str
         return str.slice(0,92)+'...'
     }
-
-    const frCollator = new Intl.Collator('en')
 
     function emailsSorting(state : Array<ISelectableEmail>, sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}, dataType : string){
         if(dataType === 'date'){
@@ -58,14 +54,7 @@ function InboxTable(){
         emailsSorting(emailsState, {direction: sortingRule.direction, columnDatakey : sortingRule.columnDatakey}, 'string')
     }, [sortingRule])
 
-    function dateToTime(date : string){
-        const [day, month, year] = date.split('/')
-        return new Date(parseInt(year), parseInt(month), parseInt(day)).getTime()
-    }
-
     // state should be a reducer
-
-    // nav between pages / ordering
 
     // menu : delete / spam / mark as read / refresh
 
@@ -74,15 +63,15 @@ function InboxTable(){
             <table>
                 <thead>
                     <tr>
-                        <th className='checkboxCell' onClick={(e) => selectAllEMails(e, !areAllEmailsSelected)}>
+                        <th className='checkboxCell' onClick={(e) => selectAllVisibleEmails(e, !areAllEmailsSelected)}>
                             <label id="selectColumn" className='sr-only'>Select Mail</label>
                             <div style={areAllEmailsSelected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={areAllEmailsSelected} role="checkbox" aria-labelledby='selectColumn'>
                                 <img style={{width:'10px', height:'10px'}} src='./icons/ok.png'/>
                             </div>
                         </th>
-                        <th onClick={() => setSortingRule({direction: 'asc', columnDatakey : 'sender'})}>From</th>
-                        <th onClick={() => setSortingRule({direction: 'asc', columnDatakey : 'title'})}>Title</th>
-                        <th onClick={() => setSortingRule({direction: 'asc', columnDatakey : 'date'})}>Date</th>
+                        <th onClick={() => setSortingRule('sender')}>From</th>
+                        <th onClick={() => setSortingRule('title')}>Title</th>
+                        <th onClick={() => setSortingRule('date')}>Date</th>
                         <th className='delete'>
                             <label id="deleteColumn" className='sr-only'>Delete Mail</label>
                         </th>
@@ -97,7 +86,7 @@ function InboxTable(){
                             </div>
                         </td>
                         <td className='from'>{email.sender}</td>
-                        <td>{cropTitle(email.title)}</td>
+                        <td>{cropEmailTitle(email.title)}</td>
                         <td>{email.date}</td>
                         <td role="button" aria-labelledby='deleteColumn' style={{display:'flex', height:'37px', justifyContent:'center', alignItems:'center'}} className='delete'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
@@ -131,6 +120,25 @@ interface IEmail {
 interface ISelectableEmail extends IEmail{
     selected:boolean
 }
+
+function dateToTime(date : string){
+    const [day, month, year] = date.split('/')
+    return new Date(parseInt(year), parseInt(month), parseInt(day)).getTime()
+}
+
+function emailsToSelectableEmails(emailsList : Array<IEmail>){
+    return emailsList.map(email => {
+        const newEmail : ISelectableEmail = {...email, selected : false}
+        return newEmail
+    })
+}
+
+function invertDirection(direction : string){
+    if(direction === 'asc') return 'desc'
+    return 'asc'
+}
+
+const frCollator = new Intl.Collator('en')
 
 const emails : Array<IEmail> = [{"id":1,"sender":"Brion Probets","title":"Nullam molestie nibh in lectus.","date":"2023-03-23"},
 {"id":2,"sender":"Angel Tooting","title":"Proin risus.","date":"2022-12-06"},
