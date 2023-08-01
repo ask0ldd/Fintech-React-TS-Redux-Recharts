@@ -61,6 +61,16 @@
   height: 42px;
 }
 
+.inboxEmailsList__container table .fileAttachColumn {
+  width: 24px;
+  height: 38px;
+  padding: 0px 0px 0px 8px;
+}
+
+.inboxEmailsList__container table .fileAttachColumn svg {
+  transform: translateY(3px);
+}
+
 .inboxEmailsList__container td {
   height: 32px;
   color: rgba(65, 65, 65, 0.9);
@@ -72,6 +82,11 @@
 .inboxEmailsList__container tr:hover td {
   background: linear-gradient(178deg, #703faf 0%, #573faf 100%);
   color: #ffffff;
+}
+
+.inboxEmailsList__container tr:hover .fileAttachColumn svg path {
+  color: #fff;
+  fill: #fff;
 }
 
 .inboxEmailsList__container tbody tr:last-of-type {
