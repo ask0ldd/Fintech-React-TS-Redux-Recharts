@@ -12,8 +12,9 @@
   border-radius: 30px;
   display: flex;
   flex-direction: column;
-  padding: 1.65rem 2.5rem 2.1rem 2.5rem;
+  padding: 1.65rem 1.5rem 1.6rem 1.5rem;
   flex-shrink: 0;
+  height: fit-content;
 }
 
 .contactsList__container:before {
@@ -26,4 +27,20 @@
   z-index: -1;
   border-radius: 29px;
   background-color: #eef1fb;
+}
+
+.contactsList__container .contact__container {
+  box-shadow: 0px 4px 16px 0px rgba(133, 101, 171, 0.32);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 9px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.55) 100%
+  );
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  column-gap: 1rem;
 }

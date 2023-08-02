@@ -7,7 +7,7 @@ function NewMessage({mailRecipient} : IProps){
         <label>From :</label>
         <input type="text" value="Antonio Montana" readOnly/>
         <label>To :</label>
-        <input type="text" value={mailRecipient.name || ''}/>
+        <input type="text" defaultValue={mailRecipient.name || ''}/>
         <label>Title :</label>
         <input type="text"/>
         <label>Body :</label>
