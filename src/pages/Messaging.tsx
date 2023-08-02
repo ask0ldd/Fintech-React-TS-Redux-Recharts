@@ -4,13 +4,16 @@ import MessagingHorizontalMenu from "../components/MessagingHorizontalMenu"
 import VMenu from "../components/VMenu"
 import '../styles/Messaging.css'
 import InboxTable from "../components/messaging/InboxTable"
-import NewMessage from "../components/messaging/NewMessage"
+import NewMessage, { IRecipient } from "../components/messaging/NewMessage"
+import { useState } from "react"
 
 function Messaging(){
     
     // add fav contacts list
 
     const activeMessagingSection : string = useParams().id || "inbox"
+
+    const [mailRecipient, setMailRecipient] = useState<IRecipient>({name : 'Jimmy Marklum', pic : './avatars/blank.png', title : 'Bank Advisor'})
     
     return(
         <main className="messagingPage__mainContainer">
@@ -18,7 +21,7 @@ function Messaging(){
             <section className="headernMessagesBox__container">
                 <Header format="uncompressed" username="Tony Montana" iban="NL89RABO1289364745" clientID='X458-89995'/>
                 { activeMessagingSection === 'inbox' && <><MessagingHorizontalMenu activeMessagingSection="inbox"/><InboxTable/></>}
-                { activeMessagingSection === 'newmail' && <><MessagingHorizontalMenu activeMessagingSection="newmail"/><NewMessage/></>}
+                { activeMessagingSection === 'newmail' && <><MessagingHorizontalMenu activeMessagingSection="newmail"/><NewMessage mailRecipient={mailRecipient}/></>}
                 { activeMessagingSection === 'sent' && <><MessagingHorizontalMenu activeMessagingSection="sent"/><InboxTable/></>}
             </section>
 

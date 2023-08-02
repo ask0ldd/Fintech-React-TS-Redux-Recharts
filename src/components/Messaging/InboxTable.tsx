@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import '../../styles/messaging/InboxTable.css'
 import ok from '/icons/ok.png'
-import fileattach from '/icons/fileattach.png'
 import {IEmail, ISelectableEmail, emails} from '../../datas/emailsDatas'
 
 // !!! not read icon, piece jointe

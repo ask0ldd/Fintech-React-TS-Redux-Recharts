@@ -1,6 +1,6 @@
 import '../../styles/messaging/NewMessage.css'
 
-function NewMessage(){
+function NewMessage({mailRecipient} : IProps){
     return(
     <article className="newMessage__container">
         <h2 style={{marginBottom:'1.15rem'}}>Compose your Email</h2>
@@ -17,3 +17,13 @@ function NewMessage(){
     )
 }
 export default NewMessage
+
+interface IProps{
+    mailRecipient : IRecipient
+}
+
+export interface IRecipient{
+    name : string
+    pic : string
+    title : string
+}
