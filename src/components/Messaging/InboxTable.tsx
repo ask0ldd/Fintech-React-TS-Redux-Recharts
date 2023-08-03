@@ -5,9 +5,9 @@ import {IEmail, ISelectableEmail, emails} from '../../datas/emailsDatas'
 
 // !!! not read icon, piece jointe
 
-function InboxTable(){
+function InboxTable({emailsState, setEmailsState} : IProps){
 
-    const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(emailsToSelectableEmails(emails))
+    
     const [areAllEmailsSelected, selectAllEmailsToSelected] = useState<boolean>(false)
     const [activePage, setActivePage] = useState<number>(1)
     const [sortingRule, _setSortingRule] = useState<{direction: 'asc' | 'desc', columnDatakey : string}>({direction : 'desc', columnDatakey : 'date'})
@@ -144,3 +144,8 @@ function invertSortingDirection(direction : string){
 }
 
 export const frCollator = new Intl.Collator('en')
+
+interface IProps{
+    emailsState : Array<ISelectableEmail>
+    setEmailsState : (emails : Array<ISelectableEmail>) => void
+}
