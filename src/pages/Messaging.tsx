@@ -8,7 +8,7 @@ import NewMessage, { IRecipient } from "../components/messaging/NewMessage"
 import { useState } from "react"
 import ContactsList from "../components/messaging/ContactsList"
 import VInboxMenu from "../components/messaging/VInboxMenu"
-import { ISelectableEmail } from "../datas/emailsDatas"
+import { IEmail, ISelectableEmail, emails } from "../datas/emailsDatas"
 
 function Messaging(){
     
@@ -35,3 +35,10 @@ function Messaging(){
 }
 
 export default Messaging
+
+function emailsToSelectableEmails(emailsList : Array<IEmail>){
+    return emailsList.map(email => {
+        const newEmail : ISelectableEmail = {...email, selected : false}
+        return newEmail
+    })
+}

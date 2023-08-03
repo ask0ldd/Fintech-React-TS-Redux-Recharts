@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import '../../styles/messaging/InboxTable.css'
 import ok from '/icons/ok.png'
-import {IEmail, ISelectableEmail, emails} from '../../datas/emailsDatas'
+import {ISelectableEmail} from '../../datas/emailsDatas'
 
 // !!! not read icon, piece jointe
 
@@ -129,13 +129,6 @@ export default InboxTable
 function dateToTime(date : string){
     const [day, month, year] = date.split('/')
     return new Date(parseInt(year), parseInt(month), parseInt(day)).getTime()
-}
-
-function emailsToSelectableEmails(emailsList : Array<IEmail>){
-    return emailsList.map(email => {
-        const newEmail : ISelectableEmail = {...email, selected : false}
-        return newEmail
-    })
 }
 
 function invertSortingDirection(direction : string){
