@@ -43,4 +43,10 @@
   margin-top: 0;
   margin-bottom: 1.25rem;
   column-gap: 1rem;
+  cursor: pointer;
+}
+
+.contactsList__container .contact__container:hover {
+  background: linear-gradient(178deg, #703faf 0%, #573faf 100%);
+  color: #ffffff;
 }
