@@ -3,7 +3,7 @@ import '../../styles/messaging/ContactsList.css'
 function ContactsList(){
     return(
         <article className="contactsList__container">
-            <h2 style={{marginBottom:'1.15rem',}}>Contacts</h2>
+            <h2 style={{marginBottom:'1.5rem',}}>Contacts</h2>
             <div className='contact__container'>
                 <figure style={{marginTop:'6px'}}>*</figure>
                 <img src="../avatars/avatar4.png"/>

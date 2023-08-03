@@ -1,5 +1,5 @@
 .vinboxMenu__container {
-  width: 10%;
+  width: 8%;
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);
   box-shadow: 0px 4px 16px 0px rgba(133, 101, 171, 0.32);
   color: rgba(65, 65, 65, 0.9);
@@ -12,9 +12,10 @@
   border-radius: 30px;
   display: flex;
   flex-direction: column;
-  padding: 1.65rem 1.5rem 1.6rem 1.5rem;
+  padding: 1.15rem 1.5rem 1.1rem 1.5rem;
   flex-shrink: 0;
   height: fit-content;
+  align-items: center;
 }
 
 .vinboxMenu__container:before {
@@ -27,4 +28,26 @@
   z-index: -1;
   border-radius: 29px;
   background-color: #eef1fb;
+}
+
+.vinboxMenu__container svg:not(:last-of-type) {
+  border-bottom: 1px dashed rgba(65, 65, 65, 0.9);
+}
+
+.vinboxMenu__container svg:nth-child(2n + 1) {
+  background-color: #e5e8f6;
+}
+
+.vinboxMenu__container svg:nth-child(1) {
+  border-radius: 20px 20px 0 0;
+}
+
+.vinboxMenu__container svg:last-of-type {
+  border-radius: 0px 0px 20px 20px;
+}
+
+.vinboxMenu__container svg:hover {
+  background: linear-gradient(178deg, #703faf 0%, #573faf 100%);
+  color: #ffffff;
+  fill: #ffffff;
 }

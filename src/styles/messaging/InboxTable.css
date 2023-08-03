@@ -1,5 +1,5 @@
 .inboxEmailsList__container {
-  width: 100%;
+  width: 92%;
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #eef1fb 100%);
   box-shadow: 0px 4px 16px 0px rgba(133, 101, 171, 0.32);
   color: rgba(65, 65, 65, 0.9);
@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   padding: 1.65rem 2.5rem 2.1rem 2.5rem;
-  flex-shrink: 0;
+  flex-shrink: 1;
 }
 
 .inboxEmailsList__container:before {
@@ -94,7 +94,7 @@
 }
 
 .inboxEmailsList__container tr .from {
-  width: 300px;
+  width: 200px;
 }
 
 .inboxEmailsList__container tr .delete {
