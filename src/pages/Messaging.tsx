@@ -15,17 +15,21 @@ function Messaging(){
     // add fav contacts list
     
     const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(emailsToSelectableEmails(emails))
-
     const [areAllEmailsSelected, setAllEmailsToSelected] = useState<boolean>(false)
-
-    const activeMessagingSection : string = useParams().id || "inbox"
-
     const [mailRecipient, setMailRecipient] = useState<IRecipient>({name : 'Jimmy Marklum', pic : './avatars/blank.png', title : 'Bank Advisor'})
+    const [filterEmails, setFilterEmails] = useState<"file" | "toread" | null>(null)
+    const activeMessagingSection : string = useParams().id || "inbox"
 
     function deleteSelectedEmails(){
         const nonDeletedEmails = [...emailsState].filter(email => email.selected === false)
         setEmailsState(nonDeletedEmails)
         setAllEmailsToSelected(false)
+    }
+
+    function filteringEmails(emailsState : Array<ISelectableEmail>){
+        if(filterEmails === "file") return emailsState.filter(email => email.file != null)
+        if(filterEmails === "toread") return emailsState.filter(email => email.read === true)
+        return [...emailsState]
     }
     
     return(
@@ -36,8 +40,8 @@ function Messaging(){
                 { activeMessagingSection === 'inbox' && 
                     <><MessagingHorizontalMenu activeMessagingSection="inbox"/>
                         <div style={{display:'flex', flexDirection:'row', width:'100%', columnGap:'24px'}}>
-                            <InboxTable emailsState={emailsState} setEmailsState={setEmailsState} areAllEmailsSelected={areAllEmailsSelected} setAllEmailsToSelected={setAllEmailsToSelected}/>
-                            <VInboxMenu emailsState={emailsState} setEmailsState={setEmailsState} deleteSelectedEmails={deleteSelectedEmails}/>
+                            <InboxTable emailsState={filteringEmails(emailsState)} setEmailsState={setEmailsState} areAllEmailsSelected={areAllEmailsSelected} setAllEmailsToSelected={setAllEmailsToSelected}/>
+                            <VInboxMenu emailsState={filteringEmails(emailsState)} setEmailsState={setEmailsState} deleteSelectedEmails={deleteSelectedEmails} setFilterEmails={setFilterEmails}/>
                         </div></>
                 }
                 { activeMessagingSection === 'newmail' && 
