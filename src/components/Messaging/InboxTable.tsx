@@ -8,7 +8,7 @@ import {ISelectableEmail} from '../../datas/emailsDatas'
 function InboxTable({emailsState, setEmailsState} : IProps){
 
     
-    const [areAllEmailsSelected, selectAllEmailsToSelected] = useState<boolean>(false)
+    const [areAllEmailsSelected, setAllEmailsToSelected] = useState<boolean>(false)
     const [activePage, setActivePage] = useState<number>(1)
     const [sortingRule, _setSortingRule] = useState<{direction: 'asc' | 'desc', columnDatakey : string}>({direction : 'desc', columnDatakey : 'date'})
 
@@ -22,8 +22,8 @@ function InboxTable({emailsState, setEmailsState} : IProps){
     function selectAllVisibleEmails(e : React.MouseEvent, selectStatus : boolean){
         e.preventDefault()
         e.stopPropagation()
-        const emailsWithSelectedStatus = [...emailsState].map(email => {return {...email, selected : selectStatus}})
-        selectAllEmailsToSelected(selectStatus)
+        const emailsWithSelectedStatus = [...emailsState].map((email, index) => { return ( index >= activePage * 15 - 15 && index < activePage * 15) ? {...email, selected : selectStatus} : {...email, selected : false}})
+        setAllEmailsToSelected(selectStatus)
         return setEmailsState(emailsWithSelectedStatus)
     }
 

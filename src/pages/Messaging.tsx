@@ -23,6 +23,7 @@ function Messaging(){
     function deleteSelectedEmails(){
         const nonDeletedEmails = [...emailsState].filter(email => email.selected === false)
         setEmailsState(nonDeletedEmails)
+        // should deselect the all email checkbox too
     }
     
     return(
