@@ -5,12 +5,13 @@ import {ISelectableEmail} from '../../datas/emailsDatas'
 
 // !!! not read icon, piece jointe
 
-function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEmailsToSelected} : IProps){
+function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEmailsToSelected, filterEmails} : IProps){
 
     
     // const [areAllEmailsSelected, setAllEmailsToSelected] = useState<boolean>(false)
     const [activePage, setActivePage] = useState<number>(1)
     const [sortingRule, _setSortingRule] = useState<{direction: 'asc' | 'desc', columnDatakey : string}>({direction : 'desc', columnDatakey : 'date'})
+    const filteredEmails = filteringEmails(emailsState)
 
     // replace selectemail / sorting with a reducer
     function setSortingRule(columnDatakey : string){
@@ -18,21 +19,26 @@ function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEm
         _setSortingRule({direction : 'asc', columnDatakey : columnDatakey})
     }
 
-    // !!! should select only emails currently in the datatable
+    // !!! select the emails currently displayed into the datatable / bug : 
     function selectAllVisibleEmails(e : React.MouseEvent, selectStatus : boolean){
         e.preventDefault()
         e.stopPropagation()
-        const emailsWithSelectedStatus = [...emailsState].map((email, index) => { return ( index >= activePage * 15 - 15 && index < activePage * 15) ? {...email, selected : selectStatus} : {...email, selected : false}})
+        const emailsWithSelectedStatus = [...filteredEmails].map((email, index) => { return ( index >= activePage * 15 - 15 && index < activePage * 15) ? {...email, selected : selectStatus} : {...email, selected : false}})
         setAllEmailsToSelected(selectStatus)
         return setEmailsState(emailsWithSelectedStatus)
     }
 
     // select one target email
-    function selectTargetEmail(e : React.MouseEvent, emailID : number){
+    function selectTargetEmail(e : React.MouseEvent, email_id : number){
         e.preventDefault()
         e.stopPropagation()
         const emails = [...emailsState]
-        emails[emailID] = {...emails[emailID], selected : !emails[emailID].selected}
+        // emails[emailID] = {...emails[emailID], selected : !emails[emailID].selected}
+        let index = 0
+        while(emails[index].id !== email_id){
+            index++
+        }
+        emails[index] = {...emails[index], selected : !emails[index].selected}
         return setEmailsState(emails)
     }
 
@@ -42,6 +48,7 @@ function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEm
         return str.slice(0,82)+'...'
     }
 
+    // sort emails
     function emailsSorting(sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}, dataType : string){
         if(dataType === 'date'){
             switch(sortingRule.direction){
@@ -53,6 +60,13 @@ function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEm
             case 'asc' : return setEmailsState([...emailsState].sort((a,b) => frCollator.compare(a[sortingRule.columnDatakey as keyof typeof a] as string, b[sortingRule.columnDatakey as keyof typeof b] as string))); break
             case 'desc' : return setEmailsState([...emailsState].sort((a,b) => frCollator.compare(b[sortingRule.columnDatakey as keyof typeof b] as string, a[sortingRule.columnDatakey as keyof typeof a] as string))); break
         }
+    }
+
+    // emails filtering
+    function filteringEmails(emailsState : Array<ISelectableEmail>){
+        if(filterEmails === "file") return emailsState.filter(email => email.file != null)
+        if(filterEmails === "toread") return emailsState.filter(email => email.read === true)
+        return [...emailsState]
     }
 
     // auto refresh the table after a new sorting rules has been defined
@@ -87,9 +101,9 @@ function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEm
                     </tr>
                 </thead>
                 <tbody>
-                    {[...emailsState].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => 
+                    {[...filteredEmails].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => 
                     <tr style={/*email.read === false ? {backgroundColor:'rgba(183, 167, 211, 0.3)'} :*/ {}} key={"tremail"+index}>
-                        <td onClick={(e) => selectTargetEmail(e, index)} className='checkboxCell'>
+                        <td onClick={(e) => selectTargetEmail(e, email.id)} className='checkboxCell'>
                             <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
                                 <img style={{width:'10px', height:'10px'}} src={ok}/>
                             </div>
@@ -111,13 +125,13 @@ function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEm
                 </tbody>
             </table>
             <div className='inbox__footer'>
-                <span>Showing {(activePage-1)*15+1} to {(activePage-1)*15+15 > emailsState.length ? emailsState.length : (activePage-1)*15+15} of {emailsState.length} emails</span>
+                <span>Showing {(activePage-1)*15+1} to {(activePage-1)*15+15 > filteredEmails.length ? filteredEmails.length : (activePage-1)*15+15} of {filteredEmails.length} emails</span>
                 <div className='pagination__container'>
                     {activePage > 1 && <div role="button" className='pagination__nextPrev' onClick={() => setActivePage(activePage-1)}>Prev</div>}
                     {activePage > 1 && <div role="button" className='pagination__button' onClick={() => setActivePage(activePage-1)}>{activePage-1}</div>}
                     <div role="button" className='pagination__buttonActive'>{activePage}</div>
-                    {(activePage-1)*15+15 < emailsState.length && <div role="button" className='pagination__button' onClick={() => setActivePage(activePage+1)}>{activePage+1}</div>}
-                    {(activePage-1)*15+15 < emailsState.length && <div role="button" className='pagination__nextPrev' onClick={() => setActivePage(activePage+1)}>Next</div>}
+                    {(activePage-1)*15+15 < filteredEmails.length && <div role="button" className='pagination__button' onClick={() => setActivePage(activePage+1)}>{activePage+1}</div>}
+                    {(activePage-1)*15+15 < filteredEmails.length && <div role="button" className='pagination__nextPrev' onClick={() => setActivePage(activePage+1)}>Next</div>}
                 </div>
             </div>
         </article>
@@ -143,4 +157,5 @@ interface IProps{
     setEmailsState : (emails : Array<ISelectableEmail>) => void
     areAllEmailsSelected : boolean
     setAllEmailsToSelected : (selected : boolean) => void
+    filterEmails : "toread" | "file" | null
 }

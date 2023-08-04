@@ -24,14 +24,9 @@ function Messaging(){
         const nonDeletedEmails = [...emailsState].filter(email => email.selected === false)
         setEmailsState(nonDeletedEmails)
         setAllEmailsToSelected(false)
+        // !!! should set active page to 1
     }
-
-    function filteringEmails(emailsState : Array<ISelectableEmail>){
-        if(filterEmails === "file") return emailsState.filter(email => email.file != null)
-        if(filterEmails === "toread") return emailsState.filter(email => email.read === true)
-        return [...emailsState]
-    }
-    
+   
     return(
         <main className="messagingPage__mainContainer">
             <VMenu activePage="messaging" />
@@ -40,8 +35,8 @@ function Messaging(){
                 { activeMessagingSection === 'inbox' && 
                     <><MessagingHorizontalMenu activeMessagingSection="inbox"/>
                         <div style={{display:'flex', flexDirection:'row', width:'100%', columnGap:'24px'}}>
-                            <InboxTable emailsState={filteringEmails(emailsState)} setEmailsState={setEmailsState} areAllEmailsSelected={areAllEmailsSelected} setAllEmailsToSelected={setAllEmailsToSelected}/>
-                            <VInboxMenu emailsState={filteringEmails(emailsState)} setEmailsState={setEmailsState} deleteSelectedEmails={deleteSelectedEmails} setFilterEmails={setFilterEmails}/>
+                            <InboxTable emailsState={emailsState} setEmailsState={setEmailsState} areAllEmailsSelected={areAllEmailsSelected} setAllEmailsToSelected={setAllEmailsToSelected} filterEmails={filterEmails}/>
+                            <VInboxMenu emailsState={emailsState} setEmailsState={setEmailsState} deleteSelectedEmails={deleteSelectedEmails} setFilterEmails={setFilterEmails}/>
                         </div></>
                 }
                 { activeMessagingSection === 'newmail' && 
@@ -53,7 +48,7 @@ function Messaging(){
                 }
                 { activeMessagingSection === 'sent' && 
                     <><MessagingHorizontalMenu activeMessagingSection="sent"/>
-                    <InboxTable emailsState={emailsState} setEmailsState={setEmailsState} areAllEmailsSelected={areAllEmailsSelected} setAllEmailsToSelected={setAllEmailsToSelected}/></>
+                    <InboxTable emailsState={emailsState} setEmailsState={setEmailsState} areAllEmailsSelected={areAllEmailsSelected} setAllEmailsToSelected={setAllEmailsToSelected} filterEmails={filterEmails}/></>
                 }
             </section>
 
