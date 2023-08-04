@@ -5,10 +5,10 @@ import {ISelectableEmail} from '../../datas/emailsDatas'
 
 // !!! not read icon, piece jointe
 
-function InboxTable({emailsState, setEmailsState} : IProps){
+function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEmailsToSelected} : IProps){
 
     
-    const [areAllEmailsSelected, setAllEmailsToSelected] = useState<boolean>(false)
+    // const [areAllEmailsSelected, setAllEmailsToSelected] = useState<boolean>(false)
     const [activePage, setActivePage] = useState<number>(1)
     const [sortingRule, _setSortingRule] = useState<{direction: 'asc' | 'desc', columnDatakey : string}>({direction : 'desc', columnDatakey : 'date'})
 
@@ -141,4 +141,6 @@ export const frCollator = new Intl.Collator('en')
 interface IProps{
     emailsState : Array<ISelectableEmail>
     setEmailsState : (emails : Array<ISelectableEmail>) => void
+    areAllEmailsSelected : boolean
+    setAllEmailsToSelected : (selected : boolean) => void
 }

@@ -16,6 +16,8 @@ function Messaging(){
     
     const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(emailsToSelectableEmails(emails))
 
+    const [areAllEmailsSelected, setAllEmailsToSelected] = useState<boolean>(false)
+
     const activeMessagingSection : string = useParams().id || "inbox"
 
     const [mailRecipient, setMailRecipient] = useState<IRecipient>({name : 'Jimmy Marklum', pic : './avatars/blank.png', title : 'Bank Advisor'})
@@ -23,7 +25,7 @@ function Messaging(){
     function deleteSelectedEmails(){
         const nonDeletedEmails = [...emailsState].filter(email => email.selected === false)
         setEmailsState(nonDeletedEmails)
-        // should deselect the all email checkbox too
+        setAllEmailsToSelected(false)
     }
     
     return(
@@ -34,7 +36,7 @@ function Messaging(){
                 { activeMessagingSection === 'inbox' && 
                     <><MessagingHorizontalMenu activeMessagingSection="inbox"/>
                         <div style={{display:'flex', flexDirection:'row', width:'100%', columnGap:'24px'}}>
-                            <InboxTable emailsState={emailsState} setEmailsState={setEmailsState}/>
+                            <InboxTable emailsState={emailsState} setEmailsState={setEmailsState} areAllEmailsSelected={areAllEmailsSelected} setAllEmailsToSelected={setAllEmailsToSelected}/>
                             <VInboxMenu emailsState={emailsState} setEmailsState={setEmailsState} deleteSelectedEmails={deleteSelectedEmails}/>
                         </div></>
                 }
@@ -47,7 +49,7 @@ function Messaging(){
                 }
                 { activeMessagingSection === 'sent' && 
                     <><MessagingHorizontalMenu activeMessagingSection="sent"/>
-                    <InboxTable emailsState={emailsState} setEmailsState={setEmailsState}/></>
+                    <InboxTable emailsState={emailsState} setEmailsState={setEmailsState} areAllEmailsSelected={areAllEmailsSelected} setAllEmailsToSelected={setAllEmailsToSelected}/></>
                 }
             </section>
 
