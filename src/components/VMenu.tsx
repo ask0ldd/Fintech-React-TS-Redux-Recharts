@@ -8,7 +8,7 @@ import darkmodeIcon from '/menu_icons/darkmode.png'
 import { Link } from 'react-router-dom'
 
 function VMenu({activePage} : IProps){
-    console.log(activePage)
+    // console.log(activePage)
     return(
         <nav className='vmenu' aria-label='primary'>
             <Link to="/" className={activePage === 'home' ? 'homeButton vmenu-anchor activeItem' : 'homeButton vmenu-anchor'}>

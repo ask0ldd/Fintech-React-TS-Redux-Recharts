@@ -1,14 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit"
-/*import authReducer from './features/auth/authSlice'
-import accountsReducer from './features/accounts/accountsSlice'
-import formsReducer from './features/forms/formsSlice'
-import cookiesManager from "../services/cookiesManager"*/
+import messagingReducer from "./messagingSlice"
 
 export const store = configureStore({
     reducer: {
-      /*auth : authReducer, // access this subState through store.auth
-      accounts : accountsReducer,
-      forms : formsReducer*/
+        messaging : messagingReducer
     },
     devTools : true,
   })

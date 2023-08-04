@@ -1,34 +1,48 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IEmail, ISelectableEmail, emails } from "../datas/emailsDatas";
 
 const initialState : messagingState = {
-    loginFailedValidation : false,
-    editNamesFailedValidation : false,
+    untouchedEmails : emailsToSelectableEmails(emails),
+    emails : emailsToSelectableEmails(emails),
+    activePage : 1,
+    sortingRule : {direction : 'desc', columnDatakey : 'date'}
 }
 
 export const messagingSlice = createSlice({
-    name : 'forms',
+    name : 'messaging',
     initialState,
     reducers : {
         // action : reducer fn
         reset : () => {
             return initialState
         },
-        setLoginError : (state, action) => {
-            if(action.payload.hasValidationFailed == null) return {...state}
-            return {...state, loginFailedValidation : action.payload.hasValidationFailed}
+        setSortingRule : (state, action) => {
+            // !!! should check sortingrule in a more indepth way
+            if(action.payload.sortingRule == null) return {...state}
+            return {...state, sortingRule : action.payload.sortingRule}
         },
-        setEditNamesError : (state, action) => {
-            if(action.payload.hasValidationFailed == null) return {...state}
-            return {...state, editNamesFailedValidation : action.payload.hasValidationFailed}
+        setActivePage : (state, action) => {
+            // !!! should check activepage in a more indepth way
+            if(action.payload.activePage == null) return {...state}
+            return {...state, activePage : action.payload.activePage}
         },
     },
 })
 
-export const {setLoginError, setEditNamesError, reset} = messagingSlice.actions
+export const {setSortingRule, setActivePage, reset} = messagingSlice.actions
 
 export default messagingSlice.reducer
 
 interface messagingState{
-    loginFailedValidation : boolean
-    editNamesFailedValidation : boolean
+    untouchedEmails : Array<ISelectableEmail>
+    emails : Array<ISelectableEmail>
+    activePage : number
+    sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}
+}
+
+function emailsToSelectableEmails(emailsList : Array<IEmail>){
+    return emailsList.map(email => {
+        const newEmail : ISelectableEmail = {...email, selected : false}
+        return newEmail
+    })
 }

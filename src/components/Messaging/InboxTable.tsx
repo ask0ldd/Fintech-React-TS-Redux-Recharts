@@ -101,7 +101,7 @@ function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEm
                     </tr>
                 </thead>
                 <tbody>
-                    {[...filteredEmails].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => 
+                    {[...filteredEmails].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => /* creer une liste liant index & id */
                     <tr style={/*email.read === false ? {backgroundColor:'rgba(183, 167, 211, 0.3)'} :*/ {}} key={"tremail"+index}>
                         <td onClick={(e) => selectTargetEmail(e, email.id)} className='checkboxCell'>
                             <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
@@ -118,7 +118,7 @@ function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEm
                         <td style={/*email.read === false ? {fontWeight:'500', color:'rgba(91, 57, 170, 0.8)'} :*/ {}} className='from'>{email.sender}</td>
                         <td style={/*email.read === false ? {fontWeight:'500', color:'rgba(91, 57, 170, 0.8)'} :*/ {}}>{cropEmailTitle(email.title)}</td>
                         <td style={/*email.read === false ? {fontWeight:'500', color:'rgba(91, 57, 170, 0.8)'} :*/ {}}>{email.date}</td>
-                        <td role="button" aria-labelledby='deleteColumn' style={{display:'flex', height:'37px', justifyContent:'center', alignItems:'center'}} className='delete'>
+                        <td onClick={() => console.log(email.id)} role="button" aria-labelledby='deleteColumn' style={{display:'flex', height:'37px', justifyContent:'center', alignItems:'center'}} className='delete'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
                         </td>
                     </tr>)}
