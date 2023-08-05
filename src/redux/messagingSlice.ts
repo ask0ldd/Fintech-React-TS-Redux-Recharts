@@ -3,7 +3,7 @@ import { IEmail, ISelectableEmail, emails } from "../datas/emailsDatas";
 
 const initialState : messagingState = {
     emails : emailsToSelectableEmails(emails), // emails
-    filteredEmails : emailsToSelectableEmails(emails), // filteredemails
+    // filteredEmails : emailsToSelectableEmails(emails), // filteredemails
     activePage : 1,
     sortingRule : {direction : 'desc', columnDatakey : 'date'},
     areAllDisplayedEmailsSelected : false
@@ -31,14 +31,27 @@ export const messagingSlice = createSlice({
             if(action.payload.state != null) return {...state, areAllDisplayedEmailsSelected : !state.areAllDisplayedEmailsSelected}
             return {...state, areAllDisplayedEmailsSelected : action.payload.status}
         },
-        setTargetEmailToSelected : (state, action) => {
-
+        setTargetEmailSelectStatus : (state, action) => {
+            if(action.payload.emailId != null) return
+            const targetEmailIndex = state.emails.findIndex(email => email.id === action.payload.emailId)
+            const emailsDuplicate = [...state.emails]
+            if (action.payload.status != null) {
+                emailsDuplicate[targetEmailIndex].selected = action.payload.status
+            }else{
+                emailsDuplicate[targetEmailIndex].selected = !emailsDuplicate[targetEmailIndex].selected
+            }
+            return{...state, emails : emailsDuplicate}
         },
         unselectAllEmails : (state, action) => {
-
+            const unselectedEmails = (state.emails).map(email => { return {...email, selected : false}})
+            return {...state, areAllDisplayedEmailsSelected : false, emails : unselectedEmails}
         },
-        deleteEmails : (state, action) => {
-
+        deleteEmail : (state, action) => {
+            if(action.payload.emailId != null) return
+            const targetEmailIndex = state.emails.findIndex(email => email.id === action.payload.emailId)
+            const emailsDuplicate = [...state.emails]
+            emailsDuplicate.splice(targetEmailIndex, 1)
+            return{...state, emails : emailsDuplicate}
         }
     },
 })
@@ -49,7 +62,7 @@ export default messagingSlice.reducer
 
 interface messagingState{
     emails : Array<ISelectableEmail>
-    filteredEmails : Array<ISelectableEmail>
+    // filteredEmails : Array<ISelectableEmail>
     activePage : number
     sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}
     areAllDisplayedEmailsSelected : boolean
