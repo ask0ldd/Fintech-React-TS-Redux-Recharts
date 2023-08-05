@@ -45,7 +45,7 @@ function InboxTable(){
         return [...emailsState]
     }*/
 
-    function generateDisplayedEmailsIDList(sortedEmails : Array<ISelectableEmail>){
+    function generateDisplayedEmailsIDList(sortedEmails : Array<ISelectableEmail>){ // !!! replace with subscription ?
         const displayedEmails_IDs = []
         for(let index = (activePage-1)*15; index < activePage * 15; index++){
             displayedEmails_IDs.push(sortedEmails[index].id)
@@ -55,14 +55,22 @@ function InboxTable(){
 
     // auto refresh the table after a new sorting rules has been defined
     useEffect(() => {
-        setSortedEmails(emailsSorting(emails, sortingRule))
-        dispatch(setDisplayedEmails_IDList({idList : generateDisplayedEmailsIDList(sortedEmails)}))
+        const _sortedEmails = emailsSorting(emails, sortingRule)
+        setSortedEmails(_sortedEmails)
+        dispatch(setDisplayedEmails_IDList({idList : generateDisplayedEmailsIDList(_sortedEmails)}))
         dispatch(setActivePage({activePage : 1})) // !!! replace with subscription ?
     }, [sortingRule])
 
     useEffect(() => {
-        setSortedEmails(emailsSorting(emails, sortingRule))
-    }, [emails])
+        console.log('test')
+        const _sortedEmails = emailsSorting(emails, sortingRule)
+        setSortedEmails(_sortedEmails)
+        dispatch(setDisplayedEmails_IDList({idList : generateDisplayedEmailsIDList(_sortedEmails)}))
+    }, [emails, emails.length])
+
+    useEffect(()=>{
+        dispatch(setDisplayedEmails_IDList({idList : generateDisplayedEmailsIDList(sortedEmails)})) // !!! replace with subscription ?
+    }, [activePage])
 
     // menu : delete / spam / mark as read / refresh
 
@@ -129,11 +137,6 @@ export default InboxTable
 function dateToTime(date : string){
     const [day, month, year] = date.split('/')
     return new Date(parseInt(year), parseInt(month), parseInt(day)).getTime()
-}
-
-function invertSortingDirection(direction : string){
-    if(direction === 'asc') return 'desc'
-    return 'asc'
 }
 
 export const frCollator = new Intl.Collator('en')

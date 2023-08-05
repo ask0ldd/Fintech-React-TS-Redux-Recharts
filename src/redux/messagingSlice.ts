@@ -81,14 +81,14 @@ export const messagingSlice = createSlice({
         },
         deleteEmail : (state, action) => {
             if(action.payload.emailId == null) return
-            const emailsDuplicate = state.emails.map(email => {return {...email}})
+            const emailsDuplicate = state.emails.map(email => {return {...email, selected : false}})
             const targetEmailIndex = emailsDuplicate.findIndex(email => email.id === action.payload.emailId)
             emailsDuplicate.splice(targetEmailIndex, 1)
             return{...state, emails : emailsDuplicate}
         },
         deleteSelectedEmails : (state) => {
-            const notSelectedEmails = state.emails.filter(email => email.selected===false)
-            return{...state, emails : notSelectedEmails, selectAllCheckboxStatus : false}
+            const notSelectedEmails = state.emails.filter(email => email.selected === false)
+            return{...state, emails : notSelectedEmails, selectAllCheckboxStatus : false, activePage : 1}
         }
     },
 })
