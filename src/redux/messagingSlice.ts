@@ -20,12 +20,17 @@ export const messagingSlice = createSlice({
         },
         setSortingRule : (state, action) => {
             // !!! should check sortingrule in a more indepth way
-            if(action.payload.sortingRule == null) return {...state}
+            if(action.payload.sortingRule == null) return
             return {...state, sortingRule : action.payload.sortingRule}
+        },
+        setFilter : (state, action) => {
+            if(action.payload.filter == null) return
+            if(action.payload.filter === "toread" || action.payload.filter === "file")
+                return {...state, filter : action.payload.filter}
         },
         setActivePage : (state, action) => {
             // !!! should check activepage in a more indepth way
-            if(action.payload.activePage == null) return {...state}
+            if(action.payload.activePage == null) return
             return {...state, activePage : action.payload.activePage}
         },
         switchSelectAllCheckboxStatus : (state, action) => {
@@ -57,7 +62,16 @@ export const messagingSlice = createSlice({
     },
 })
 
-export const {setSortingRule, setActivePage, reset, switchSelectAllCheckboxStatus, setTargetEmailSelectStatus, unselectAllEmails, deleteEmail} = messagingSlice.actions
+export const {
+    setSortingRule, 
+    setActivePage,
+    setFilter,
+    reset, 
+    switchSelectAllCheckboxStatus, 
+    setTargetEmailSelectStatus, 
+    unselectAllEmails, 
+    deleteEmail
+} = messagingSlice.actions
 
 export default messagingSlice.reducer
 
