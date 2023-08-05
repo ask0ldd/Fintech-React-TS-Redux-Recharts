@@ -3,7 +3,7 @@ import '../../styles/messaging/InboxTable.css'
 import ok from '/icons/ok.png'
 import {ISelectableEmail} from '../../datas/emailsDatas'
 import { useTypedDispatch, useTypedSelector } from '../../hooks/redux'
-import { deleteEmail, setActivePage, setSortingRule, setTargetEmailSelectStatus, switchSelectAllCheckboxStatus } from '../../redux/messagingSlice'
+import { deleteEmail, setActivePage, setDisplayedEmails_IDList, setSortingRule, setTargetEmailSelectStatus, switchSelectAllCheckboxStatus } from '../../redux/messagingSlice'
 
 // !!! not read icon, piece jointe
 
@@ -16,6 +16,7 @@ function InboxTable(){
     const selectAllCheckboxStatus  = useTypedSelector((state) => state.messaging.selectAllCheckboxStatus)
 
     const [sortedEmails, setSortedEmails] = useState<Array<ISelectableEmail>>(emails)
+    // const [displayedEmails_IDList, setDisplayedEmails_IDList] = useState<Array<number>>([])
 
     // shorten longer email titles
     function cropEmailTitle(str : string){
@@ -44,9 +45,18 @@ function InboxTable(){
         return [...emailsState]
     }*/
 
+    function generateDisplayedEmailsIDList(sortedEmails : Array<ISelectableEmail>){
+        const displayedEmails_IDs = []
+        for(let index = (activePage-1)*15; index < activePage * 15; index++){
+            displayedEmails_IDs.push(sortedEmails[index].id)
+        }
+        return displayedEmails_IDs
+    }
+
     // auto refresh the table after a new sorting rules has been defined
     useEffect(() => {
         setSortedEmails(emailsSorting(emails, sortingRule))
+        dispatch(setDisplayedEmails_IDList({idList : generateDisplayedEmailsIDList(sortedEmails)}))
         dispatch(setActivePage({activePage : 1})) // !!! replace with subscription ?
     }, [sortingRule])
 

@@ -7,7 +7,8 @@ const initialState : messagingState = {
     activePage : 1,
     sortingRule : {direction : 'desc', columnDatakey : 'date', datatype : 'date'},
     filter : null,
-    selectAllCheckboxStatus : false
+    selectAllCheckboxStatus : false,
+    displayedEmails_IDList : []
 }
 
 export const messagingSlice = createSlice({
@@ -42,14 +43,24 @@ export const messagingSlice = createSlice({
             if(filter === "toread" || filter === "file")
                 return {...state, filter : filter}
         },
+        setDisplayedEmails_IDList : (state, action) => {
+            if(action.payload.idList == null) return
+            return {...state, displayedEmails_IDList : action.payload.idList}
+        },
         setActivePage : (state, action) => {
             // !!! should check activepage in a more indepth way
             if(action.payload.activePage == null) return
-            return {...state, activePage : action.payload.activePage}
+            const unselectedEmails = [...state.emails].map(email => { return {...email, selected : false}})
+            return {...state, activePage : action.payload.activePage, selectAllCheckboxStatus : false, emails : unselectedEmails}
         },
         switchSelectAllCheckboxStatus : (state, action) => {
-            if(action.payload.state != null) return {...state, selectAllCheckboxStatus : !state.selectAllCheckboxStatus}
-            return {...state, selectAllCheckboxStatus : action.payload.status}
+            if(action.payload.checkboxStatus == null) {
+                const emailsDuplicate = state.emails.map(email => {
+                    return state.displayedEmails_IDList.includes(email.id) ? {...email, selected : !state.selectAllCheckboxStatus} : {...email}
+                })
+                return {...state, selectAllCheckboxStatus : !state.selectAllCheckboxStatus, emails : emailsDuplicate}
+            }
+            return {...state, selectAllCheckboxStatus : action.payload.checkboxStatus}
         },
         setTargetEmailSelectStatus : (state, action) => {
             if(action.payload.emailId == null) return
@@ -77,7 +88,7 @@ export const messagingSlice = createSlice({
         },
         deleteSelectedEmails : (state) => {
             const notSelectedEmails = state.emails.filter(email => email.selected===false)
-            return{...state, emails : notSelectedEmails}
+            return{...state, emails : notSelectedEmails, selectAllCheckboxStatus : false}
         }
     },
 })
@@ -91,7 +102,8 @@ export const {
     setTargetEmailSelectStatus, 
     unselectAllEmails, 
     deleteEmail,
-    deleteSelectedEmails
+    deleteSelectedEmails,
+    setDisplayedEmails_IDList
 } = messagingSlice.actions
 
 export default messagingSlice.reducer
@@ -103,6 +115,7 @@ interface messagingState{
     sortingRule : {direction: 'asc' | 'desc', columnDatakey : string, datatype : 'date' | 'string' | 'number'}
     filter : "toread" | "file" | null
     selectAllCheckboxStatus : boolean
+    displayedEmails_IDList : Array<number>
 }
 
 function emailsToSelectableEmails(emailsList : Array<IEmail>){
