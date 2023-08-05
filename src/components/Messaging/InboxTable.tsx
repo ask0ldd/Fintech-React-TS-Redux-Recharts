@@ -2,19 +2,21 @@ import { useEffect, useState } from 'react'
 import '../../styles/messaging/InboxTable.css'
 import ok from '/icons/ok.png'
 import {ISelectableEmail} from '../../datas/emailsDatas'
+import { useTypedDispatch, useTypedSelector } from '../../hooks/redux'
+import { setActivePage, switchSelectAllCheckboxStatus } from '../../redux/messagingSlice'
 
 // !!! not read icon, piece jointe
 
-function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEmailsToSelected, filterEmails} : IProps){
+function InboxTable(){
 
     
     // const [areAllEmailsSelected, setAllEmailsToSelected] = useState<boolean>(false)
-    const [activePage, setActivePage] = useState<number>(1)
-    const [sortingRule, _setSortingRule] = useState<{direction: 'asc' | 'desc', columnDatakey : string}>({direction : 'desc', columnDatakey : 'date'})
-    const filteredEmails = filteringEmails(emailsState)
+    // const [activePage, setActivePage] = useState<number>(1)
+    // const [sortingRule, _setSortingRule] = useState<{direction: 'asc' | 'desc', columnDatakey : string}>({direction : 'desc', columnDatakey : 'date'})
+    // const filteredEmails = filteringEmails(emailsState)
 
     // replace selectemail / sorting with a reducer
-    function setSortingRule(columnDatakey : string){
+    /*function setSortingRule(columnDatakey : string){
         if(sortingRule.columnDatakey === columnDatakey) return _setSortingRule({direction : invertSortingDirection(sortingRule.direction), columnDatakey : columnDatakey})
         _setSortingRule({direction : 'asc', columnDatakey : columnDatakey})
     }
@@ -40,7 +42,13 @@ function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEm
         }
         emails[index] = {...emails[index], selected : !emails[index].selected}
         return setEmailsState(emails)
-    }
+    }*/
+
+    const dispatch = useTypedDispatch()
+    const emails  = useTypedSelector((state) => state.messaging.emails)
+    const activePage  = useTypedSelector((state) => state.messaging.activePage)
+    const sortingRule  = useTypedSelector((state) => state.messaging.sortingRule)
+    const selectAllCheckboxStatus  = useTypedSelector((state) => state.messaging.selectAllCheckboxStatus)
 
     // shorten longer email titles
     function cropEmailTitle(str : string){
@@ -49,7 +57,7 @@ function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEm
     }
 
     // sort emails
-    function emailsSorting(sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}, dataType : string){
+    /*function emailsSorting(sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}, dataType : string){
         if(dataType === 'date'){
             switch(sortingRule.direction){
                case 'asc' : return setEmailsState([...emailsState].sort((a,b) => dateToTime(b[sortingRule.columnDatakey as keyof typeof b] as string) - dateToTime(a[sortingRule.columnDatakey as keyof typeof a] as string))); break
@@ -67,13 +75,14 @@ function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEm
         if(filterEmails === "file") return emailsState.filter(email => email.file != null)
         if(filterEmails === "toread") return emailsState.filter(email => email.read === true)
         return [...emailsState]
-    }
+    }*/
 
     // auto refresh the table after a new sorting rules has been defined
     useEffect(() => {
         // !!!! should deal with dates too
-        emailsSorting({direction: sortingRule.direction, columnDatakey : sortingRule.columnDatakey}, 'string')
-        setActivePage(1)
+        // emailsSorting({direction: sortingRule.direction, columnDatakey : sortingRule.columnDatakey}, 'string')
+        // setActivePage(1)
+        dispatch(setActivePage({activePage : 1}))
     }, [sortingRule])
 
     // state should be a reducer
@@ -85,9 +94,9 @@ function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEm
             <table>
                 <thead>
                     <tr>
-                        <th className='checkboxCell' onClick={(e) => selectAllVisibleEmails(e, !areAllEmailsSelected)}>
+                        <th className='checkboxCell' onClick={() => dispatch(switchSelectAllCheckboxStatus({}))}>
                             <label id="selectColumn" className='sr-only'>Select Mail</label>
-                            <div style={areAllEmailsSelected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={areAllEmailsSelected} role="checkbox" aria-labelledby='selectColumn'>
+                            <div style={selectAllCheckboxStatus === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={selectAllCheckboxStatus} role="checkbox" aria-labelledby='selectColumn'>
                                 <img style={{width:'10px', height:'10px'}} src={ok}/>
                             </div>
                         </th>
@@ -101,7 +110,7 @@ function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEm
                     </tr>
                 </thead>
                 <tbody>
-                    {[...filteredEmails].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => /* creer une liste liant index & id */
+                    {[...emails].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => /* creer une liste liant index & id */
                     <tr style={/*email.read === false ? {backgroundColor:'rgba(183, 167, 211, 0.3)'} :*/ {}} key={"tremail"+index}>
                         <td onClick={(e) => selectTargetEmail(e, email.id)} className='checkboxCell'>
                             <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
@@ -125,13 +134,13 @@ function InboxTable({emailsState, setEmailsState, areAllEmailsSelected, setAllEm
                 </tbody>
             </table>
             <div className='inbox__footer'>
-                <span>Showing {(activePage-1)*15+1} to {(activePage-1)*15+15 > filteredEmails.length ? filteredEmails.length : (activePage-1)*15+15} of {filteredEmails.length} emails</span>
+                <span>Showing {(activePage-1)*15+1} to {(activePage-1)*15+15 > emails.length ? emails.length : (activePage-1)*15+15} of {emails.length} emails</span>
                 <div className='pagination__container'>
                     {activePage > 1 && <div role="button" className='pagination__nextPrev' onClick={() => setActivePage(activePage-1)}>Prev</div>}
                     {activePage > 1 && <div role="button" className='pagination__button' onClick={() => setActivePage(activePage-1)}>{activePage-1}</div>}
                     <div role="button" className='pagination__buttonActive'>{activePage}</div>
-                    {(activePage-1)*15+15 < filteredEmails.length && <div role="button" className='pagination__button' onClick={() => setActivePage(activePage+1)}>{activePage+1}</div>}
-                    {(activePage-1)*15+15 < filteredEmails.length && <div role="button" className='pagination__nextPrev' onClick={() => setActivePage(activePage+1)}>Next</div>}
+                    {(activePage-1)*15+15 < emails.length && <div role="button" className='pagination__button' onClick={() => setActivePage(activePage+1)}>{activePage+1}</div>}
+                    {(activePage-1)*15+15 < emails.length && <div role="button" className='pagination__nextPrev' onClick={() => setActivePage(activePage+1)}>Next</div>}
                 </div>
             </div>
         </article>
