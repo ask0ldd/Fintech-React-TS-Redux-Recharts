@@ -22,7 +22,7 @@ export const messagingSlice = createSlice({
             const datatype = action.payload?.datatype || null
             const datakey = action.payload?.datakey || null
             const direction = action.payload?.direction || null
-            
+
             if(datatype == null || datakey == null) return
 
             if(direction != null){
@@ -74,6 +74,10 @@ export const messagingSlice = createSlice({
             const targetEmailIndex = emailsDuplicate.findIndex(email => email.id === action.payload.emailId)
             emailsDuplicate.splice(targetEmailIndex, 1)
             return{...state, emails : emailsDuplicate}
+        },
+        deleteSelectedEmails : (state) => {
+            const notSelectedEmails = state.emails.filter(email => email.selected===false)
+            return{...state, emails : notSelectedEmails}
         }
     },
 })
@@ -86,7 +90,8 @@ export const {
     switchSelectAllCheckboxStatus, 
     setTargetEmailSelectStatus, 
     unselectAllEmails, 
-    deleteEmail
+    deleteEmail,
+    deleteSelectedEmails
 } = messagingSlice.actions
 
 export default messagingSlice.reducer
