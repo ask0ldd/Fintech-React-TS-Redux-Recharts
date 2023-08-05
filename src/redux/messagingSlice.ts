@@ -6,7 +6,8 @@ const initialState : messagingState = {
     // filteredEmails : emailsToSelectableEmails(emails), // filteredemails
     activePage : 1,
     sortingRule : {direction : 'desc', columnDatakey : 'date'},
-    areAllDisplayedEmailsSelected : false
+    filter : null,
+    selectAllCheckboxStatus : false
 }
 
 export const messagingSlice = createSlice({
@@ -27,9 +28,9 @@ export const messagingSlice = createSlice({
             if(action.payload.activePage == null) return {...state}
             return {...state, activePage : action.payload.activePage}
         },
-        switchAllEmailsSelectionStatus : (state, action) => {
-            if(action.payload.state != null) return {...state, areAllDisplayedEmailsSelected : !state.areAllDisplayedEmailsSelected}
-            return {...state, areAllDisplayedEmailsSelected : action.payload.status}
+        switchSelectAllCheckboxStatus : (state, action) => {
+            if(action.payload.state != null) return {...state, selectAllCheckboxStatus : !state.selectAllCheckboxStatus}
+            return {...state, selectAllCheckboxStatus : action.payload.status}
         },
         setTargetEmailSelectStatus : (state, action) => {
             if(action.payload.emailId != null) return
@@ -56,7 +57,7 @@ export const messagingSlice = createSlice({
     },
 })
 
-export const {setSortingRule, setActivePage, reset} = messagingSlice.actions
+export const {setSortingRule, setActivePage, reset, switchSelectAllCheckboxStatus, setTargetEmailSelectStatus, unselectAllEmails, deleteEmail} = messagingSlice.actions
 
 export default messagingSlice.reducer
 
@@ -65,7 +66,8 @@ interface messagingState{
     // filteredEmails : Array<ISelectableEmail>
     activePage : number
     sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}
-    areAllDisplayedEmailsSelected : boolean
+    filter : "toread" | "file" | null
+    selectAllCheckboxStatus : boolean
 }
 
 function emailsToSelectableEmails(emailsList : Array<IEmail>){

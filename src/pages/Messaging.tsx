@@ -14,18 +14,18 @@ function Messaging(){
     
     // add fav contacts list
     
-    const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(emailsToSelectableEmails(emails))
-    const [areAllEmailsSelected, setAllEmailsToSelected] = useState<boolean>(false)
+    // const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(emailsToSelectableEmails(emails))
+    // const [areAllEmailsSelected, setAllEmailsToSelected] = useState<boolean>(false)
     const [mailRecipient, setMailRecipient] = useState<IRecipient>({name : 'Jimmy Marklum', pic : './avatars/blank.png', title : 'Bank Advisor'})
-    const [filterEmails, setFilterEmails] = useState<"file" | "toread" | null>(null)
+    // const [filterEmails, setFilterEmails] = useState<"file" | "toread" | null>(null)
     const activeMessagingSection : string = useParams().id || "inbox"
 
-    function deleteSelectedEmails(){
+    /*function deleteSelectedEmails(){
         const nonDeletedEmails = [...emailsState].filter(email => email.selected === false)
         setEmailsState(nonDeletedEmails)
         setAllEmailsToSelected(false)
         // !!! should set active page to 1
-    }
+    }*/
    
     return(
         <main className="messagingPage__mainContainer">
@@ -35,8 +35,8 @@ function Messaging(){
                 { activeMessagingSection === 'inbox' && 
                     <><MessagingHorizontalMenu activeMessagingSection="inbox"/>
                         <div style={{display:'flex', flexDirection:'row', width:'100%', columnGap:'24px'}}>
-                            <InboxTable emailsState={emailsState} setEmailsState={setEmailsState} areAllEmailsSelected={areAllEmailsSelected} setAllEmailsToSelected={setAllEmailsToSelected} filterEmails={filterEmails}/>
-                            <VInboxMenu emailsState={emailsState} setEmailsState={setEmailsState} deleteSelectedEmails={deleteSelectedEmails} setFilterEmails={setFilterEmails}/>
+                            <InboxTable/>
+                            <VInboxMenu/>
                         </div></>
                 }
                 { activeMessagingSection === 'newmail' && 
@@ -48,7 +48,7 @@ function Messaging(){
                 }
                 { activeMessagingSection === 'sent' && 
                     <><MessagingHorizontalMenu activeMessagingSection="sent"/>
-                    <InboxTable emailsState={emailsState} setEmailsState={setEmailsState} areAllEmailsSelected={areAllEmailsSelected} setAllEmailsToSelected={setAllEmailsToSelected} filterEmails={filterEmails}/></>
+                    <InboxTable/></>
                 }
             </section>
 
