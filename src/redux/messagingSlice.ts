@@ -30,6 +30,7 @@ export const messagingSlice = createSlice({
         },
         setActivePage : (state, action) => {
             // !!! should check activepage in a more indepth way
+            console.log({...state})
             if(action.payload.activePage == null) return
             return {...state, activePage : action.payload.activePage}
         },
@@ -38,9 +39,10 @@ export const messagingSlice = createSlice({
             return {...state, selectAllCheckboxStatus : action.payload.status}
         },
         setTargetEmailSelectStatus : (state, action) => {
-            if(action.payload.emailId != null) return {...state}
-            const emailsDuplicate = [...state.emails]
-            console.log(state)
+            if(action.payload.emailId == null) return {...state}
+            // error cause no deep cloning : const emailsDuplicate = [...state.emails]
+            // deep cloning version :
+            const emailsDuplicate = state.emails.map(email => {return {...email}})
             const targetEmailIndex = emailsDuplicate.findIndex(email => email.id === action.payload.emailId)
             if (action.payload.status != null) {
                 emailsDuplicate[targetEmailIndex].selected = action.payload.status
@@ -50,13 +52,13 @@ export const messagingSlice = createSlice({
             return{...state, emails : emailsDuplicate}
         },
         unselectAllEmails : (state, action) => {
-            const unselectedEmails = (state.emails).map(email => { return {...email, selected : false}})
+            const unselectedEmails = [...state.emails].map(email => { return {...email, selected : false}})
             return {...state, areAllDisplayedEmailsSelected : false, emails : unselectedEmails}
         },
         deleteEmail : (state, action) => {
             if(action.payload.emailId != null) return
             const targetEmailIndex = state.emails.findIndex(email => email.id === action.payload.emailId)
-            const emailsDuplicate = [...state.emails]
+            const emailsDuplicate = state.emails.map(email => {return {...email}})
             emailsDuplicate.splice(targetEmailIndex, 1)
             return{...state, emails : emailsDuplicate}
         }

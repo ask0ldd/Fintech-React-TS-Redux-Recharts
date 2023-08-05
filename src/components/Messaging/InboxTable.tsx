@@ -82,7 +82,7 @@ function InboxTable(){
         // !!!! should deal with dates too
         // emailsSorting({direction: sortingRule.direction, columnDatakey : sortingRule.columnDatakey}, 'string')
         // setActivePage(1)
-        dispatch(setActivePage({activePage : 1}))
+        dispatch(setActivePage({activePage : 1})) // !!! replace with subscription ?
     }, [sortingRule])
 
     // state should be a reducer
@@ -112,7 +112,7 @@ function InboxTable(){
                 <tbody>
                     {[...emails].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => /* creer une liste liant index & id */
                     <tr style={/*email.read === false ? {backgroundColor:'rgba(183, 167, 211, 0.3)'} :*/ {}} key={"tremail"+index}>
-                        <td onClick={(e) => dispatch(setTargetEmailSelectStatus({emailid : email.id}))} className='checkboxCell'>
+                        <td onClick={() => dispatch(setTargetEmailSelectStatus({emailId : email.id}))} className='checkboxCell'>
                             <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
                                 <img style={{width:'10px', height:'10px'}} src={ok}/>
                             </div>
