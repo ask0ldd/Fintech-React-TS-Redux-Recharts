@@ -21,7 +21,7 @@ export const messagingSlice = createSlice({
         setSortingRule : (state, action) => {
             // !!! should check sortingrule in a more indepth way
             if(action.payload.sortingRule == null) return
-            return {...state, sortingRule : action.payload.sortingRule}
+            return {...state, sortingRule : {direction : 'desc', columnDatakey : action.payload.datakey}}
         },
         setFilter : (state, action) => {
             if(action.payload.filter == null) return
@@ -39,8 +39,8 @@ export const messagingSlice = createSlice({
         },
         setTargetEmailSelectStatus : (state, action) => {
             if(action.payload.emailId != null) return
-            const targetEmailIndex = state.emails.findIndex(email => email.id === action.payload.emailId)
             const emailsDuplicate = [...state.emails]
+            const targetEmailIndex = emailsDuplicate.findIndex(email => email.id === action.payload.emailId)
             if (action.payload.status != null) {
                 emailsDuplicate[targetEmailIndex].selected = action.payload.status
             }else{

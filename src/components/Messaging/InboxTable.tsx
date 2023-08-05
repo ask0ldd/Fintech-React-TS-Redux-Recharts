@@ -3,7 +3,7 @@ import '../../styles/messaging/InboxTable.css'
 import ok from '/icons/ok.png'
 import {ISelectableEmail} from '../../datas/emailsDatas'
 import { useTypedDispatch, useTypedSelector } from '../../hooks/redux'
-import { setActivePage, switchSelectAllCheckboxStatus } from '../../redux/messagingSlice'
+import { setActivePage, setSortingRule, setTargetEmailSelectStatus, switchSelectAllCheckboxStatus } from '../../redux/messagingSlice'
 
 // !!! not read icon, piece jointe
 
@@ -101,9 +101,9 @@ function InboxTable(){
                             </div>
                         </th>
                         <th className='fileAttachColumn'></th>
-                        <th onClick={() => setSortingRule('sender')}>From</th>
-                        <th onClick={() => setSortingRule('title')}>Title</th>
-                        <th onClick={() => setSortingRule('date')}>Date</th>
+                        <th onClick={() => dispatch(setSortingRule({datakey : 'sender'}))}>From</th>
+                        <th onClick={() => dispatch(setSortingRule({datakey : 'title'}))}>Title</th>
+                        <th onClick={() => dispatch(setSortingRule({datakey : 'date'}))}>Date</th>
                         <th className='delete'>
                             <label id="deleteColumn" className='sr-only'>Delete Mail</label>
                         </th>
@@ -112,7 +112,7 @@ function InboxTable(){
                 <tbody>
                     {[...emails].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => /* creer une liste liant index & id */
                     <tr style={/*email.read === false ? {backgroundColor:'rgba(183, 167, 211, 0.3)'} :*/ {}} key={"tremail"+index}>
-                        <td onClick={(e) => selectTargetEmail(e, email.id)} className='checkboxCell'>
+                        <td onClick={(e) => dispatch(setTargetEmailSelectStatus({emailid : email.id}))} className='checkboxCell'>
                             <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
                                 <img style={{width:'10px', height:'10px'}} src={ok}/>
                             </div>
