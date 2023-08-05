@@ -5,7 +5,7 @@ const initialState : messagingState = {
     emails : emailsToSelectableEmails(emails), // emails
     // filteredEmails : emailsToSelectableEmails(emails), // filteredemails
     activePage : 1,
-    sortingRule : {direction : 'desc', columnDatakey : 'date'},
+    sortingRule : {direction : 'desc', columnDatakey : 'date', datatype : 'date'},
     filter : null,
     selectAllCheckboxStatus : false
 }
@@ -19,9 +19,18 @@ export const messagingSlice = createSlice({
             return initialState
         },
         setSortingRule : (state, action) => {
-            // !!! should check sortingrule in a more indepth way
-            if(action.payload.sortingRule == null) return
-            return {...state, sortingRule : {direction : 'desc', columnDatakey : action.payload.datakey}}
+            const datatype = action.payload?.datatype || null
+            const datakey = action.payload?.datakey || null
+            let direction = action.payload?.direction || null
+            if(datatype == null || datakey == null) return
+
+            if(direction != null){
+                return {...state, sortingRule : {direction : direction, columnDatakey : action.payload.datakey, datatype : action.payload.datatype}}
+            }
+
+            if(datatype === 'date') return {...state, sortingRule : {direction : 'desc', columnDatakey : action.payload.datakey, datatype : action.payload.datatype}}
+
+            return {...state, sortingRule : {direction : 'asc', columnDatakey : action.payload.datakey, datatype : action.payload.datatype}}
         },
         setFilter : (state, action) => {
             if(action.payload.filter == null) return
@@ -39,7 +48,7 @@ export const messagingSlice = createSlice({
             return {...state, selectAllCheckboxStatus : action.payload.status}
         },
         setTargetEmailSelectStatus : (state, action) => {
-            if(action.payload.emailId == null) return {...state}
+            if(action.payload.emailId == null) return
             // error cause no deep cloning : const emailsDuplicate = [...state.emails]
             // deep cloning version :
             const emailsDuplicate = state.emails.map(email => {return {...email}})
@@ -56,9 +65,9 @@ export const messagingSlice = createSlice({
             return {...state, areAllDisplayedEmailsSelected : false, emails : unselectedEmails}
         },
         deleteEmail : (state, action) => {
-            if(action.payload.emailId != null) return
-            const targetEmailIndex = state.emails.findIndex(email => email.id === action.payload.emailId)
+            if(action.payload.emailId == null) return
             const emailsDuplicate = state.emails.map(email => {return {...email}})
+            const targetEmailIndex = emailsDuplicate.findIndex(email => email.id === action.payload.emailId)
             emailsDuplicate.splice(targetEmailIndex, 1)
             return{...state, emails : emailsDuplicate}
         }
@@ -82,7 +91,7 @@ interface messagingState{
     emails : Array<ISelectableEmail>
     // filteredEmails : Array<ISelectableEmail>
     activePage : number
-    sortingRule : {direction: 'asc' | 'desc', columnDatakey : string}
+    sortingRule : {direction: 'asc' | 'desc', columnDatakey : string, datatype : 'date' | 'string' | 'number'}
     filter : "toread" | "file" | null
     selectAllCheckboxStatus : boolean
 }
