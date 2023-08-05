@@ -3,7 +3,7 @@ import '../../styles/messaging/InboxTable.css'
 import ok from '/icons/ok.png'
 import {ISelectableEmail} from '../../datas/emailsDatas'
 import { useTypedDispatch, useTypedSelector } from '../../hooks/redux'
-import { deleteEmail, setActivePage, setDisplayedEmails_IDList, setSortingRule, setTargetEmailSelectStatus, switchSelectAllCheckboxStatus } from '../../redux/messagingSlice'
+import { deleteEmail, setActivePage, setDisplayedEmails_IDList, setSortedEmails, setSortingRule, setTargetEmailSelectStatus, switchSelectAllCheckboxStatus } from '../../redux/messagingSlice'
 
 // !!! not read icon, piece jointe
 
@@ -13,64 +13,14 @@ function InboxTable(){
     const emails  = useTypedSelector((state) => state.messaging.emails)
     const activePage  = useTypedSelector((state) => state.messaging.activePage)
     const sortingRule  = useTypedSelector((state) => state.messaging.sortingRule)
+    const sortedEmails  = useTypedSelector((state) => state.messaging.sortedEmails)
     const selectAllCheckboxStatus  = useTypedSelector((state) => state.messaging.selectAllCheckboxStatus)
-
-    const [sortedEmails, setSortedEmails] = useState<Array<ISelectableEmail>>(emails)
-    // const [displayedEmails_IDList, setDisplayedEmails_IDList] = useState<Array<number>>([])
 
     // shorten longer email titles
     function cropEmailTitle(str : string){
         if (str.length <= 82) return str
         return str.slice(0,82)+'...'
     }
-
-    // sort emails
-    function emailsSorting(emails : Array<ISelectableEmail>, sortingRule : {direction: 'asc' | 'desc', columnDatakey : string, datatype : string}){
-        if(sortingRule.datatype === 'date'){
-            switch(sortingRule.direction){
-               case 'asc' : return [...emails].sort((a,b) => dateToTime(b[sortingRule.columnDatakey as keyof typeof b] as string) - dateToTime(a[sortingRule.columnDatakey as keyof typeof a] as string)); break
-               case 'desc' : return [...emails].sort((a,b) => dateToTime(a[sortingRule.columnDatakey as keyof typeof a] as string) - dateToTime(b[sortingRule.columnDatakey as keyof typeof b] as string)); break
-            }
-        }
-        switch(sortingRule.direction){
-            case 'asc' : return [...emails].sort((a,b) => frCollator.compare(a[sortingRule.columnDatakey as keyof typeof a] as string, b[sortingRule.columnDatakey as keyof typeof b] as string)); break
-            case 'desc' : return [...emails].sort((a,b) => frCollator.compare(b[sortingRule.columnDatakey as keyof typeof b] as string, a[sortingRule.columnDatakey as keyof typeof a] as string)); break
-        }
-    }
-
-    /*// emails filtering
-    function filteringEmails(emailsState : Array<ISelectableEmail>){
-        if(filterEmails === "file") return emailsState.filter(email => email.file != null)
-        if(filterEmails === "toread") return emailsState.filter(email => email.read === true)
-        return [...emailsState]
-    }*/
-
-    function generateDisplayedEmailsIDList(sortedEmails : Array<ISelectableEmail>){ // !!! replace with subscription ?
-        const displayedEmails_IDs = []
-        for(let index = (activePage-1)*15; index < activePage * 15; index++){
-            displayedEmails_IDs.push(sortedEmails[index].id)
-        }
-        return displayedEmails_IDs
-    }
-
-    // auto refresh the table after a new sorting rules has been defined
-    useEffect(() => {
-        const _sortedEmails = emailsSorting(emails, sortingRule)
-        setSortedEmails(_sortedEmails)
-        dispatch(setDisplayedEmails_IDList({idList : generateDisplayedEmailsIDList(_sortedEmails)}))
-        dispatch(setActivePage({activePage : 1})) // !!! replace with subscription ?
-    }, [sortingRule])
-
-    useEffect(() => {
-        console.log('test')
-        const _sortedEmails = emailsSorting(emails, sortingRule)
-        setSortedEmails(_sortedEmails)
-        dispatch(setDisplayedEmails_IDList({idList : generateDisplayedEmailsIDList(_sortedEmails)}))
-    }, [emails, emails.length])
-
-    useEffect(()=>{
-        dispatch(setDisplayedEmails_IDList({idList : generateDisplayedEmailsIDList(sortedEmails)})) // !!! replace with subscription ?
-    }, [activePage])
 
     // menu : delete / spam / mark as read / refresh
 

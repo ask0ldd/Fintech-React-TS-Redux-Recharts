@@ -1,14 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IEmail, ISelectableEmail, emails } from "../datas/emailsDatas";
 
-const initialState : messagingState = {
+export const initialState : messagingState = {
     emails : emailsToSelectableEmails(emails), // emails
+    sortedEmails : emailsToSelectableEmails(emails),
     // filteredEmails : emailsToSelectableEmails(emails), // filteredemails
     activePage : 1,
     sortingRule : {direction : 'desc', columnDatakey : 'date', datatype : 'date'},
     filter : null,
     selectAllCheckboxStatus : false,
-    displayedEmails_IDList : []
+    displayedEmails_IDList : Array(16).fill(0).map((_, index) => index)
 }
 
 export const messagingSlice = createSlice({
@@ -37,6 +38,18 @@ export const messagingSlice = createSlice({
             if(datatype === 'date') return {...state, sortingRule : {direction : 'desc', columnDatakey : datakey, datatype : datatype}}
             return {...state, sortingRule : {direction : 'asc', columnDatakey : datakey, datatype : datatype}}
         },
+        setSortedEmails : (state) => {
+            if(state.sortingRule.datatype === 'date'){
+                const sortedEmails = state.sortingRule.direction === 'asc' ? 
+                    [...state.emails].sort((a,b) => dateToTime(b[state.sortingRule.columnDatakey as keyof typeof b] as string) - dateToTime(a[state.sortingRule.columnDatakey as keyof typeof a] as string))
+                    : [...state.emails].sort((a,b) => dateToTime(a[state.sortingRule.columnDatakey as keyof typeof a] as string) - dateToTime(b[state.sortingRule.columnDatakey as keyof typeof b] as string))
+                return {...state, sortedEmails : sortedEmails}
+            }
+            const sortedEmails = state.sortingRule.direction === 'asc' ? 
+                [...state.emails].sort((a,b) => frCollator.compare(a[state.sortingRule.columnDatakey as keyof typeof a] as string, b[state.sortingRule.columnDatakey as keyof typeof b] as string))
+                : [...state.emails].sort((a,b) => frCollator.compare(b[state.sortingRule.columnDatakey as keyof typeof b] as string, a[state.sortingRule.columnDatakey as keyof typeof a] as string))
+            return {...state, sortedEmails : sortedEmails}
+        },
         setFilter : (state, action) => {
             const filter = action.payload?.filter || null
             if(filter == null) return
@@ -44,6 +57,7 @@ export const messagingSlice = createSlice({
                 return {...state, filter : filter}
         },
         setDisplayedEmails_IDList : (state, action) => {
+            console.log(action.payload.idList)
             if(action.payload.idList == null) return
             return {...state, displayedEmails_IDList : action.payload.idList}
         },
@@ -103,13 +117,15 @@ export const {
     unselectAllEmails, 
     deleteEmail,
     deleteSelectedEmails,
-    setDisplayedEmails_IDList
+    setDisplayedEmails_IDList,
+    setSortedEmails
 } = messagingSlice.actions
 
 export default messagingSlice.reducer
 
 interface messagingState{
     emails : Array<ISelectableEmail>
+    sortedEmails : Array<ISelectableEmail>
     // filteredEmails : Array<ISelectableEmail>
     activePage : number
     sortingRule : {direction: 'asc' | 'desc', columnDatakey : string, datatype : 'date' | 'string' | 'number'}
@@ -128,3 +144,10 @@ function emailsToSelectableEmails(emailsList : Array<IEmail>){
 function invertDirection(direction : string){
     return direction === 'asc' ? 'desc' : 'asc'
 }
+
+function dateToTime(date : string){
+    const [day, month, year] = date.split('/')
+    return new Date(parseInt(year), parseInt(month), parseInt(day)).getTime()
+}
+
+export const frCollator = new Intl.Collator('en')
