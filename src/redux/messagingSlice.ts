@@ -21,25 +21,29 @@ export const messagingSlice = createSlice({
         setSortingRule : (state, action) => {
             const datatype = action.payload?.datatype || null
             const datakey = action.payload?.datakey || null
-            let direction = action.payload?.direction || null
+            const direction = action.payload?.direction || null
+            
             if(datatype == null || datakey == null) return
 
             if(direction != null){
-                return {...state, sortingRule : {direction : direction, columnDatakey : action.payload.datakey, datatype : action.payload.datatype}}
+                return {...state, sortingRule : {direction : direction, columnDatakey : datakey, datatype : datatype}}
             }
 
-            if(datatype === 'date') return {...state, sortingRule : {direction : 'desc', columnDatakey : action.payload.datakey, datatype : action.payload.datatype}}
+            // if the col to sort is currently sorted & no direction has been given => just invert the direction
+            if(state.sortingRule.columnDatakey === datakey) return {...state, sortingRule : {direction : invertDirection(state.sortingRule.direction), columnDatakey : datakey, datatype : datatype}}
 
-            return {...state, sortingRule : {direction : 'asc', columnDatakey : action.payload.datakey, datatype : action.payload.datatype}}
+            // if the col to sort is not currently sorted & no direction has been given => default direction implied by the datatype
+            if(datatype === 'date') return {...state, sortingRule : {direction : 'desc', columnDatakey : datakey, datatype : datatype}}
+            return {...state, sortingRule : {direction : 'asc', columnDatakey : datakey, datatype : datatype}}
         },
         setFilter : (state, action) => {
-            if(action.payload.filter == null) return
-            if(action.payload.filter === "toread" || action.payload.filter === "file")
-                return {...state, filter : action.payload.filter}
+            const filter = action.payload?.filter || null
+            if(filter == null) return
+            if(filter === "toread" || filter === "file")
+                return {...state, filter : filter}
         },
         setActivePage : (state, action) => {
             // !!! should check activepage in a more indepth way
-            console.log({...state})
             if(action.payload.activePage == null) return
             return {...state, activePage : action.payload.activePage}
         },
@@ -101,4 +105,8 @@ function emailsToSelectableEmails(emailsList : Array<IEmail>){
         const newEmail : ISelectableEmail = {...email, selected : false}
         return newEmail
     })
+}
+
+function invertDirection(direction : string){
+    return direction === 'asc' ? 'desc' : 'asc'
 }

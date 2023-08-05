@@ -9,41 +9,6 @@ import { deleteEmail, setActivePage, setSortingRule, setTargetEmailSelectStatus,
 
 function InboxTable(){
 
-    
-    // const [areAllEmailsSelected, setAllEmailsToSelected] = useState<boolean>(false)
-    // const [activePage, setActivePage] = useState<number>(1)
-    // const [sortingRule, _setSortingRule] = useState<{direction: 'asc' | 'desc', columnDatakey : string}>({direction : 'desc', columnDatakey : 'date'})
-    // const filteredEmails = filteringEmails(emailsState)
-
-    // replace selectemail / sorting with a reducer
-    /*function setSortingRule(columnDatakey : string){
-        if(sortingRule.columnDatakey === columnDatakey) return _setSortingRule({direction : invertSortingDirection(sortingRule.direction), columnDatakey : columnDatakey})
-        _setSortingRule({direction : 'asc', columnDatakey : columnDatakey})
-    }
-
-    // !!! select the emails currently displayed into the datatable / bug : 
-    function selectAllVisibleEmails(e : React.MouseEvent, selectStatus : boolean){
-        e.preventDefault()
-        e.stopPropagation()
-        const emailsWithSelectedStatus = [...filteredEmails].map((email, index) => { return ( index >= activePage * 15 - 15 && index < activePage * 15) ? {...email, selected : selectStatus} : {...email, selected : false}})
-        setAllEmailsToSelected(selectStatus)
-        return setEmailsState(emailsWithSelectedStatus)
-    }
-
-    // select one target email
-    function selectTargetEmail(e : React.MouseEvent, email_id : number){
-        e.preventDefault()
-        e.stopPropagation()
-        const emails = [...emailsState]
-        // emails[emailID] = {...emails[emailID], selected : !emails[emailID].selected}
-        let index = 0
-        while(emails[index].id !== email_id){
-            index++
-        }
-        emails[index] = {...emails[index], selected : !emails[index].selected}
-        return setEmailsState(emails)
-    }*/
-
     const dispatch = useTypedDispatch()
     const emails  = useTypedSelector((state) => state.messaging.emails)
     const activePage  = useTypedSelector((state) => state.messaging.activePage)
@@ -81,14 +46,13 @@ function InboxTable(){
 
     // auto refresh the table after a new sorting rules has been defined
     useEffect(() => {
-        // !!!! should deal with dates too
-        // emailsSorting({direction: sortingRule.direction, columnDatakey : sortingRule.columnDatakey}, 'string')
-        // setActivePage(1)
         setSortedEmails(emailsSorting(emails, sortingRule))
         dispatch(setActivePage({activePage : 1})) // !!! replace with subscription ?
     }, [sortingRule])
 
-    // state should be a reducer
+    useEffect(() => {
+        setSortedEmails(emailsSorting(emails, sortingRule))
+    }, [emails])
 
     // menu : delete / spam / mark as read / refresh
 
