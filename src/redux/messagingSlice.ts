@@ -38,8 +38,9 @@ export const messagingSlice = createSlice({
             return {...state, selectAllCheckboxStatus : action.payload.status}
         },
         setTargetEmailSelectStatus : (state, action) => {
-            if(action.payload.emailId != null) return
+            if(action.payload.emailId != null) return {...state}
             const emailsDuplicate = [...state.emails]
+            console.log(state)
             const targetEmailIndex = emailsDuplicate.findIndex(email => email.id === action.payload.emailId)
             if (action.payload.status != null) {
                 emailsDuplicate[targetEmailIndex].selected = action.payload.status
