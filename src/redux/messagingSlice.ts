@@ -39,15 +39,23 @@ export const messagingSlice = createSlice({
             return {...state, sortingRule : {direction : 'asc', columnDatakey : datakey, datatype : datatype}}
         },
         setSortedEmails : (state) => {
+            // filtering
+            const filteringFn = (email : ISelectableEmail) => {
+                if(state.filter==="toread") return email.read != true
+                if(state.filter==="file") return email.file != null
+                return true
+            }
+            const filteredEmails = [...state.emails].map(email => { return {...email, selected : false}}).filter(filteringFn)
+            // sorting
             if(state.sortingRule.datatype === 'date'){
                 const sortedEmails = state.sortingRule.direction === 'asc' ? 
-                    [...state.emails].sort((a,b) => dateToTime(b[state.sortingRule.columnDatakey as keyof typeof b] as string) - dateToTime(a[state.sortingRule.columnDatakey as keyof typeof a] as string))
-                    : [...state.emails].sort((a,b) => dateToTime(a[state.sortingRule.columnDatakey as keyof typeof a] as string) - dateToTime(b[state.sortingRule.columnDatakey as keyof typeof b] as string))
+                    [...filteredEmails].sort((a,b) => dateToTime(b[state.sortingRule.columnDatakey as keyof typeof b] as string) - dateToTime(a[state.sortingRule.columnDatakey as keyof typeof a] as string))
+                    : [...filteredEmails].sort((a,b) => dateToTime(a[state.sortingRule.columnDatakey as keyof typeof a] as string) - dateToTime(b[state.sortingRule.columnDatakey as keyof typeof b] as string))
                 return {...state, sortedEmails : sortedEmails}
             }
             const sortedEmails = state.sortingRule.direction === 'asc' ? 
-                [...state.emails].sort((a,b) => frCollator.compare(a[state.sortingRule.columnDatakey as keyof typeof a] as string, b[state.sortingRule.columnDatakey as keyof typeof b] as string))
-                : [...state.emails].sort((a,b) => frCollator.compare(b[state.sortingRule.columnDatakey as keyof typeof b] as string, a[state.sortingRule.columnDatakey as keyof typeof a] as string))
+                [...filteredEmails].sort((a,b) => frCollator.compare(a[state.sortingRule.columnDatakey as keyof typeof a] as string, b[state.sortingRule.columnDatakey as keyof typeof b] as string))
+                : [...filteredEmails].sort((a,b) => frCollator.compare(b[state.sortingRule.columnDatakey as keyof typeof b] as string, a[state.sortingRule.columnDatakey as keyof typeof a] as string))
             return {...state, sortedEmails : sortedEmails}
         },
         setFilter : (state, action) => {
@@ -69,10 +77,10 @@ export const messagingSlice = createSlice({
         },
         switchSelectAllCheckboxStatus : (state, action) => {
             if(action.payload.checkboxStatus == null) {
-                const emailsDuplicate = state.emails.map(email => {
+                const emailsDuplicate = state.sortedEmails.map(email => {
                     return state.displayedEmails_IDList.includes(email.id) ? {...email, selected : !state.selectAllCheckboxStatus} : {...email}
                 })
-                return {...state, selectAllCheckboxStatus : !state.selectAllCheckboxStatus, emails : emailsDuplicate}
+                return {...state, selectAllCheckboxStatus : !state.selectAllCheckboxStatus, sortedEmails : emailsDuplicate}
             }
             return {...state, selectAllCheckboxStatus : action.payload.checkboxStatus}
         },
@@ -80,14 +88,14 @@ export const messagingSlice = createSlice({
             if(action.payload.emailId == null) return
             // error cause no deep cloning : const emailsDuplicate = [...state.emails]
             // deep cloning version :
-            const emailsDuplicate = state.emails.map(email => {return {...email}})
+            const emailsDuplicate = state.sortedEmails.map(email => {return {...email}})
             const targetEmailIndex = emailsDuplicate.findIndex(email => email.id === action.payload.emailId)
             if (action.payload.status != null) {
                 emailsDuplicate[targetEmailIndex].selected = action.payload.status
             }else{
                 emailsDuplicate[targetEmailIndex].selected = !emailsDuplicate[targetEmailIndex].selected
             }
-            return{...state, emails : emailsDuplicate}
+            return{...state, sortedEmails : emailsDuplicate}
         },
         unselectAllEmails : (state, action) => {
             const unselectedEmails = [...state.emails].map(email => { return {...email, selected : false}})

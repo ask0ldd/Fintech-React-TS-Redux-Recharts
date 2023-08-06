@@ -42,6 +42,12 @@ function handleStateChange(){
     store.dispatch(setDisplayedEmails_IDList({idList : generateDisplayedEmailsIDList([...store.getState().messaging.sortedEmails])}))
     store.dispatch(setActivePage({activePage : 1}))
   }
+
+  if(previousValue.filter !== currentStoreValue.filter){
+    store.dispatch(setSortedEmails())
+    store.dispatch(setDisplayedEmails_IDList({idList : generateDisplayedEmailsIDList([...store.getState().messaging.sortedEmails])}))
+    store.dispatch(setActivePage({activePage : 1}))
+  }
 }
 
 function generateDisplayedEmailsIDList(sortedEmails : Array<ISelectableEmail>){ 

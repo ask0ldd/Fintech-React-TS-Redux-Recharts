@@ -23,7 +23,7 @@ function InboxTable(){
         return str.slice(0,82)+'...'
     }
 
-    const filteredEmails = (() => {
+    /*const filteredEmails = (() => {
         if(filter === "toread") {
             return sortedEmails.filter(email => email.read != true)
         }
@@ -31,7 +31,7 @@ function InboxTable(){
             return sortedEmails.filter(email => email.file != null)
         }
         return sortedEmails
-    }) ()
+    }) ()*/
 
     // menu : delete / spam / mark as read / refresh
 
@@ -56,7 +56,7 @@ function InboxTable(){
                     </tr>
                 </thead>
                 <tbody>
-                    {[...filteredEmails].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => /* creer une liste liant index & id */
+                    {[...sortedEmails].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => /* creer une liste liant index & id */
                     <tr style={/*email.read === false ? {backgroundColor:'rgba(183, 167, 211, 0.3)'} :*/ {}} key={"tremail"+index}>
                         <td onClick={() => dispatch(setTargetEmailSelectStatus({emailId : email.id}))} className='checkboxCell'>
                             <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
@@ -80,13 +80,13 @@ function InboxTable(){
                 </tbody>
             </table>
             <div className='inbox__footer'>
-                <span>Showing {(activePage-1)*15+1} to {(activePage-1)*15+15 > filteredEmails.length ? filteredEmails.length : (activePage-1)*15+15} of {filteredEmails.length} emails</span>
+                <span>Showing {(activePage-1)*15+1} to {(activePage-1)*15+15 > sortedEmails.length ? sortedEmails.length : (activePage-1)*15+15} of {sortedEmails.length} emails</span>
                 <div className='pagination__container'>
                     {activePage > 1 && <div role="button" className='pagination__nextPrev' onClick={() => dispatch(setActivePage({activePage : activePage-1}))}>Prev</div>}
                     {activePage > 1 && <div role="button" className='pagination__button' onClick={() => dispatch(setActivePage({activePage : activePage-1}))}>{activePage-1}</div>}
                     <div role="button" className='pagination__buttonActive'>{activePage}</div>
-                    {(activePage-1)*15+15 < filteredEmails.length && <div role="button" className='pagination__button' onClick={() => dispatch(setActivePage({activePage : activePage+1}))}>{activePage+1}</div>}
-                    {(activePage-1)*15+15 < filteredEmails.length && <div role="button" className='pagination__nextPrev' onClick={() => dispatch(setActivePage({activePage : activePage+1}))}>Next</div>}
+                    {(activePage-1)*15+15 < sortedEmails.length && <div role="button" className='pagination__button' onClick={() => dispatch(setActivePage({activePage : activePage+1}))}>{activePage+1}</div>}
+                    {(activePage-1)*15+15 < sortedEmails.length && <div role="button" className='pagination__nextPrev' onClick={() => dispatch(setActivePage({activePage : activePage+1}))}>Next</div>}
                 </div>
             </div>
         </article>
