@@ -8,7 +8,7 @@ function QuickDeactivation(){
     return(
         <article className='contactlessPayment__container'>
             <div className='creditCardInfosnTitle__container'>
-                <h2>Quick Deactivation</h2>
+                <h2>Quick Freeze</h2>
                 <span className='cardNumber'>Card : <span className='cardNumber__value'>VISA, 4929766588942496</span></span>
                 <span className='expirationDate'>Expiration Date : <span className='expirationDate__value'>12/2026</span></span>
             </div>
