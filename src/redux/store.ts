@@ -32,6 +32,7 @@ function handleStateChange(){
 
   // emails update? update the list of displayed emails
   if(JSON.stringify(previousValue.emails) !== JSON.stringify(currentStoreValue.emails)) {
+    console.log("emails changed")
     store.dispatch(setSortedEmails())
     store.dispatch(setDisplayedEmails_IDList({idList : generateDisplayedEmailsIDList([...store.getState().messaging.sortedEmails])}))
   }

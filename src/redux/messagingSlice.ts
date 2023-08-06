@@ -45,7 +45,7 @@ export const messagingSlice = createSlice({
                 if(state.filter==="file") return email.file != null
                 return true
             }
-            const filteredEmails = [...state.emails].map(email => { return {...email, selected : false}}).filter(filteringFn)
+            const filteredEmails = [...state.emails].map(email => {return {...email}}).filter(filteringFn)
             // sorting
             if(state.sortingRule.datatype === 'date'){
                 const sortedEmails = state.sortingRule.direction === 'asc' ? 
@@ -77,25 +77,25 @@ export const messagingSlice = createSlice({
         },
         switchSelectAllCheckboxStatus : (state, action) => {
             if(action.payload.checkboxStatus == null) {
-                const emailsDuplicate = state.sortedEmails.map(email => {
+                const emailsDuplicate = state.emails.map(email => {
                     return state.displayedEmails_IDList.includes(email.id) ? {...email, selected : !state.selectAllCheckboxStatus} : {...email}
                 })
-                return {...state, selectAllCheckboxStatus : !state.selectAllCheckboxStatus, sortedEmails : emailsDuplicate}
+                return {...state, selectAllCheckboxStatus : !state.selectAllCheckboxStatus, emails : emailsDuplicate}
             }
-            return {...state, selectAllCheckboxStatus : action.payload.checkboxStatus}
+            return {...state, selectAllCheckboxStatus : action.payload.checkboxStatus} // should update select prop of the emails too
         },
         setTargetEmailSelectStatus : (state, action) => {
             if(action.payload.emailId == null) return
             // error cause no deep cloning : const emailsDuplicate = [...state.emails]
             // deep cloning version :
-            const emailsDuplicate = state.sortedEmails.map(email => {return {...email}})
+            const emailsDuplicate = state.emails.map(email => {return {...email}})
             const targetEmailIndex = emailsDuplicate.findIndex(email => email.id === action.payload.emailId)
             if (action.payload.status != null) {
                 emailsDuplicate[targetEmailIndex].selected = action.payload.status
             }else{
                 emailsDuplicate[targetEmailIndex].selected = !emailsDuplicate[targetEmailIndex].selected
             }
-            return{...state, sortedEmails : emailsDuplicate}
+            return{...state, emails : emailsDuplicate}
         },
         unselectAllEmails : (state, action) => {
             const unselectedEmails = [...state.emails].map(email => { return {...email, selected : false}})
@@ -134,7 +134,6 @@ export default messagingSlice.reducer
 interface messagingState{
     emails : Array<ISelectableEmail>
     sortedEmails : Array<ISelectableEmail>
-    // filteredEmails : Array<ISelectableEmail>
     activePage : number
     sortingRule : {direction: 'asc' | 'desc', columnDatakey : string, datatype : 'date' | 'string' | 'number'}
     filter : "toread" | "file" | null
