@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import VMenu from '../components/VMenu'
 import '../styles/Settings.css'
 import ContactlessPayment from '../components/Settings/ContactlessPayment'
+import QuickDeactivation from '../components/Settings/QuickDeactivation'
 
 function Settings(){
     return (
@@ -14,12 +15,12 @@ function Settings(){
                 <div className='settingsArticles__container'>
                     <div className='leftSettingsCol__container'>
                         <CustomerInfos/>
-                        <ContactlessPayment/>
+                        <QuickDeactivation/>
                     </div>
                     <div className='rightSettingsCol__container'>
                         <BankInfos/>
                         <ContactlessPayment/>
-                        <ContactlessPayment/>
+                        <QuickDeactivation/>
                     </div>
                 </div>
             </section>
