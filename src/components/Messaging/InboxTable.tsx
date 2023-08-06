@@ -12,15 +12,26 @@ function InboxTable(){
     const dispatch = useTypedDispatch()
     const emails  = useTypedSelector((state) => state.messaging.emails)
     const activePage  = useTypedSelector((state) => state.messaging.activePage)
-    const sortingRule  = useTypedSelector((state) => state.messaging.sortingRule)
+    // const sortingRule  = useTypedSelector((state) => state.messaging.sortingRule)
     const sortedEmails  = useTypedSelector((state) => state.messaging.sortedEmails)
     const selectAllCheckboxStatus  = useTypedSelector((state) => state.messaging.selectAllCheckboxStatus)
+    const filter  = useTypedSelector((state) => state.messaging.filter)
 
     // shorten longer email titles
     function cropEmailTitle(str : string){
         if (str.length <= 82) return str
         return str.slice(0,82)+'...'
     }
+
+    const filteredEmails = (() => {
+        if(filter === "toread") {
+            return sortedEmails.filter(email => email.read != true)
+        }
+        if(filter === "file"){
+            return sortedEmails.filter(email => email.file != null)
+        }
+        return sortedEmails
+    }) ()
 
     // menu : delete / spam / mark as read / refresh
 
@@ -45,7 +56,7 @@ function InboxTable(){
                     </tr>
                 </thead>
                 <tbody>
-                    {[...sortedEmails].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => /* creer une liste liant index & id */
+                    {[...filteredEmails].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => /* creer une liste liant index & id */
                     <tr style={/*email.read === false ? {backgroundColor:'rgba(183, 167, 211, 0.3)'} :*/ {}} key={"tremail"+index}>
                         <td onClick={() => dispatch(setTargetEmailSelectStatus({emailId : email.id}))} className='checkboxCell'>
                             <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
@@ -59,9 +70,9 @@ function InboxTable(){
                                 </svg>
                             }
                         </td>
-                        <td style={/*email.read === false ? {fontWeight:'500', color:'rgba(91, 57, 170, 0.8)'} :*/ {}} className='from'>{email.sender}</td>
-                        <td style={/*email.read === false ? {fontWeight:'500', color:'rgba(91, 57, 170, 0.8)'} :*/ {}}>{cropEmailTitle(email.title)}</td>
-                        <td style={/*email.read === false ? {fontWeight:'500', color:'rgba(91, 57, 170, 0.8)'} :*/ {}}>{email.date}</td>
+                        <td style={/*email.read === false ? {fontWeight:'600', color:'rgba(91, 57, 170, 0.8)'} :*/ {}} className='from'>{email.sender}</td>
+                        <td style={/*email.read === false ? {fontWeight:'600', color:'rgba(91, 57, 170, 0.8)'} :*/ {}}>{cropEmailTitle(email.title)}</td>
+                        <td style={/*email.read === false ? {fontWeight:'600', color:'rgba(91, 57, 170, 0.8)'} :*/ {}}>{email.date}</td>
                         <td onClick={() => dispatch(deleteEmail({emailId :email.id}))} role="button" aria-labelledby='deleteColumn' style={{display:'flex', height:'37px', justifyContent:'center', alignItems:'center'}} className='delete'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
                         </td>
@@ -69,13 +80,13 @@ function InboxTable(){
                 </tbody>
             </table>
             <div className='inbox__footer'>
-                <span>Showing {(activePage-1)*15+1} to {(activePage-1)*15+15 > emails.length ? emails.length : (activePage-1)*15+15} of {emails.length} emails</span>
+                <span>Showing {(activePage-1)*15+1} to {(activePage-1)*15+15 > filteredEmails.length ? filteredEmails.length : (activePage-1)*15+15} of {filteredEmails.length} emails</span>
                 <div className='pagination__container'>
                     {activePage > 1 && <div role="button" className='pagination__nextPrev' onClick={() => dispatch(setActivePage({activePage : activePage-1}))}>Prev</div>}
                     {activePage > 1 && <div role="button" className='pagination__button' onClick={() => dispatch(setActivePage({activePage : activePage-1}))}>{activePage-1}</div>}
                     <div role="button" className='pagination__buttonActive'>{activePage}</div>
-                    {(activePage-1)*15+15 < emails.length && <div role="button" className='pagination__button' onClick={() => dispatch(setActivePage({activePage : activePage+1}))}>{activePage+1}</div>}
-                    {(activePage-1)*15+15 < emails.length && <div role="button" className='pagination__nextPrev' onClick={() => dispatch(setActivePage({activePage : activePage+1}))}>Next</div>}
+                    {(activePage-1)*15+15 < filteredEmails.length && <div role="button" className='pagination__button' onClick={() => dispatch(setActivePage({activePage : activePage+1}))}>{activePage+1}</div>}
+                    {(activePage-1)*15+15 < filteredEmails.length && <div role="button" className='pagination__nextPrev' onClick={() => dispatch(setActivePage({activePage : activePage+1}))}>Next</div>}
                 </div>
             </div>
         </article>
@@ -91,10 +102,10 @@ function dateToTime(date : string){
 
 export const frCollator = new Intl.Collator('en')
 
-interface IProps{
+/*interface IProps{
     emailsState : Array<ISelectableEmail>
     setEmailsState : (emails : Array<ISelectableEmail>) => void
     areAllEmailsSelected : boolean
     setAllEmailsToSelected : (selected : boolean) => void
     filterEmails : "toread" | "file" | null
-}
+}*/
