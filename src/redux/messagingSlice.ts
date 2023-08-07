@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IEmail, ISelectableEmail, emails } from "../datas/emailsDatas";
+import { /*IEmail, */ISelectableEmail, emails } from "../datas/emailsDatas";
 
 export const initialState : messagingState = {
-    emails : emailsToSelectableEmails(emails), // emails
-    sortedEmails : emailsToSelectableEmails(emails),
+    emails : emails, // emails
+    sortedEmails : emails,
     // filteredEmails : emailsToSelectableEmails(emails), // filteredemails
     activePage : 1,
     sortingRule : {direction : 'desc', columnDatakey : 'date', datatype : 'date'},
@@ -65,7 +65,6 @@ export const messagingSlice = createSlice({
                 return {...state, filter : filter}
         },
         setDisplayedEmails_IDList : (state, action) => {
-            console.log(action.payload.idList)
             if(action.payload.idList == null) return
             return {...state, displayedEmails_IDList : action.payload.idList}
         },
@@ -141,19 +140,19 @@ interface messagingState{
     displayedEmails_IDList : Array<number>
 }
 
-function emailsToSelectableEmails(emailsList : Array<IEmail>){
+/*function emailsToSelectableEmails(emailsList : Array<IEmail>){
     return emailsList.map(email => {
         const newEmail : ISelectableEmail = {...email, selected : false}
         return newEmail
     })
-}
+}*/
 
 function invertDirection(direction : string){
     return direction === 'asc' ? 'desc' : 'asc'
 }
 
 function dateToTime(date : string){
-    const [day, month, year] = date.split('/')
+    const [month, day, year] = date.split('/')
     return new Date(parseInt(year), parseInt(month), parseInt(day)).getTime()
 }
 

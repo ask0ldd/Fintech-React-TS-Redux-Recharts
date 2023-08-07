@@ -12,7 +12,7 @@ export interface ISelectableEmail extends IEmail{
     selected:boolean
 }
 
-export const emails2 = [{"id":1,"sender":"Brion Probets","title":"Nullam molestie nibh in lectus.","date":"2023-03-23"},
+export const emails3 = [{"id":1,"sender":"Brion Probets","title":"Nullam molestie nibh in lectus.","date":"2023-03-23"},
 {"id":2,"sender":"Angel Tooting","title":"Proin risus.","date":"2022-12-06"},
 {"id":3,"sender":"Dredi Struys","title":"Proin interdum mauris non ligula pellentesque ultrices.","date":"2023-05-04"},
 {"id":4,"sender":"Tammie Dewane","title":"Etiam faucibus cursus urna.","date":"2023-05-19"},
@@ -52,7 +52,7 @@ export const emails2 = [{"id":1,"sender":"Brion Probets","title":"Nullam molesti
 {"id":38,"sender":"Uta Ferry","title":"Etiam pretium iaculis justo.","date":"2022-11-01"},
 {"id":39,"sender":"Maynard Titchener","title":"Nulla tempus.","date":"2023-04-13"},]
 
-export const emails : Array<IEmail> = [{"id":1,"sender":"Barbette Long","title":"Sed ante.","body":"Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.","date":"2021-04-08","read":true,"file":null},
+export const emails2 : Array<IEmail> = [{"id":1,"sender":"Barbette Long","title":"Sed ante.","body":"Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.","date":"2021-04-08","read":true,"file":null},
 {"id":2,"sender":"Theodor Vittet","title":"Nulla ac enim.","body":"Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.","date":"2022-06-11","read":true,"file":"LectusPellentesqueAt.tiff"},
 {"id":3,"sender":"Vilhelmina Glaysher","title":"In est risus, auctor sed, tristique in, tempus sit amet, sem.","body":"Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.","date":"2021-11-20","read":true,"file":null},
 {"id":4,"sender":"Desmond Faires","title":"Nulla tempus.","body":"In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.","date":"2022-05-25","read":true,"file":null},
@@ -97,3 +97,19 @@ export const emails : Array<IEmail> = [{"id":1,"sender":"Barbette Long","title":
 {"id":43,"sender":"Blair Copo","title":"Proin at turpis a pede posuere nonummy.","body":"Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.","date":"2021-05-10","read":false,"file":null},
 {"id":44,"sender":"Cicely Croxley","title":"Donec ut mauris eget massa tempor convallis.","body":"Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.","date":"2022-09-25","read":false,"file":"VelitEuEst.mpeg"},
 {"id":45,"sender":"Conni Screase","title":"In hac habitasse platea dictumst.","body":"Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.","date":"2022-08-31","read":false,"file":null}]
+
+function toUSFormat(date : string){
+    const dateAsAnArray = date.split('-')
+    return dateAsAnArray[1] + '/' + dateAsAnArray[2] + '/' + dateAsAnArray[0]
+}
+
+export const emails : Array<ISelectableEmail> = emailsToSelectableEmails([...emails2].map(email => {
+    return {...email, date : toUSFormat(email.date)}
+}))
+
+function emailsToSelectableEmails(emailsList : Array<IEmail>){
+    return emailsList.map(email => {
+        const newEmail : ISelectableEmail = {...email, selected : false}
+        return newEmail
+    })
+}
