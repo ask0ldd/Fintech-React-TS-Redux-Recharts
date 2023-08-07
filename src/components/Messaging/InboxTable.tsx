@@ -5,33 +5,20 @@ import {ISelectableEmail} from '../../datas/emailsDatas'
 import { useTypedDispatch, useTypedSelector } from '../../hooks/redux'
 import { deleteEmail, setActivePage, setDisplayedEmails_IDList, setSortedEmails, setSortingRule, setTargetEmailSelectStatus, switchSelectAllCheckboxStatus } from '../../redux/messagingSlice'
 
-// !!! not read icon, piece jointe
-
 function InboxTable(){
 
     const dispatch = useTypedDispatch()
     const emails  = useTypedSelector((state) => state.messaging.emails)
     const activePage  = useTypedSelector((state) => state.messaging.activePage)
-    // const sortingRule  = useTypedSelector((state) => state.messaging.sortingRule)
     const sortedEmails  = useTypedSelector((state) => state.messaging.sortedEmails)
     const selectAllCheckboxStatus  = useTypedSelector((state) => state.messaging.selectAllCheckboxStatus)
     const filter  = useTypedSelector((state) => state.messaging.filter)
 
     // shorten longer email titles
     function cropEmailTitle(str : string){
-        if (str.length <= 82) return str
-        return str.slice(0,82)+'...'
+        if (str.length <= 78) return str
+        return str.slice(0,78)+'...'
     }
-
-    /*const filteredEmails = (() => {
-        if(filter === "toread") {
-            return sortedEmails.filter(email => email.read != true)
-        }
-        if(filter === "file"){
-            return sortedEmails.filter(email => email.file != null)
-        }
-        return sortedEmails
-    }) ()*/
 
     // menu : delete / spam / mark as read / refresh
 
@@ -72,7 +59,7 @@ function InboxTable(){
                         </td>
                         <td style={/*email.read === false ? {fontWeight:'600', color:'rgba(91, 57, 170, 0.8)'} :*/ {}} className='from'>{email.sender}</td>
                         <td style={/*email.read === false ? {fontWeight:'600', color:'rgba(91, 57, 170, 0.8)'} :*/ {}}>{cropEmailTitle(email.title)}</td>
-                        <td style={/*email.read === false ? {fontWeight:'600', color:'rgba(91, 57, 170, 0.8)'} :*/ {}}>{email.date}</td>
+                        <td style={{width:'10rem'}/*email.read === false ? {fontWeight:'600', color:'rgba(91, 57, 170, 0.8)'} :*/}>{formatDate(email.date)}</td>
                         <td onClick={() => dispatch(deleteEmail({emailId :email.id}))} role="button" aria-labelledby='deleteColumn' style={{display:'flex', height:'37px', justifyContent:'center', alignItems:'center'}} className='delete'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
                         </td>
@@ -95,12 +82,11 @@ function InboxTable(){
 
 export default InboxTable
 
-function dateToTime(date : string){
-    const [day, month, year] = date.split('/')
-    return new Date(parseInt(year), parseInt(month), parseInt(day)).getTime()
-}
-
 export const frCollator = new Intl.Collator('en')
+
+function formatDate(date : string){
+    return date.replaceAll('/', '-')
+}
 
 /*interface IProps{
     emailsState : Array<ISelectableEmail>
