@@ -14,6 +14,13 @@ const MockedRouter = () => {
 
 describe('Given I am on the Landing page', async () => {
 
+    // to get around JSDom not handling the Dialog Element properly
+    beforeAll(() => {
+        HTMLDialogElement.prototype.show = vi.fn();
+        HTMLDialogElement.prototype.showModal = vi.fn();
+        HTMLDialogElement.prototype.close = vi.fn();
+    })
+
     beforeEach(() => {
         let window = {onload: vi.fn()}
         render(<MockedRouter />)
@@ -46,7 +53,10 @@ describe('Given I am on the Landing page', async () => {
 
     test('Clicking the button next to the QWT Contacts List, displays a modal', async() => {
         await waitFor(() => expect(screen.getByText(/Quick Wire Transfer/i)).toBeInTheDocument())
-        // expect(screen.getByTestId("modal")).not.toBeInTheDocument()
+        expect(screen.queryByTestId("modal")).not.toBeInTheDocument() // !!! querybytestid or it will throw an error
+        const addContactButton = screen.getAllByRole("button").filter(button => button.classList.contains("xButton"))[0]
+        addContactButton.click()
+        await waitFor(() => expect(screen.getByTestId("modal")).toBeInTheDocument())
     })
 })
 
