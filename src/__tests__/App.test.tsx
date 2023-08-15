@@ -31,17 +31,22 @@ describe('Given I am on the Landing page', async () => {
     })
 
     test('The vertical menu is displayed w/ all its items', async () => {
-
-        await waitFor( () => expect(screen.getByTestId("stats-menuItem")).toBeInTheDocument())
-        expect(screen.getByTestId("accounts-menuItem")).toBeInTheDocument()
-        expect(screen.getByTestId("chat-menuItem")).toBeInTheDocument()
-        expect(screen.getByTestId("settings-menuItem")).toBeInTheDocument()
-        expect(screen.getByTestId("mode-menuItem")).toBeInTheDocument()
+        await waitFor( () => expect(screen.getByAltText("home menu item")).toBeInTheDocument())
+        expect(screen.getByAltText("stats menu item")).toBeInTheDocument()
+        expect(screen.getByAltText("chat menu item")).toBeInTheDocument()
+        expect(screen.getByAltText("settings menu item")).toBeInTheDocument()
+        expect(screen.getByAltText("accounts menu item")).toBeInTheDocument()
+        expect(screen.getByAltText("dark mode menu item")).toBeInTheDocument()
     })
 
     test('4 Contacts are displayed in Quick Wire Transfer Contacts List', async() => {
         await waitFor(() => expect(screen.getAllByTestId("transferQuickContact").length).toBe(4))
         expect(screen.getAllByTestId("transferBlankContact").length).toBe(1)
+    })
+
+    test('Clicking the button next to the QWT Contacts List, displays a modal', async() => {
+        await waitFor(() => expect(screen.getByText(/Quick Wire Transfer/i)).toBeInTheDocument())
+        // expect(screen.getByTestId("modal")).not.toBeInTheDocument()
     })
 })
 
