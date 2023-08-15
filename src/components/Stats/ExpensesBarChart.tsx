@@ -2,7 +2,7 @@ import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAx
 import '../../styles/stats/BalanceBarsChart.css'
 import { IDatas } from "../../pages/Stats"
 
-const datas : IDatas = [
+/*const datas : IDatas = [
     { month: 'Jan', financial : {income:3952, expenses:2927} },
     { month: 'Feb', financial : {income:5053, expenses:3502} },
     { month: 'Mar', financial : {income:4070, expenses:3012} },
@@ -15,9 +15,9 @@ const datas : IDatas = [
     { month: 'Oct', financial : {income:4313, expenses:4107} },
     { month: 'Nov', financial : {income:4918, expenses:3115} },
     { month: 'Dec', financial : {income:4650, expenses:4153} },
-]
+]*/
 
-function ExpensesBarChart(){
+function ExpensesBarChart({datas} : {datas : IDatas}){
 
     return(
         <ResponsiveContainer className="graph__container" width="100%" height={680}>

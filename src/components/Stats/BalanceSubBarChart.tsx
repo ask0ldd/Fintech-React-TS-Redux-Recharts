@@ -2,7 +2,7 @@ import { Bar, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, T
 import '../../styles/stats/BalanceBarsChart.css'
 import { IDatas } from "../../pages/Stats"
 
-const datas : IDatas = [
+/*const datas : IDatas = [
     { month: 'Jan', financial : {income:3952, expenses:2927} },
     { month: 'Feb', financial : {income:5053, expenses:3502} },
     { month: 'Mar', financial : {income:4070, expenses:3012} },
@@ -15,17 +15,17 @@ const datas : IDatas = [
     { month: 'Oct', financial : {income:4313, expenses:4107} },
     { month: 'Nov', financial : {income:4918, expenses:3115} },
     { month: 'Dec', financial : {income:4650, expenses:4153} },
-]
+]*/
 
-const datasSub : Array<IDatasSub> = datas.map((data, index, datas) => { 
-    return {
-        month : data.month, 
-        cumulatedSavings : sumMonthlySavings([...datas].slice(0,index+1)),
-        monthlySavings : data.financial.income - data.financial.expenses
-    } 
-})
+function BalanceSubBarChart({datas} : {datas : IDatas}){
 
-function BalanceSubBarChart(){
+    const datasSub : Array<IDatasSub> = datas.map((data, index, datas) => { 
+        return {
+            month : data.month, 
+            cumulatedSavings : sumMonthlySavings([...datas].slice(0,index+1)),
+            monthlySavings : data.financial.income - data.financial.expenses
+        } 
+    })
 
     return(
         <ResponsiveContainer className="graph__container" width="100%" height={680}>

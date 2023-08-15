@@ -55,7 +55,8 @@ describe('Given I am on the Landing page', async () => {
         await waitFor(() => expect(screen.getByText(/Quick Wire Transfer/i)).toBeInTheDocument())
         expect(screen.queryByTestId("modal")).not.toBeInTheDocument() // !!! querybytestid or it will throw an error
         const addContactButton = screen.getAllByRole("button").filter(button => button.classList.contains("xButton"))[0]
-        addContactButton.click()
+        
+        act(() => addContactButton.click())
         await waitFor(() => expect(screen.getByTestId("modal")).toBeInTheDocument())
 
         test('The modal should display 4 unselected contacts and 4 selected ones', async() => {
