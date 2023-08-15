@@ -57,7 +57,15 @@ describe('Given I am on the Landing page', async () => {
         const addContactButton = screen.getAllByRole("button").filter(button => button.classList.contains("xButton"))[0]
         addContactButton.click()
         await waitFor(() => expect(screen.getByTestId("modal")).toBeInTheDocument())
+
+        test('The modal should display 4 unselected contacts and 4 selected ones', async() => {
+            const modal = screen.queryByTestId("modal")
+            expect(modal?.querySelectorAll("button.greenButton").length).toBe(4)
+            expect(modal?.querySelectorAll("button.violetButton").length).toBe(4)
+            expect(screen.getByText(/4 contacts selected/i)).toBeInTheDocument()
+        })
     })
+
 })
 
 // https://dev.to/mbarzeev/from-jest-to-vitest-migration-and-benchmark-23pl
