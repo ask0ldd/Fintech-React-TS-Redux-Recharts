@@ -33,12 +33,12 @@ const Transfer = ({setModalVisibility, rows, setModalContentId}:IProps) => {
             <div className='transfer__avatarsnButton__container'>
                 {
                     getContactsInQuicklist().map((row, index) => 
-                        <img onClick={() => {setTransferRecipientName(row.name)}} 
+                        <img data-testid="transferQuickContact" onClick={() => {setTransferRecipientName(row.name)}} 
                         style={row.name === transferRecipientName ? {border:'2px solid rgba(166, 41, 237, 1)', borderRadius:'20px'} : {}} 
                         className='nonBlankAvatar' key={'avatarQL-'+index} 
                         src={row.avatar} alt={row.name + " avatar"}/>) 
                 }
-                { getBlankAvatarsToFillQuicklist().map((row, index) => <img key={'blankAvatar-'+index} src='./avatars/blank.png' alt="blank space"/>) }
+                { getBlankAvatarsToFillQuicklist().map((row, index) => <img data-testid="transferBlankContact" key={'blankAvatar-'+index} src='./avatars/blank.png' alt="blank space"/>) }
                 <button className='transfer__amountButton violetButton xButton' 
                 onClick={() => {
                     setModalContentId('addContactsQuicklist')

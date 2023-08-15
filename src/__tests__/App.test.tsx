@@ -38,6 +38,11 @@ describe('Given I am on the Landing page', async () => {
         expect(screen.getByTestId("settings-menuItem")).toBeInTheDocument()
         expect(screen.getByTestId("mode-menuItem")).toBeInTheDocument()
     })
+
+    test('4 Contacts are displayed in Quick Wire Transfer Contacts List', async() => {
+        await waitFor(() => expect(screen.getAllByTestId("transferQuickContact").length).toBe(4))
+        expect(screen.getAllByTestId("transferBlankContact").length).toBe(1)
+    })
 })
 
 // https://dev.to/mbarzeev/from-jest-to-vitest-migration-and-benchmark-23pl
