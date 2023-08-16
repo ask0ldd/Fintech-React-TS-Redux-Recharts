@@ -53,7 +53,8 @@ describe('Given I am on the Landing page', async () => {
         expect(screen.getAllByTestId("transferBlankContact").length).toBe(1)
     })
 
-    test('Clicking the button next to the QWT Contacts List should open a modal', async() => {
+    // should move all the following tests to modal?
+    test('Clicking the button next to the QWT Contacts List should open a modal with 4 selected / 4 unselected contaccts', async() => {
         await waitFor(() => expect(screen.getByText(/Quick Wire Transfer/i)).toBeInTheDocument())
         expect(screen.queryByTestId("modal")).not.toBeInTheDocument() // !!! querybytestid or it will throw an error
         const addContactButton = screen.getAllByRole("button").filter(button => button.classList.contains("xButton"))[0]
@@ -61,15 +62,23 @@ describe('Given I am on the Landing page', async () => {
         act(() => addContactButton.click())
         await waitFor(() => expect(screen.getByTestId("modal")).toBeInTheDocument())
 
-        test('The modal should display 4 unselected contacts and 4 selected ones', async() => {
-            const modal = screen.queryByTestId("modal")
-            expect(modal?.querySelectorAll("button.greenButton").length).toBe(4)
-            expect(modal?.querySelectorAll("button.violetButton").length).toBe(4)
-            expect(screen.getByText(/4 contacts selected/i)).toBeInTheDocument()
-        })
+        const modal = screen.queryByTestId("modal")
+        expect(modal?.querySelectorAll("button.greenButton").length).toBe(4)
+        expect(modal?.querySelectorAll("button.violetButton").length).toBe(4)
+        expect(screen.getByText(/4 contacts selected/i)).toBeInTheDocument()
     })
 
-    test('Clicking the button next to the QWT Amount should open a modal', async() => {
+    test('Clicking the "confirm your selection" button should close the modal', async () => {
+        await waitFor(() => expect(screen.getByText(/Quick Wire Transfer/i)).toBeInTheDocument())
+        expect(screen.queryByTestId("modal")).not.toBeInTheDocument() // !!! querybytestid or it will throw an error since we are testing it's missing
+        const addContactButton = screen.getAllByRole("button").filter(button => button.classList.contains("xButton"))[0]
+        act(() => addContactButton.click())
+        await waitFor(() => expect(screen.getByTestId("modal")).toBeInTheDocument())
+        act(() => screen.getByText(/Confirm Your Selection/i).click())
+        await waitFor(() => expect(screen.queryByTestId("modal")).not.toBeInTheDocument())
+    })
+
+    test('Clicking the button next to the QWT Amount should open a modal of transfer confirmation', async() => {
         await waitFor(() => expect(screen.getByText(/Quick Wire Transfer/i)).toBeInTheDocument())
         expect(screen.queryByTestId("modal")).not.toBeInTheDocument() // !!! querybytestid or it will throw an error
         const addContactButton = screen.getAllByRole("button").filter(button => button.classList.contains("vButton"))[0]
@@ -77,15 +86,19 @@ describe('Given I am on the Landing page', async () => {
         act(() => addContactButton.click())
         await waitFor(() => expect(screen.getByTestId("modal")).toBeInTheDocument())
 
-        test('The modal should display a transfer confirmation', async() => {
-            expect(screen.getByText(/Transfer Confirmation/i)).toBeInTheDocument()
-        })
+        expect(screen.getByText(/Transfer Confirmation/i)).toBeInTheDocument()
+    })
 
-        test('the modal should close itself when the "confirm this transfer" button is clicked', async () => {
-            const confirmationButton = screen.getByText(/Confirm This Transfer/i)
-            act(() => confirmationButton.click())
-            await waitFor(() => expect(screen.getByTestId("modal")).not.toBeInTheDocument())
-        })
+    test('Clicking the "confirm this transfer" button should close the modal', async () => {
+        await waitFor(() => expect(screen.getByText(/Quick Wire Transfer/i)).toBeInTheDocument())
+        expect(screen.queryByTestId("modal")).not.toBeInTheDocument() // !!! querybytestid or it will throw an error since we are testing it's missing
+        const addContactButton = screen.getAllByRole("button").filter(button => button.classList.contains("vButton"))[0]
+        act(() => addContactButton.click())
+        await waitFor(() => expect(screen.getByTestId("modal")).toBeInTheDocument())
+        // screen.logTestingPlaygroundURL()
+        act(() => screen.getByText(/Confirm This Transfer/i).click())
+        // await waitFor(() => expect(screen.getByText(/Transfer Confirmation/i)).toBeNull)
+        await waitFor(() => expect(screen.queryByTestId("modal")).not.toBeInTheDocument())
     })
 
     test('onload has been called', async() => {

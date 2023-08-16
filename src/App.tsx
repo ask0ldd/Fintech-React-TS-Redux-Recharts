@@ -70,7 +70,10 @@ function App() {
         <RecurringDebits/>
       </section>
       { 
-      { // equivalent to switch
+      modalVisibility && 
+      // equivalent to switch
+      { 
+        
         'addContactsQuicklist' :  
         <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
           <AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>
