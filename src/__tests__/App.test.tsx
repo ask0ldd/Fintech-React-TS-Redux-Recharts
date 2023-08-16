@@ -80,6 +80,12 @@ describe('Given I am on the Landing page', async () => {
         test('The modal should display a transfer confirmation', async() => {
             expect(screen.getByText(/Transfer Confirmation/i)).toBeInTheDocument()
         })
+
+        test('the modal should close itself when the "confirm this transfer" button is clicked', async () => {
+            const confirmationButton = screen.getByText(/Confirm This Transfer/i)
+            act(() => confirmationButton.click())
+            await waitFor(() => expect(screen.getByTestId("modal")).not.toBeInTheDocument())
+        })
     })
 
     test('onload has been called', async() => {
