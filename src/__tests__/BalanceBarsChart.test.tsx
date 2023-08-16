@@ -46,7 +46,11 @@ describe('Given : the BalanceBarsChart is rendered with 12 months of datas', asy
         expect(regionContainer.querySelectorAll('g.recharts-bar-rectangle').length).toBe(24)
     })
 
-    // should test tooltip
-
-
+    // should test infos displayed by the tooltip
+    test('The tooltip dialog should be displayed', async()=> {
+        render(<BalanceBarsChart datas={datas} />)
+        await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
+        const regionContainer = screen.getByRole('region')
+        expect(regionContainer.querySelector('div.recharts-tooltip-wrapper')).toBeInTheDocument()
+    })
 })
