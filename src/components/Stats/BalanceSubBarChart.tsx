@@ -74,7 +74,7 @@ function BalanceSubBarChart({datas} : {datas : IDatas}){
     )
 }
 
-function CustomLabel(props: any){
+export function CustomLabel(props: any){
     if(props.value < 1000)
     return(
         <g>
@@ -113,9 +113,9 @@ function CustomizedYTick(props: any){
     )
 }
 
-const styleTitle = (value: string) => {
+/*const styleTitle = (value: string) => {
     return (<div className="chartTitle">{value}</div>)
-}
+}*/
 
 const resizedLegendValue = (value: string) => {
     return <span style={{fontSize:"14px", color:"#74798C", marginLeft:"6px", display:"inline-block", transform:"translateY(0.5px)"}}>{value}</span>

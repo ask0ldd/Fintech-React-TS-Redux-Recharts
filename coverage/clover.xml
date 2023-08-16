@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1692208066796" clover="3.2.0">
-  <project timestamp="1692208066796" name="All files">
-    <metrics statements="1334" coveredstatements="1140" conditionals="96" coveredconditionals="82" methods="66" coveredmethods="42" elements="1496" coveredelements="1264" complexity="0" loc="1334" ncloc="1334" packages="9" files="23" classes="23"/>
+<coverage generated="1692208654385" clover="3.2.0">
+  <project timestamp="1692208654386" name="All files">
+    <metrics statements="1334" coveredstatements="1257" conditionals="109" coveredconditionals="95" methods="62" coveredmethods="49" elements="1505" coveredelements="1401" complexity="0" loc="1334" ncloc="1334" packages="9" files="23" classes="23"/>
     <package name="src">
       <metrics statements="92" coveredstatements="78" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
       <file name="App.tsx" path="C:\Dev\OC2-prep\TypescriptTest\ts-test\src\App.tsx">
@@ -525,9 +525,9 @@
       </file>
     </package>
     <package name="src.components.Stats">
-      <metrics statements="530" coveredstatements="413" conditionals="23" coveredconditionals="23" methods="28" coveredmethods="17"/>
+      <metrics statements="530" coveredstatements="530" conditionals="36" coveredconditionals="36" methods="24" coveredmethods="24"/>
       <file name="BalanceBarsChart.tsx" path="C:\Dev\OC2-prep\TypescriptTest\ts-test\src\components\Stats\BalanceBarsChart.tsx">
-        <metrics statements="134" coveredstatements="132" conditionals="7" coveredconditionals="7" methods="6" coveredmethods="5"/>
+        <metrics statements="134" coveredstatements="134" conditionals="7" coveredconditionals="7" methods="5" coveredmethods="5"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -631,8 +631,8 @@
         <line num="101" count="21" type="stmt"/>
         <line num="102" count="1" type="stmt"/>
         <line num="103" count="1" type="stmt"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="105" count="0" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="105" count="1" type="stmt"/>
         <line num="106" count="1" type="stmt"/>
         <line num="107" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="108" count="6" type="stmt"/>
@@ -664,7 +664,7 @@
         <line num="134" count="1" type="stmt"/>
       </file>
       <file name="BalanceSubBarChart.tsx" path="C:\Dev\OC2-prep\TypescriptTest\ts-test\src\components\Stats\BalanceSubBarChart.tsx">
-        <metrics statements="158" coveredstatements="47" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="0"/>
+        <metrics statements="158" coveredstatements="158" conditionals="13" coveredconditionals="13" methods="7" coveredmethods="7"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -684,127 +684,127 @@
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
+        <line num="20" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="48" type="stmt"/>
+        <line num="24" count="48" type="stmt"/>
+        <line num="25" count="48" type="stmt"/>
+        <line num="26" count="48" type="stmt"/>
+        <line num="27" count="48" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="38" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
+        <line num="44" count="4" type="stmt"/>
+        <line num="45" count="4" type="stmt"/>
+        <line num="46" count="4" type="stmt"/>
+        <line num="47" count="4" type="stmt"/>
+        <line num="48" count="4" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
+        <line num="50" count="4" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
+        <line num="52" count="4" type="stmt"/>
+        <line num="53" count="4" type="stmt"/>
+        <line num="54" count="4" type="stmt"/>
+        <line num="55" count="4" type="stmt"/>
+        <line num="56" count="4" type="stmt"/>
+        <line num="57" count="4" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="60" count="4" type="stmt"/>
+        <line num="61" count="4" type="stmt"/>
+        <line num="62" count="4" type="stmt"/>
+        <line num="63" count="4" type="stmt"/>
+        <line num="64" count="4" type="stmt"/>
+        <line num="65" count="4" type="stmt"/>
+        <line num="66" count="4" type="stmt"/>
+        <line num="67" count="4" type="stmt"/>
+        <line num="68" count="4" type="stmt"/>
+        <line num="69" count="4" type="stmt"/>
+        <line num="70" count="4" type="stmt"/>
+        <line num="71" count="4" type="stmt"/>
+        <line num="72" count="4" type="stmt"/>
+        <line num="73" count="4" type="stmt"/>
+        <line num="74" count="4" type="stmt"/>
+        <line num="75" count="4" type="stmt"/>
         <line num="76" count="1" type="stmt"/>
-        <line num="77" count="0" type="stmt"/>
-        <line num="78" count="0" type="stmt"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="80" count="0" type="stmt"/>
-        <line num="81" count="0" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
-        <line num="83" count="0" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
-        <line num="86" count="0" type="stmt"/>
-        <line num="87" count="0" type="stmt"/>
-        <line num="88" count="0" type="stmt"/>
-        <line num="89" count="0" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="92" count="0" type="stmt"/>
-        <line num="93" count="0" type="stmt"/>
-        <line num="94" count="0" type="stmt"/>
+        <line num="77" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="78" count="12" type="stmt"/>
+        <line num="79" count="12" type="cond" truecount="1" falsecount="0"/>
+        <line num="80" count="8" type="stmt"/>
+        <line num="81" count="8" type="stmt"/>
+        <line num="82" count="8" type="stmt"/>
+        <line num="83" count="8" type="stmt"/>
+        <line num="84" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="85" count="4" type="stmt"/>
+        <line num="86" count="4" type="stmt"/>
+        <line num="87" count="4" type="stmt"/>
+        <line num="88" count="4" type="stmt"/>
+        <line num="89" count="4" type="stmt"/>
+        <line num="90" count="4" type="stmt"/>
+        <line num="91" count="4" type="stmt"/>
+        <line num="92" count="4" type="stmt"/>
+        <line num="93" count="4" type="stmt"/>
+        <line num="94" count="4" type="stmt"/>
         <line num="95" count="1" type="stmt"/>
-        <line num="96" count="0" type="stmt"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="98" count="0" type="stmt"/>
-        <line num="99" count="0" type="stmt"/>
-        <line num="100" count="0" type="stmt"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="103" count="0" type="stmt"/>
-        <line num="104" count="0" type="stmt"/>
+        <line num="96" count="48" type="cond" truecount="1" falsecount="0"/>
+        <line num="97" count="48" type="stmt"/>
+        <line num="98" count="48" type="stmt"/>
+        <line num="99" count="48" type="stmt"/>
+        <line num="100" count="48" type="stmt"/>
+        <line num="101" count="48" type="stmt"/>
+        <line num="102" count="48" type="stmt"/>
+        <line num="103" count="48" type="stmt"/>
+        <line num="104" count="48" type="stmt"/>
         <line num="105" count="1" type="stmt"/>
-        <line num="106" count="0" type="stmt"/>
-        <line num="107" count="0" type="stmt"/>
-        <line num="108" count="0" type="stmt"/>
-        <line num="109" count="0" type="stmt"/>
-        <line num="110" count="0" type="stmt"/>
-        <line num="111" count="0" type="stmt"/>
-        <line num="112" count="0" type="stmt"/>
-        <line num="113" count="0" type="stmt"/>
-        <line num="114" count="0" type="stmt"/>
+        <line num="106" count="28" type="cond" truecount="1" falsecount="0"/>
+        <line num="107" count="28" type="stmt"/>
+        <line num="108" count="28" type="stmt"/>
+        <line num="109" count="28" type="stmt"/>
+        <line num="110" count="28" type="stmt"/>
+        <line num="111" count="28" type="stmt"/>
+        <line num="112" count="28" type="stmt"/>
+        <line num="113" count="28" type="stmt"/>
+        <line num="114" count="28" type="stmt"/>
         <line num="115" count="1" type="stmt"/>
         <line num="116" count="1" type="stmt"/>
-        <line num="117" count="0" type="stmt"/>
-        <line num="118" count="0" type="stmt"/>
+        <line num="117" count="1" type="stmt"/>
+        <line num="118" count="1" type="stmt"/>
         <line num="119" count="1" type="stmt"/>
-        <line num="120" count="1" type="stmt"/>
-        <line num="121" count="0" type="stmt"/>
-        <line num="122" count="0" type="stmt"/>
+        <line num="120" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="121" count="8" type="stmt"/>
+        <line num="122" count="8" type="stmt"/>
         <line num="123" count="1" type="stmt"/>
-        <line num="124" count="1" type="stmt"/>
-        <line num="125" count="0" type="stmt"/>
-        <line num="126" count="0" type="stmt"/>
-        <line num="127" count="0" type="stmt"/>
-        <line num="128" count="0" type="stmt"/>
-        <line num="129" count="0" type="stmt"/>
-        <line num="130" count="0" type="stmt"/>
-        <line num="131" count="0" type="stmt"/>
-        <line num="132" count="0" type="stmt"/>
-        <line num="133" count="0" type="stmt"/>
-        <line num="134" count="0" type="stmt"/>
-        <line num="135" count="0" type="stmt"/>
-        <line num="136" count="0" type="stmt"/>
+        <line num="124" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="125" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="126" count="1" type="stmt"/>
+        <line num="127" count="1" type="stmt"/>
+        <line num="128" count="1" type="stmt"/>
+        <line num="129" count="1" type="stmt"/>
+        <line num="130" count="1" type="stmt"/>
+        <line num="131" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="132" count="4" type="stmt"/>
+        <line num="133" count="4" type="stmt"/>
+        <line num="134" count="4" type="stmt"/>
+        <line num="135" count="4" type="stmt"/>
+        <line num="136" count="5" type="stmt"/>
         <line num="137" count="1" type="stmt"/>
-        <line num="138" count="0" type="stmt"/>
-        <line num="139" count="0" type="stmt"/>
-        <line num="140" count="0" type="stmt"/>
+        <line num="138" count="48" type="cond" truecount="1" falsecount="0"/>
+        <line num="139" count="48" type="cond" truecount="1" falsecount="0"/>
+        <line num="140" count="48" type="stmt"/>
         <line num="141" count="1" type="stmt"/>
         <line num="142" count="1" type="stmt"/>
         <line num="143" count="1" type="stmt"/>
@@ -825,7 +825,7 @@
         <line num="158" count="1" type="stmt"/>
       </file>
       <file name="ExpensesBarChart.tsx" path="C:\Dev\OC2-prep\TypescriptTest\ts-test\src\components\Stats\ExpensesBarChart.tsx">
-        <metrics statements="119" coveredstatements="117" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="6"/>
+        <metrics statements="119" coveredstatements="119" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -923,8 +923,8 @@
         <line num="95" count="28" type="stmt"/>
         <line num="96" count="1" type="stmt"/>
         <line num="97" count="1" type="stmt"/>
-        <line num="98" count="0" type="stmt"/>
-        <line num="99" count="0" type="stmt"/>
+        <line num="98" count="1" type="stmt"/>
+        <line num="99" count="1" type="stmt"/>
         <line num="100" count="1" type="stmt"/>
         <line num="101" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="102" count="4" type="stmt"/>
@@ -947,7 +947,7 @@
         <line num="119" count="1" type="stmt"/>
       </file>
       <file name="IncomeBarChart.tsx" path="C:\Dev\OC2-prep\TypescriptTest\ts-test\src\components\Stats\IncomeBarChart.tsx">
-        <metrics statements="119" coveredstatements="117" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="6"/>
+        <metrics statements="119" coveredstatements="119" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -1045,8 +1045,8 @@
         <line num="95" count="28" type="stmt"/>
         <line num="96" count="1" type="stmt"/>
         <line num="97" count="1" type="stmt"/>
-        <line num="98" count="0" type="stmt"/>
-        <line num="99" count="0" type="stmt"/>
+        <line num="98" count="1" type="stmt"/>
+        <line num="99" count="1" type="stmt"/>
         <line num="100" count="1" type="stmt"/>
         <line num="101" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="102" count="4" type="stmt"/>
