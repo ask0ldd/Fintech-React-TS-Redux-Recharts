@@ -8,7 +8,7 @@ import '../styles/Stats.css'
 import ExpensesBarChart from "../components/Stats/ExpensesBarChart"
 import BalanceSubBarChart from "../components/Stats/BalanceSubBarChart"
 
-const datas : IDatas = [
+export const datas : IDatas = [
     { month: 'Jan', financial : {income:3952, expenses:2927} },
     { month: 'Feb', financial : {income:5053, expenses:3502} },
     { month: 'Mar', financial : {income:4070, expenses:3012} },
