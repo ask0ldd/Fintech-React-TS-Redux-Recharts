@@ -16,14 +16,16 @@ describe('Given I am on the Landing page', async () => {
 
     // to get around JSDom not handling the Dialog Element properly
     beforeAll(() => {
-        HTMLDialogElement.prototype.show = vi.fn();
-        HTMLDialogElement.prototype.showModal = vi.fn();
-        HTMLDialogElement.prototype.close = vi.fn();
+        HTMLDialogElement.prototype.show = vi.fn()
+        HTMLDialogElement.prototype.showModal = vi.fn()
+        HTMLDialogElement.prototype.close = vi.fn()
     })
 
     beforeEach(() => {
-        let window = {onload: vi.fn()}
+        // window.onload = vi.fn((e) => window.onload)
+        vi.spyOn(window, 'setTimeout')
         render(<MockedRouter />)
+        
     })
 
     test('All main container components are displayed', async () => {
@@ -65,6 +67,11 @@ describe('Given I am on the Landing page', async () => {
             expect(modal?.querySelectorAll("button.violetButton").length).toBe(4)
             expect(screen.getByText(/4 contacts selected/i)).toBeInTheDocument()
         })
+    })
+
+    test('onload has been called', async() => {
+        window.dispatchEvent(new Event('load'))
+        await waitFor(() => expect(global.setTimeout).toHaveBeenCalled())
     })
 
 })
