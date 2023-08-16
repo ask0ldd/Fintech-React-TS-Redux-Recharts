@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>34/51</span>
+                <span class='fraction'>51/51</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">25% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>34/51</span>
+                <span class='fraction'>51/51</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -138,23 +138,23 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -188,23 +188,23 @@ export const datas : IDatas = [
     { month: 'Dec', financial : {income:4650, expenses:4153} },
 ]
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function Stats(){</span></span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const activeGraph : string = useParams().id || "balance"</span>
-<span class="cstat-no" title="statement not covered" >    </span>
-<span class="cstat-no" title="statement not covered" >    return(</span>
-<span class="cstat-no" title="statement not covered" >        &lt;main className="statsPage__mainContainer"&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;VMenu activePage="stats" /&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;section className="headernGraph__container"&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;Header format="uncompressed" username="Tony Montana" iban="NL89RABO1289364745" clientID='X458-89995'/&gt;</span>
-<span class="cstat-no" title="statement not covered" >                {activeGraph === 'balance' &amp;&amp; &lt;&gt;&lt;StatsHorizontalMenu activeGraph={activeGraph}/&gt;&lt;BalanceBarsChart datas={datas}/&gt;&lt;/&gt;}</span>
-<span class="cstat-no" title="statement not covered" >                {activeGraph === 'income' &amp;&amp; &lt;&gt;&lt;StatsHorizontalMenu activeGraph={activeGraph}/&gt;&lt;IncomeBarChart datas={datas}/&gt;&lt;/&gt;}</span>
-<span class="cstat-no" title="statement not covered" >                {activeGraph === 'expenses' &amp;&amp; &lt;&gt;&lt;StatsHorizontalMenu activeGraph={activeGraph}/&gt;&lt;ExpensesBarChart datas={datas}/&gt;&lt;/&gt;}</span>
-<span class="cstat-no" title="statement not covered" >                {activeGraph === 'subbalance' &amp;&amp; &lt;&gt;&lt;StatsHorizontalMenu activeGraph={activeGraph}/&gt;&lt;BalanceSubBarChart datas={datas}/&gt;&lt;/&gt;}               </span>
-<span class="cstat-no" title="statement not covered" >            &lt;/section&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/main&gt;</span>
-<span class="cstat-no" title="statement not covered" >    )</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+function Stats(){
+&nbsp;
+    const activeGraph : string = useParams().id || "balance"
+    
+    return(
+        &lt;main className="statsPage__mainContainer"&gt;
+            &lt;VMenu activePage="stats" /&gt;
+            &lt;section className="headernGraph__container"&gt;
+                &lt;Header format="uncompressed" username="Tony Montana" iban="NL89RABO1289364745" clientID='X458-89995'/&gt;
+                {activeGraph === 'balance' &amp;&amp; &lt;&gt;&lt;StatsHorizontalMenu activeGraph={activeGraph}/&gt;&lt;BalanceBarsChart datas={datas}/&gt;&lt;/&gt;}
+                {activeGraph === <span class="branch-0 cbranch-no" title="branch not covered" >'income' &amp;&amp; &lt;&gt;&lt;StatsHorizontalMenu activeGraph={activeGraph}/&gt;&lt;IncomeBarChart datas={datas}/&gt;&lt;/&gt;}</span>
+                {activeGraph === <span class="branch-0 cbranch-no" title="branch not covered" >'expenses' &amp;&amp; &lt;&gt;&lt;StatsHorizontalMenu activeGraph={activeGraph}/&gt;&lt;ExpensesBarChart datas={datas}/&gt;&lt;/&gt;}</span>
+                {activeGraph === <span class="branch-0 cbranch-no" title="branch not covered" >'subbalance' &amp;&amp; &lt;&gt;&lt;StatsHorizontalMenu activeGraph={activeGraph}/&gt;&lt;BalanceSubBarChart datas={datas}/&gt;&lt;/&gt;}               </span>
+            &lt;/section&gt;
+        &lt;/main&gt;
+    )
+}
 &nbsp;
 export default Stats
 &nbsp;
@@ -220,7 +220,7 @@ interface IDatasRow{
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-08-16T20:07:32.679Z
+                at 2023-08-16T22:55:25.543Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

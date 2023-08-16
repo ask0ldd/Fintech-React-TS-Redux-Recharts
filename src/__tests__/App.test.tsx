@@ -28,8 +28,7 @@ describe('Given I am on the Landing page', async () => {
         
     })
 
-    test('All main container components should be displayed', async () => {
-  
+    test('All main container components should be displayed', async () => {  
         await waitFor( () => expect(screen.getByText(/Balance/i)).toBeInTheDocument())
         expect(screen.getByText(/Credit Cards/i)).toBeInTheDocument()
         expect(screen.getByText(/Quick Wire Transfer/i)).toBeInTheDocument()
@@ -53,8 +52,8 @@ describe('Given I am on the Landing page', async () => {
         expect(screen.getAllByTestId("transferBlankContact").length).toBe(1)
     })
 
-    // should move all the following tests to modal?
-    test('Clicking the button next to the QWT Contacts List should open a modal with 4 selected / 4 unselected contaccts', async() => {
+    // should move all the following tests to modal contents?
+    test('Clicking the button next to the QWT Contacts List should open a modal with 4 selected / 4 unselected contacts', async() => {
         await waitFor(() => expect(screen.getByText(/Quick Wire Transfer/i)).toBeInTheDocument())
         expect(screen.queryByTestId("modal")).not.toBeInTheDocument() // !!! querybytestid or it will throw an error
         const addContactButton = screen.getAllByRole("button").filter(button => button.classList.contains("xButton"))[0]
