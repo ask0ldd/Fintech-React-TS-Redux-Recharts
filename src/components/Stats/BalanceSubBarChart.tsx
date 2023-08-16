@@ -121,12 +121,16 @@ const resizedLegendValue = (value: string) => {
     return <span style={{fontSize:"14px", color:"#74798C", marginLeft:"6px", display:"inline-block", transform:"translateY(0.5px)"}}>{value}</span>
 }
 
-const CustomTooltip = ({payload} : any) => {
+export const CustomTooltip = ({payload} : any) => {
     if(payload && payload.length){
         return(
             <div className="balance__tooltip">
                 <p>Cumulated Savings : {payload[0].value} $</p>
             </div>
+        )
+    } else {
+        return(
+            <div style={{display:'none'}}></div>
         )
     }
 }

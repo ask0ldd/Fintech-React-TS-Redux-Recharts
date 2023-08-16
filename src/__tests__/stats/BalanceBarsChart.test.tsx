@@ -1,7 +1,7 @@
 import { render, screen, renderHook, act, waitFor, fireEvent } from '@testing-library/react'
 import { BrowserRouter } from "react-router-dom"
 import { expect, vi, describe, test, beforeAll, beforeEach } from 'vitest'
-import BalanceBarsChart from '../../components/Stats/BalanceBarsChart'
+import BalanceBarsChart, { CustomTooltip } from '../../components/Stats/BalanceBarsChart'
 import { ResponsiveContainer } from 'recharts'
 import userEvent from '@testing-library/user-event'
 
@@ -39,7 +39,7 @@ describe('Given : the BalanceBarsChart is rendered with 12 months of datas', asy
         expect(screen.getByText(/Expenses/i)).toBeInTheDocument()
     })
 
-    test('24 chart Bars should be displayed', async()=> {
+    test('24 Bars should be displayed', async()=> {
         render(<BalanceBarsChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         const regionContainer = screen.getByRole('region')
@@ -49,15 +49,19 @@ describe('Given : the BalanceBarsChart is rendered with 12 months of datas', asy
     // !!! hover issue to fix
     test('The tooltip dialog should exist but should not be displayed', async()=> {
         render(<BalanceBarsChart datas={datas} />)
-        await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
+        await waitFor(() => expect(screen.getByText(/850/i)).toBeInTheDocument())
         const regionContainer = screen.getByRole('region')
         expect(regionContainer.querySelector('div.recharts-tooltip-wrapper')).toBeInTheDocument()
         expect(regionContainer.querySelector('div.recharts-tooltip-wrapper')).not.toBeVisible()
         // fireEvent.mouseOver(regionContainer.querySelectorAll('g.recharts-bar-rectangle')[0])
         // userEvent.hover(regionContainer.querySelectorAll('g.recharts-bar-rectangle')[0])
-        /*const Tooltip : HTMLElement | null = regionContainer.querySelector('div.recharts-tooltip-wrapper')
-        
-        if(Tooltip != null) {
+        //const Tooltip : HTMLElement | null = regionContainer.querySelector('div.recharts-tooltip-wrapper')
+        /*const tooltip = regionContainer.querySelector('div.recharts-tooltip-wrapper')
+        act(() => {
+            if(tooltip != null) userEvent.hover(tooltip)
+        })
+        await waitFor(() => expect(regionContainer.querySelector('div.recharts-tooltip-wrapper')).toBeVisible())*/
+        /*if(Tooltip != null) {
             Tooltip.style.pointerEvents = "auto"
             const user = userEvent.setup()
             user.hover(Tooltip)
@@ -66,5 +70,11 @@ describe('Given : the BalanceBarsChart is rendered with 12 months of datas', asy
             // await waitFor(() => expect(screen.getByText(/3952/i)).toBeInTheDocument())
         }*/
         // screen.logTestingPlaygroundURL()
+    })
+
+    test('Tooltip component displays the payload values', async()=> {
+        render(<CustomTooltip payload={[{value:"000"}, {value:"111"}]} />)
+        await waitFor(() => expect(screen.getByText(/000/i)).toBeInTheDocument())
+        expect(screen.getByText(/111/i)).toBeInTheDocument()
     })
 })

@@ -18,7 +18,7 @@ import { IDatas } from "../../pages/Stats"
 ]*/
 
 function BalanceBarsChart({datas} : {datas : IDatas}){
-
+    
     return(
         <ResponsiveContainer className="graph__container" width="100%" height={680}>
             <BarChart data={datas}
@@ -65,6 +65,21 @@ function BalanceBarsChart({datas} : {datas : IDatas}){
     )
 }
 
+export const CustomTooltip = ({payload} : any) => {
+    if(payload && payload.length){
+        return(
+            <div className="balance__tooltip">
+                <p>Income : {payload[0].value} $</p>
+                <p style={{marginTop:'4px', display:'block'}}>Expenses : {payload[1].value} $</p>
+            </div>
+        )
+    } else {
+        return(
+            <div style={{display:'none'}}></div>
+        )
+    }
+}
+
 function CustomizedXTick(props: any){
     return(
     <g>
@@ -93,6 +108,7 @@ const resizedLegendValue = (value: string) => {
     return <span style={{fontSize:"14px", color:"#74798C", marginLeft:"6px", display:"inline-block", transform:"translateY(0.5px)"}}>{value}</span>
 }
 
+/*
 const CustomTooltip = ({payload} : any) => {
     if(payload && payload.length){
         return(
@@ -102,7 +118,7 @@ const CustomTooltip = ({payload} : any) => {
             </div>
         )
     }
-}
+}*/
 
 export default BalanceBarsChart
 

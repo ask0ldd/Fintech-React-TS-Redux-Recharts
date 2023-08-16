@@ -19,6 +19,16 @@ import { IDatas } from "../../pages/Stats"
 
 function IncomeBarChart({datas} : {datas : IDatas}){
 
+    function CustomLabel(props: any){
+        return(
+            <g>
+                <text fontSize="14px" fill="rgb(116, 121, 140)" x={props.x-7} y={props.y-16} textAnchor="start">
+                    {props.value + ' $'}
+                </text>
+            </g>
+        )
+    }
+
     return(
         <ResponsiveContainer className="graph__container" width="100%" height={680}>
             <BarChart data={datas}
@@ -64,16 +74,6 @@ function IncomeBarChart({datas} : {datas : IDatas}){
     )
 }
 
-function CustomLabel(props: any){
-    return(
-        <g>
-            <text fontSize="14px" fill="rgb(116, 121, 140)" x={props.x-7} y={props.y-16} textAnchor="start">
-                {props.value + ' $'}
-            </text>
-        </g>
-    )
-}
-
 function CustomizedXTick(props: any){
     return(
     <g>
@@ -102,12 +102,16 @@ const resizedLegendValue = (value: string) => {
     return <span style={{fontSize:"14px", color:"#74798C", marginLeft:"6px", display:"inline-block", transform:"translateY(0.5px)"}}>{value}</span>
 }
 
-const CustomTooltip = ({payload} : any) => {
+export const CustomTooltip = ({payload} : any) => {
     if(payload && payload.length){
         return(
             <div className="balance__tooltip">
                 <p>Income : {payload[0].value} $</p>
             </div>
+        )
+    } else {
+        return(
+            <div style={{display:'none'}}></div>
         )
     }
 }

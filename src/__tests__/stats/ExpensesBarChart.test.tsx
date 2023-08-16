@@ -1,13 +1,13 @@
 import { render, screen, renderHook, act, waitFor, fireEvent } from '@testing-library/react'
 import { BrowserRouter } from "react-router-dom"
 import { expect, vi, describe, test, beforeAll, beforeEach } from 'vitest'
-import IncomeBarChart, {CustomTooltip} from '../../components/Stats/IncomeBarChart'
+import ExpensesBarChart, {CustomTooltip} from '../../components/Stats/ExpensesBarChart'
 import { ResponsiveContainer } from 'recharts'
 import userEvent from '@testing-library/user-event'
 
 import { datas } from '../../pages/Stats'
 
-describe('Given : the IncomeBarChart is rendered with 12 months of datas', async () => {
+describe('Given : the ExpensesBarChart is rendered with 12 months of datas', async () => {
     
     beforeAll(()=>{
         // taking the whole recharts module and mocking only the responsive container to fix its dimensions
@@ -32,16 +32,16 @@ describe('Given : the IncomeBarChart is rendered with 12 months of datas', async
     })
 
     test('The Title & the Legend should be displayed', async () => {
-        render(<IncomeBarChart datas={datas} />)
+        render(<ExpensesBarChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
-        expect(screen.getByText(/Monthly Income/i)).toBeInTheDocument()
+        expect(screen.getByText(/Monthly Expenses/i)).toBeInTheDocument()
         const regionContainer = screen.getByRole('region')
         const legend = regionContainer.querySelector('span.recharts-legend-item-text')
-        expect(legend?.innerHTML.includes("Income")).toBeTruthy()
+        expect(legend?.innerHTML.includes("Expenses")).toBeTruthy()
     })
 
     test('12 Bars should be displayed', async()=> {
-        render(<IncomeBarChart datas={datas} />)
+        render(<ExpensesBarChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         const regionContainer = screen.getByRole('region')
         expect(regionContainer.querySelectorAll('g.recharts-bar-rectangle').length).toBe(12)
@@ -49,7 +49,7 @@ describe('Given : the IncomeBarChart is rendered with 12 months of datas', async
 
     // !!! hover issue to fix
     test('The tooltip dialog should exist but should not be displayed', async()=> {
-        render(<IncomeBarChart datas={datas} />)
+        render(<ExpensesBarChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         const regionContainer = screen.getByRole('region')
         expect(regionContainer.querySelector('div.recharts-tooltip-wrapper')).toBeInTheDocument()
@@ -58,11 +58,11 @@ describe('Given : the IncomeBarChart is rendered with 12 months of datas', async
 
     test('Tooltip component displays the payload values', async()=> {
         render(<CustomTooltip payload={[{value:"000"}]} />)
-        await waitFor(() => expect(screen.getByText(/Income : 000/i)).toBeInTheDocument())
+        await waitFor(() => expect(screen.getByText(/Expenses : 000/i)).toBeInTheDocument())
     })
 
     test('The Custom Labels are displayed', async()=> {
-        render(<IncomeBarChart datas={datas} />)
-        await waitFor(() => expect(screen.getByText(/3952/i)).toBeInTheDocument())
+        render(<ExpensesBarChart datas={datas} />)
+        await waitFor(() => expect(screen.getByText(/2927/i)).toBeInTheDocument())
     })
 })
