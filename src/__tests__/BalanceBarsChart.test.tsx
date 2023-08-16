@@ -6,7 +6,7 @@ import { ResponsiveContainer } from 'recharts'
 
 import { datas } from '../pages/Stats'
 
-describe('Given a BalanceBarsChart is instanciated', async () => {
+describe('Given : the BalanceBarsChart is rendered with 12 months of datas', async () => {
     
     beforeAll(()=>{
         // taking the whole recharts module and mocking only the responsive container to fix its dimensions
@@ -30,15 +30,23 @@ describe('Given a BalanceBarsChart is instanciated', async () => {
         }))
     })
 
-    test('The title & the region container of the chart should be displayed', async () => {
+    test('The Title & the Legend should be displayed', async () => {
 
         render(<BalanceBarsChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
-        await waitFor(() => expect(screen.getByText(/In & Out/i)).toBeInTheDocument())
+        expect(screen.getByText(/In & Out/i)).toBeInTheDocument()
+        expect(screen.getByText(/Income/i)).toBeInTheDocument()
+        expect(screen.getByText(/Expenses/i)).toBeInTheDocument()
     })
 
-    test('test', async()=> {
+    test('24 chart Bars should be displayed', async()=> {
         render(<BalanceBarsChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
+        const regionContainer = screen.getByRole('region')
+        expect(regionContainer.querySelectorAll('g.recharts-bar-rectangle').length).toBe(24)
     })
+
+    // should test tooltip
+
+
 })
