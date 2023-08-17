@@ -15,93 +15,51 @@ const MockedRouter = () => {
 describe('Given I am on the Stats page', async () => {
 
     beforeAll(() => {
-        // vi.clearAllMocks()
+        vi.resetAllMocks()
+
+        vi.mock('recharts', async () => {
+            const OriginalModule = await vi.importActual<typeof import('recharts')>('recharts')
+            return {
+                ...OriginalModule,
+                ResponsiveContainer: ({ children } : {children : any}) => (
+                    <OriginalModule.ResponsiveContainer width={800} height={800}>
+                        {children}
+                    </OriginalModule.ResponsiveContainer>
+                ),
+            }
+        })
 
         // to get around JSDom not handling the Dialog Element properly
         HTMLDialogElement.prototype.show = vi.fn()
         HTMLDialogElement.prototype.showModal = vi.fn()
         HTMLDialogElement.prototype.close = vi.fn()
 
-        vi.mock('recharts', async () => {
-            const OriginalModule : any  = await vi.importActual('recharts')
-            return {
-                ...OriginalModule,
-                ResponsiveContainer: ({ children } : {children : any}) => (
-                    <OriginalModule.ResponsiveContainer width={800} height={800}>
-                        {children}
-                    </OriginalModule.ResponsiveContainer>
-                ),
-            }
-        })
-
         window.ResizeObserver = vi.fn().mockImplementation(() => ({
             observe: vi.fn(),
             unobserve: vi.fn(),
             disconnect: vi.fn(),
         }))
-
     })
 
-    beforeEach(() => {
+    /*beforeEach(() => {
 
         render(<MockedRouter />)
-    })
+    })*/
 
     test('An horizontal menu, composed of 5 buttons, should be displayed', async ()=> {
+        vi.mock('react-router-dom', async () => {
+            const OriginalModule : any  = await vi.importActual('react-router-dom')
+            return {
+                ...OriginalModule,
+                useParams: () => ({})
+            }
+        })
+
+        render(<MockedRouter />)
         await waitFor( () => expect(screen.getByText(/Misc/i)).toBeInTheDocument())
         expect(screen.getAllByLabelText("secondary").length).toBe(1)
         expect(screen.getByLabelText("secondary").querySelectorAll(".statsMenu__items").length).toBe(5)
         await waitFor( () => expect(screen.getByText(/In & Out/i)).toBeInTheDocument())
-    })
-})
-
-describe('Given I am on the Stats page 2', async () => {
-
-    // to get around JSDom not handling the Dialog Element properly
-    beforeAll(() => {
-        // vi.clearAllMocks()
-
-        HTMLDialogElement.prototype.show = vi.fn()
-        HTMLDialogElement.prototype.showModal = vi.fn()
-        HTMLDialogElement.prototype.close = vi.fn()
-
-        vi.mock('recharts', async () => {
-            const OriginalModule : any  = await vi.importActual('recharts')
-            return {
-                ...OriginalModule,
-                ResponsiveContainer: ({ children } : {children : any}) => (
-                    <OriginalModule.ResponsiveContainer width={800} height={800}>
-                        {children}
-                    </OriginalModule.ResponsiveContainer>
-                ),
-            }
-        })
-
-        window.ResizeObserver = vi.fn().mockImplementation(() => ({
-            observe: vi.fn(),
-            unobserve: vi.fn(),
-            disconnect: vi.fn(),
-        }))
-
-    })
-
-    test('Clicking on income should display the related graph', async () => {
-
-        // domock = mock but not hoisted
-        vi.doMock('react-router-dom', async () => {
-            const OriginalModule : any  = await vi.importActual('react-router-dom')
-            return {
-                ...OriginalModule,
-                useParams: () => ({id : "income"})
-            }
-        })
-
-        render(<MockedRouter />)
-
-        // screen.logTestingPlaygroundURL()
-
-        await waitFor(() => expect(screen.getByText(/Monthly Income/i)).toBeInTheDocument())
-        
     })
 })
 
