@@ -13,7 +13,6 @@ const MockedRouter = () => {
 
 describe('Given I am on the Stats page 2', async () => {
 
-    // to get around JSDom not handling the Dialog Element properly
     beforeAll(() => {
         vi.mock('recharts', async () => {
             const OriginalModule = await vi.importActual<typeof import('recharts')>('recharts')
@@ -27,6 +26,7 @@ describe('Given I am on the Stats page 2', async () => {
             }
         })
 
+        // to get around JSDom not handling the Dialog Element properly
         HTMLDialogElement.prototype.show = vi.fn()
         HTMLDialogElement.prototype.showModal = vi.fn()
         HTMLDialogElement.prototype.close = vi.fn()
