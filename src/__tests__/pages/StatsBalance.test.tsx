@@ -2,7 +2,6 @@ import { render, screen, renderHook, act, waitFor } from '@testing-library/react
 import { BrowserRouter } from "react-router-dom"
 import { expect, vi, describe, test, beforeAll, beforeEach } from 'vitest'
 import Stats from '../../pages/Stats'
-// import matchers from '@testing-library/jest-dom/matchers'
 
 const MockedRouter = () => { 
     return(
@@ -11,6 +10,8 @@ const MockedRouter = () => {
         </BrowserRouter>
     )
 }
+
+// !!! test icon vmenu actif
 
 describe('Given I am on the Stats page', async () => {
 
