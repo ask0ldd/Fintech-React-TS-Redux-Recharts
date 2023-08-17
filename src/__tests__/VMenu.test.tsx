@@ -6,6 +6,9 @@ import App from '../App'
 import Stats from '../pages/Stats'
 import Trading from '../pages/Trading'
 import Messaging from '../pages/Messaging'
+import store from '../redux/store'
+import { Provider } from 'react-redux'
+import Settings from '../pages/Settings'
 
 vi.mock('recharts', async () => {
     const OriginalModule = await vi.importActual<typeof import('recharts')>('recharts')
@@ -94,8 +97,31 @@ describe('Given I am one the Messaging page', async () => {
         const MockedRouter = () => { 
             return(
                 <BrowserRouter>
-                    <Messaging/>
+                    <Settings/>
                 </BrowserRouter>
+            )
+        }
+        render(<MockedRouter />)
+        // render(<VMenu activePage="home"/>)
+        await waitFor( () => expect(screen.getByAltText("settings menu item").parentElement?.classList.contains('activeItem')).toBeTruthy())
+        expect(screen.getByAltText("home menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
+        expect(screen.getByAltText("stats menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
+        expect(screen.getByAltText("chat menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
+        expect(screen.getByAltText("accounts menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
+        expect(screen.getByAltText("dark mode menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
+    })
+})
+
+describe('Given I am one the Messaging page', async () => {
+    test('the message icon should be highlighted by default', async () => {
+        
+        const MockedRouter = () => { 
+            return(
+                <Provider store={store}>
+                    <BrowserRouter>
+                        <Messaging/>
+                    </BrowserRouter>
+                </Provider>
             )
         }
         render(<MockedRouter />)
