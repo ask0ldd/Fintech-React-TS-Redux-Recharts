@@ -4,6 +4,7 @@ import VMenu from '../components/VMenu'
 import { expect, vi, describe, test, beforeAll, beforeEach } from 'vitest'
 import App from '../App'
 import Stats from '../pages/Stats'
+import Trading from '../pages/Trading'
 
 vi.mock('recharts', async () => {
     const OriginalModule = await vi.importActual<typeof import('recharts')>('recharts')
@@ -64,3 +65,25 @@ describe('Given I am one the Stats page', async () => {
         expect(screen.getByAltText("dark mode menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
     })
 })
+
+describe('Given I am one the Trading page', async () => {
+    test('the trading icon should be highlighted by default', async () => {
+        
+        const MockedRouter = () => { 
+            return(
+                <BrowserRouter>
+                    <Trading/>
+                </BrowserRouter>
+            )
+        }
+        render(<MockedRouter />)
+        // render(<VMenu activePage="home"/>)
+        await waitFor( () => expect(screen.getByAltText("stats menu item").parentElement?.classList.contains('activeItem')).toBeTruthy())
+        expect(screen.getByAltText("home menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
+        expect(screen.getByAltText("chat menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
+        expect(screen.getByAltText("settings menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
+        expect(screen.getByAltText("accounts menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
+        expect(screen.getByAltText("dark mode menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
+    })
+})
+
