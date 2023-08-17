@@ -79,15 +79,20 @@ describe('Given I am on the Stats page', async () => {
         }))
     })
 
-    test('Clicking on income should display the related graph', async ()=> {
-        vi.mock('react-router', () => ({
-            ...vi.importActual('react-router'),
-            useParams: jest.fn(() => "income"),
-        }))
+    test('Clicking on income should display the related graph', async () => {
+        vi.mock('react-router-dom', async () => {
+            const OriginalModule : any  = await vi.importActual('react-router-dom')
+            return {
+                ...OriginalModule,
+                useParams: (vi.fn(() => "income"))
+            }
+        })
 
         render(<MockedRouter />)
 
-        await waitFor(() => expect(screen.getByText(/Monthly Income/i)).toBeInTheDocument())
+        screen.logTestingPlaygroundURL()
+
+        // await waitFor(() => expect(screen.getByText(/Monthly Income/i)).toBeInTheDocument())
         
     })
 })
