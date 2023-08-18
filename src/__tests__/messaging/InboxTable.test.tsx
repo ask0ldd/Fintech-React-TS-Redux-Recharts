@@ -37,6 +37,32 @@ describe('Given I am facing the inbox table', async () => {
         }
     })
 
+    test('Clicking one time on "From" should sort the table by sender : Alphabetic Order / Asc', async () => {
+        const orderedSenders = ["Archie Duncombe", "Bambie Petera", "Barbette Long", "Bartolomeo Duncklee", "Beth Malenoir"]
+        await waitFor(() => expect(screen.getByText('Jessy Trewartha')).toBeInTheDocument())
+        const fromTH =  screen.getByText("From")
+        act(() => fromTH.click())
+        const sendersNodes = orderedSenders.map(sender => screen.getByText(sender))
+        for(let i=0; i<4; i++)
+        {
+            expect(sendersNodes[i].compareDocumentPosition(sendersNodes[i+1])).toBe(4)
+        }
+    })
+
+    test('Clicking one time on "From" should sort the table by sender : Alphabetic Order / Desc', async () => {
+        const orderedSenders = ["Vincents Calvert", "Vilhelmina Glaysher", "Ulrikaumeko Comi", "Tomaso Penton", "Theodor Vittet"]
+        // await waitFor(() => expect(screen.getByText('Jessy Trewartha')).toBeInTheDocument())
+        const fromTH =  screen.getByText("From")
+        // act(() => fromTH.click())
+        act(() => fromTH.click())
+        await waitFor(() => expect(screen.getByText('Vincents Calvert')).toBeInTheDocument())
+        const sendersNodes = orderedSenders.map(sender => screen.getByText(sender))
+        for(let i=0; i<4; i++)
+        {
+            expect(sendersNodes[i].compareDocumentPosition(sendersNodes[i+1])).toBe(4)
+        }
+    })
+
 })
 
 function dateToTime(date : string){
