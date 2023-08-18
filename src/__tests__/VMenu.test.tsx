@@ -39,7 +39,7 @@ describe('Given I am one the Home page', async () => {
             )
         }
         render(<MockedRouter />)
-        // render(<VMenu activePage="home"/>)
+        
         await waitFor( () => expect(screen.getByAltText("home menu item").parentElement?.classList.contains('activeItem')).toBeTruthy())
         expect(screen.getByAltText("stats menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
         expect(screen.getByAltText("chat menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
@@ -60,7 +60,7 @@ describe('Given I am one the Stats page', async () => {
             )
         }
         render(<MockedRouter />)
-        // render(<VMenu activePage="home"/>)
+        
         await waitFor( () => expect(screen.getByAltText("stats menu item").parentElement?.classList.contains('activeItem')).toBeTruthy())
         expect(screen.getByAltText("home menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
         expect(screen.getByAltText("chat menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
@@ -81,7 +81,7 @@ describe('Given I am one the Trading page', async () => {
             )
         }
         render(<MockedRouter />)
-        // render(<VMenu activePage="home"/>)
+        
         await waitFor( () => expect(screen.getByAltText("accounts menu item").parentElement?.classList.contains('activeItem')).toBeTruthy())
         expect(screen.getByAltText("home menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
         expect(screen.getByAltText("chat menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
@@ -93,7 +93,7 @@ describe('Given I am one the Trading page', async () => {
 
 describe('Given I am one the Messaging page', async () => {
     test('the message icon should be highlighted by default', async () => {
-        
+
         const MockedRouter = () => { 
             return(
                 <BrowserRouter>
@@ -102,7 +102,7 @@ describe('Given I am one the Messaging page', async () => {
             )
         }
         render(<MockedRouter />)
-        // render(<VMenu activePage="home"/>)
+        
         await waitFor( () => expect(screen.getByAltText("settings menu item").parentElement?.classList.contains('activeItem')).toBeTruthy())
         expect(screen.getByAltText("home menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
         expect(screen.getByAltText("stats menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
@@ -125,7 +125,7 @@ describe('Given I am one the Messaging page', async () => {
             )
         }
         render(<MockedRouter />)
-        // render(<VMenu activePage="home"/>)
+        
         await waitFor( () => expect(screen.getByAltText("chat menu item").parentElement?.classList.contains('activeItem')).toBeTruthy())
         expect(screen.getByAltText("home menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()
         expect(screen.getByAltText("stats menu item").parentElement?.classList.contains('activeItem')).toBeFalsy()

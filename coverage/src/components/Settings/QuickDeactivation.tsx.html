@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/messaging/NewMessage.tsx</title>
+    <title>Code coverage report for src/components/Settings/QuickDeactivation.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/messaging</a> NewMessage.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/Settings</a> QuickDeactivation.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>30/30</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>30/30</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
@@ -89,68 +89,59 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import '../../styles/messaging/NewMessage.css'
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from 'react'
+import '../../styles/settings/ContactlessPayment.css'
 &nbsp;
-function NewMessage({mailRecipient} : IProps){
+function QuickDeactivation(){
+&nbsp;
+    const [isSwitchActive, setSwitchActive] = useState&lt;boolean&gt;(false)
+&nbsp;
     return(
-    &lt;article className="newMessage__container"&gt;
-        &lt;h2 style={{marginBottom:'1.15rem'}}&gt;Compose your Email&lt;/h2&gt;
-        &lt;label&gt;From :&lt;/label&gt;
-        &lt;input type="text" value="Antonio Montana" readOnly/&gt;
-        &lt;label&gt;To :&lt;/label&gt;
-        /* c8 ignore next */
-        &lt;input type="text" defaultValue={mailRecipient.name || ''}/&gt;
-        &lt;label&gt;Title :&lt;/label&gt;
-        &lt;input type="text"/&gt;
-        &lt;label&gt;Body :&lt;/label&gt;
-        &lt;textarea rows={8}/&gt;
-        &lt;button&gt;Send your Email&lt;/button&gt;
-    &lt;/article&gt;
+        &lt;article className='contactlessPayment__container'&gt;
+            &lt;div className='creditCardInfosnTitle__container'&gt;
+                &lt;h2&gt;Quick Freeze&lt;/h2&gt;
+                &lt;span className='cardNumber'&gt;Card : &lt;span className='cardNumber__value'&gt;VISA, 4929766588942496&lt;/span&gt;&lt;/span&gt;
+                &lt;span className='expirationDate'&gt;Expiration Date : &lt;span className='expirationDate__value'&gt;12/2026&lt;/span&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div className='contactlessActivation__container'&gt;
+                &lt;span className='onOff__label' style={<span class="branch-0 cbranch-no" title="branch not covered" >isSwitchActive ? {} : {</span>color:'#8397AF', opacity:'0.8'}}&gt;{<span class="branch-0 cbranch-no" title="branch not covered" >isSwitchActive ? 'On' : '</span>Off'}&lt;/span&gt;
+                &lt;div className='switchContainer' onClick={<span class="fstat-no" title="function not covered" >() =&gt; setSwitchActive(!isSwitchActive)}&gt;</span>
+                    &lt;div className={<span class="branch-0 cbranch-no" title="branch not covered" >isSwitchActive ? 'switch' : '</span>deactivatedSwitch'}&gt;
+&nbsp;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
     )
 }
-export default NewMessage
 &nbsp;
-interface IProps{
-    mailRecipient : IRecipient
-}
-&nbsp;
-export interface IRecipient{
-    name : string
-    pic : string
-    title : string
-}</pre></td></tr></table></pre>
+export default QuickDeactivation</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

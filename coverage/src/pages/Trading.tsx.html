@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/datas/datas.tsx</title>
+    <title>Code coverage report for src/pages/Trading.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/datas</a> datas.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/pages</a> Trading.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>67/67</span>
+                <span class='fraction'>70/70</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>67/67</span>
+                <span class='fraction'>70/70</span>
             </div>
         
             
@@ -129,7 +129,10 @@
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -195,73 +198,79 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { ICryptoAsset, IDebitType, ITransactionType } from "../types/types";
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import CryptoAreaChart from "../components/CryptoAreaChart"
+import Header from "../components/Header"
+import OwnedCurrencyList from "../components/OwnedCurrencyList"
+import VMenu from "../components/VMenu"
+import '../styles/Trading.css'
 &nbsp;
-export const CryptoDatas : Array &lt;ICryptoAsset&gt; = [
-    {
-        name:'Bitcoin',
-        owned:36217.80,
-        growth:6.00,
-        dashes:true
-    },
-    {
-        name:'Ethereum',
-        owned:948.55,
-        growth:3.00,
-        dashes:false      
-    }
-]
+function Trading(){
+    return(
+        &lt;main className="tradingPage__mainContainer"&gt;
+            &lt;VMenu activePage="trading" /&gt;
+            &lt;div className="right__container"&gt;
+                &lt;Header format="uncompressed" username="Tony Montana" iban="NL89RABO1289364745" clientID='X458-89995'/&gt;
+                &lt;section className='tradingItemsRow__container'&gt;
+                    &lt;div style={{flexDirection:'column', alignItems:'start'}} className='trading__items'&gt;
+                        &lt;h3 style={{marginTop:'2px'}}&gt;Crypto Balance (7d)&lt;/h3&gt;
+                        &lt;p style={{marginTop:'12px'}} className="mainText"&gt;12,025 USD (prev. 8,737 USD)&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div className='trading__items'&gt;
+                        &lt;div className="trading__items__textContainer"&gt;
+                            &lt;h3 style={{marginTop:'2px'}}&gt;Top Currency Perf. (7d)&lt;/h3&gt;
+                            &lt;p style={{marginTop:'12px'}} className="mainText"&gt;CHF / Swiss Franc&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div className="trading__items__button"&gt;
+                            +2.6%
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div className='trading__items'&gt;
+                        &lt;div className="trading__items__textContainer"&gt;
+                            &lt;h3 style={{marginTop:'2px'}}&gt;Top Crypto Perf. (7d)&lt;/h3&gt;
+                            &lt;p style={{marginTop:'12px'}} className="mainText"&gt;ETH / Ethereum&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div className="trading__items__button"&gt;
+                            +8.3%
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/section&gt;
+                &lt;section className='tradingItemsRow__container'&gt;
+                    &lt;div style={{flexDirection:'column', alignItems:'start'}} className='trading__items'&gt;
+                        &lt;h3 style={{marginTop:'2px'}}&gt;Crypto Balance (7d)&lt;/h3&gt;
+                        &lt;p style={{marginTop:'12px'}} className="mainText"&gt;12,025 USD (prev. 8,737 USD)&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div className='trading__items'&gt;
+                        &lt;div className="trading__items__textContainer"&gt;
+                            &lt;h3 style={{marginTop:'4px'}}&gt;Worst Currency Perf. (7d)&lt;/h3&gt;
+                            &lt;p style={{marginTop:'10px'}} className="mainText"&gt;APS / Argentine Peso&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div className="trading__items__button"&gt;
+                            -5.1%
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div className='trading__items'&gt;
+                        &lt;div className="trading__items__textContainer"&gt;
+                            &lt;h3 style={{marginTop:'4px'}}&gt;Worst Crypto Perf. (7d)&lt;/h3&gt;
+                            &lt;p style={{marginTop:'10px'}} className="mainText"&gt;BIN / Binance&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div className="trading__items__button"&gt;
+                            -3.2%
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/section&gt;
+                &lt;section className='tradingGraphnList__container'&gt;
+                    &lt;CryptoAreaChart/&gt;
+                    &lt;OwnedCurrencyList/&gt;
+                &lt;/section&gt;
+            &lt;/div&gt;
+        &lt;/main&gt;
+    )
+}
 &nbsp;
-export const DebitsList: Array &lt;IDebitType&gt; = [
-    {
-        company: 'Uber Taxi',
-        amount: 120.00,
-        dashes: true,
-    },
-    {
-        company:'Direct Energy',
-        amount:128.99,
-        dashes: false,
-    },    
-]
-&nbsp;
-export const TransactionsList: Array &lt;ITransactionType&gt; = [
-    {
-        company:'Uber Taxi',
-        date:'02-13-2012',
-        amount:948.55
-    },
-    {
-        company:'AT&amp;T',
-        date:'02-14-2012',
-        amount:19.99
-    },    
-    {
-        company:'Ebay',
-        date:'02-18-2012',
-        amount:98.55
-    },
-    {
-        company:'Ebay',
-        date:'02-19-2012',
-        amount:45.50
-    },
-    {
-        company:'Air BnB',
-        date:'02-22-2012',
-        amount:-120.00
-    },
-    {
-        company:'Direct Energy',
-        date:'02-23-2012',
-        amount:-60.00
-    },
-    /*{
-        company:'Ebay',
-        date:'02-26-2012',
-        amount:70.25
-    },*/
-]</pre></td></tr></table></pre>
+export default Trading</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

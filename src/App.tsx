@@ -24,7 +24,7 @@ const datas = [
   '.delayed__text',
 ]
 
-window.onload = (e) => {
+/*window.onload = (e) => {
   setTimeout(() => {
       const datasFields = Array.from(document.querySelectorAll(datas[0])) as HTMLElement[]
       const loadingAnims = Array.from(document.querySelectorAll('.default__loading')) as HTMLElement[]
@@ -34,7 +34,7 @@ window.onload = (e) => {
           })
       loadingAnims.forEach(anim => anim.style.display = "none")
   }, 100)
-}
+}*/
 
 function App() {
 

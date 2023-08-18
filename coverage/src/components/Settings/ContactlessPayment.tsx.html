@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/Modal.tsx</title>
+    <title>Code coverage report for src/components/Settings/ContactlessPayment.tsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> Modal.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/Settings</a> ContactlessPayment.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/32</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/10</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>32/32</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
@@ -89,33 +89,7 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
+<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -125,38 +99,49 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { ReactNode, useEffect, useRef } from 'react'
-import '../styles/Modal.css'
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from 'react'
+import '../../styles/settings/ContactlessPayment.css'
 &nbsp;
-function Modal({children, modalVisibility, setModalVisibility, /*modalContent,*/ containerCSSClass} : IProps){
+function ContactlessPayment(){
 &nbsp;
-    const dialogRef = useRef&lt;HTMLDialogElement&gt;(null)
-    const modalVisibilityRef = useRef&lt;boolean&gt;(modalVisibility)
-    
-    useEffect(() =&gt; {
-        if(modalVisibilityRef &amp;&amp; !dialogRef.current?.open) return dialogRef.current?.showModal(<span class="branch-0 cbranch-no" title="branch not covered" >)</span>
-        if(!modalVisibilityRef &amp;&amp; dialogRef.current?.open) <span class="branch-0 cbranch-no" title="branch not covered" >return dialogRef.current?.close()</span>
-    })
-    
-    // needs to pass setModalVisibility to modalContent
-    return (
-        modalVisibility 
-        ? &lt;dialog data-testid="modal" ref={dialogRef} onClick={(e) =&gt; { if (e.target === dialogRef.current) <span class="branch-0 cbranch-no" title="branch not covered" >setModalVisibility(false) }</span>}&gt;
-            {children}
-        &lt;/dialog&gt; 
-        : &lt;&gt;&lt;/&gt;
+    const [isSwitchActive, setSwitchActive] = useState&lt;boolean&gt;(true)
+&nbsp;
+    return(
+        &lt;article className='contactlessPayment__container'&gt;
+            &lt;div className='creditCardInfosnTitle__container'&gt;
+                &lt;h2&gt;Contactless Payment&lt;/h2&gt;
+                &lt;span className='cardNumber'&gt;Card : &lt;span className='cardNumber__value'&gt;VISA, 4929766588942496&lt;/span&gt;&lt;/span&gt;
+                &lt;span className='expirationDate'&gt;Expiration Date : &lt;span className='expirationDate__value'&gt;12/2026&lt;/span&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div className='contactlessActivation__container'&gt;
+                &lt;span className='onOff__label' style={isSwitchActive ? {<span class="branch-0 cbranch-no" title="branch not covered" >} : {color:'#8397AF', opacity:'0.8'}}&gt;{i</span>sSwitchActive ? <span class="branch-0 cbranch-no" title="branch not covered" >'On' : 'Off'}&lt;</span>/span&gt;
+                &lt;div className='switchContainer' onClick={<span class="fstat-no" title="function not covered" >() =&gt; setSwitchActive(!isSwitchActive)}&gt;</span>
+                    &lt;div className={isSwitchActive ? <span class="branch-0 cbranch-no" title="branch not covered" >'switch' : 'deactivatedSwitch'}&gt;</span>
+&nbsp;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
     )
 }
 &nbsp;
-export default Modal
-&nbsp;
-interface IProps{
-    children: ReactNode
-    modalVisibility : boolean
-    // modalContent : JSX.Element
-    containerCSSClass? : string
-    setModalVisibility : (bool : boolean) =&gt; void
-}</pre></td></tr></table></pre>
+export default ContactlessPayment</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
@@ -165,14 +150,14 @@ interface IProps{
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at 2023-08-17T21:27:35.429Z
             </div>
-        <script src="../../prettify.js"></script>
+        <script src="../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
     </body>
 </html>
     

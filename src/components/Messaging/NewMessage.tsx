@@ -4,15 +4,15 @@ function NewMessage({mailRecipient} : IProps){
     return(
     <article className="newMessage__container">
         <h2 style={{marginBottom:'1.15rem'}}>Compose your Email</h2>
-        <label>From :</label>
-        <input type="text" value="Antonio Montana" readOnly/>
-        <label>To :</label>
+        <label htmlFor="sender">From :</label>
+        <input id="sender" type="text" value="Antonio Montana" readOnly/>
+        <label htmlFor="recipient">To :</label>
         /* c8 ignore next */
-        <input type="text" defaultValue={mailRecipient.name || ''}/>
-        <label>Title :</label>
-        <input type="text"/>
-        <label>Body :</label>
-        <textarea rows={8}/>
+        <input id="recipient" name="recipient" type="text" defaultValue={mailRecipient.name || ''}/>
+        <label htmlFor="title">Title :</label>
+        <input id="title" type="text"/>
+        <label htmlFor="body">Body :</label>
+        <textarea id="body" rows={8}/>
         <button>Send your Email</button>
     </article>
     )

@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/datas/datas.tsx</title>
+    <title>Code coverage report for src/components/Settings/CustomerInfos.tsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/datas</a> datas.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/Settings</a> CustomerInfos.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>67/67</span>
+                <span class='fraction'>55/55</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>67/67</span>
+                <span class='fraction'>55/55</span>
             </div>
         
             
@@ -117,19 +117,7 @@
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -183,85 +171,61 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { ICryptoAsset, IDebitType, ITransactionType } from "../types/types";
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import '../../styles/settings/CustomerInfos.css'
 &nbsp;
-export const CryptoDatas : Array &lt;ICryptoAsset&gt; = [
-    {
-        name:'Bitcoin',
-        owned:36217.80,
-        growth:6.00,
-        dashes:true
-    },
-    {
-        name:'Ethereum',
-        owned:948.55,
-        growth:3.00,
-        dashes:false      
-    }
-]
+function CustomerInfos(){
+    return(
+        &lt;article className='customerInfos__container'&gt;
+            &lt;h2&gt;About You&lt;/h2&gt;
+            &lt;div className='infosTable__container'&gt;
+                &lt;div className='labelRow'&gt;
+                    &lt;span&gt;Firstname :&lt;/span&gt;
+                    &lt;span&gt;Last :&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div className='valueRow'&gt;
+                    &lt;span&gt;Antonio&lt;/span&gt;
+                    &lt;span&gt;Montana&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div className='labelRow'&gt;
+                    &lt;span&gt;Date of Birth :&lt;/span&gt;
+                    &lt;span&gt;Citizenship :&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div className='valueRow'&gt;
+                    &lt;span&gt;08/09/1956&lt;/span&gt;
+                    &lt;span&gt;Cuban&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;h3 className='infosSection__title'&gt;
+                    Contact Informations
+                &lt;/h3&gt;
+                &lt;div className='labelRow'&gt;
+                    &lt;span&gt;Mobile :&lt;/span&gt;
+                    &lt;span&gt;Email Address :&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div className='valueRow'&gt;
+                    &lt;span&gt;311-555-2368&lt;/span&gt;
+                    &lt;span&gt;Tony@LosMarielitos.com&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;h3 className='infosSection__title'&gt;
+                    Residential Address
+                &lt;/h3&gt;
+                &lt;div className='labelRow'&gt;
+                    &lt;span&gt;Address :&lt;/span&gt;
+                    &lt;span&gt;City :&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div className='valueRow'&gt;
+                    &lt;span&gt;2932 N Glassel St, Apt 18&lt;/span&gt;
+                    &lt;span&gt;Los Angeles, CA 92865&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div className='infosSection__buttonsContainer'&gt;
+                    &lt;button&gt;Update your Infos&lt;/button&gt;
+                    &lt;button className='borderOnly'&gt;Close your Account&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+    )
+}
 &nbsp;
-export const DebitsList: Array &lt;IDebitType&gt; = [
-    {
-        company: 'Uber Taxi',
-        amount: 120.00,
-        dashes: true,
-    },
-    {
-        company:'Direct Energy',
-        amount:128.99,
-        dashes: false,
-    },    
-]
-&nbsp;
-export const TransactionsList: Array &lt;ITransactionType&gt; = [
-    {
-        company:'Uber Taxi',
-        date:'02-13-2012',
-        amount:948.55
-    },
-    {
-        company:'AT&amp;T',
-        date:'02-14-2012',
-        amount:19.99
-    },    
-    {
-        company:'Ebay',
-        date:'02-18-2012',
-        amount:98.55
-    },
-    {
-        company:'Ebay',
-        date:'02-19-2012',
-        amount:45.50
-    },
-    {
-        company:'Air BnB',
-        date:'02-22-2012',
-        amount:-120.00
-    },
-    {
-        company:'Direct Energy',
-        date:'02-23-2012',
-        amount:-60.00
-    },
-    /*{
-        company:'Ebay',
-        date:'02-26-2012',
-        amount:70.25
-    },*/
-]</pre></td></tr></table></pre>
+export default CustomerInfos</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
@@ -270,14 +234,14 @@ export const TransactionsList: Array &lt;ITransactionType&gt; = [
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at 2023-08-17T21:27:35.429Z
             </div>
-        <script src="../../prettify.js"></script>
+        <script src="../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
     </body>
 </html>
     

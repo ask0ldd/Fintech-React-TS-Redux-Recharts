@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/datas/datas.tsx</title>
+    <title>Code coverage report for src/pages/Messaging.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/datas</a> datas.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/pages</a> Messaging.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80.3% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>67/67</span>
+                <span class='fraction'>53/66</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80.3% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>67/67</span>
+                <span class='fraction'>53/66</span>
             </div>
         
             
@@ -128,8 +128,7 @@
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -171,8 +170,15 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -182,86 +188,77 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { ICryptoAsset, IDebitType, ITransactionType } from "../types/types";
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useParams } from "react-router-dom"
+import Header from "../components/Header"
+import MessagingHorizontalMenu from "../components/MessagingHorizontalMenu"
+import VMenu from "../components/VMenu"
+import '../styles/Messaging.css'
+import InboxTable from "../components/messaging/InboxTable"
+import NewMessage, { IRecipient } from "../components/messaging/NewMessage"
+import { useState } from "react"
+import ContactsList from "../components/messaging/ContactsList"
+import VInboxMenu from "../components/messaging/VInboxMenu"
+import { IEmail, ISelectableEmail, emails } from "../datas/emailsDatas"
 &nbsp;
-export const CryptoDatas : Array &lt;ICryptoAsset&gt; = [
-    {
-        name:'Bitcoin',
-        owned:36217.80,
-        growth:6.00,
-        dashes:true
-    },
-    {
-        name:'Ethereum',
-        owned:948.55,
-        growth:3.00,
-        dashes:false      
-    }
-]
+function Messaging(){
+    
+    // add fav contacts list
+    
+    // const [emailsState, setEmailsState] = useState&lt;Array&lt;ISelectableEmail&gt;&gt;(emailsToSelectableEmails(emails))
+    // const [areAllEmailsSelected, setAllEmailsToSelected] = useState&lt;boolean&gt;(false)
+    const [mailRecipient, setMailRecipient] = useState&lt;IRecipient&gt;({name : 'Jimmy Marklum', pic : './avatars/blank.png', title : 'Bank Advisor'})
+    // const [filterEmails, setFilterEmails] = useState&lt;"file" | "toread" | null&gt;(null)
+    const activeMessagingSection : string = useParams().id || "inbox"
 &nbsp;
-export const DebitsList: Array &lt;IDebitType&gt; = [
-    {
-        company: 'Uber Taxi',
-        amount: 120.00,
-        dashes: true,
-    },
-    {
-        company:'Direct Energy',
-        amount:128.99,
-        dashes: false,
-    },    
-]
+    /*function deleteSelectedEmails(){
+        const nonDeletedEmails = [...emailsState].filter(email =&gt; email.selected === false)
+        setEmailsState(nonDeletedEmails)
+        setAllEmailsToSelected(false)
+        // !!! should set active page to 1
+    }*/
+   
+    return(
+        &lt;main className="messagingPage__mainContainer"&gt;
+            &lt;VMenu activePage="messaging" /&gt;
+            &lt;section className="headernMessagesBox__container"&gt;
+                &lt;Header format="uncompressed" username="Tony Montana" iban="NL89RABO1289364745" clientID='X458-89995'/&gt;
+                { activeMessagingSection === 'inbox' &amp;&amp; 
+                    &lt;&gt;&lt;MessagingHorizontalMenu activeMessagingSection="inbox"/&gt;
+                        &lt;div style={{display:'flex', flexDirection:'row', width:'100%', columnGap:'24px'}}&gt;
+                            &lt;InboxTable/&gt;
+                            &lt;VInboxMenu/&gt;
+                        &lt;/div&gt;&lt;/&gt;
+                }
+                { activeMessagingSection === <span class="branch-0 cbranch-no" title="branch not covered" >'newmail' &amp;&amp; </span>
+<span class="cstat-no" title="statement not covered" >                    &lt;&gt;&lt;MessagingHorizontalMenu activeMessagingSection="newmail"/&gt;</span>
+<span class="cstat-no" title="statement not covered" >                        &lt;div style={{display:'flex', flexDirection:'row', width:'100%', columnGap:'24px'}}&gt;</span>
+<span class="cstat-no" title="statement not covered" >                            &lt;NewMessage mailRecipient={mailRecipient}/&gt;</span>
+<span class="cstat-no" title="statement not covered" >                            &lt;ContactsList/&gt;</span>
+<span class="cstat-no" title="statement not covered" >                        &lt;/div&gt;&lt;/&gt;</span>
+                }
+                { activeMessagingSection === <span class="branch-0 cbranch-no" title="branch not covered" >'sent' &amp;&amp; </span>
+<span class="cstat-no" title="statement not covered" >                    &lt;&gt;&lt;MessagingHorizontalMenu activeMessagingSection="sent"/&gt;</span>
+<span class="cstat-no" title="statement not covered" >                    &lt;InboxTable/&gt;&lt;/&gt;</span>
+                }
+            &lt;/section&gt;
 &nbsp;
-export const TransactionsList: Array &lt;ITransactionType&gt; = [
-    {
-        company:'Uber Taxi',
-        date:'02-13-2012',
-        amount:948.55
-    },
-    {
-        company:'AT&amp;T',
-        date:'02-14-2012',
-        amount:19.99
-    },    
-    {
-        company:'Ebay',
-        date:'02-18-2012',
-        amount:98.55
-    },
-    {
-        company:'Ebay',
-        date:'02-19-2012',
-        amount:45.50
-    },
-    {
-        company:'Air BnB',
-        date:'02-22-2012',
-        amount:-120.00
-    },
-    {
-        company:'Direct Energy',
-        date:'02-23-2012',
-        amount:-60.00
-    },
-    /*{
-        company:'Ebay',
-        date:'02-26-2012',
-        amount:70.25
-    },*/
-]</pre></td></tr></table></pre>
+        &lt;/main&gt;
+    )
+}
+&nbsp;
+export default Messaging
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function emailsToSelectableEmails(emailsList : Array&lt;IEmail&gt;){</span></span>
+<span class="cstat-no" title="statement not covered" >    return emailsList.map(email =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        const newEmail : ISelectableEmail = {...email, selected : false}</span>
+<span class="cstat-no" title="statement not covered" >        return newEmail</span>
+<span class="cstat-no" title="statement not covered" >    })</span>
+<span class="cstat-no" title="statement not covered" >}</span></pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

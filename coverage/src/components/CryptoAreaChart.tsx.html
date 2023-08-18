@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/datas/datas.tsx</title>
+    <title>Code coverage report for src/components/CryptoAreaChart.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/datas</a> datas.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> CryptoAreaChart.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">88.7% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>67/67</span>
+                <span class='fraction'>55/62</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>3/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">88.7% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>67/67</span>
+                <span class='fraction'>55/62</span>
             </div>
         
             
@@ -124,12 +124,7 @@
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -139,6 +134,11 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -173,95 +173,80 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { ICryptoAsset, IDebitType, ITransactionType } from "../types/types";
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
+import '../styles/CryptoAreaChart.css'
 &nbsp;
-export const CryptoDatas : Array &lt;ICryptoAsset&gt; = [
-    {
-        name:'Bitcoin',
-        owned:36217.80,
-        growth:6.00,
-        dashes:true
-    },
-    {
-        name:'Ethereum',
-        owned:948.55,
-        growth:3.00,
-        dashes:false      
-    }
+const data : Array&lt;IDatas&gt; = [
+    {week: 'w1', price: 12400},
+    {week: 'w2', price: 17300},
+    {week: 'w3', price: 12700},
+    {week: 'w4', price: 19630},
 ]
 &nbsp;
-export const DebitsList: Array &lt;IDebitType&gt; = [
-    {
-        company: 'Uber Taxi',
-        amount: 120.00,
-        dashes: true,
-    },
-    {
-        company:'Direct Energy',
-        amount:128.99,
-        dashes: false,
-    },    
-]
+function CustomYTicks(value : number) : string{
+    return(
+        (value/1000).toString()+'k'
+    )
+}
 &nbsp;
-export const TransactionsList: Array &lt;ITransactionType&gt; = [
-    {
-        company:'Uber Taxi',
-        date:'02-13-2012',
-        amount:948.55
-    },
-    {
-        company:'AT&amp;T',
-        date:'02-14-2012',
-        amount:19.99
-    },    
-    {
-        company:'Ebay',
-        date:'02-18-2012',
-        amount:98.55
-    },
-    {
-        company:'Ebay',
-        date:'02-19-2012',
-        amount:45.50
-    },
-    {
-        company:'Air BnB',
-        date:'02-22-2012',
-        amount:-120.00
-    },
-    {
-        company:'Direct Energy',
-        date:'02-23-2012',
-        amount:-60.00
-    },
-    /*{
-        company:'Ebay',
-        date:'02-26-2012',
-        amount:70.25
-    },*/
-]</pre></td></tr></table></pre>
+function CryptoAreaChart(){
+    return(
+        &lt;ResponsiveContainer className="cryptoareaChart__container" width="40%" height="100%"&gt;
+            &lt;AreaChart width={300} data={data} margin={{top: 64, right: 38, left: 4, bottom: 48,}}&gt;
+                &lt;defs&gt;
+                    &lt;linearGradient id="PurpleUV" x1="0" y1="1" x2="0" y2="0" /* Line Gradient Definition */&gt;
+                        &lt;stop offset="0%" stopColor="#8B3FAF" stopOpacity={0.47} /&gt;
+                        &lt;stop offset="100%" stopColor="#703FAF" stopOpacity={1} /&gt;
+                    &lt;/linearGradient&gt;
+                &lt;/defs&gt;
+                &lt;CartesianGrid strokeDasharray="3 3" stroke="#8397AF"/&gt;
+                &lt;XAxis dataKey="week" fontSize={14} tickMargin={14} fill="#000000"/&gt;
+                &lt;YAxis domain={[5000, 20000]} fontSize={14} fill="#000000" tickCount={4} tickFormatter={CustomYTicks} tickMargin={16} interval="preserveStartEnd"/&gt;
+                &lt;Tooltip 
+                    cursor={false}
+                    wrapperStyle={{outline:'none', border:'none'}}
+                    itemStyle={{color:'#000', fontSize:'10px'}}
+                    labelStyle={{color:'#000',display:'none'}}
+                    content={CustomTooltip}
+                /&gt;
+                &lt;Area type="monotone" dataKey="price" strokeWidth={2} stroke="#441B95" fill="url(#PurpleUV)" /&gt;
+                &lt;text textAnchor="start" fontSize={26} fontWeight={700} x={16} y={28} fontFamily="Poppins" fill="#5c39aa"&gt;
+                    BTC Value
+                &lt;/text&gt;    
+            &lt;/AreaChart&gt;
+        &lt;/ResponsiveContainer&gt;
+    )
+}
+&nbsp;
+export default CryptoAreaChart
+&nbsp;
+const CustomTooltip = ({payload} : any) =&gt; {
+    if(payload[0<span class="branch-0 cbranch-no" title="branch not covered" >] &amp;&amp; payload.length)<span class="branch-0 cbranch-no" title="branch not covered" >{</span></span>
+<span class="cstat-no" title="statement not covered" >        return(</span>
+<span class="cstat-no" title="statement not covered" >            &lt;div className="areachart__tooltip"&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;p&gt;Week : {payload[0].payload.week[1]}&lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;p style={{marginTop:'4px'}}&gt;Price : {payload[0].payload.price} USD&lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >        )</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+}
+&nbsp;
+interface IDatas{
+    week : string
+    price : number
+}</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

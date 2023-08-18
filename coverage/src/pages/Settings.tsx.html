@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/Modal.tsx</title>
+    <title>Code coverage report for src/pages/Settings.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> Modal.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/pages</a> Settings.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/32</span>
+                <span class='fraction'>31/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/10</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>32/32</span>
+                <span class='fraction'>31/31</span>
             </div>
         
             
@@ -93,29 +93,7 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -125,38 +103,57 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { ReactNode, useEffect, useRef } from 'react'
-import '../styles/Modal.css'
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import BankInfos from '../components/Settings/BankInfos'
+import CustomerInfos from '../components/Settings/CustomerInfos'
+import Header from '../components/Header'
+import VMenu from '../components/VMenu'
+import '../styles/Settings.css'
+import ContactlessPayment from '../components/Settings/ContactlessPayment'
+import QuickDeactivation from '../components/Settings/QuickDeactivation'
 &nbsp;
-function Modal({children, modalVisibility, setModalVisibility, /*modalContent,*/ containerCSSClass} : IProps){
-&nbsp;
-    const dialogRef = useRef&lt;HTMLDialogElement&gt;(null)
-    const modalVisibilityRef = useRef&lt;boolean&gt;(modalVisibility)
-    
-    useEffect(() =&gt; {
-        if(modalVisibilityRef &amp;&amp; !dialogRef.current?.open) return dialogRef.current?.showModal(<span class="branch-0 cbranch-no" title="branch not covered" >)</span>
-        if(!modalVisibilityRef &amp;&amp; dialogRef.current?.open) <span class="branch-0 cbranch-no" title="branch not covered" >return dialogRef.current?.close()</span>
-    })
-    
-    // needs to pass setModalVisibility to modalContent
+function Settings(){
     return (
-        modalVisibility 
-        ? &lt;dialog data-testid="modal" ref={dialogRef} onClick={(e) =&gt; { if (e.target === dialogRef.current) <span class="branch-0 cbranch-no" title="branch not covered" >setModalVisibility(false) }</span>}&gt;
-            {children}
-        &lt;/dialog&gt; 
-        : &lt;&gt;&lt;/&gt;
+        &lt;main className="settingsPage__mainContainer"&gt;
+            &lt;VMenu activePage="settings" /&gt;
+            &lt;section className="headernSettings__container"&gt;
+                &lt;Header format="uncompressed" username="Tony Montana" iban="NL89RABO1289364745" clientID='X458-89995'/&gt;
+                &lt;div className='settingsArticles__container'&gt;
+                    &lt;div className='leftSettingsCol__container'&gt;
+                        &lt;CustomerInfos/&gt;
+                        &lt;QuickDeactivation/&gt;
+                    &lt;/div&gt;
+                    &lt;div className='rightSettingsCol__container'&gt;
+                        &lt;BankInfos/&gt;
+                        &lt;ContactlessPayment/&gt;
+                        &lt;QuickDeactivation/&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+        &lt;/main&gt;
     )
 }
 &nbsp;
-export default Modal
-&nbsp;
-interface IProps{
-    children: ReactNode
-    modalVisibility : boolean
-    // modalContent : JSX.Element
-    containerCSSClass? : string
-    setModalVisibility : (bool : boolean) =&gt; void
-}</pre></td></tr></table></pre>
+export default Settings</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
