@@ -28,15 +28,12 @@ describe('Given I am facing the inbox table', async () => {
         expect(screen.getByText('Date')).toBeInTheDocument()
     })
 
-    test('All the messages from the first page should be sorted by descending dates', async () => { 
+    test('All the messages from the first page should be, by default, sorted by descending dates', async () => { 
         await waitFor(() => expect(screen.getByText('Jessy Trewartha')).toBeInTheDocument())
-        const inboxbody = screen.getByTestId("inboxbody")
-        const allTr = screen.getByTestId("inboxbody").children
+        const allDates = screen.getAllByText(/[0-9]{2}-[0-9]{2}-[0-9]{4}/i)
         for(let i=0; i<14; i++)
         {
-            const currentRowDate = allTr.item(i)?.children.item(4)?.innerHTML
-            const nextRowDate = allTr.item(i+1)?.children.item(4)?.innerHTML
-            if(currentRowDate != null && nextRowDate != null) expect(dateToTime(currentRowDate) - dateToTime(nextRowDate)).toBeGreaterThanOrEqual(0)
+            expect(dateToTime(allDates[i].innerHTML) - dateToTime(allDates[i+1].innerHTML)).toBeGreaterThanOrEqual(0)
         }
     })
 
