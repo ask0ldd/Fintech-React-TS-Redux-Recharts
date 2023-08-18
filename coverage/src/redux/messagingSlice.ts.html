@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">43.39% </span>
+                <span class="strong">49.11% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>69/159</span>
+                <span class='fraction'>83/169</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">14.28% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>2/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">43.39% </span>
+                <span class="strong">49.11% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>69/159</span>
+                <span class='fraction'>83/169</span>
             </div>
         
             
@@ -221,7 +221,17 @@
 <a name='L156'></a><a href='#L156'>156</a>
 <a name='L157'></a><a href='#L157'>157</a>
 <a name='L158'></a><a href='#L158'>158</a>
-<a name='L159'></a><a href='#L159'>159</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -241,6 +251,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -374,23 +385,33 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1512x</span>
+<span class="cline-any cline-yes">1512x</span>
+<span class="cline-any cline-yes">1512x</span>
+<span class="cline-any cline-yes">1512x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { createSlice } from "@reduxjs/toolkit";
 import { /*IEmail, */ISelectableEmail, emails } from "../datas/emailsDatas";
 &nbsp;
 export const initialState : messagingState = {
     emails : emails, // emails
-    sortedEmails : emails,
+    // sortedEmails : emails,
+    sortedEmails : [...emails].sort((a,b) =&gt; dateToTime(a['date']) - dateToTime(b['date'])),
     // filteredEmails : emailsToSelectableEmails(emails), // filteredemails
     activePage : 1,
-    sortingRule : {direction : 'desc', columnDatakey : 'date', datatype : 'date'},
+    sortingRule : {direction : 'desc', columnDatakey : 'date', datatype : 'date'}, // sorted but not sorted and displayedemails not updated
     filter : null,
     selectAllCheckboxStatus : false,
-    displayedEmails_IDList : Array(16).fill(0).map((_, index) =&gt; index)
+    displayedEmails_IDList : /*Array(16).fill(0).map((_, index) =&gt; index)*/ generateInitialDisplayedEmailsIDList([...emails].sort((a,b) =&gt; dateToTime(a['date']) - dateToTime(b['date'])))
 }
 &nbsp;
 export const messagingSlice = createSlice({
@@ -532,10 +553,19 @@ interface messagingState{
 <span class="cstat-no" title="statement not covered" >    return direction === 'asc' ? 'desc' : 'asc'</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function dateToTime(date : string){</span></span>
-<span class="cstat-no" title="statement not covered" >    const [month, day, year] = date.split('/')</span>
-<span class="cstat-no" title="statement not covered" >    return new Date(parseInt(year), parseInt(month), parseInt(day)).getTime()</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+function dateToTime(date : string){
+    const [month, day, year] = date.split('/')
+    return new Date(parseInt(year), parseInt(month), parseInt(day)).getTime()
+}
+&nbsp;
+export function generateInitialDisplayedEmailsIDList(sortedEmails : Array&lt;ISelectableEmail&gt;){ 
+    const displayedEmails_IDs = []
+    for(let index = 0; index &lt; 15; index++){
+        displayedEmails_IDs.push(sortedEmails[index].id)
+        if(sortedEmails[index+1]?.id == null) <span class="branch-0 cbranch-no" title="branch not covered" >break;</span>
+    }
+    return displayedEmails_IDs
+}
 &nbsp;
 export const frCollator = new Intl.Collator('en')</pre></td></tr></table></pre>
 
@@ -544,7 +574,7 @@ export const frCollator = new Intl.Collator('en')</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-08-18T02:10:45.905Z
+                at 2023-08-18T19:30:03.076Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
