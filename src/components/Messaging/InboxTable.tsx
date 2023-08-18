@@ -42,7 +42,7 @@ function InboxTable(){
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody data-testid="inboxbody">
                     {[...sortedEmails].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => /* creer une liste liant index & id */
                     <tr style={/*email.read === false ? {backgroundColor:'rgba(183, 167, 211, 0.3)'} :*/ {}} key={"tremail"+index}>
                         <td onClick={() => dispatch(setTargetEmailSelectStatus({emailId : email.id}))} className='checkboxCell'>
