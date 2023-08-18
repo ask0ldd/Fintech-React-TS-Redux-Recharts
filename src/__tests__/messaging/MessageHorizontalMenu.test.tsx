@@ -34,4 +34,11 @@ describe('Given I am on the Messaging page', async () => {
         expect(screen.getByText(/Send a New Message/i).classList.contains("messagingMenu__itemsActive")).toBeFalsy()
         expect(screen.getByText(/Sent Messages/i).classList.contains("messagingMenu__itemsActive")).toBeFalsy()
     })
+
+    test('The "inbox" button should be active if inbox is the active page', async () => {  
+        render(<MockedRouter activeMessagingSection="sent"/>)  
+        await waitFor(() => expect(screen.getByText(/Sent Messages/i).classList.contains("messagingMenu__itemsActive")).toBeTruthy())
+        expect(screen.getByText(/Send a New Message/i).classList.contains("messagingMenu__itemsActive")).toBeFalsy()
+        expect(screen.getByText(/Your Messages/i).classList.contains("messagingMenu__itemsActive")).toBeFalsy()
+    })
 })
