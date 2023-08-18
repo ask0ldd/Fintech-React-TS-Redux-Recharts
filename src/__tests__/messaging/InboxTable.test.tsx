@@ -24,4 +24,8 @@ describe('Given I am facing the inbox table', async () => {
         expect(screen.getByText('Date')).toBeInTheDocument()
     })
 
+    test('All the table headers should be in the doc', async () => {
+        expect(screen.getByText('Bambie Petera')).toBeInTheDocument()
+    })
+
 })
