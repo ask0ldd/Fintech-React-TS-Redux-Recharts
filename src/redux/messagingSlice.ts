@@ -50,8 +50,8 @@ export const messagingSlice = createSlice({
             // sorting
             if(state.sortingRule.datatype === 'date'){
                 const sortedEmails = state.sortingRule.direction === 'asc' ? 
-                    [...filteredEmails].sort((a,b) => dateToTime(b[state.sortingRule.columnDatakey as keyof typeof b] as string) - dateToTime(a[state.sortingRule.columnDatakey as keyof typeof a] as string))
-                    : [...filteredEmails].sort((a,b) => dateToTime(a[state.sortingRule.columnDatakey as keyof typeof a] as string) - dateToTime(b[state.sortingRule.columnDatakey as keyof typeof b] as string))
+                    [...filteredEmails].sort((a,b) => dateToTime(a[state.sortingRule.columnDatakey as keyof typeof a] as string) - dateToTime(b[state.sortingRule.columnDatakey as keyof typeof b] as string))
+                    : [...filteredEmails].sort((a,b) => dateToTime(b[state.sortingRule.columnDatakey as keyof typeof b] as string) - dateToTime(a[state.sortingRule.columnDatakey as keyof typeof a] as string))
                 return {...state, sortedEmails : sortedEmails}
             }
             const sortedEmails = state.sortingRule.direction === 'asc' ? 

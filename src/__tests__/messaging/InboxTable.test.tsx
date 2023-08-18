@@ -51,9 +51,7 @@ describe('Given I am facing the inbox table', async () => {
 
     test('Clicking one time on "From" should sort the table by sender : Alphabetic Order / Desc', async () => {
         const orderedSenders = ["Vincents Calvert", "Vilhelmina Glaysher", "Ulrikaumeko Comi", "Tomaso Penton", "Theodor Vittet"]
-        // await waitFor(() => expect(screen.getByText('Jessy Trewartha')).toBeInTheDocument())
         const fromTH =  screen.getByText("From")
-        // act(() => fromTH.click())
         act(() => fromTH.click())
         await waitFor(() => expect(screen.getByText('Vincents Calvert')).toBeInTheDocument())
         const sendersNodes = orderedSenders.map(sender => screen.getByText(sender))
@@ -71,7 +69,6 @@ describe('Given I am facing the inbox table', async () => {
             "In congue.",
             "In est risus, auctor sed, tristique in, tempus sit amet, sem.", 
         ]
-        // await waitFor(() => expect(screen.getByText('Jessy Trewartha')).toBeInTheDocument())
         const fromTH =  screen.getByText("Title")
         act(() => fromTH.click())
         const sendersNodes = orderedSenders.map(sender => screen.getByText(sender))
@@ -89,7 +86,6 @@ describe('Given I am facing the inbox table', async () => {
             "Proin at turpis a pede posuere nonummy.",
             "Praesent lectus.", 
         ]
-        // await waitFor(() => expect(screen.getByText('Jessy Trewartha')).toBeInTheDocument())
         const fromTH =  screen.getByText("Title")
         act(() => fromTH.click())
         const sendersNodes = orderedSenders.map(sender => screen.getByText(sender))
@@ -98,6 +94,8 @@ describe('Given I am facing the inbox table', async () => {
             expect(sendersNodes[i].compareDocumentPosition(sendersNodes[i+1])).toBe(4)
         }
     })
+
+    
 
 })
 
