@@ -51,7 +51,7 @@ function handleStateChange(){
   }
 }
 
-function generateDisplayedEmailsIDList(sortedEmails : Array<ISelectableEmail>){ 
+export function generateDisplayedEmailsIDList(sortedEmails : Array<ISelectableEmail>){ 
   const displayedEmails_IDs = []
   for(let index = (store.getState().messaging.activePage-1)*15; index < store.getState().messaging.activePage * 15; index++){
       displayedEmails_IDs.push(sortedEmails[index].id)

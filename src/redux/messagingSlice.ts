@@ -3,13 +3,14 @@ import { /*IEmail, */ISelectableEmail, emails } from "../datas/emailsDatas";
 
 export const initialState : messagingState = {
     emails : emails, // emails
-    sortedEmails : emails,
+    // sortedEmails : emails,
+    sortedEmails : [...emails].sort((a,b) => dateToTime(a['date']) - dateToTime(b['date'])),
     // filteredEmails : emailsToSelectableEmails(emails), // filteredemails
     activePage : 1,
-    sortingRule : {direction : 'desc', columnDatakey : 'date', datatype : 'date'},
+    sortingRule : {direction : 'desc', columnDatakey : 'date', datatype : 'date'}, // sorted but not sorted and displayedemails not updated
     filter : null,
     selectAllCheckboxStatus : false,
-    displayedEmails_IDList : Array(16).fill(0).map((_, index) => index)
+    displayedEmails_IDList : /*Array(16).fill(0).map((_, index) => index)*/ generateInitialDisplayedEmailsIDList([...emails].sort((a,b) => dateToTime(a['date']) - dateToTime(b['date'])))
 }
 
 export const messagingSlice = createSlice({
@@ -154,6 +155,15 @@ function invertDirection(direction : string){
 function dateToTime(date : string){
     const [month, day, year] = date.split('/')
     return new Date(parseInt(year), parseInt(month), parseInt(day)).getTime()
+}
+
+export function generateInitialDisplayedEmailsIDList(sortedEmails : Array<ISelectableEmail>){ 
+    const displayedEmails_IDs = []
+    for(let index = 0; index < 15; index++){
+        displayedEmails_IDs.push(sortedEmails[index].id)
+        if(sortedEmails[index+1]?.id == null) break;
+    }
+    return displayedEmails_IDs
 }
 
 export const frCollator = new Intl.Collator('en')

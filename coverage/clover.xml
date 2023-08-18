@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1692323605556" clover="3.2.0">
-  <project timestamp="1692323605556" name="All files">
-    <metrics statements="2249" coveredstatements="2041" conditionals="191" coveredconditionals="163" methods="112" coveredmethods="74" elements="2552" coveredelements="2278" complexity="0" loc="2249" ncloc="2249" packages="11" files="40" classes="40"/>
+<coverage generated="1692324646019" clover="3.2.0">
+  <project timestamp="1692324646019" name="All files">
+    <metrics statements="2249" coveredstatements="2041" conditionals="194" coveredconditionals="169" methods="112" coveredmethods="74" elements="2555" coveredelements="2284" complexity="0" loc="2249" ncloc="2249" packages="11" files="40" classes="40"/>
     <package name="src">
       <metrics statements="95" coveredstatements="95" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
       <file name="App.tsx" path="C:\Dev\OC2-prep\TypescriptTest\ts-test\src\App.tsx">
@@ -104,7 +104,7 @@
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="503" coveredstatements="496" conditionals="84" coveredconditionals="70" methods="25" coveredmethods="24"/>
+      <metrics statements="503" coveredstatements="496" conditionals="87" coveredconditionals="76" methods="25" coveredmethods="24"/>
       <file name="Balance.tsx" path="C:\Dev\OC2-prep\TypescriptTest\ts-test\src\components\Balance.tsx">
         <metrics statements="36" coveredstatements="36" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
@@ -342,18 +342,18 @@
         <line num="37" count="1" type="stmt"/>
       </file>
       <file name="MessagingHorizontalMenu.tsx" path="C:\Dev\OC2-prep\TypescriptTest\ts-test\src\components\MessagingHorizontalMenu.tsx">
-        <metrics statements="17" coveredstatements="17" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="17" coveredstatements="17" conditionals="7" coveredconditionals="7" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="8" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="9" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
+        <line num="4" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
