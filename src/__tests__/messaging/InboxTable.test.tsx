@@ -81,6 +81,24 @@ describe('Given I am facing the inbox table', async () => {
         }
     })
 
+    test('Clicking one time on "Title" should sort the table by title : Alphabetic Order / Desc', async () => {
+        const orderedSenders = [
+            "Suspendisse potenti.", 
+            "Sed vel enim sit amet nunc viverra dapibus.", 
+            "Proin leo odio, porttitor id, consequat in, consequat ut, nulla.", 
+            "Proin at turpis a pede posuere nonummy.",
+            "Praesent lectus.", 
+        ]
+        // await waitFor(() => expect(screen.getByText('Jessy Trewartha')).toBeInTheDocument())
+        const fromTH =  screen.getByText("Title")
+        act(() => fromTH.click())
+        const sendersNodes = orderedSenders.map(sender => screen.getByText(sender))
+        for(let i=0; i<4; i++)
+        {
+            expect(sendersNodes[i].compareDocumentPosition(sendersNodes[i+1])).toBe(4)
+        }
+    })
+
 })
 
 function dateToTime(date : string){
