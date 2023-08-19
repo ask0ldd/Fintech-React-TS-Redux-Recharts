@@ -105,6 +105,10 @@ describe('Given I am facing the inbox table', async () => {
         }
     })
 
+    test('The select all button and all the individual select buttons should be unchecked by default', async () => {
+        expect(screen.queryByAltText("allSelectedV")).not.toBeInTheDocument()
+        expect(screen.queryByAltText("selectedV")).not.toBeInTheDocument()
+    })
 
 
 })

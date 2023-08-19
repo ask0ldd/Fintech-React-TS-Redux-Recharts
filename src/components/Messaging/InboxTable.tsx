@@ -30,7 +30,7 @@ function InboxTable(){
                         <th className='checkboxCell' onClick={() => dispatch(switchSelectAllCheckboxStatus({}))}>
                             <label id="selectColumn" className='sr-only'>Select Mail</label>
                             <div style={selectAllCheckboxStatus === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={selectAllCheckboxStatus} role="checkbox" aria-labelledby='selectColumn'>
-                                <img style={{width:'10px', height:'10px'}} src={ok}/>
+                                {selectAllCheckboxStatus === true && <img alt="allSelectedV" style={{width:'10px', height:'10px'}} src={ok}/>}
                             </div>
                         </th>
                         <th className='fileAttachColumn'></th>
@@ -47,7 +47,7 @@ function InboxTable(){
                     <tr style={/*email.read === false ? {backgroundColor:'rgba(183, 167, 211, 0.3)'} :*/ {}} key={"tremail"+index}>
                         <td onClick={() => dispatch(setTargetEmailSelectStatus({emailId : email.id}))} className='checkboxCell'>
                             <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
-                                <img style={{width:'10px', height:'10px'}} src={ok}/>
+                                {email.selected === true && <img alt="selectedV" style={{width:'10px', height:'10px'}} src={ok}/>}
                             </div>
                         </td>
                         <td className='fileAttachColumn'>
