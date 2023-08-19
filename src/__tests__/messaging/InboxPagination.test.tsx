@@ -48,11 +48,19 @@ describe('Given I am facing the inbox table', async () => {
         expect(allPaginationButtons?.item(3)?.innerHTML).toBe("3")
         expect(allPaginationButtons?.item(4)?.innerHTML).toBe("Next")
         expect(allPaginationButtons?.item(2)?.classList.contains("pagination__buttonActive")).toBeTruthy()
-    })/*
+    })
 
     test('After clicking [Prev], the Pagination bar should display the following buttons by default : [1] [2] [Next] and [1] should be selected', async()=>{
-
-    })
+        let prevButton = screen.getByText("Prev")
+        act(() => prevButton.click())
+        await waitFor(() => expect(screen.getByText("Jessy Trewartha")).toBeInTheDocument())
+        const nextButton = screen.getByText("Next")
+        const allPaginationButtons = nextButton.parentElement?.children
+        expect(allPaginationButtons?.item(0)?.innerHTML).toBe("1")
+        expect(allPaginationButtons?.item(1)?.innerHTML).toBe("2")
+        expect(allPaginationButtons?.item(2)?.innerHTML).toBe("Next")
+        expect(allPaginationButtons?.item(0)?.classList.contains("pagination__buttonActive")).toBeTruthy()
+    })/*
 
     test('Button : Delete Selected Email', async()=>{
 
