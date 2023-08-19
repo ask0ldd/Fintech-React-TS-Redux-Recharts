@@ -110,6 +110,15 @@ describe('Given I am facing the inbox table', async () => {
         expect(screen.queryByAltText("selectedV")).not.toBeInTheDocument()
     })
 
+    test('Clicking the select all button should select all mails', async () => {
+        act(() => screen.getByText("Select All Mails").parentElement?.click())
+        expect(screen.getAllByAltText("selectedV").length).toBe(15)
+    })
+    
+    test('Clicking again the select all button should deselect all mails', async () => {
+        act(() => screen.getByText("Select All Mails").parentElement?.click())
+        expect(screen.queryByAltText("selectedV")).not.toBeInTheDocument()
+    })
 
 })
 

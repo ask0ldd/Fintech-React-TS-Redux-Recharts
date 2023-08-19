@@ -28,7 +28,7 @@ function InboxTable(){
                 <thead>
                     <tr>
                         <th className='checkboxCell' onClick={() => dispatch(switchSelectAllCheckboxStatus({}))}>
-                            <label id="selectColumn" className='sr-only'>Select Mail</label>
+                            <label id="selectColumn" className='sr-only'>Select All Mails</label>
                             <div style={selectAllCheckboxStatus === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={selectAllCheckboxStatus} role="checkbox" aria-labelledby='selectColumn'>
                                 {selectAllCheckboxStatus === true && <img alt="allSelectedV" style={{width:'10px', height:'10px'}} src={ok}/>}
                             </div>
@@ -46,7 +46,7 @@ function InboxTable(){
                     {[...sortedEmails].slice((activePage-1)*15, (activePage-1)*15+15).map((email, index) => /* creer une liste liant index & id */
                     <tr style={/*email.read === false ? {backgroundColor:'rgba(183, 167, 211, 0.3)'} :*/ {}} key={"tremail"+index}>
                         <td onClick={() => dispatch(setTargetEmailSelectStatus({emailId : email.id}))} className='checkboxCell'>
-                            <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox" aria-labelledby='selectColumn'>
+                            <div style={email.selected === true ? {background:'#5c39aa', border:'1px solid #5c39aa'} : {}} className='customCheckbox' aria-checked={email.selected} role="checkbox">
                                 {email.selected === true && <img alt="selectedV" style={{width:'10px', height:'10px'}} src={ok}/>}
                             </div>
                         </td>
