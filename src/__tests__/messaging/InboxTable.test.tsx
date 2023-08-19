@@ -37,9 +37,19 @@ describe('Given I am facing the inbox table', async () => {
         }
     })
 
+    test('Clicking one time on "Date" should sort the table by ascending date', async () => {
+        const dateTH =  screen.getByText("Date")
+        act(() => dateTH.click())
+        await waitFor(() => expect(screen.getByText('Archie Duncombe')).toBeInTheDocument())
+        const allDates = screen.getAllByText(/[0-9]{2}-[0-9]{2}-[0-9]{4}/i)
+        for(let i=0; i<14; i++)
+        {
+            expect(dateToTime(allDates[i].innerHTML) - dateToTime(allDates[i+1].innerHTML)).toBeLessThanOrEqual(0)
+        }
+    })
+
     test('Clicking one time on "From" should sort the table by sender : Alphabetic Order / Asc', async () => {
         const orderedSenders = ["Archie Duncombe", "Bambie Petera", "Barbette Long", "Bartolomeo Duncklee", "Beth Malenoir"]
-        await waitFor(() => expect(screen.getByText('Jessy Trewartha')).toBeInTheDocument())
         const fromTH =  screen.getByText("From")
         act(() => fromTH.click())
         const sendersNodes = orderedSenders.map(sender => screen.getByText(sender))
@@ -95,7 +105,7 @@ describe('Given I am facing the inbox table', async () => {
         }
     })
 
-    
+
 
 })
 
