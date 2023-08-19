@@ -19,10 +19,3 @@ function VInboxMenu(){
 }
 
 export default VInboxMenu
-
-/*interface IProps{
-    emailsState : Array<ISelectableEmail>
-    setEmailsState : (emails : Array<ISelectableEmail>) => void
-    deleteSelectedEmails : () => void
-    setFilterEmails : (filter : "file" | "toread" | null) => void
-}*/
