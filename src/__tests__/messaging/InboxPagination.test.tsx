@@ -29,17 +29,21 @@ describe('Given I am facing the inbox table', async () => {
         expect(allPaginationButtons?.item(0)?.innerHTML).toBe("1")
         expect(allPaginationButtons?.item(1)?.innerHTML).toBe("2")
         expect(allPaginationButtons?.item(2)?.innerHTML).toBe("Next")
+        //test active
     })
 
     test('After clicking [Next], the Pagination bar should display the following buttons : [Prev] [1] [2] [3] [Next] & [2] should be selected', async()=>{
-
-        await waitFor(() => expect(screen.getByText("Jessy Trewartha")).toBeInTheDocument())
-        const nextButton = screen.getByText("Next")
+        let nextButton = screen.getByText("Next")
+        act(() => nextButton.click())
+        await waitFor(() => expect(screen.getByText("Salomo Rowcastle")).toBeInTheDocument())
+        nextButton = screen.getByText("Next")
         const allPaginationButtons = nextButton.parentElement?.children
-        expect(allPaginationButtons?.item(0)?.innerHTML).toBe("1")
-        expect(allPaginationButtons?.item(1)?.innerHTML).toBe("2")
-        expect(allPaginationButtons?.item(2)?.innerHTML).toBe("Next")
-
+        expect(allPaginationButtons?.item(0)?.innerHTML).toBe("Prev")
+        expect(allPaginationButtons?.item(1)?.innerHTML).toBe("1")
+        expect(allPaginationButtons?.item(2)?.innerHTML).toBe("2")
+        expect(allPaginationButtons?.item(3)?.innerHTML).toBe("3")
+        expect(allPaginationButtons?.item(4)?.innerHTML).toBe("Next")
+        //test active
     })/*
 
     test('After clicking [Prev], the Pagination bar should display the following buttons by default : [1] [2] [Next] and [1] should be selected', async()=>{
