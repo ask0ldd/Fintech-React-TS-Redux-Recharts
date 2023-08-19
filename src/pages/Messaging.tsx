@@ -57,10 +57,3 @@ function Messaging(){
 }
 
 export default Messaging
-
-function emailsToSelectableEmails(emailsList : Array<IEmail>){
-    return emailsList.map(email => {
-        const newEmail : ISelectableEmail = {...email, selected : false}
-        return newEmail
-    })
-}

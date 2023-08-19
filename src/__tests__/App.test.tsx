@@ -67,6 +67,34 @@ describe('Given I am on the Landing page', async () => {
         expect(screen.getByText(/4 contacts selected/i)).toBeInTheDocument()
     })
 
+    
+    test('Clicking on an unselected contact should add this contact to the quicklist', async () => {
+        await waitFor(() => expect(screen.getByText(/Quick Wire Transfer/i)).toBeInTheDocument())
+        expect(screen.queryByTestId("modal")).not.toBeInTheDocument() // !!! querybytestid or it will throw an error
+        const addContactButton = screen.getAllByRole("button").filter(button => button.classList.contains("xButton"))[0]
+        
+        act(() => addContactButton.click())
+        await waitFor(() => expect(screen.getByTestId("modal")).toBeInTheDocument())
+
+        const modal = screen.queryByTestId("modal")
+        const allButtons = screen.queryAllByRole("button")
+        let buttonClicked = false
+        allButtons.forEach(button => {
+            if(button.classList.contains("violetButton") && button.parentElement?.classList.contains("recipientRow") && buttonClicked === false) {
+                button.click()
+                buttonClicked = true
+            }
+        })
+        await waitFor(() => expect(modal?.querySelectorAll("button.greenButton").length).toBe(5))
+        expect(modal?.querySelectorAll("button.violetButton").length).toBe(3)
+        expect(screen.getByText(/5 contacts selected/i)).toBeInTheDocument()
+    })
+/*
+    test('Clicking on a selected contact should remove this contact to the quicklist', async () => {
+
+    })
+
+*/
     test('Clicking the "confirm your selection" button should close the modal', async () => {
         await waitFor(() => expect(screen.getByText(/Quick Wire Transfer/i)).toBeInTheDocument())
         expect(screen.queryByTestId("modal")).not.toBeInTheDocument() // !!! querybytestid or it will throw an error since we are testing it's missing

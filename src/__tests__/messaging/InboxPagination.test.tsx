@@ -30,6 +30,7 @@ describe('Given I am facing the inbox table', async () => {
         expect(allPaginationButtons?.item(1)?.innerHTML).toBe("2")
         expect(allPaginationButtons?.item(2)?.innerHTML).toBe("Next")
         expect(allPaginationButtons?.item(0)?.classList.contains("pagination__buttonActive")).toBeTruthy()
+        expect(screen.getByText("Showing 1 to 15 of 45 emails")).toBeInTheDocument()
     })
 
     test('After clicking [Next], the Pagination bar should display the following buttons : [Prev] [1] [2] [3] [Next] & [2] should be selected', async()=>{
@@ -48,6 +49,7 @@ describe('Given I am facing the inbox table', async () => {
         expect(allPaginationButtons?.item(3)?.innerHTML).toBe("3")
         expect(allPaginationButtons?.item(4)?.innerHTML).toBe("Next")
         expect(allPaginationButtons?.item(2)?.classList.contains("pagination__buttonActive")).toBeTruthy()
+        expect(screen.getByText("Showing 16 to 30 of 45 emails")).toBeInTheDocument()
     })
 
     test('After clicking [Prev], the Pagination bar should display the following buttons by default : [1] [2] [Next] and [1] should be selected', async()=>{
@@ -60,8 +62,10 @@ describe('Given I am facing the inbox table', async () => {
         expect(allPaginationButtons?.item(1)?.innerHTML).toBe("2")
         expect(allPaginationButtons?.item(2)?.innerHTML).toBe("Next")
         expect(allPaginationButtons?.item(0)?.classList.contains("pagination__buttonActive")).toBeTruthy()
-    })/*
+        expect(screen.getByText("Showing 1 to 15 of 45 emails")).toBeInTheDocument()
+    })
 
+    /*
     test('Button : Delete Selected Email', async()=>{
 
     })
