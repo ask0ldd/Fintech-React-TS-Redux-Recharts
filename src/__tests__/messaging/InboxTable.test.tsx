@@ -120,6 +120,12 @@ describe('Given I am facing the inbox table', async () => {
         expect(screen.queryByAltText("selectedV")).not.toBeInTheDocument()
     })
 
+    test('Clicking again select button should select the related email', async () => {
+        const firstSelectBtn = screen.getByTestId('inboxbody').firstElementChild?.firstElementChild
+        if(firstSelectBtn instanceof HTMLElement) act(() => firstSelectBtn.click())
+        expect(screen.queryAllByAltText("selectedV").length).toBe(1)
+    })
+
 })
 
 function dateToTime(date : string){
