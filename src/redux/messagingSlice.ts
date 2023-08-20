@@ -2,15 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import { /*IEmail, */ISelectableEmail, emails } from "../datas/emailsDatas";
 
 export const initialState : messagingState = {
-    emails : emails, // emails
-    // sortedEmails : emails,
+    emails : emails,
     sortedEmails : [...emails].sort((a,b) => dateToTime(b['date']) - dateToTime(a['date'])),
-    // filteredEmails : emailsToSelectableEmails(emails), // filteredemails
     activePage : 1,
-    sortingRule : {direction : 'desc', columnDatakey : 'date', datatype : 'date'}, // sorted but not sorted and displayedemails not updated
+    sortingRule : {direction : 'desc', columnDatakey : 'date', datatype : 'date'},
     filter : null,
     selectAllCheckboxStatus : false,
-    displayedEmails_IDList : generateInitialDisplayedEmailsIDList([...emails].sort((a,b) => dateToTime(b['date']) - dateToTime(a['date']))) /*Array(16).fill(0).map((_, index) => index)*/ 
+    displayedEmails_IDList : generateInitialDisplayedEmailsIDList([...emails].sort((a,b) => dateToTime(b['date']) - dateToTime(a['date'])))
 }
 
 export const messagingSlice = createSlice({
@@ -18,7 +16,7 @@ export const messagingSlice = createSlice({
     initialState,
     reducers : {
         /* c8 ignore start */
-        // action : reducer fn
+        // personal memo : action : reducer fn
         reset : () => {
             return initialState
         },
@@ -42,7 +40,7 @@ export const messagingSlice = createSlice({
             return {...state, sortingRule : {direction : 'asc', columnDatakey : datakey, datatype : datatype}}
         },
 
-        // filtering & sorting inbox emails
+        // pushing to state all emails after filtering & sorting
         setSortedEmails : (state) => {
             // filtering
             const filteringFn = (email : ISelectableEmail) => {
@@ -64,7 +62,7 @@ export const messagingSlice = createSlice({
             return {...state, sortedEmails : sortedEmails}
         },
 
-        // defining the filter rules
+        // defining the filtering rules
         setFilter : (state, action) => {
             const filter = action.payload?.filter || null
             if(filter == null) return
@@ -72,7 +70,8 @@ export const messagingSlice = createSlice({
                 return {...state, filter : filter}
         },
 
-        // push a list of the currently displayed inbox emails
+        // push a ID list of the currently visible inbox emails
+        // (useful to restrict the field of action of select all )
         setDisplayedEmails_IDList : (state, action) => {
             if(action.payload.idList == null) return
             return {...state, displayedEmails_IDList : action.payload.idList}
@@ -124,7 +123,7 @@ export const messagingSlice = createSlice({
             emailsDuplicate.splice(targetEmailIndex, 1)
             return{...state, emails : emailsDuplicate}
         },
-        
+
         deleteSelectedEmails : (state) => {
             const notSelectedEmails = state.emails.filter(email => email.selected === false)
             return{...state, emails : notSelectedEmails, selectAllCheckboxStatus : false, activePage : 1}
