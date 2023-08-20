@@ -38,7 +38,7 @@ describe('Given Im facing the Inbox Table', async () => {
         console.log('attachement :' , attachmentFilteringButton)
         // [!] click function not defined on a svg proto > use dispatchEvent instead
         act(() => attachmentFilteringButton.dispatchEvent(new MouseEvent('click', {bubbles: true})))
-        await waitFor(() => expect(screen.queryByAltText("Jessy Trewartha")).not.toBeInTheDocument())
+        await waitFor(() => expect(screen.queryByText("Jessy Trewartha")).not.toBeInTheDocument())
         const attachmentIcons = screen.getAllByTestId("attachment icon")
         const inboxBody = screen.getByTestId("inboxbody")
         expect(attachmentIcons.length === inboxBody.children.length).toBeTruthy()
