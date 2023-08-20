@@ -41,6 +41,8 @@ export const messagingSlice = createSlice({
             if(datatype === 'date') return {...state, sortingRule : {direction : 'desc', columnDatakey : datakey, datatype : datatype}}
             return {...state, sortingRule : {direction : 'asc', columnDatakey : datakey, datatype : datatype}}
         },
+
+        // filtering & sorting inbox emails
         setSortedEmails : (state) => {
             // filtering
             const filteringFn = (email : ISelectableEmail) => {
@@ -61,22 +63,30 @@ export const messagingSlice = createSlice({
                 : [...filteredEmails].sort((a,b) => frCollator.compare(b[state.sortingRule.columnDatakey as keyof typeof b] as string, a[state.sortingRule.columnDatakey as keyof typeof a] as string))
             return {...state, sortedEmails : sortedEmails}
         },
+
+        // defining the filter rules
         setFilter : (state, action) => {
             const filter = action.payload?.filter || null
             if(filter == null) return
             if(filter === "toread" || filter === "file")
                 return {...state, filter : filter}
         },
+
+        // push a list of the currently displayed inbox emails
         setDisplayedEmails_IDList : (state, action) => {
             if(action.payload.idList == null) return
             return {...state, displayedEmails_IDList : action.payload.idList}
         },
+
+        // set a selected inbox page as the visible one
         setActivePage : (state, action) => {
             // !!! should check activepage in a more indepth way
             if(action.payload.activePage == null) return
             const unselectedEmails = [...state.emails].map(email => { return {...email, selected : false}})
             return {...state, activePage : action.payload.activePage, selectAllCheckboxStatus : false, emails : unselectedEmails}
         },
+
+        // invert the status of "select all mails" checkbox
         switchSelectAllCheckboxStatus : (state, action) => {
             if(action.payload.checkboxStatus == null) {
                 const emailsDuplicate = state.emails.map(email => {
@@ -86,6 +96,8 @@ export const messagingSlice = createSlice({
             }
             return {...state, selectAllCheckboxStatus : action.payload.checkboxStatus} // should update select prop of the emails too
         },
+
+        // set the selection status of a target email
         setTargetEmailSelectStatus : (state, action) => {
             if(action.payload.emailId == null) return
             // error cause no deep cloning : const emailsDuplicate = [...state.emails]
@@ -99,10 +111,12 @@ export const messagingSlice = createSlice({
             }
             return{...state, emails : emailsDuplicate}
         },
+
         unselectAllEmails : (state, action) => {
             const unselectedEmails = [...state.emails].map(email => { return {...email, selected : false}})
             return {...state, areAllDisplayedEmailsSelected : false, emails : unselectedEmails}
         },
+
         deleteEmail : (state, action) => {
             if(action.payload.emailId == null) return
             const emailsDuplicate = state.emails.map(email => {return {...email, selected : false}})
@@ -110,6 +124,7 @@ export const messagingSlice = createSlice({
             emailsDuplicate.splice(targetEmailIndex, 1)
             return{...state, emails : emailsDuplicate}
         },
+        
         deleteSelectedEmails : (state) => {
             const notSelectedEmails = state.emails.filter(email => email.selected === false)
             return{...state, emails : notSelectedEmails, selectAllCheckboxStatus : false, activePage : 1}

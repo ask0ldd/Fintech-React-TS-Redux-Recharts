@@ -4,7 +4,7 @@ import { ISelectableEmail } from "../datas/emailsDatas"
 
 export const store = configureStore({
     reducer: {
-        messaging : messagingReducer
+        messaging : messagingReducer,
     },
     devTools : true,
   })
