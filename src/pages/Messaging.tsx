@@ -3,29 +3,25 @@ import Header from "../components/Header"
 import MessagingHorizontalMenu from "../components/MessagingHorizontalMenu"
 import VMenu from "../components/VMenu"
 import '../styles/Messaging.css'
-import InboxTable from "../components/messaging/InboxTable"
-import NewMessage, { IRecipient } from "../components/messaging/NewMessage"
+import InboxTable from "../components/Messaging/InboxTable"
+import NewMessage, { IRecipient } from "../components/Messaging/NewMessage"
 import { useState } from "react"
-import ContactsList from "../components/messaging/ContactsList"
-import VInboxMenu from "../components/messaging/VInboxMenu"
+import ContactsList from "../components/Messaging/ContactsList"
+import VInboxMenu from "../components/Messaging/VInboxMenu"
 import { IEmail, ISelectableEmail, emails } from "../datas/emailsDatas"
 
+// Messaging Page
+// *** Components :
+// - VMenu : Main Nav
+// - Header : Main Header
+// - MessagingHorizontalMenu : Secondary Nav
+// - InboxTable : Table containing the received mails
+// - ContactsList : Contacts list
+// - New Message : Form used to send a new message
 function Messaging(){
     
-    // add fav contacts list
-    
-    // const [emailsState, setEmailsState] = useState<Array<ISelectableEmail>>(emailsToSelectableEmails(emails))
-    // const [areAllEmailsSelected, setAllEmailsToSelected] = useState<boolean>(false)
     const [mailRecipient, setMailRecipient] = useState<IRecipient>({name : 'Jimmy Marklum', pic : './avatars/blank.png', title : 'Bank Advisor'})
-    // const [filterEmails, setFilterEmails] = useState<"file" | "toread" | null>(null)
     const activeMessagingSection : string = useParams().id || "inbox"
-
-    /*function deleteSelectedEmails(){
-        const nonDeletedEmails = [...emailsState].filter(email => email.selected === false)
-        setEmailsState(nonDeletedEmails)
-        setAllEmailsToSelected(false)
-        // !!! should set active page to 1
-    }*/
    
     return(
         <main className="messagingPage__mainContainer">

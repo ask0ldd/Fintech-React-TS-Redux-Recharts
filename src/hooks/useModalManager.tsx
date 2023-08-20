@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+/* c8 ignore start */
 import { useState, useEffect, useReducer } from "react"
-// import ModalHeader from "../ModalHeader"
 
 /**
  * Function : Modal management tool.
@@ -16,13 +16,9 @@ import { useState, useEffect, useReducer } from "react"
  * setHeaderComponent - Set a new react component as the header of the modal.
  */
 function useModalManager({initialVisibility, initialModalContentId/*reducerFn, reducerInitialState*/} : IModalObject){
-    // initial visibility / initial content
 
     const [modalVisibility, setModalVisibility] = useState<boolean>(initialVisibility)
     const [modalContentId, setModalContentId] = useState<string>(initialModalContentId)
-    // const [headerComponent, setHeaderComponent] = useState<JSX.Element>(ModalHeader({setModalVisibility})) /* set default modal header with props passed */
-    /*let reducerState; let reducerDispatch;
-    if (reducerFn) {[reducerState, reducerDispatch] = useReducer(reducerFn, reducerInitialState)}*/
 
     useEffect(() => {
   
@@ -32,7 +28,7 @@ function useModalManager({initialVisibility, initialModalContentId/*reducerFn, r
 
         window.addEventListener('keydown', keyboardListener)
 
-        // soutenance : clean up to avoid having two listeners active => since useEffect is triggered twice in strict mode
+        // clean up to avoid having two listeners active => since useEffect is triggered twice in strict mode
         return () => {
             window.removeEventListener('keydown', keyboardListener)
         }

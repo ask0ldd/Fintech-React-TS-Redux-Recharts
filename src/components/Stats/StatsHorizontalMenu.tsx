@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import '../styles/StatsHorizontalMenu.css'
+import '../../styles/StatsHorizontalMenu.css'
 
 function StatsHorizontalMenu({activeGraph} : IProps){
     return(

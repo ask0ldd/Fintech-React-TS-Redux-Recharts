@@ -1,7 +1,7 @@
 import { render, screen, renderHook, act, waitFor } from '@testing-library/react'
 import { BrowserRouter } from "react-router-dom"
 import { expect, vi, describe, test, beforeAll, beforeEach } from 'vitest'
-import InboxTable from '../../components/messaging/InboxTable'
+import InboxTable from '../../components/Messaging/InboxTable'
 import Messaging from '../../pages/Messaging'
 import { Provider } from 'react-redux'
 import store from '../../redux/store'

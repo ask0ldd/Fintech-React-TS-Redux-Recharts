@@ -1,8 +1,8 @@
-import CryptoAreaChart from "../components/CryptoAreaChart"
+import CryptoAreaChart from "../components/Trading/CryptoAreaChart"
 import Header from "../components/Header"
-import OwnedCurrencyList from "../components/OwnedCurrencyList"
+import OwnedCurrencyList from "../components/Trading/OwnedCurrencyList"
 import VMenu from "../components/VMenu"
-import '../styles/Trading.css'
+import '../styles/trading/Trading.css'
 
 function Trading(){
     return(

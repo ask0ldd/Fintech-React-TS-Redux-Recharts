@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import '../styles/CreditCards.css'
 import CreditCardsOptions from './CreditCardsOptions'
 
@@ -24,9 +25,9 @@ function CreditCards(){
                 </div>
             </article>
             <div className='creditcardsOptions__container'>
-                <CreditCardsOptions iconFilename="whitelock"/>
-                <CreditCardsOptions iconFilename="whiteconversion"/>
-                <CreditCardsOptions iconFilename="whitesettings"/>
+                <Link to="/settings"><CreditCardsOptions iconFilename="whitelock"/></Link>
+                <Link to="/trading"><CreditCardsOptions iconFilename="whiteconversion"/></Link>
+                <Link to="/settings"><CreditCardsOptions iconFilename="whitesettings"/></Link>
             </div>
         </div>
     )

@@ -17,10 +17,12 @@ export const messagingSlice = createSlice({
     name : 'messaging',
     initialState,
     reducers : {
+        /* c8 ignore start */
         // action : reducer fn
         reset : () => {
             return initialState
         },
+        /* c8 ignore stop */
         setSortingRule : (state, action) => {
             const datatype = action.payload?.datatype || null
             const datakey = action.payload?.datakey || null
@@ -141,13 +143,6 @@ interface messagingState{
     displayedEmails_IDList : Array<number>
 }
 
-/*function emailsToSelectableEmails(emailsList : Array<IEmail>){
-    return emailsList.map(email => {
-        const newEmail : ISelectableEmail = {...email, selected : false}
-        return newEmail
-    })
-}*/
-
 function invertDirection(direction : string){
     return direction === 'asc' ? 'desc' : 'asc'
 }
@@ -167,3 +162,10 @@ export function generateInitialDisplayedEmailsIDList(sortedEmails : Array<ISelec
 }
 
 export const frCollator = new Intl.Collator('en')
+
+/*function emailsToSelectableEmails(emailsList : Array<IEmail>){
+    return emailsList.map(email => {
+        const newEmail : ISelectableEmail = {...email, selected : false}
+        return newEmail
+    })
+}*/

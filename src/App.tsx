@@ -15,11 +15,6 @@ import TransferValidation from './components/modalContents/TransferValidation'
 import { useState } from 'react'
 import { IRow } from './types/types'
 
-/*const showString = (text : string) => {
- const textContainer = document.querySelector('#text') as HTMLElement;
- textContainer.innerHTML = text;
-}*/
-
 const datas = [
   '.delayed__text',
 ]
@@ -93,3 +88,8 @@ function App() {
 }
 
 export default App
+
+/*const showString = (text : string) => {
+ const textContainer = document.querySelector('#text') as HTMLElement;
+ textContainer.innerHTML = text;
+}*/

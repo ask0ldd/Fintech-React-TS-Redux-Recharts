@@ -22,7 +22,6 @@ describe('Given I am in the App Page', async () => {
 
     beforeEach(() => {
         render(<MockedRouter />)
-        
     })
 
     test('there should be no modal visible by default', async () => {
@@ -49,7 +48,7 @@ describe('Given I am in the App Page', async () => {
         
         await waitFor(() => expect(screen.getByTestId("modal")).toBeInTheDocument())
         
-        act(() => fireEvent.click(document, {key : 'Escape',  code: 'Escape'}))
+        act(() => fireEvent.click(window, {key : 'Escape',  code: 'Escape'}))
         await waitFor(() => expect(screen.queryByTestId("modal")).not.toBeInTheDocument())
     }
 })

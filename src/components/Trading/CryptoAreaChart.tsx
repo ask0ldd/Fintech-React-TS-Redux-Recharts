@@ -1,5 +1,5 @@
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
-import '../styles/CryptoAreaChart.css'
+import '../../styles/CryptoAreaChart.css'
 
 const data : Array<IDatas> = [
     {week: 'w1', price: 12400},

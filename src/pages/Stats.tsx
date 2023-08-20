@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import BalanceBarsChart from "../components/Stats/BalanceBarsChart"
 import IncomeBarChart from "../components/Stats/IncomeBarChart"
 import Header from "../components/Header"
-import StatsHorizontalMenu from "../components/StatsHorizontalMenu"
+import StatsHorizontalMenu from "../components/Stats/StatsHorizontalMenu"
 import VMenu from "../components/VMenu"
 import '../styles/Stats.css'
 import ExpensesBarChart from "../components/Stats/ExpensesBarChart"

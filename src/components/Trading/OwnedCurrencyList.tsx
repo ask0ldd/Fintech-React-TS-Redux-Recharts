@@ -1,4 +1,4 @@
-import '../styles/OwnedCurrencyList.css'
+import '../../styles/OwnedCurrencyList.css'
 
 const wallet : Array<ICurrencyOwnedRow> = [
     {currency : 'BTC', amount: 502.09, price: 30301.05, previousPrice : 28100.50},

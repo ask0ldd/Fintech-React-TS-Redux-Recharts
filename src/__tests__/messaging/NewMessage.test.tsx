@@ -1,7 +1,7 @@
 import { render, screen, renderHook, act, waitFor } from '@testing-library/react'
 import { BrowserRouter } from "react-router-dom"
 import { expect, vi, describe, test, beforeAll, beforeEach } from 'vitest'
-import NewMessage from '../../components/messaging/NewMessage'
+import NewMessage from '../../components/Messaging/NewMessage'
 
 describe('Given I am on the New Message Page', async () => {
     test('Key components are displayed', async () => {
