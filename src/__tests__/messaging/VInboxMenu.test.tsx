@@ -57,9 +57,17 @@ describe('Given Im facing the Inbox Table', async () => {
         senders.forEach(sender => expect(screen.getByText(sender)).toBeInTheDocument())
     })
 
-    test('Clicking on the delete mail button without any selected email should have no effect', async () => {
+    test('Clicking on the delete mail button with an email selected should have lead to one less email being displayed', async () => {
         expect(screen.getByText("Bambie Petera")).toBeInTheDocument()
-        const selectBambieCheckbox = screen.getByText("Bambie Petera").parentElement?.firstElementChild
+        expect(screen.getByText("Showing 1 to 14 of 14 emails")).toBeInTheDocument()
+        const selectBambieCheckboxTD = screen.getByText("Bambie Petera").parentElement?.childNodes[0] as HTMLElement
+        act(() => selectBambieCheckboxTD.click())
+        const inboxMenuButtons = screen.getAllByRole("button")
+        const deleteMailButton = inboxMenuButtons.filter( button => button.id == "deleteSelectedMailsButton")[0]
+        deleteMailButton.onclick = vi.fn((e) => deleteMailButton.onclick)
+        act(() => deleteMailButton.dispatchEvent(new MouseEvent('click', {bubbles: true})))
+        await waitFor(() => expect(screen.getByText("Showing 1 to 13 of 13 emails")).toBeInTheDocument())
+        expect(deleteMailButton.onclick).toHaveBeenCalledOnce()
     })
 
 })
