@@ -51,20 +51,10 @@ describe('Given Im facing the Inbox Table', async () => {
         deleteMailButton.onclick = vi.fn((e) => deleteMailButton.onclick)
         act(() => deleteMailButton.dispatchEvent(new MouseEvent('click', {bubbles: true})))
         await waitFor(() => expect(deleteMailButton.onclick).toHaveBeenCalledOnce())
-        expect(screen.getByText("Bambie Petera")).toBeInTheDocument()
-        expect(screen.getByText("Lyon Grigorkin")).toBeInTheDocument()
-        expect(screen.getByText("Vincents Calvert")).toBeInTheDocument()
-        expect(screen.getByText("Lois Wedlake")).toBeInTheDocument()
-        expect(screen.getByText("Sheryl De Bernardi")).toBeInTheDocument()
-        expect(screen.getByText("Doreen Tripcony")).toBeInTheDocument()
-        expect(screen.getByText("Cicely Croxley")).toBeInTheDocument()
-        expect(screen.getByText("Theodor Vittet")).toBeInTheDocument()
-        expect(screen.getByText("Ella Lucken")).toBeInTheDocument()
-        expect(screen.getByText("Con Hasnney")).toBeInTheDocument()
-        expect(screen.getByText("Padgett Jays")).toBeInTheDocument()
-        expect(screen.getByText("Ulrikaumeko Comi")).toBeInTheDocument()
-        expect(screen.getByText("Pearline Stenning")).toBeInTheDocument()
-        expect(screen.getByText("Archie Duncombe")).toBeInTheDocument()
+        const senders = ["Bambie Petera", "Lyon Grigorkin", "Vincents Calvert", "Lois Wedlake", "Sheryl De Bernardi", 
+        "Doreen Tripcony", "Cicely Croxley", "Theodor Vittet", "Ella Lucken", "Con Hasnney", "Padgett Jays", "Ulrikaumeko Comi",
+        "Pearline Stenning", "Archie Duncombe"]
+        senders.forEach(sender => expect(screen.getByText(sender)).toBeInTheDocument())
     })
 
     test('Clicking on the delete mail button without any selected email should have no effect', async () => {
