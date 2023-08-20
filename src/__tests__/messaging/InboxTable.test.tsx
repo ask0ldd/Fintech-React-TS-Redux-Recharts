@@ -132,6 +132,13 @@ describe('Given I am facing the inbox table', async () => {
         await waitFor(() => expect(screen.queryByAltText("selectedV")).not.toBeInTheDocument())
     })
 
+    test('Clicking on an email delete button should lead to that email deletion', async () => {
+        const dateTH =  screen.getByText("Date")
+        act(() => dateTH.click())
+        await waitFor(() => expect(screen.getByText('Jessy Trewartha')).toBeInTheDocument())
+        
+    })
+
 })
 
 function dateToTime(date : string){
