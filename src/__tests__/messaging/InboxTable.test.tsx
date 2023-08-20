@@ -136,9 +136,11 @@ describe('Given I am facing the inbox table', async () => {
         const dateTH =  screen.getByText("Date")
         act(() => dateTH.click())
         await waitFor(() => expect(screen.getByText('Jessy Trewartha')).toBeInTheDocument())
+        expect(screen.getByText("Showing 1 to 15 of 45 emails")).toBeInTheDocument()
         const deleteButton = screen.getByText('Jessy Trewartha')?.parentElement?.lastElementChild as HTMLElement
         act(() => deleteButton.click())
         await waitFor(() => expect(screen.queryByText('Jessy Trewartha')).not.toBeInTheDocument())
+        expect(screen.getByText("Showing 1 to 15 of 44 emails")).toBeInTheDocument()
     })
 
 })
