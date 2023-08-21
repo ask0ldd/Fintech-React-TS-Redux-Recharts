@@ -37,9 +37,10 @@ describe('Given I am on the Settings page', async () => {
         const quickfreezeHeadings = screen.getAllByText(/Quick Freeze/i)
         quickfreezeHeadings.forEach(
             heading => {
-                const onOffLabel = heading.querySelector('span.onOff__label') as HTMLElement
-                const switchContainer = heading.querySelector('div.switchContainer')
+                const onOffLabel = heading.parentElement?.parentElement?.querySelector('span.onOff__label') as HTMLElement
+                const switchContainer = heading.parentElement?.parentElement?.querySelector('div.switchContainer')
                 expect(onOffLabel.innerHTML == "Off").toBeTruthy()
+                expect(switchContainer?.children[0].classList.contains("deactivatedSwitch"))
             }
         )
     })
