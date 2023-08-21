@@ -45,7 +45,7 @@ function CryptoAreaChart(){
 
 export default CryptoAreaChart
 
-const CustomTooltip = ({payload} : any) => {
+export const CustomTooltip = ({payload} : any) => {
     if(payload[0] && payload.length){
         return(
             <div className="areachart__tooltip">
