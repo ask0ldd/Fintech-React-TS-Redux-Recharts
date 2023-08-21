@@ -53,6 +53,10 @@ export const CustomTooltip = ({payload} : any) => {
                 <p style={{marginTop:'4px'}}>Price : {payload[0].payload.price} USD</p>
             </div>
         )
+    } else {
+        return(
+            <div style={{display:'none'}}></div>
+        )
     }
 }
 

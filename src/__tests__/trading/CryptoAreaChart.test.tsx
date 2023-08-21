@@ -36,4 +36,9 @@ describe('Given : the BalanceBarsChart is rendered with 12 months of datas', asy
         expect(screen.getByText(/BTC Value/i)).toBeInTheDocument()
         
     })
+
+    test('Tooltip component displays the payload values', async()=> {
+        render(<CustomTooltip payload={[{value:"000"}]} />)
+        await waitFor(() => expect(screen.getByText(/Income : 000/i)).toBeInTheDocument())
+    })
 })
