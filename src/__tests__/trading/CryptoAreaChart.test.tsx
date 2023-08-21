@@ -30,15 +30,16 @@ describe('Given : the BalanceBarsChart is rendered with 12 months of datas', asy
         }))
     })
 
-    test('The Title & the Legend should be displayed', async () => {
+    test('The charts title should be displayed', async () => {
         render(<CryptoAreaChart/>)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         expect(screen.getByText(/BTC Value/i)).toBeInTheDocument()
         
     })
 
-    test('Tooltip component displays the payload values', async()=> {
-        render(<CustomTooltip payload={[{value:"000"}]} />)
-        await waitFor(() => expect(screen.getByText(/Income : 000/i)).toBeInTheDocument())
+    test('The charts tooltip displays the payload values', async()=> {
+        render(<CustomTooltip payload={[{payload : {week: ['1', '2', '3', '4'], price : '000'}}]} />)
+        await waitFor(() => expect(screen.getByText(/Price : 000/i)).toBeInTheDocument())
+        expect(screen.getByText(/Week : 2/i)).toBeInTheDocument()
     })
 })
