@@ -33,4 +33,15 @@ describe('Given I am on the Settings page', async () => {
         expect(screen.getAllByText(/Quick Freeze/i)[0]).toBeInTheDocument()
     })
 
+    test('The quick deactivation button works', async() => {
+        const quickfreezeHeadings = screen.getAllByText(/Quick Freeze/i)
+        quickfreezeHeadings.forEach(
+            heading => {
+                const onOffLabel = heading.querySelector('span.onOff__label') as HTMLElement
+                const switchContainer = heading.querySelector('div.switchContainer')
+                expect(onOffLabel.innerHTML == "Off").toBeTruthy()
+            }
+        )
+    })
+
 })

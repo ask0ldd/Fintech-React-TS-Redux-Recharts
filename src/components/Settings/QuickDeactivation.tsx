@@ -14,7 +14,7 @@ function QuickDeactivation(){
             </div>
             <div className='contactlessActivation__container'>
                 <span className='onOff__label' style={isSwitchActive ? {} : {color:'#8397AF', opacity:'0.8'}}>{isSwitchActive ? 'On' : 'Off'}</span>
-                <div className='switchContainer' onClick={() => setSwitchActive(!isSwitchActive)}>
+                <div role="button" className='switchContainer' onClick={() => setSwitchActive(!isSwitchActive)}>
                     <div className={isSwitchActive ? 'switch' : 'deactivatedSwitch'}>
 
                     </div>
