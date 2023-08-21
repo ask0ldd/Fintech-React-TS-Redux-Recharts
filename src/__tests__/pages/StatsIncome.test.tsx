@@ -11,7 +11,7 @@ const MockedRouter = () => {
     )
 }
 
-describe('Given I am on the Stats page 2', async () => {
+describe('Given I am on the Stats page / 3', async () => {
 
     beforeAll(() => {
         vi.mock('recharts', async () => {
@@ -39,7 +39,7 @@ describe('Given I am on the Stats page 2', async () => {
 
     })
 
-    test('Clicking on income should display the related graph', async () => {
+    test('Clicking on the income button should display the related graph', async () => {
 
         // domock = mock but not hoisted      
         vi.mock('react-router-dom', async () => {

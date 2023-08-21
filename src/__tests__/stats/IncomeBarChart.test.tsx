@@ -40,7 +40,7 @@ describe('Given : the IncomeBarChart is rendered with 12 months of datas', async
         expect(legend?.innerHTML.includes("Income")).toBeTruthy()
     })
 
-    test('12 Bars should be displayed', async()=> {
+    test('12 charts Bars should be displayed', async()=> {
         render(<IncomeBarChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         const regionContainer = screen.getByRole('region')
@@ -56,12 +56,12 @@ describe('Given : the IncomeBarChart is rendered with 12 months of datas', async
         expect(regionContainer.querySelector('div.recharts-tooltip-wrapper')).not.toBeVisible()
     })
 
-    test('Tooltip component displays the payload values', async()=> {
+    test('The tooltip component should display the expected payload values', async()=> {
         render(<CustomTooltip payload={[{value:"000"}]} />)
         await waitFor(() => expect(screen.getByText(/Income : 000/i)).toBeInTheDocument())
     })
 
-    test('The Custom Labels are displayed', async()=> {
+    test('The custom labels should be displayed', async()=> {
         render(<IncomeBarChart datas={datas} />)
         await waitFor(() => expect(screen.getByText(/3952/i)).toBeInTheDocument())
     })

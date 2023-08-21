@@ -5,7 +5,7 @@ import { ResponsiveContainer } from 'recharts'
 import userEvent from '@testing-library/user-event'
 import CryptoAreaChart, { CustomTooltip } from '../../components/Trading/CryptoAreaChart'
 
-describe('Given : the BalanceBarsChart is rendered with 12 months of datas', async () => {
+describe('Given the cryptoarea chart is rendered', async () => {
     
     beforeAll(()=>{
         // taking the whole recharts module and mocking only the responsive container to fix its dimensions

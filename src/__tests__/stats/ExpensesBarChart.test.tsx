@@ -7,7 +7,7 @@ import userEvent from '@testing-library/user-event'
 
 import { datas } from '../../pages/Stats'
 
-describe('Given : the ExpensesBarChart is rendered with 12 months of datas', async () => {
+describe('Given the ExpensesBarChart being rendered with 12 months of datas', async () => {
     
     beforeAll(()=>{
         // taking the whole recharts module and mocking only the responsive container to fix its dimensions
@@ -31,7 +31,7 @@ describe('Given : the ExpensesBarChart is rendered with 12 months of datas', asy
         }))
     })
 
-    test('The Title & the Legend should be displayed', async () => {
+    test('The charts title & legend should be displayed', async () => {
         render(<ExpensesBarChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         expect(screen.getByText(/Monthly Expenses/i)).toBeInTheDocument()
@@ -40,7 +40,7 @@ describe('Given : the ExpensesBarChart is rendered with 12 months of datas', asy
         expect(legend?.innerHTML.includes("Expenses")).toBeTruthy()
     })
 
-    test('12 Bars should be displayed', async()=> {
+    test('12 charts Bars should be displayed', async()=> {
         render(<ExpensesBarChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         const regionContainer = screen.getByRole('region')
@@ -48,7 +48,7 @@ describe('Given : the ExpensesBarChart is rendered with 12 months of datas', asy
     })
 
     // !!! hover issue to fix
-    test('The tooltip dialog should exist but should not be displayed', async()=> {
+    test('The tooltip dialog should exist but be invisible', async()=> {
         render(<ExpensesBarChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         const regionContainer = screen.getByRole('region')
@@ -56,12 +56,12 @@ describe('Given : the ExpensesBarChart is rendered with 12 months of datas', asy
         expect(regionContainer.querySelector('div.recharts-tooltip-wrapper')).not.toBeVisible()
     })
 
-    test('Tooltip component displays the payload values', async()=> {
+    test('The tooltip component should display the expected payload values', async()=> {
         render(<CustomTooltip payload={[{value:"000"}]} />)
         await waitFor(() => expect(screen.getByText(/Expenses : 000/i)).toBeInTheDocument())
     })
 
-    test('The Custom Labels are displayed', async()=> {
+    test('The custom labels should be displayed', async()=> {
         render(<ExpensesBarChart datas={datas} />)
         await waitFor(() => expect(screen.getByText(/2927/i)).toBeInTheDocument())
     })

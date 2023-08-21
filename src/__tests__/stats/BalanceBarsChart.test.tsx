@@ -7,7 +7,7 @@ import userEvent from '@testing-library/user-event'
 
 import { datas } from '../../pages/Stats'
 
-describe('Given : the BalanceBarsChart is rendered with 12 months of datas', async () => {
+describe('Given the BalanceBarsChart being rendered with 12 months of datas', async () => {
     
     beforeAll(()=>{
         // taking the whole recharts module and mocking only the responsive container to fix its dimensions
@@ -31,7 +31,7 @@ describe('Given : the BalanceBarsChart is rendered with 12 months of datas', asy
         }))
     })
 
-    test('The Title & the Legend should be displayed', async () => {
+    test('The charts title & legend should be displayed', async () => {
         render(<BalanceBarsChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         expect(screen.getByText(/In & Out/i)).toBeInTheDocument()
@@ -39,7 +39,7 @@ describe('Given : the BalanceBarsChart is rendered with 12 months of datas', asy
         expect(screen.getByText(/Expenses/i)).toBeInTheDocument()
     })
 
-    test('24 Bars should be displayed', async()=> {
+    test('24 charts Bars should be displayed', async()=> {
         render(<BalanceBarsChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         const regionContainer = screen.getByRole('region')
@@ -47,7 +47,7 @@ describe('Given : the BalanceBarsChart is rendered with 12 months of datas', asy
     })
 
     // !!! hover issue to fix
-    test('The tooltip dialog should exist but should not be displayed', async()=> {
+    test('The tooltip should exist but be invisible', async()=> {
         render(<BalanceBarsChart datas={datas} />)
         await waitFor(() => expect(screen.getByText(/850/i)).toBeInTheDocument())
         const regionContainer = screen.getByRole('region')
@@ -72,7 +72,7 @@ describe('Given : the BalanceBarsChart is rendered with 12 months of datas', asy
         // screen.logTestingPlaygroundURL()
     })
 
-    test('Tooltip component displays the payload values', async()=> {
+    test('The tooltip component should display the expected payload values', async()=> {
         render(<CustomTooltip payload={[{value:"000"}, {value:"111"}]} />)
         await waitFor(() => expect(screen.getByText(/000/i)).toBeInTheDocument())
         expect(screen.getByText(/111/i)).toBeInTheDocument()

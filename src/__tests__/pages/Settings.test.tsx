@@ -2,7 +2,6 @@ import { render, screen, renderHook, act, waitFor, cleanup } from '@testing-libr
 import { BrowserRouter } from "react-router-dom"
 import { expect, vi, describe, test, beforeAll, beforeEach } from 'vitest'
 import Settings from '../../pages/Settings'
-// import matchers from '@testing-library/jest-dom/matchers'
 
 const MockedRouter = () => { 
     return(
@@ -26,14 +25,14 @@ describe('Given I am on the Settings page', async () => {
         
     })
 
-    test('The right components are displayed', async () => {  
+    test('The right components should be displayed', async () => {  
         await waitFor( () => expect(screen.getByText(/About You/i)).toBeInTheDocument())
         expect(screen.getByText(/Your Bank/i)).toBeInTheDocument()
         expect(screen.getByText(/Contactless Payment/i)).toBeInTheDocument()
         expect(screen.getAllByText(/Quick Freeze/i)[0]).toBeInTheDocument()
     })
 
-    test('The quick freeze button works', async() => {
+    test('The quick freeze switch should be working', async() => {
         const quickfreezeHeadings = screen.getAllByText(/Quick Freeze/i)
         quickfreezeHeadings.forEach(
             async heading => {
@@ -48,7 +47,7 @@ describe('Given I am on the Settings page', async () => {
         )
     })
 
-    test('The contactless payment button works', async() => {
+    test('The contactless payment button should be working', async() => {
         const contactlessHeadings = screen.getAllByText(/Contactless Payment/i)
         contactlessHeadings.forEach(
             async heading => {
