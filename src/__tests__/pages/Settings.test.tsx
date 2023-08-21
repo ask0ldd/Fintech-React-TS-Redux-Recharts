@@ -33,7 +33,7 @@ describe('Given I am on the Settings page', async () => {
         expect(screen.getAllByText(/Quick Freeze/i)[0]).toBeInTheDocument()
     })
 
-    test('The quick deactivation button works', async() => {
+    test('The quick freeze button works', async() => {
         const quickfreezeHeadings = screen.getAllByText(/Quick Freeze/i)
         quickfreezeHeadings.forEach(
             async heading => {
@@ -44,6 +44,21 @@ describe('Given I am on the Settings page', async () => {
                 act(() => switchContainer.click())
                 await waitFor(() => expect(onOffLabel.innerHTML).toBe("On"))
                 expect(switchContainer?.children[0].classList.contains("switch"))
+            }
+        )
+    })
+
+    test('The contactless payment button works', async() => {
+        const contactlessHeadings = screen.getAllByText(/Contactless Payment/i)
+        contactlessHeadings.forEach(
+            async heading => {
+                const onOffLabel = heading.parentElement?.parentElement?.querySelector('span.onOff__label') as HTMLElement
+                const switchContainer = heading.parentElement?.parentElement?.querySelector('div.switchContainer') as HTMLElement
+                expect(onOffLabel.innerHTML).toBe("On")
+                expect(switchContainer?.children[0].classList.contains("switch"))
+                act(() => switchContainer.click())
+                await waitFor(() => expect(onOffLabel.innerHTML).toBe("Off"))
+                expect(switchContainer?.children[0].classList.contains("deactivatedSwitch"))
             }
         )
     })
