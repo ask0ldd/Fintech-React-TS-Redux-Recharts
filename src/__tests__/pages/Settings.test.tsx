@@ -36,11 +36,14 @@ describe('Given I am on the Settings page', async () => {
     test('The quick deactivation button works', async() => {
         const quickfreezeHeadings = screen.getAllByText(/Quick Freeze/i)
         quickfreezeHeadings.forEach(
-            heading => {
+            async heading => {
                 const onOffLabel = heading.parentElement?.parentElement?.querySelector('span.onOff__label') as HTMLElement
-                const switchContainer = heading.parentElement?.parentElement?.querySelector('div.switchContainer')
-                expect(onOffLabel.innerHTML == "Off").toBeTruthy()
+                const switchContainer = heading.parentElement?.parentElement?.querySelector('div.switchContainer') as HTMLElement
+                expect(onOffLabel.innerHTML).toBe("Off")
                 expect(switchContainer?.children[0].classList.contains("deactivatedSwitch"))
+                act(() => switchContainer.click())
+                await waitFor(() => expect(onOffLabel.innerHTML).toBe("On"))
+                expect(switchContainer?.children[0].classList.contains("switch"))
             }
         )
     })
