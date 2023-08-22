@@ -51,4 +51,22 @@ describe('Given I am in the App Page', async () => {
         act(() => fireEvent.click(window, {key : 'Escape',  code: 'Escape'}))
         await waitFor(() => expect(screen.queryByTestId("modal")).not.toBeInTheDocument())
     }
+
+    // test the close modale button
+    test('Clicking the backdrop of the open modal shoud close it'), async() => {
+        await waitFor(() => expect(screen.getByText(/Quick Wire Transfer/i)).toBeInTheDocument())
+        expect(screen.queryByTestId("modal")).not.toBeInTheDocument() // !!! querybytestid or it will throw an error
+
+        const addContactButton = screen.getAllByRole("button").filter(button => button.classList.contains("xButton"))[0]
+        act(() => addContactButton.click())
+
+        await waitFor(() => expect(screen.getByTestId("modal")).toBeInTheDocument())
+
+        /*const confirmButton = screen.getByText(/Confirm Your Selection/i)
+        act(() => confirmButton.click())*/
+        const modal = screen.getByTestId("modal")
+        // act(() => modal.click())
+        act(() => modal.dispatchEvent(new MouseEvent('click')))
+        await waitFor(() => expect(screen.queryByTestId("modal")).not.toBeInTheDocument())
+    }
 })

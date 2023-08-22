@@ -31,7 +31,7 @@ describe('Given : the IncomeBarChart is rendered with 12 months of datas', async
         }))
     })
 
-    test('The Title & the Legend should be displayed', async () => {
+    test('The Chart title & legend should be displayed', async () => {
         render(<IncomeBarChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         expect(screen.getByText(/Monthly Income/i)).toBeInTheDocument()
@@ -48,7 +48,7 @@ describe('Given : the IncomeBarChart is rendered with 12 months of datas', async
     })
 
     // !!! hover issue to fix
-    test('The tooltip dialog should exist but should not be displayed', async()=> {
+    test('The tooltip dialog should exist but stay invisible', async()=> {
         render(<IncomeBarChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         const regionContainer = screen.getByRole('region')

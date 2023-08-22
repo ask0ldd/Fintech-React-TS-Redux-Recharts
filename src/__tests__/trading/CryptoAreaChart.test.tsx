@@ -34,7 +34,6 @@ describe('Given the cryptoarea chart is rendered', async () => {
         render(<CryptoAreaChart/>)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         expect(screen.getByText(/BTC Value/i)).toBeInTheDocument()
-        
     })
 
     test('The charts tooltip displays the payload values', async()=> {

@@ -115,18 +115,18 @@ describe('Given I am facing the inbox table', async () => {
         expect(screen.getAllByAltText("selectedV").length).toBe(15)
     })
     
-    test('Clicking again the select all button should deselect all mails', async () => {
+    test('Clicking again the "select all" button should deselect all emails', async () => {
         act(() => screen.getByText("Select All Mails").parentElement?.click())
         expect(screen.queryByAltText("selectedV")).not.toBeInTheDocument()
     })
 
-    test('Clicking some email select button should select the related email', async () => {
+    test('Clicking one "select email" button should select the target email', async () => {
         const firstSelectBtn = screen.getByTestId('inboxbody').firstElementChild?.firstElementChild
         if(firstSelectBtn instanceof HTMLElement) act(() => firstSelectBtn.click())
         expect(screen.queryAllByAltText("selectedV").length).toBe(1)
     })
 
-    test('Clicking the same button again should deselect the related email', async () => {
+    test('Clicking the same button again should deselect the target email', async () => {
         const firstSelectBtn = screen.getByTestId('inboxbody').firstElementChild?.firstElementChild
         if(firstSelectBtn instanceof HTMLElement) act(() => firstSelectBtn.click())
         await waitFor(() => expect(screen.queryByAltText("selectedV")).not.toBeInTheDocument())

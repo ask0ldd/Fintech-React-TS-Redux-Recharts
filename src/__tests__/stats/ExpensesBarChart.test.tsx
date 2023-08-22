@@ -48,7 +48,7 @@ describe('Given the ExpensesBarChart being rendered with 12 months of datas', as
     })
 
     // !!! hover issue to fix
-    test('The tooltip dialog should exist but be invisible', async()=> {
+    test('The tooltip dialog should exist but stay invisible', async()=> {
         render(<ExpensesBarChart datas={datas} />)
         await waitFor(() => expect(screen.getByRole('region')).toBeInTheDocument())
         const regionContainer = screen.getByRole('region')

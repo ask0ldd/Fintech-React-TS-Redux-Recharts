@@ -47,7 +47,7 @@ describe('Given the BalanceBarsChart being rendered with 12 months of datas', as
     })
 
     // !!! hover issue to fix
-    test('The tooltip should exist but be invisible', async()=> {
+    test('The tooltip should exist but stay invisible', async()=> {
         render(<BalanceBarsChart datas={datas} />)
         await waitFor(() => expect(screen.getByText(/850/i)).toBeInTheDocument())
         const regionContainer = screen.getByRole('region')
