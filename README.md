@@ -1,8 +1,5 @@
 <b>WORK IN PROGRESS...</b>
 
-Vitest Coverage
-<img src="https://i.ibb.co/rycLsXn/cover.jpg">
-
 <div>  
     <img src="https://img.shields.io/static/v1?label=&message=React&color=0088CC&logo=React&logoColor=white&style=flat-square">
     <img src="https://img.shields.io/static/v1?label=&message=Vite%20JS&color=646CFF&logo=Vite&logoColor=white&style=flat-square">
@@ -12,6 +9,9 @@ Vitest Coverage
     <img src="https://img.shields.io/static/v1?label=&message=Vitest&color=646CFF&logo=Vitest&logoColor=white&style=flat-square">
 </div><br>
 Some Fintech SASS frontend I'm currently designing & developping. Desktop Only. 1080p resolution min.<br><br>
+
+Vitest Coverage :
+<img src="https://i.ibb.co/rycLsXn/cover.jpg">
 
 Demo at :
 https://ask0ldd.github.io/Fintech-React-TS-Redux-Recharts/
