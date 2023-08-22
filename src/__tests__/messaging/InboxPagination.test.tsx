@@ -52,7 +52,7 @@ describe('Given I am facing the inbox table', async () => {
         expect(screen.getByText("Showing 16 to 30 of 45 emails")).toBeInTheDocument()
     })
 
-    test('After clicking [Prev], the Pagination bar should display the following buttons by default : [1] [2] [Next] and [1] should be selected', async()=>{
+    test('Then clicking [Prev], the Pagination bar should display the following buttons by default : [1] [2] [Next] and [1] should be selected', async()=>{
         let prevButton = screen.getByText("Prev")
         act(() => prevButton.click())
         await waitFor(() => expect(screen.getByText("Jessy Trewartha")).toBeInTheDocument())
@@ -83,6 +83,20 @@ describe('Given I am facing the inbox table', async () => {
         expect(allPaginationButtons?.item(4)?.innerHTML).toBe("Next")
         expect(allPaginationButtons?.item(2)?.classList.contains("pagination__buttonActive")).toBeTruthy()
         expect(screen.getByText("Showing 16 to 30 of 45 emails")).toBeInTheDocument()
+    })
+
+    test('Then clicking the activepage-1 button, the Pagination bar should display the following buttons by default : [1] [2] [Next] and [1] should be selected', async()=>{
+        let prevButton = screen.getByText("Prev")
+        const activePageMinusOneButton = prevButton.nextElementSibling as HTMLElement
+        act(() => activePageMinusOneButton.click())
+        await waitFor(() => expect(screen.getByText("Jessy Trewartha")).toBeInTheDocument())
+        const nextButton = screen.getByText("Next")
+        const allPaginationButtons = nextButton.parentElement?.children
+        expect(allPaginationButtons?.item(0)?.innerHTML).toBe("1")
+        expect(allPaginationButtons?.item(1)?.innerHTML).toBe("2")
+        expect(allPaginationButtons?.item(2)?.innerHTML).toBe("Next")
+        expect(allPaginationButtons?.item(0)?.classList.contains("pagination__buttonActive")).toBeTruthy()
+        expect(screen.getByText("Showing 1 to 15 of 45 emails")).toBeInTheDocument()
     })
 })
 
