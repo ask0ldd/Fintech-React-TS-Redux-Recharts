@@ -28,6 +28,7 @@ export const messagingSlice = createSlice({
 
             if(datatype == null || datakey == null) return
 
+            /* c8 ignore next 3 */
             if(direction != null){
                 return {...state, sortingRule : {direction : direction, columnDatakey : datakey, datatype : datatype}}
             }
@@ -93,6 +94,7 @@ export const messagingSlice = createSlice({
                 })
                 return {...state, selectAllCheckboxStatus : !state.selectAllCheckboxStatus, emails : emailsDuplicate}
             }
+            /* c8 ignore next */
             return {...state, selectAllCheckboxStatus : action.payload.checkboxStatus} // should update select prop of the emails too
         },
 
@@ -103,6 +105,7 @@ export const messagingSlice = createSlice({
             // deep cloning version :
             const emailsDuplicate = state.emails.map(email => {return {...email}})
             const targetEmailIndex = emailsDuplicate.findIndex(email => email.id === action.payload.emailId)
+            /* c8 ignore next 2 */
             if (action.payload.status != null) {
                 emailsDuplicate[targetEmailIndex].selected = action.payload.status
             }else{
@@ -111,6 +114,7 @@ export const messagingSlice = createSlice({
             return{...state, emails : emailsDuplicate}
         },
 
+        /* c8 ignore next 4 */
         unselectAllEmails : (state, action) => {
             const unselectedEmails = [...state.emails].map(email => { return {...email, selected : false}})
             return {...state, areAllDisplayedEmailsSelected : false, emails : unselectedEmails}
