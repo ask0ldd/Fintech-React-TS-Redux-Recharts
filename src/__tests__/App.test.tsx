@@ -144,17 +144,47 @@ describe('Given I am on the Landing page', async () => {
         expect(screen.queryByTestId("modal")).not.toBeInTheDocument() // !!! querybytestid or it will throw an error since we are testing it's missing
         const addContactButton = screen.getAllByRole("button").filter(button => button.classList.contains("vButton"))[0]
         act(() => addContactButton.click())
+
         await waitFor(() => expect(screen.getByTestId("modal")).toBeInTheDocument())
         // screen.logTestingPlaygroundURL()
         act(() => screen.getByText(/Confirm This Transfer/i).click())
-        // await waitFor(() => expect(screen.getByText(/Transfer Confirmation/i)).toBeNull)
         await waitFor(() => expect(screen.queryByTestId("modal")).not.toBeInTheDocument())
     })
 
     test('onload has been called', async() => {
         window.dispatchEvent(new Event('load'))
         await waitFor(() => expect(window.setTimeout).toHaveBeenCalled())
-        // !!! onload not covered
+    })
+
+    test("I shouldn't be able to add more than 5 contacts to the Quicklist", async() => {
+        await waitFor(() => expect(screen.getByText(/Quick Wire Transfer/i)).toBeInTheDocument())
+        expect(screen.queryByTestId("modal")).not.toBeInTheDocument()
+        const addContactButton = screen.getAllByRole("button").filter(button => button.classList.contains("xButton"))[0]
+        act(() => addContactButton.click())
+        await waitFor(() => expect(screen.getByTestId("modal")).toBeInTheDocument())
+
+        const modal = screen.queryByTestId("modal")
+        const allButtons = screen.queryAllByRole("button")
+        let buttonClicked = false
+        allButtons.forEach(button => {
+            if(button.classList.contains("violetButton") && button.parentElement?.classList.contains("recipientRow") && buttonClicked === false) {
+                button.click()
+                buttonClicked = true
+            }
+        })
+        await waitFor(() => expect(modal?.querySelectorAll("button.greenButton").length).toBe(5))
+        expect(modal?.querySelectorAll("button.violetButton").length).toBe(3)
+        expect(screen.getByText(/5 contacts selected/i)).toBeInTheDocument()
+        buttonClicked = false
+        allButtons.forEach(button => {
+            if(button.classList.contains("violetButton") && button.parentElement?.classList.contains("recipientRow") && buttonClicked === false) {
+                button.click()
+                buttonClicked = true
+            }
+        })
+        await waitFor(() => expect(modal?.querySelectorAll("button.greenButton").length).toBe(5))
+        expect(modal?.querySelectorAll("button.violetButton").length).toBe(3)
+        expect(screen.getByText(/5 contacts selected/i)).toBeInTheDocument()
     })
 
 })
