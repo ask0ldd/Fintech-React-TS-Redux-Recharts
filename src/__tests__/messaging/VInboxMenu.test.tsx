@@ -29,13 +29,12 @@ describe('Given Im facing the Inbox Table', async () => {
         expect(inboxMenuButtons.length).toBe(4)
     })
 
-    test('Clicking on the file attachment button should filter out all the mails with no attachment', async () => {
+    test('Clicking on the "file attachment" button should filter out all mails with no attachment', async () => {
         expect(screen.getByText("Jessy Trewartha")).toBeInTheDocument()
         expect(screen.getAllByTestId("attachment icon").length).toBe(6)
         const inboxMenuButtons = screen.getAllByRole("button")
         const attachmentFilteringButton = inboxMenuButtons.filter( button => button.id == "attachmentFilterButton")[0]
         expect(attachmentFilteringButton).not.toBeNull()
-        console.log('attachement :' , attachmentFilteringButton)
         // [!] click function not defined on a svg proto > use dispatchEvent instead
         act(() => attachmentFilteringButton.dispatchEvent(new MouseEvent('click', {bubbles: true})))
         await waitFor(() => expect(screen.queryByText("Jessy Trewartha")).not.toBeInTheDocument())
@@ -70,4 +69,5 @@ describe('Given Im facing the Inbox Table', async () => {
         expect(deleteMailButton.onclick).toHaveBeenCalledOnce()
     })
 
+    // mark as read text
 })
