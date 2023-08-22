@@ -35,6 +35,6 @@ describe('Given I am on the Messaging Page', async () => {
 
         await waitFor(() => expect(screen.getByText(/Compose your Email/i)).toBeInTheDocument())
         expect(screen.getByText(/Contacts/i)).toBeInTheDocument()
-        
+        expect(screen.getByText('Send a New Message').classList.contains("messagingMenu__itemsActive")).toBeTruthy()
     })
 })
