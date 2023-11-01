@@ -1,5 +1,3 @@
-import { useNavigate } from 'react-router-dom'
-import { ISelectableEmail } from '../../datas/emailsDatas'
 import { useTypedDispatch } from '../../hooks/redux'
 import '../../styles/messaging/VInboxMenu.css'
 import { deleteSelectedEmails, setFilter } from '../../redux/messagingSlice'

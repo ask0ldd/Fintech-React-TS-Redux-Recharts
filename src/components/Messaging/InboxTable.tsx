@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react'
 import '../../styles/messaging/InboxTable.css'
 import ok from '/icons/ok.png'
-import {ISelectableEmail} from '../../datas/emailsDatas'
 import { useTypedDispatch, useTypedSelector } from '../../hooks/redux'
-import { deleteEmail, setActivePage, setDisplayedEmails_IDList, setSortedEmails, setSortingRule, setTargetEmailSelectStatus, switchSelectAllCheckboxStatus } from '../../redux/messagingSlice'
+import { deleteEmail, setActivePage, setSortingRule, setTargetEmailSelectStatus, switchSelectAllCheckboxStatus } from '../../redux/messagingSlice'
 
 function InboxTable(){
 
@@ -13,12 +11,6 @@ function InboxTable(){
     const sortedEmails  = useTypedSelector((state) => state.messaging.sortedEmails)
     const selectAllCheckboxStatus  = useTypedSelector((state) => state.messaging.selectAllCheckboxStatus)
     const filter  = useTypedSelector((state) => state.messaging.filter)
-
-    // shorten longer email titles
-    function cropEmailTitle(str : string){
-        if (str.length <= 78) return str
-        return str.slice(0,78)+'...'
-    }
 
     // menu : delete / spam / mark as read / refresh
 
@@ -89,10 +81,8 @@ function formatDate(date : string){
     return date.replaceAll('/', '-')
 }
 
-/*interface IProps{
-    emailsState : Array<ISelectableEmail>
-    setEmailsState : (emails : Array<ISelectableEmail>) => void
-    areAllEmailsSelected : boolean
-    setAllEmailsToSelected : (selected : boolean) => void
-    filterEmails : "toread" | "file" | null
-}*/
+// shorten longer email titles
+function cropEmailTitle(str : string){
+    if (str.length <= 78) return str
+    return str.slice(0,78)+'...'
+}

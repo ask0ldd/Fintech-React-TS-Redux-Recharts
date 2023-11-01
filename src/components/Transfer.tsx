@@ -1,5 +1,4 @@
 import '../styles/Transfer.css'
-import { Formatter } from '../services/formatter'
 import { IRow } from '../types/types'
 import { useState } from 'react'
 

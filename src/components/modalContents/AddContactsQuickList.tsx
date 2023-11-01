@@ -1,5 +1,4 @@
 import '../../styles/AddContactsQuickList.css'
-import { useEffect, useState } from 'react'
 import { IRow } from '../../types/types'
 
 function AddContactsQuickList({setModalVisibility, rows, setRows} : IProps){
