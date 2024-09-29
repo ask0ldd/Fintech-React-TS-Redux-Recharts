@@ -23,7 +23,11 @@ function useModalManager({initialVisibility, initialModalContentId/*reducerFn, r
     useEffect(() => {
   
         function keyboardListener(e : KeyboardEvent){
-            if(e.code == "Escape" && modalVisibility) {e.preventDefault(); setModalVisibility(false)}
+            if(e.code == "Escape" && modalVisibility) {
+                e.preventDefault(); 
+                e.stopPropagation(); 
+                setModalVisibility(false)
+            }
         }
 
         window.addEventListener('keydown', keyboardListener)
@@ -33,7 +37,7 @@ function useModalManager({initialVisibility, initialModalContentId/*reducerFn, r
             window.removeEventListener('keydown', keyboardListener)
         }
 
-    }, [])
+    }, [modalVisibility, setModalVisibility])
 
     useEffect(() => {
 

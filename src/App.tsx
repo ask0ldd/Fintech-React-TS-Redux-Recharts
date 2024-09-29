@@ -70,16 +70,16 @@ function App() {
       { 
         
         'addContactsQuicklist' :  
-        <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
+        modalVisibility && <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
           <AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>
         </Modal>,
         'transferValidation' :
-        <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
+        modalVisibility && <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
           <TransferValidation setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>
         </Modal>,
       } [modalContentId] 
       // equivalent to default
-      ||  <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
+      ||  modalVisibility && <Modal modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}>
             <AddContactsQuickList setModalVisibility={setModalVisibility} rows={rows} setRows={setRows}/>
           </Modal>
       }

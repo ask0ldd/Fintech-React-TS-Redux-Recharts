@@ -13,11 +13,9 @@ function Modal({children, modalVisibility, setModalVisibility, /*modalContent,*/
     
     // needs to pass setModalVisibility to modalContent
     return (
-        modalVisibility 
-        ? <dialog data-testid="modal" ref={dialogRef} onClick={(e) => { if (e.target === dialogRef.current) setModalVisibility(false) }}>
+        <dialog data-testid="modal" ref={dialogRef} onClick={(e) => { if (e.target === dialogRef.current) setModalVisibility(false) }} onCancel={(e) => e.preventDefault()}>
             {children}
         </dialog> 
-        : <></>
     )
 }
 
