@@ -1,3 +1,5 @@
+
+
 <b>WORK IN PROGRESS...</b> https://ask0ldd.github.io/Fintech-React-TS-Redux-Recharts/
 
 <div>  
@@ -17,3 +19,9 @@ Demo at :
 https://ask0ldd.github.io/Fintech-React-TS-Redux-Recharts/
 <br><br>
 <img src="https://cdn.dribbble.com/users/12159136/screenshots/19030886/media/f8cae64c9327df5000a218e25053807b.jpg">
+
+## Getting Started
+1. Clone the repository.
+2. Install dependencies: `npm install`
+3. Start the development server: `npm run dev`
+4. Run the test suite: `npm run test`
